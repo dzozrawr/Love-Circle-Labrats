@@ -5,8 +5,6 @@ using Cinemachine;
 
 public class GameController : MonoBehaviour
 {
-    public CinemachineVirtualCamera introCam = null;
-    public CinemachineVirtualCamera playerPickingCam = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +14,19 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartContestantsPhase();
+        }
     }
 
     public void StartPlayerPicking()
     {
-        playerPickingCam.Priority = introCam.Priority + 1;
+        CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
+    }
+
+    public void StartContestantsPhase()
+    {
+        CameraController.Instance.contestantsCam.Priority = CameraController.Instance.playerPickingCam.Priority + 1;
     }
 }
