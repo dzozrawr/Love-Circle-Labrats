@@ -1,10 +1,8 @@
 //
 //  RTVoiceIOSBridge.mm
-//  Version 2021.2.5
+//  Version 2020.4.0
 //
-//  Acts as a handler for all TTS functions called by RT-Voice on iOS.
-//
-//  © 2016-2021 crosstales LLC (https://www.crosstales.com)
+//  © 2016-2020 crosstales LLC (https://www.crosstales.com)
 //
 #import "RTVoiceIOSBridge.h"
 #import <AVFoundation/AVFoundation.h>
@@ -14,21 +12,13 @@
 
 @implementation RTVoiceIOSBridge
 
-static RTVoiceIOSBridge *_bridge;
 static AVSpeechSynthesizer *_synthesizer;
 static NSArray *_voices;
-
-+ (RTVoiceIOSBridge *)bridge {
-  if (_bridge == nil) {
-      _bridge = [[RTVoiceIOSBridge alloc] init];
-  }
-  return _bridge;
-}
 
 + (AVSpeechSynthesizer *)synthesizer {
   if (_synthesizer == nil) {
       _synthesizer = [[AVSpeechSynthesizer alloc] init];
-      _synthesizer.delegate = RTVoiceIOSBridge.bridge;
+      _synthesizer.delegate = self;
   }
   return _synthesizer;
 }
@@ -59,10 +49,6 @@ static NSArray *_voices;
         //[RTVoiceIOSBridge stop];
 
         if (RTVoiceIOSBridge.voices) {
-			[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil]; 
-			[[AVAudioSession sharedInstance] setActive:YES error:nil];
-			//[[AVAudioSession sharedInstance] setActive:YES withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
-	
             AVSpeechSynthesisVoice *voice = RTVoiceIOSBridge.voices[0]; // one voice must be available
             
             for (AVSpeechSynthesisVoice *v in RTVoiceIOSBridge.voices) {
@@ -115,7 +101,6 @@ static NSArray *_voices;
 #endif
 
     [RTVoiceIOSBridge.synthesizer stopSpeakingAtBoundary:AVSpeechBoundaryImmediate];
-	//[[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
 }
 
 /** 
@@ -152,22 +137,19 @@ static NSArray *_voices;
 /**
  * Called when the speak is finished and informs RT-Voice.
  */
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance
++ (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance
 {
 #ifdef DEBUG
     NSLog(@"didFinishSpeechUtterance");
 #endif
-			
-	//[[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
-	
+
     UnitySendMessage("RTVoice", "SetState", "Finish");
-	
 }
 
 /** 
  * Called when the synthesizer have began to speak a word and informs RT-Voice.
  */
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance
++ (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance
 {
 #ifdef DEBUG
     NSLog(@"willSpeakRangeOfSpeechString");
@@ -179,21 +161,19 @@ static NSArray *_voices;
 /**
  * Called when the speak is canceled and informs RTVoice.
  */
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance
++ (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance
 {
 #ifdef DEBUG
     NSLog(@"didCancelSpeechUtterance");
 #endif
-	
-	//[[AVAudioSession sharedInstance] setActive:NO withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:nil];
-	
+
     UnitySendMessage("RTVoice", "SetState", "Cancel");
 }
 
 /**
  * Called when the speak is started and informs RT-Voice.
  */
-- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
++ (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
 {
 #ifdef DEBUG
     NSLog(@"didStartSpeechUtterance");

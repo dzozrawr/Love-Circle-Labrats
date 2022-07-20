@@ -1,4 +1,4 @@
-﻿#if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX || CT_DEVELOP
+﻿#if UNITY_STANDALONE_OSX || UNITY_EDITOR_OSX //|| CT_DEVELOP
 using UnityEngine;
 using System.Collections;
 using System.Linq;
@@ -90,7 +90,6 @@ namespace Crosstales.RTVoice.Provider
 
       public override IEnumerator SpeakNative(Model.Wrapper wrapper)
       {
-#if UNITY_STANDALONE || UNITY_EDITOR
          if (wrapper == null)
          {
             Debug.LogWarning("'wrapper' is null!");
@@ -170,14 +169,10 @@ namespace Crosstales.RTVoice.Provider
                }
             }
          }
-#else
-         yield return null;
-#endif
       }
 
       public override IEnumerator Speak(Model.Wrapper wrapper)
       {
-#if UNITY_STANDALONE || UNITY_EDITOR
          if (wrapper == null)
          {
             Debug.LogWarning("'wrapper' is null!");
@@ -264,14 +259,10 @@ namespace Crosstales.RTVoice.Provider
                }
             }
          }
-#else
-         yield return null;
-#endif
       }
 
       public override IEnumerator Generate(Model.Wrapper wrapper)
       {
-#if UNITY_STANDALONE || UNITY_EDITOR
          if (wrapper == null)
          {
             Debug.LogWarning("'wrapper' is null!");
@@ -351,9 +342,6 @@ namespace Crosstales.RTVoice.Provider
                }
             }
          }
-#else
-         yield return null;
-#endif
       }
 
       public override void Silence()
@@ -393,7 +381,6 @@ namespace Crosstales.RTVoice.Provider
 
       private IEnumerator getVoices()
       {
-#if UNITY_STANDALONE || UNITY_EDITOR
 #if ENABLE_IL2CPP
          using (Common.Util.CTProcess process = new Common.Util.CTProcess())
 #else
@@ -458,9 +445,6 @@ namespace Crosstales.RTVoice.Provider
          isLoading = false;
 
          onVoicesReady();
-#else
-         yield return null;
-#endif
       }
 
       private static int calculateRate(float rate)
@@ -711,4 +695,4 @@ namespace Crosstales.RTVoice.Provider
    }
 }
 #endif
-// © 2015-2021 crosstales LLC (https://www.crosstales.com)
+// © 2015-2020 crosstales LLC (https://www.crosstales.com)
