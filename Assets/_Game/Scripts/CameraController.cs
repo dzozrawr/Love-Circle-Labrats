@@ -8,10 +8,25 @@ public class CameraController : MonoBehaviour
     private static CameraController instance = null;
     public static CameraController Instance { get => instance; }
 
+    public enum Phase{ 
+        Intro, ContestantElimination
+    }
+   
+    public Dictionary<Phase, CinemachineVirtualCamera> cameras=new Dictionary<Phase, CinemachineVirtualCamera>();
+
+    [System.Serializable]
+    public class Container
+    {
+        public Phase phase;
+        public CinemachineVirtualCamera cam;
+    }
+
     public CinemachineVirtualCamera introCam = null;
     public CinemachineVirtualCamera playerPickingCam = null;
     public CinemachineVirtualCamera contestantsCam = null;
+    public CinemachineVirtualCamera contestantsEliminationCam = null;
 
+    public List<Container> camerasList;
     private int highestCameraPriority=0;
 
     private void Awake()
@@ -23,6 +38,10 @@ public class CameraController : MonoBehaviour
         }
         instance = this;
 
+        foreach (var item in camerasList)
+        {
+            cameras.Add(item.phase, item.cam.GetComponent<CinemachineVirtualCamera>());
+        }
         //here should be a loop going through the cameras determining what is the highest priority number
     }
     // Start is called before the first frame update
@@ -35,11 +54,4 @@ public class CameraController : MonoBehaviour
     {
         cam.Priority += 10;
     }
-
-
-/*    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
 }
