@@ -22,11 +22,13 @@ public class GameController : MonoBehaviour
 
     public void StartPlayerPicking()
     {
-        CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
+        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.PlayerPicking);
+      //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
     }
 
     public void StartContestantsPhase()
     {
-        CameraController.Instance.contestantsCam.Priority = CameraController.Instance.playerPickingCam.Priority + 1;
+        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsStart);
+        //CameraController.Instance.contestantsCam.Priority = CameraController.Instance.playerPickingCam.Priority + 1;
     }
 }

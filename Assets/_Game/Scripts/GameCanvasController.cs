@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class GameCanvasController : MonoBehaviour
 
 
     public GameObject thumbsUpDownButtonGroup = null;
-
+    public Button eliminateButton = null;
 
     private void Awake()
     {
@@ -38,6 +39,16 @@ public class GameCanvasController : MonoBehaviour
         {
             thumbsUpDownButtonGroup.SetActive(false);
         }
+    }
+
+    public void ToggleEliminateButtonVisibility(bool show)
+    {
+        eliminateButton.gameObject.SetActive(show);
+    }
+
+    public void EliminateButtonEffect()
+    {
+        ContestantQuestioningManager.Instance.EliminateSelectedContestants();
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)

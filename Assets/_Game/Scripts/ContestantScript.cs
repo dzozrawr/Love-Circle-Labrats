@@ -11,6 +11,15 @@ public class ContestantScript : MonoBehaviour
     public Sprite thumbsDownSprite = null;
 
     public Image thumbsUpOrDownImage = null;
+
+    public GameObject hitboxForSelection = null;
+    public GameObject selectedIndicator = null;
+
+
+    private bool isSelected = false;
+
+    public bool IsSelected { get => isSelected; set => isSelected = value; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +37,19 @@ public class ContestantScript : MonoBehaviour
             thumbsUpOrDownImage.sprite = thumbsDownSprite;
         }
         thumbsUpOrDownImage.gameObject.SetActive(true);
+    }
 
+    public void ToggleSelectionPhase(bool onOff)
+    {
+        hitboxForSelection.SetActive(onOff);
+
+    }
+
+    public bool Select()
+    {
+        isSelected = !isSelected;
+        selectedIndicator.SetActive(isSelected);
+
+        return isSelected;
     }
 }
