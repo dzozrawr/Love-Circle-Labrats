@@ -439,6 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1300971638426561930}
   - component: {fileID: 8370866448343335536}
+  - component: {fileID: 5432766255424525414}
   m_Layer: 0
   m_Name: Contestant
   m_TagString: Untagged
@@ -484,6 +485,39 @@ MonoBehaviour:
   thumbsUpOrDownImage: {fileID: 224939844667813954}
   hitboxForSelection: {fileID: 8165174560721018455}
   selectedIndicator: {fileID: 5526029550824873095}
+  dialogueSystemTrigger: {fileID: 1427857905736927823}
+--- !u!114 &5432766255424525414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300971638426561931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64578247383140469c45370654a984a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actor: Contestant 1
+  persistentDataName: 
+  portrait: {fileID: 0}
+  spritePortrait: {fileID: 0}
+  barkUISettings:
+    barkUI: {fileID: 0}
+    barkUIOffset: {x: 0, y: 2, z: 0}
+  standardDialogueUISettings:
+    subtitlePanelNumber: 0
+    customSubtitlePanel: {fileID: 0}
+    customSubtitlePanelOffset: {x: 0, y: 0, z: 0}
+    menuPanelNumber: 0
+    customMenuPanel: {fileID: 0}
+    customMenuPanelOffset: {x: 0, y: 0, z: 0}
+    useMenuPanelFor: 0
+    portraitAnimatorController: {fileID: 0}
+    setSubtitleColor: 0
+    applyColorToPrependedName: 0
+    prependActorNameSeparator: ': '
+    subtitleColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1382300491060340457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,8 +1429,8 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: SupermanDogLady
-  conversationConversant: {fileID: 0}
+  conversation: Amelia - Baking
+  conversationConversant: {fileID: 1300971638426561930}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
   exclusive: 0
@@ -1418,7 +1452,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: d1b66418b9ccf8b4eb238d53e7dc8b3a, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: c32fd45a36a7e494f996cf798d2428f9, type: 2}
 --- !u!65 &7025272127896826759
 BoxCollider:
   m_ObjectHideFlags: 0
