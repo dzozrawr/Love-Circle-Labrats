@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+using PixelCrushers;
+using PixelCrushers.DialogueSystem;
 
 public class ContestantScript : MonoBehaviour
 {
@@ -15,15 +17,26 @@ public class ContestantScript : MonoBehaviour
     public GameObject hitboxForSelection = null;
     public GameObject selectedIndicator = null;
 
+    public DialogueSystemTrigger dialogueSystemTrigger=null;
+
 
     private bool isSelected = false;
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
 
+    private GameController gameController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameController.Instance;
+        gameController.OnConversationChanged += OnConversationChanged;
+    }
+
+    private void OnConversationChanged(string conversationName)
+    {
+        dialogueSystemTrigger.conversation = conversationName;
+       // Debug.LogError(gameObject.name + " conversation changed to " + conversationName);
     }
 
     public void SetThumbsUpOrDown(bool isThumbsUp)
