@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
 
+    //public 
+
     private void Awake()
     {
         if(instance != null)

@@ -12,6 +12,7 @@ public class GameCanvasController : MonoBehaviour
 
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
+    public GameObject choosePlayerButtonGroup = null;
 
     private void Awake()
     {
@@ -58,8 +59,27 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
 
+    public void ShowPlayerPickingButtons(bool shouldShow)
+    {
+
+        choosePlayerButtonGroup.SetActive(shouldShow);
+
+    }
+
     private void MoveToNextContestant()
     {
         ContestantQuestioningManager.Instance.MoveToNextContestant();
+    }
+
+    public void ChoosePlayerButtonEffect(bool isLeftButton)
+    {
+        if (isLeftButton)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }
