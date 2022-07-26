@@ -9,6 +9,7 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
+    private GameController gameController = null;
 
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
@@ -27,7 +28,7 @@ public class GameCanvasController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameController = GameController.Instance;
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -71,15 +72,9 @@ public class GameCanvasController : MonoBehaviour
         ContestantQuestioningManager.Instance.MoveToNextContestant();
     }
 
-    public void ChoosePlayerButtonEffect(bool isLeftButton)
+    public void ChoosePlayerButtonEffect(PlayerPickingButton button)
     {
-        if (isLeftButton)
-        {
-
-        }
-        else
-        {
-
-        }
+        button.player.ChoosePlayer();
+        ShowPlayerPickingButtons(false);
     }
 }

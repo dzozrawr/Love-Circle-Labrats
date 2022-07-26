@@ -22,10 +22,10 @@ public class CameraController : MonoBehaviour
         public CinemachineVirtualCamera cam;
     }
 
-/*    public CinemachineVirtualCamera introCam = null;
-    public CinemachineVirtualCamera playerPickingCam = null;
-    public CinemachineVirtualCamera contestantsCam = null;
-    public CinemachineVirtualCamera contestantsEliminationCam = null;*/
+    /*    public CinemachineVirtualCamera introCam = null;
+        public CinemachineVirtualCamera playerPickingCam = null;
+        public CinemachineVirtualCamera contestantsCam = null;
+        public CinemachineVirtualCamera contestantsEliminationCam = null;*/
 
     [NonReorderable]
     public List<Container> camerasList;
@@ -68,3 +68,4 @@ public class CameraController : MonoBehaviour
         highestCameraPriority = cam.Priority = highestCameraPriority + 1;
         highestCameraPriority = cam.Priority = highestCameraPriority + 1;
     }
+}

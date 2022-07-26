@@ -12,4 +12,10 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+    public void ChoosePlayer()
+    {
+        Destroy(curtain); //open the curtain
+        GameController.Instance.SetConversation(conversationID); //set the conversation
+        //start the walking sequence and whatnot
+    }
 }

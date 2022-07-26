@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
 
-    //public 
+    //public PlayerScript leftPlayer = null, rightPlayer=null;
 
     private void Awake()
     {
@@ -21,11 +21,6 @@ public class GameController : MonoBehaviour
             return;
         }
         instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
