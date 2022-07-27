@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
 
+    //public PlayerScript leftPlayer = null, rightPlayer=null;
+
     private void Awake()
     {
         if(instance != null)
@@ -19,11 +21,6 @@ public class GameController : MonoBehaviour
             return;
         }
         instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -44,6 +41,11 @@ public class GameController : MonoBehaviour
         {
             SetConversation("Olivia - Dogs");
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+        }
+            
 #endif
 
 

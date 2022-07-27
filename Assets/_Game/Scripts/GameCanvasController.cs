@@ -9,9 +9,11 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
+    private GameController gameController = null;
 
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
+    public GameObject choosePlayerButtonGroup = null;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class GameCanvasController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameController = GameController.Instance;
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -49,6 +51,7 @@ public class GameCanvasController : MonoBehaviour
     public void EliminateButtonEffect()
     {
         ContestantQuestioningManager.Instance.EliminateSelectedContestants();
+        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)
@@ -58,8 +61,21 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
 
+    public void ShowPlayerPickingButtons(bool shouldShow)
+    {
+
+        choosePlayerButtonGroup.SetActive(shouldShow);
+
+    }
+
     private void MoveToNextContestant()
     {
         ContestantQuestioningManager.Instance.MoveToNextContestant();
+    }
+
+    public void ChoosePlayerButtonEffect(PlayerPickingButton button)
+    {
+        button.player.ChoosePlayer();
+        ShowPlayerPickingButtons(false);
     }
 }
