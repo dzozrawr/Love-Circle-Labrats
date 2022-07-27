@@ -11,20 +11,20 @@ public class DogCommandToDo : MonoBehaviour
 
     public Sprite successSprite = null;
 
-    private Sprite imageSprite = null;
+    private Image image = null;
     private void Awake()
     {
-        imageSprite = GetComponent<Image>().sprite;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        image = GetComponent<Image>();
     }
 
     public void SetAsDone()
     {
-        imageSprite = successSprite;
+        image.sprite = successSprite;
         //play particles or fireworks or whatever
     }
 

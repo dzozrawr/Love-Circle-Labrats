@@ -51,6 +51,7 @@ public class GameCanvasController : MonoBehaviour
     public void EliminateButtonEffect()
     {
         ContestantQuestioningManager.Instance.EliminateSelectedContestants();
+        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)

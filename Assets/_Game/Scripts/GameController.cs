@@ -41,6 +41,11 @@ public class GameController : MonoBehaviour
         {
             SetConversation("Olivia - Dogs");
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+        }
+            
 #endif
 
 
