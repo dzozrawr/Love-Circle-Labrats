@@ -51,7 +51,10 @@ namespace DogMiniGame
             }
             else
             {
-              //  Debug.Log("Wrong command!");    //replace with indicator in the game that it is wrong
+               // GameObject myEventSystem = GameObject.Find("EventSystem");
+              //  myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+                //  Debug.Log("Wrong command!");    //replace with indicator in the game that it is wrong
             }
         }
     }
