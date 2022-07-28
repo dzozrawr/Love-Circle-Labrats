@@ -12,6 +12,7 @@ public class ContestantsEOPTrigger : MonoBehaviour
         //Debug.Log("This is the end, hold your breath and count to 10.");
       //  pathFollower.speed = 0;
         CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsStart);
+        other.GetComponent<PlayerScript>().animator.SetTrigger("Idle");
         // other.GetComponent<PlayerScript>().virutalFollowCamera;
     }
 }
