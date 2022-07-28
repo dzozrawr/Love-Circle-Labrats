@@ -17,6 +17,6 @@ public class CameraFollowTrigger : MonoBehaviour
       //  player.pathCreator = path;//put player on another path
        
 
-        Debug.Log("OnTriggerEnter");
+       // Debug.Log("OnTriggerEnter");
     }
 }

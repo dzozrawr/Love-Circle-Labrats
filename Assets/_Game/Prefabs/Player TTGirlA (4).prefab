@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1584664952457505714}
-  path: {fileID: 0}
 --- !u!65 &1428337448144512256
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -213,6 +212,7 @@ MonoBehaviour:
   conversationID: 
   curtain: {fileID: 0}
   virutalFollowCamera: {fileID: 562495259715104386}
+  walkingSpeed: 2.5
 --- !u!54 &8107357728625771260
 Rigidbody:
   m_ObjectHideFlags: 0
