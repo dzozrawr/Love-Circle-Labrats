@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PathCreation.Examples;
-using PathCreation.Utility;
-using PathCreationEditor;
 using PathCreation;
 
 public class CameraFollowTrigger : MonoBehaviour
