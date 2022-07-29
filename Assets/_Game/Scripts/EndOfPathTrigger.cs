@@ -17,6 +17,6 @@ public class EndOfPathTrigger : MonoBehaviour
         other.GetComponent<PathFollower>().speed = 0;
         //pathFollower.speed = 0;
         CameraController.Instance.transitionToCMVirtualCamera(other.GetComponent<PlayerScript>().virutalFollowCamera);
-       // other.GetComponent<PlayerScript>().virutalFollowCamera;
+        other.GetComponent<PlayerScript>().animator.SetTrigger("Idle");  // other.GetComponent<PlayerScript>().virutalFollowCamera;
     }
 }

@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
 
     [Range(0.0f, 10.0f)]  public float walkingSpeed = 2.5f;
 
+    public Animator animator = null;
+
     private PathFollower pathFollower = null;
     private void Awake()
     {
@@ -24,6 +26,6 @@ public class PlayerScript : MonoBehaviour
         Destroy(curtain); //open the curtain
         GameController.Instance.SetConversation(conversationID); //set the conversation
         pathFollower.speed = walkingSpeed;//start the walking sequence and whatnot
-        //trigger walking animation
+        animator.SetTrigger("Walk");//trigger walking animation
     }
 }
