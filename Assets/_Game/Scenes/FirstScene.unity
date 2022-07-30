@@ -373,10 +373,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].name
-      value: en-IN-Standard-A
-      objectReference: {fileID: 0}
     - target: {fileID: 9171879082508461021, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2018,10 +2014,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].name
-      value: en-IN-Standard-B
-      objectReference: {fileID: 0}
     - target: {fileID: 9171879082508461021, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2769,8 +2761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voicePreferences:
-  - language: en
-    name: 
+  - language: 
+    name: IVONA 2 Joey OEM
     gender: 1
     minAge: 0
     maxAge: 0
@@ -3267,10 +3259,6 @@ PrefabInstance:
     - target: {fileID: 8359489886183553383, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].name
-      value: en-GB-Standard-B
       objectReference: {fileID: 0}
     - target: {fileID: 9171879082508461021, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
@@ -3811,11 +3799,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voicePreferences:
-  - language: 
-    name: en-GB-Neural2-A
-    gender: 0
-    minAge: 0
-    maxAge: 0
+  - language: English
+    name: IVONA 2 Joey OEM
+    gender: 1
+    minAge: 1
+    maxAge: 100
   rate: 1
   pitch: 1
   volume: 1
@@ -3995,14 +3983,6 @@ PrefabInstance:
     - target: {fileID: 8359489886183553383, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].name
-      value: en-AU-Standard-D
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].language
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9171879082508461021, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
@@ -4379,15 +4359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11493764, guid: 966d2b798e0a0e044876ba6826f06a5b, type: 3}
       propertyPath: customMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493764, guid: 966d2b798e0a0e044876ba6826f06a5b, type: 3}
-      propertyPath: eSpeakMode
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493764, guid: 966d2b798e0a0e044876ba6826f06a5b, type: 3}
-      propertyPath: customProvider
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 966d2b798e0a0e044876ba6826f06a5b, type: 3}
@@ -4926,14 +4898,6 @@ PrefabInstance:
     - target: {fileID: 6803732742363940815, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_InnerSpotAngle
       value: 31.927443
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].name
-      value: en-AU-Standard-B
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046625363365411386, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: voicePreferences.Array.data[0].language
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
