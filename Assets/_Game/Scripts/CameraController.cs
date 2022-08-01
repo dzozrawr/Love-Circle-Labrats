@@ -61,6 +61,7 @@ public class CameraController : MonoBehaviour
     public void transitionToCMVirtualCamera(CameraPhase phase)
     {
         highestCameraPriority = camerasDictionary[phase].Priority = highestCameraPriority + 1;
+        Time.timeScale = 1;
     }
 
     public void transitionToCMVirtualCamera(CinemachineVirtualCamera cam)

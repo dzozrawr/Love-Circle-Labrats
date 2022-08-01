@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 8370866448343335536}
   - component: {fileID: 5432766255424525414}
   - component: {fileID: 3367922938993147876}
-  - component: {fileID: 9046625363365411386}
   m_Layer: 0
   m_Name: Contestant
   m_TagString: Untagged
@@ -293,29 +292,6 @@ MonoBehaviour:
     onDialogueSystemUnpause:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &9046625363365411386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300971638426561931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c7659ae4db6d094998499508b7f9425, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voicePreferences:
-  - language: 
-    name: 
-    gender: 1
-    minAge: 0
-    maxAge: 0
-  rate: 1
-  pitch: 1
-  volume: 1
-  waitForVoiceInConversations: 1
-  voiceState: 0
 --- !u!1 &2933456094637751685
 GameObject:
   m_ObjectHideFlags: 0

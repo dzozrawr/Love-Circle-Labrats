@@ -238,11 +238,13 @@ namespace PixelCrushers.DialogueSystem
             var age = Tools.StringToInt(voice.Age);
             var matchesName = string.IsNullOrEmpty(voicePreference.name) ||
                 (!string.IsNullOrEmpty(voice.Name) && voice.Name.Contains(voicePreference.name));
+            if(matchesName) return matchesName; //MY ADDITION
             var matchesGender = (voicePreference.gender == Gender.Any) || (gender == voicePreference.gender);
+            if (matchesGender) return matchesGender;    //MY ADDITION
             var matchesAge = (voicePreference.minAge <= age && age <= voicePreference.maxAge);
-            //return matchesName && matchesGender && matchesAge;
+            //return matchesName && matchesGender && matchesAge; //THE ORIGINAL CODE
             //return matchesName && matchesGender;
-            return matchesName;
+            return matchesAge;
         }
 
     }
