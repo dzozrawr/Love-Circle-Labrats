@@ -11,7 +11,6 @@ public class EndOfPathTrigger : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("This is the end, hold your breath and count to 10.");
         other.GetComponent<PathFollower>().speed = 0;
         //pathFollower.speed = 0;
         CameraController.Instance.transitionToCMVirtualCamera(other.GetComponent<PlayerScript>().virutalFollowCamera);

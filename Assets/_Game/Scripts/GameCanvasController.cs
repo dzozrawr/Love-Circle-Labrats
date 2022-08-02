@@ -14,6 +14,7 @@ public class GameCanvasController : MonoBehaviour
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
+    public GameObject mainMenuGroup = null;
 
     private void Awake()
     {
@@ -77,5 +78,11 @@ public class GameCanvasController : MonoBehaviour
     {
         button.player.ChoosePlayer();
         ShowPlayerPickingButtons(false);
+    }
+
+    public void PlayButtonEffect()
+    {
+        mainMenuGroup.SetActive(false);
+        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 }

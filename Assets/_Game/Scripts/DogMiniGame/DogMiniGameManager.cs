@@ -11,6 +11,8 @@ namespace DogMiniGame
     }
     public class DogMiniGameManager : MonoBehaviour
     {
+        private static float delayAfterMiniGameDone = 1f;
+
          public GameObject commandsToDoGroup = null;
         //public DogCommandToDo[] commandsToDo=null;
 
@@ -46,7 +48,7 @@ namespace DogMiniGame
                 if (dogCommandQueue.Count == 0)
                 {
                     Debug.Log("Mini game done!");
-                    Destroy(gameObject);
+                    Invoke(nameof(HideMiniGame),delayAfterMiniGameDone);
                 }//check if its the last one for the congratulations message
             }
             else
@@ -56,6 +58,10 @@ namespace DogMiniGame
                 UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
                 //  Debug.Log("Wrong command!");    //replace with indicator in the game that it is wrong
             }
+        }
+        private void HideMiniGame()
+        {
+            Destroy(gameObject);
         }
     }
 
