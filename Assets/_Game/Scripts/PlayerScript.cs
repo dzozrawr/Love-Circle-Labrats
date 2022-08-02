@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [Range(0.0f, 10.0f)]  public float walkingSpeed = 2.5f;
 
     public Animator animator = null;
+    public MiniGame miniGame = null;
 
     private PathFollower pathFollower = null;
     private void Awake()
@@ -27,5 +28,8 @@ public class PlayerScript : MonoBehaviour
         GameController.Instance.SetConversation(conversationID); //set the conversation
         pathFollower.speed = walkingSpeed;//start the walking sequence and whatnot
         animator.SetTrigger("Walk");//trigger walking animation
+
+        miniGame.InitializeMiniGame();
+        GameController.Instance.ChosenPlayer = this;
     }
 }

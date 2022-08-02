@@ -7,9 +7,13 @@ public class GameController : MonoBehaviour
 {
     private static GameController instance=null;
     public static GameController Instance { get => instance; }
+    
 
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
+
+    private PlayerScript chosenPlayer = null;
+    public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
 
     //public PlayerScript leftPlayer = null, rightPlayer=null;
 
