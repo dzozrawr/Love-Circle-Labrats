@@ -60,7 +60,6 @@ public class GameController : MonoBehaviour
     public void StartPlayerPicking()
     {
         CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.PlayerPicking);
-        Debug.Log("asdasd");
       //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
     }
 
