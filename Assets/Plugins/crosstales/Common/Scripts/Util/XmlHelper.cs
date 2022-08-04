@@ -3,14 +3,15 @@
 namespace Crosstales.Common.Util
 {
    /// <summary>Helper-class for XML.</summary>
-   public abstract class XmlHelper
+   public static class XmlHelper
    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+
       /// <summary>Serialize an object to an XML-file.</summary>
       /// <param name="obj">Object to serialize.</param>
       /// <param name="filename">File name of the XML.</param>
       public static void SerializeToFile<T>(T obj, string filename)
       {
-#if !UNITY_WEBGL || UNITY_EDITOR
          if (null == obj)
             throw new System.ArgumentNullException(nameof(obj));
 
@@ -25,9 +26,6 @@ namespace Crosstales.Common.Util
          {
             Debug.LogError($"Could not serialize the object to a file: {ex}");
          }
-#else
-         Debug.LogWarning("'SerializeToFile' is not supported under WebGL!");
-#endif
       }
 
       /// <summary>Deserialize a XML-file to an object.</summary>
@@ -36,7 +34,6 @@ namespace Crosstales.Common.Util
       /// <returns>Object</returns>
       public static T DeserializeFromFile<T>(string filename, bool skipBOM = false)
       {
-#if !UNITY_WEBGL || UNITY_EDITOR
          if (filename == null)
             throw new System.ArgumentNullException(nameof(filename));
 
@@ -51,16 +48,15 @@ namespace Crosstales.Common.Util
          {
             Debug.LogError($"Could not deserialize the object from a file: {ex}");
          }
-#else
-         Debug.LogWarning("'DeserializeFromFile' is not supported under WebGL!");
-#endif
 
          return default;
       }
 
+#endif
+
       /// <summary>Serialize an object to an XML-string.</summary>
       /// <param name="obj">Object to serialize.</param>
-      /// <returns>Object as XML-string</returns>
+      /// <returns>Object as XML-stringValid path</returns>
       public static string SerializeToString<T>(T obj)
       {
          if (null == obj)
@@ -130,4 +126,4 @@ namespace Crosstales.Common.Util
       }
    }
 }
-// © 2014-2021 crosstales LLC (https://www.crosstales.com)
+// © 2014-2020 crosstales LLC (https://www.crosstales.com)

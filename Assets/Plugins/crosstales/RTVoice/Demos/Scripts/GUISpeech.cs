@@ -48,11 +48,6 @@ namespace Crosstales.RTVoice.Demo
 
       private void Start()
       {
-         Rate = 1f;
-         Pitch = 1f;
-         Volume = 1f;
-         isNative = false;
-
          Speaker.Instance.OnProviderChange += onProviderChange;
          Speaker.Instance.OnVoicesReady += onVoicesReady;
 
@@ -64,7 +59,7 @@ namespace Crosstales.RTVoice.Demo
          if (Speaker.Instance.isSSMLSupported)
          {
             if (Input != null)
-               Input.text = "Hi there, my name is RT-Voice, your runtime speaker!" + System.Environment.NewLine + "I can speak with the complete SSML specification <prosody rate=\"-50%\">at half speed</prosody> or <prosody pitch=\"-50%\">50% lower pitched.</prosody>. " + System.Environment.NewLine + "<prosody contour=\"(0%,+20%) (40%,+40%) (60%,+60%) (80%,+80%) (100%,+100%)\">I can talk with rising intonation</prosody> <prosody contour=\"(0%,-20%) (40%,-40%) (60%,-60%) (80%,-80%) (100%,-100%)\">or with falling intonation.</prosody>" + System.Environment.NewLine + "This is <emphasis level=\"strong\">awesome</emphasis>!";
+               Input.text = "Hi there, my name is RT-Voice, your runtime speaker!" + System.Environment.NewLine + "I can now speak with the complete SSML specification <prosody rate=\"-50%\">at half speed</prosody> or <prosody pitch=\"-50%\">50% lower pitched.</prosody>. " + System.Environment.NewLine + "<prosody contour=\"(0%,+20%) (40%,+40%) (60%,+60%) (80%,+80%) (100%,+100%)\">I can talk with rising intonation</prosody> <prosody contour=\"(0%,-20%) (40%,-40%) (60%,-60%) (80%,-80%) (100%,-100%)\">or with falling intonation.</prosody>" + System.Environment.NewLine + "This is <emphasis level=\"strong\">awesome</emphasis>!";
 
             //Debug.Log(Input.text.Length);
          }
@@ -153,7 +148,6 @@ namespace Crosstales.RTVoice.Demo
 
       private void onVoicesReady()
       {
-         //Debug.Log("+++ Voices ready... +++");
          lastCulture = forceUpdate; //force update
       }
 
@@ -257,4 +251,4 @@ namespace Crosstales.RTVoice.Demo
       #endregion
    }
 }
-// © 2015-2021 crosstales LLC (https://www.crosstales.com)
+// © 2015-2020 crosstales LLC (https://www.crosstales.com)

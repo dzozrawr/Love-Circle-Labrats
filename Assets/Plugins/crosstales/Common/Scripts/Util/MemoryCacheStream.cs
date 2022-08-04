@@ -137,6 +137,8 @@ namespace Crosstales.Common.Util
 
       public override int Read(byte[] buffer, int offset, int count)
       {
+         if (null == buffer)
+            throw new System.ArgumentNullException(nameof(buffer), "Buffer cannot be null.");
          if (offset < 0)
             throw new System.ArgumentOutOfRangeException(nameof(offset), "Non-negative number required.");
          if (count < 0)
@@ -152,6 +154,8 @@ namespace Crosstales.Common.Util
 
       public override void Write(byte[] buffer, int offset, int count)
       {
+         if (null == buffer)
+            throw new System.ArgumentNullException(nameof(buffer), "Buffer cannot be null.");
          if (offset < 0)
             throw new System.ArgumentOutOfRangeException(nameof(offset), "Non-negative number required.");
          if (count < 0)
@@ -241,4 +245,4 @@ namespace Crosstales.Common.Util
       #endregion
    }
 }
-// © 2016-2021 crosstales LLC (https://www.crosstales.com)
+// © 2016-2020 crosstales LLC (https://www.crosstales.com)

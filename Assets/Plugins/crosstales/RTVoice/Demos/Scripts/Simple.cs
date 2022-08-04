@@ -101,13 +101,13 @@ namespace Crosstales.RTVoice.Demo
       public void SpeakerA()
       {
          //Don't speak the text immediately
-         uidSpeakerA = Speaker.Instance.Speak(textA, SourceA, Speaker.Instance.VoiceForGender(Model.Enum.Gender.MALE, "en", 0, "en"), false, RateSpeakerA);
+         uidSpeakerA = Speaker.Instance.Speak(textA, SourceA, Speaker.Instance.VoiceForGender(Model.Enum.Gender.MALE, "en"), false, RateSpeakerA);
       }
 
       public void SpeakerB()
       {
          //Don't speak the text immediately
-         uidSpeakerB = Speaker.Instance.Speak(textB, SourceB, Speaker.Instance.VoiceForGender(Model.Enum.Gender.FEMALE, "en", 0, "en"), false, RateSpeakerB);
+         uidSpeakerB = Speaker.Instance.Speak(textB, SourceB, Speaker.Instance.VoiceForGender(Model.Enum.Gender.FEMALE, "en"), false, RateSpeakerB);
       }
 
       public void Silence()
@@ -173,6 +173,10 @@ namespace Crosstales.RTVoice.Demo
             if (RTVoice.Util.Config.DEBUG)
                Debug.Log("Speaker B - Speech start: " + wrapper, this);
          }
+         else
+         {
+            Debug.LogWarning("Unknown speaker: " + wrapper, this);
+         }
       }
 
       private void speakCompleteMethod(Model.Wrapper wrapper)
@@ -205,6 +209,12 @@ namespace Crosstales.RTVoice.Demo
             if (!silent)
                Invoke(nameof(SpeakerA), 0.1f);
          }
+/*         
+         else
+         {
+            Debug.LogWarning("Unknown speaker: " + wrapper, this);
+         }
+*/
       }
 
       private void speakCurrentWordMethod(Model.Wrapper wrapper, string[] speechTextArray, int wordIndex)
@@ -218,6 +228,10 @@ namespace Crosstales.RTVoice.Demo
          {
             if (TextSpeakerB != null)
                TextSpeakerB.text = RTVoice.Util.Helper.MarkSpokenText(speechTextArray, wordIndex);
+         }
+         else
+         {
+            Debug.LogWarning("Unknown speaker: " + wrapper, this);
          }
       }
 
@@ -233,6 +247,13 @@ namespace Crosstales.RTVoice.Demo
             if (PhonemeSpeakerB != null)
                PhonemeSpeakerB.text = phoneme;
          }
+
+/*         
+         else
+         {
+            Debug.LogWarning("Unknown speaker: " + wrapper, this);
+         }
+*/
       }
 
       private void speakCurrentVisemeMethod(Model.Wrapper wrapper, string viseme)
@@ -247,9 +268,16 @@ namespace Crosstales.RTVoice.Demo
             if (VisemeSpeakerB != null)
                VisemeSpeakerB.text = viseme;
          }
+
+/*         
+         else
+         {
+            Debug.LogWarning("Unknown speaker: " + wrapper, this);
+         }
+*/
       }
 
       #endregion
    }
 }
-// © 2015-2021 crosstales LLC (https://www.crosstales.com)
+// © 2015-2020 crosstales LLC (https://www.crosstales.com)

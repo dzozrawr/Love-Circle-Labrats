@@ -13,7 +13,7 @@ namespace Crosstales.RTVoice.Demo
       static ZInstaller()
       {
 #if !CT_UI && !CT_DEVELOP
-         string pathInstaller = Application.dataPath + "/Plugins/crosstales/Common/Extras/";
+         string pathInstaller = Application.dataPath + "/Plugins/crosstales/Common/";
 
          try
          {
@@ -41,4 +41,4 @@ namespace Crosstales.RTVoice.Demo
    }
 }
 #endif
-// © 2020-2021 crosstales LLC (https://www.crosstales.com)
+// © 2020 crosstales LLC (https://www.crosstales.com)

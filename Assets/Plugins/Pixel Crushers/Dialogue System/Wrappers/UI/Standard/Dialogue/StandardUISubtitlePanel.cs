@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Pixel Crushers. All rights reserved.
 
+using System.Collections;
 using UnityEngine;
 
 namespace PixelCrushers.DialogueSystem.Wrappers
@@ -13,6 +14,61 @@ namespace PixelCrushers.DialogueSystem.Wrappers
     [AddComponentMenu("Pixel Crushers/Dialogue System/UI/Standard UI/Dialogue/Standard UI Subtitle Panel")]
     public class StandardUISubtitlePanel : PixelCrushers.DialogueSystem.StandardUISubtitlePanel
     {
+        private bool shouldCheckIfTypeWriterIsStillPlaying = false;
+        private AbstractTypewriterEffect typeWriter;
+        protected override void SetSubtitleTextContent(Subtitle subtitle)
+        {
+            base.SetSubtitleTextContent(subtitle);
+            HideContinueButton();
+            if (HasTypewriter()) //if it has the typewriter, it started typing
+            {
+                shouldCheckIfTypeWriterIsStillPlaying = true;
+               // Debug.LogError("shouldCheckIfTypeWriterIsStillPlaying = true;");
+            }
+        }
+
+        protected override IEnumerator ShowSubtitleAfterClosing(Subtitle subtitle)
+        {
+         //   shouldShowContinueButton = false;
+            float safeguardTime = Time.realtimeSinceStartup + WaitForCloseTimeoutDuration;
+            while (dialogueUI.AreAnyPanelsClosing() && Time.realtimeSinceStartup < safeguardTime)
+            {
+                yield return null;
+            }
+            ShowSubtitleNow(subtitle);
+         //   if (shouldShowContinueButton) ShowContinueButton();
+            m_showAfterClosingCoroutine = null;
+        }
+
+        public override void ShowContinueButton()
+        {
+            if (!typeWriter) return;
+            if (!typeWriter.isPlaying)
+            {
+                base.ShowContinueButton();
+            }
+        }
+
+        private new void Start()
+        {
+            base.Start();
+            typeWriter = GetTypewriter();
+        }
+
+        private new void Update()
+        {
+            base.Update();
+            if (shouldCheckIfTypeWriterIsStillPlaying)
+            {
+                var typewriter = GetTypewriter();
+                if (typewriter != null && !typewriter.isPlaying)
+                {
+                    shouldCheckIfTypeWriterIsStillPlaying = false;
+                    ShowContinueButton();
+                    //Debug.LogError(" ShowContinueButtonNow();");
+                }
+            }
+        }
     }
 
 }

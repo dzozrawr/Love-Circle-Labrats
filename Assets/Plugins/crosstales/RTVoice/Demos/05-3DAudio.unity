@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 2019601219}
+  m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
@@ -332,8 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviousScene: 04-Simple
   PreviousSceneWebGL: 02-Dialog
-  NextScene: Loudspeakers
-  NextSceneWebGL: Loudspeakers
+  NextScene: 06-Loudspeakers
+  NextSceneWebGL: 06-Loudspeakers
 --- !u!4 &274427332
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +364,6 @@ MonoBehaviour:
   Active: 0
   Objects:
   - {fileID: 635804125}
-  Scripts: []
 --- !u!114 &274427336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,90 +547,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 314458301}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314458304}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &314458304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166114, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 314458301}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &314458305 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 186556, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 314458301}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &314458306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314458304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
---- !u!114 &314458307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314458305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &413690321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1220,22 +1141,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2311994, guid: 00c34d26236e9054aa0f227fea5e802e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cda239307ad416540b17626038b73459, type: 2}
-    - target: {fileID: 2370688, guid: 00c34d26236e9054aa0f227fea5e802e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cda239307ad416540b17626038b73459, type: 2}
-    - target: {fileID: 2372810, guid: 00c34d26236e9054aa0f227fea5e802e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cda239307ad416540b17626038b73459, type: 2}
-    - target: {fileID: 2395342, guid: 00c34d26236e9054aa0f227fea5e802e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cda239307ad416540b17626038b73459, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00c34d26236e9054aa0f227fea5e802e, type: 3}
 --- !u!1 &942240162
@@ -1633,45 +1538,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1372058734}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1372058736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 120422, guid: 1ef0494fae6f1f24a8efabcbacbfbec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1372058734}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1372058737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372058736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1394319972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,10 +1763,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2376614, guid: d83afe26a29436240ae5bab7aac1b812, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: cda239307ad416540b17626038b73459, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d83afe26a29436240ae5bab7aac1b812, type: 3}
 --- !u!4 &1556411977 stripped

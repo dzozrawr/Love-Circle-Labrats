@@ -161,6 +161,12 @@ namespace Crosstales.RTVoice.Demo
 
             playingB = true;
          }
+         else
+         {
+            Debug.LogWarning("speakStartMethod - Unknown speaker: " + wrapper, this);
+
+            Running = false;
+         }
       }
 
       private void speakCompleteMethod(Model.Wrapper wrapper)
@@ -179,9 +185,15 @@ namespace Crosstales.RTVoice.Demo
 
             playingB = false;
          }
+         else
+         {
+            Debug.LogWarning("speakCompleteMethod - Unknown speaker: " + wrapper, this);
+
+            Running = false;
+         }
       }
 
       #endregion
    }
 }
-// © 2015-2021 crosstales LLC (https://www.crosstales.com)
+// © 2015-2020 crosstales LLC (https://www.crosstales.com)

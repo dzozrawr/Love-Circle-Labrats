@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 209200780}
   - component: {fileID: 209200782}
   - component: {fileID: 209200781}
-  - component: {fileID: 209200783}
   m_Layer: 5
   m_Name: TextPhonemeSpeakerB
   m_TagString: Untagged
@@ -389,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -416,39 +415,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209200779}
   m_CullTransparentMesh: 0
---- !u!114 &209200783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209200779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!82 &260928153 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8231954, guid: bd3c11809d1ea15448535b43d3d83623,
@@ -546,7 +512,6 @@ MonoBehaviour:
   Active: 0
   Objects:
   - {fileID: 1073900335}
-  Scripts: []
 --- !u!114 &274427335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +528,6 @@ MonoBehaviour:
   Active: 1
   Objects:
   - {fileID: 878382620}
-  Scripts: []
 --- !u!114 &274427336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +561,6 @@ MonoBehaviour:
   Active: 0
   Objects:
   - {fileID: 502265192}
-  Scripts: []
 --- !u!114 &334063734 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11466802, guid: 36bb5e03ec46c704fa3a086926dc9488,
@@ -662,30 +625,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: This scene shows the easiest and recommend way for most purposes with
         generated audio.
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8787846
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.g
-      value: 0.89732915
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9264706
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8787846
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.g
-      value: 0.89732915
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.b
-      value: 0.9264706
       objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_LocalPosition.x
@@ -775,84 +714,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 471092692}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &471092694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166114, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 471092692}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &471092695 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 186556, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 471092692}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &471092696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471092694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
---- !u!114 &471092697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471092695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &500117553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1126,45 +987,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 604756550}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &604756552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 182732, guid: b465547a3e79eb2469a98e7170c69a4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 604756550}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &604756553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604756552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &642713554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1432,7 +1254,6 @@ GameObject:
   - component: {fileID: 711354864}
   - component: {fileID: 711354863}
   - component: {fileID: 711354862}
-  - component: {fileID: 711354865}
   m_Layer: 5
   m_Name: TextSpeakerB
   m_TagString: Untagged
@@ -1453,7 +1274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1499,39 +1320,6 @@ RectTransform:
   m_AnchoredPosition: {x: 469.75012, y: -483}
   m_SizeDelta: {x: 583.5, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &711354865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 711354861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &856787027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1725,7 +1513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1883,7 +1671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1916,7 +1704,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 471092692}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471092694}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -2281,7 +2069,6 @@ GameObject:
   - component: {fileID: 1189202867}
   - component: {fileID: 1189202869}
   - component: {fileID: 1189202868}
-  - component: {fileID: 1189202870}
   m_Layer: 5
   m_Name: TextVisemeSpeakerA
   m_TagString: Untagged
@@ -2321,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2348,39 +2135,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189202866}
   m_CullTransparentMesh: 0
---- !u!114 &1189202870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189202866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &1205904829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2534,7 +2288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2850,7 +2604,6 @@ GameObject:
   - component: {fileID: 1283769750}
   - component: {fileID: 1283769752}
   - component: {fileID: 1283769751}
-  - component: {fileID: 1283769753}
   m_Layer: 5
   m_Name: TextSpeakerA
   m_TagString: Untagged
@@ -2890,7 +2643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2917,39 +2670,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283769749}
   m_CullTransparentMesh: 0
---- !u!114 &1283769753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283769749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1369528010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,7 +2681,6 @@ GameObject:
   - component: {fileID: 1369528011}
   - component: {fileID: 1369528013}
   - component: {fileID: 1369528012}
-  - component: {fileID: 1369528014}
   m_Layer: 5
   m_Name: TextVisemeSpeakerB
   m_TagString: Untagged
@@ -3001,7 +2720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3028,39 +2747,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369528010}
   m_CullTransparentMesh: 0
---- !u!114 &1369528014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369528010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!4 &1594902655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 464754, guid: 9d1a8426b34fd3749bb5c32538644a30,
@@ -3248,45 +2934,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1757059523}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1757059525 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 192748, guid: 2b83ce24d4b588e4fa6bb807791aaeae,
-    type: 3}
-  m_PrefabInstance: {fileID: 1757059523}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1757059526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757059525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1849874287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,7 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3416,7 +3063,6 @@ GameObject:
   - component: {fileID: 1965275711}
   - component: {fileID: 1965275713}
   - component: {fileID: 1965275712}
-  - component: {fileID: 1965275714}
   m_Layer: 5
   m_Name: TextPhonemeSpeakerA
   m_TagString: Untagged
@@ -3456,7 +3102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.89732915, b: 0.9264706, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3483,39 +3129,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965275710}
   m_CullTransparentMesh: 0
---- !u!114 &1965275714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1965275710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &2019601218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,45 +3347,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2063643552}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2063643554 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 120422, guid: 1ef0494fae6f1f24a8efabcbacbfbec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 2063643552}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2063643555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063643554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &2118575124
 PrefabInstance:
   m_ObjectHideFlags: 0

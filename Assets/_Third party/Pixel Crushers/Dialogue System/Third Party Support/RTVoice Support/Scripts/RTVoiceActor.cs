@@ -191,6 +191,7 @@ namespace PixelCrushers.DialogueSystem
         public Voice GetVoice()
         {
             var culture = Localization.Language;
+           
             if (string.IsNullOrEmpty(culture)) culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
             var availableVoices = string.IsNullOrEmpty(culture) ? Speaker.Instance.Voices : Speaker.Instance.VoicesForCulture(culture);
 
@@ -217,6 +218,7 @@ namespace PixelCrushers.DialogueSystem
             {
                 foreach (var availableVoice in Speaker.Instance.Voices)
                 {
+                   // Debug.LogError(availableVoice.Name+" age:"+typeof(availableVoice.Age));
                     if (MatchesVoicePreference(availableVoice, voicePreference))
                     {
                         return availableVoice;
@@ -236,9 +238,13 @@ namespace PixelCrushers.DialogueSystem
             var age = Tools.StringToInt(voice.Age);
             var matchesName = string.IsNullOrEmpty(voicePreference.name) ||
                 (!string.IsNullOrEmpty(voice.Name) && voice.Name.Contains(voicePreference.name));
+            if(matchesName) return matchesName; //MY ADDITION
             var matchesGender = (voicePreference.gender == Gender.Any) || (gender == voicePreference.gender);
+            if (matchesGender) return matchesGender;    //MY ADDITION
             var matchesAge = (voicePreference.minAge <= age && age <= voicePreference.maxAge);
-            return matchesName && matchesGender && matchesAge;
+            //return matchesName && matchesGender && matchesAge; //THE ORIGINAL CODE
+            //return matchesName && matchesGender;
+            return matchesAge;
         }
 
     }

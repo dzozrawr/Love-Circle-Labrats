@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1071,22 +1071,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931708073}
     m_Modifications:
-    - target: {fileID: 190440, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
-      propertyPath: m_Name
-      value: WindowAbout
-      objectReference: {fileID: 0}
     - target: {fileID: 11439456, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1978517988}
+    - target: {fileID: 11439456, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenCTURL
+      objectReference: {fileID: 0}
     - target: {fileID: 11479144, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1978517988}
+    - target: {fileID: 11479144, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenAssetURL
+      objectReference: {fileID: 0}
     - target: {fileID: 11495236, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1978517988}
+    - target: {fileID: 11495236, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenAssetURL
+      objectReference: {fileID: 0}
+    - target: {fileID: 22435654, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438122, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22477756, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000061035156
+      objectReference: {fileID: 0}
+    - target: {fileID: 22483530, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1118,18 +1142,6 @@ PrefabInstance:
     - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_RootOrder
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1170,6 +1182,139 @@ PrefabInstance:
     - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22496856, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224068546963557058, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224537303322745074, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224793452607479934, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224812713888032714, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.75006104
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224919252166302262, guid: 36bb5e03ec46c704fa3a086926dc9488,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36bb5e03ec46c704fa3a086926dc9488, type: 3}
@@ -1311,45 +1456,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417901269}
   m_CullTransparentMesh: 0
---- !u!1 &425194674 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166114, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 1069452942}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &425194677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425194674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &441366318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1608,6 @@ GameObject:
   - component: {fileID: 522294216}
   - component: {fileID: 522294218}
   - component: {fileID: 522294217}
-  - component: {fileID: 522294219}
   m_Layer: 5
   m_Name: Pitch
   m_TagString: Untagged
@@ -1542,7 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1569,39 +1674,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522294215}
   m_CullTransparentMesh: 0
---- !u!114 &522294219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522294215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &560114710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,11 +1971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22441642, guid: 11a9e86ec43db7e468cabde4dc3e5ea3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.0034179688
+      value: -0.0031738281
       objectReference: {fileID: 0}
     - target: {fileID: 22441642, guid: 11a9e86ec43db7e468cabde4dc3e5ea3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.036132812
+      value: -0.036010742
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a9e86ec43db7e468cabde4dc3e5ea3, type: 3}
@@ -1949,8 +2021,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.00013828, y: -113}
-  m_SizeDelta: {x: 1646.1, y: 563.4}
+  m_AnchoredPosition: {x: -0.00008882099, y: -104.00003}
+  m_SizeDelta: {x: 1920, y: 563.4}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &683786625
 MonoBehaviour:
@@ -1967,7 +2039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2218,45 +2290,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &743425225 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 186556, guid: cb4e9ef52c6e6904089680c9d4526862,
-    type: 3}
-  m_PrefabInstance: {fileID: 1069452942}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &743425227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743425225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!114 &789917371 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 11491010, guid: bd3c11809d1ea15448535b43d3d83623,
@@ -2280,7 +2313,6 @@ GameObject:
   - component: {fileID: 822577023}
   - component: {fileID: 822577025}
   - component: {fileID: 822577024}
-  - component: {fileID: 822577026}
   m_Layer: 5
   m_Name: Pitch
   m_TagString: Untagged
@@ -2320,7 +2352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2347,39 +2379,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822577022}
   m_CullTransparentMesh: 0
---- !u!114 &822577026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822577022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &862022138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,11 +2668,11 @@ RectTransform:
   - {fileID: 179459398}
   - {fileID: 1612561060}
   - {fileID: 1370101009}
+  - {fileID: 1209961174}
+  - {fileID: 1970560573}
   - {fileID: 1242418088}
   - {fileID: 1069452943}
   - {fileID: 1620971814}
-  - {fileID: 1209961174}
-  - {fileID: 1970560573}
   - {fileID: 683786624}
   - {fileID: 1721594081}
   - {fileID: 1468155450}
@@ -3449,30 +3448,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: <b>RT-Voice</b> can be used for <b>dialogues</b> between "people".
       objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8787846
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 11457092, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.r
-      value: 0.8787846
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460230, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
-      propertyPath: m_Color.b
-      value: 0.8784314
-      objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3503,7 +3478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3511,7 +3486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00024414062
+      value: 0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 22450410, guid: cb4e9ef52c6e6904089680c9d4526862, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3572,7 +3547,6 @@ GameObject:
   - component: {fileID: 1123107578}
   - component: {fileID: 1123107580}
   - component: {fileID: 1123107579}
-  - component: {fileID: 1123107581}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3596,8 +3570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 213, y: -35}
-  m_SizeDelta: {x: 390, y: 50}
+  m_AnchoredPosition: {x: 355, y: -35}
+  m_SizeDelta: {x: 674, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123107579
 MonoBehaviour:
@@ -3612,7 +3586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3639,39 +3613,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123107577}
   m_CullTransparentMesh: 0
---- !u!114 &1123107581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123107577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1137603964
 GameObject:
   m_ObjectHideFlags: 0
@@ -3683,7 +3624,6 @@ GameObject:
   - component: {fileID: 1137603965}
   - component: {fileID: 1137603967}
   - component: {fileID: 1137603966}
-  - component: {fileID: 1137603968}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -3723,7 +3663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3750,39 +3690,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137603964}
   m_CullTransparentMesh: 0
---- !u!114 &1137603968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137603964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1146839407
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,7 +3850,6 @@ GameObject:
   - component: {fileID: 1187875398}
   - component: {fileID: 1187875400}
   - component: {fileID: 1187875399}
-  - component: {fileID: 1187875401}
   m_Layer: 5
   m_Name: Rate
   m_TagString: Untagged
@@ -3983,7 +3889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4010,39 +3916,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187875397}
   m_CullTransparentMesh: 0
---- !u!114 &1187875401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187875397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1208612050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4184,7 +4057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22485832, guid: 1062b2ca789c5654f97d28a784841704, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22485832, guid: 1062b2ca789c5654f97d28a784841704, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4252,45 +4125,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1209961173}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1218225235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 139092, guid: 9107f2ec470bb80408d25573240e70b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1818740584}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1218225239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218225235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &1242418086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4332,7 +4166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22461430, guid: a3688edfb70952446b46dd12a2f0e924, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22461430, guid: a3688edfb70952446b46dd12a2f0e924, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4677,45 +4511,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1340894101 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 139092, guid: 9107f2ec470bb80408d25573240e70b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 122124280}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1340894105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340894101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1366668099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4991,45 +4786,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1397374964 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 192748, guid: 2b83ce24d4b588e4fa6bb807791aaeae,
-    type: 3}
-  m_PrefabInstance: {fileID: 2145351029}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1397374968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397374964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1402884568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5077,7 +4833,6 @@ GameObject:
   - component: {fileID: 1410356269}
   - component: {fileID: 1410356271}
   - component: {fileID: 1410356270}
-  - component: {fileID: 1410356272}
   m_Layer: 5
   m_Name: Volume
   m_TagString: Untagged
@@ -5117,7 +4872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5144,39 +4899,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410356268}
   m_CullTransparentMesh: 0
---- !u!114 &1410356272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410356268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1412861981
 GameObject:
   m_ObjectHideFlags: 0
@@ -5883,7 +5605,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1069452942}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425194674}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -6007,7 +5729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22477298, guid: 1ef0494fae6f1f24a8efabcbacbfbec5, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 22477298, guid: 1ef0494fae6f1f24a8efabcbacbfbec5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6432,7 +6154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22481220, guid: 81e4bfafba16e954799da8de9d36dc84, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 22481220, guid: 81e4bfafba16e954799da8de9d36dc84, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6674,7 +6396,6 @@ GameObject:
   - component: {fileID: 1785978618}
   - component: {fileID: 1785978620}
   - component: {fileID: 1785978619}
-  - component: {fileID: 1785978621}
   m_Layer: 5
   m_Name: Rate
   m_TagString: Untagged
@@ -6714,7 +6435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6741,39 +6462,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785978617}
   m_CullTransparentMesh: 0
---- !u!114 &1785978621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785978617}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1 &1788112273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 154642, guid: 978579b69af643341b696b8493a1ce3d,
@@ -7093,7 +6781,6 @@ GameObject:
   - component: {fileID: 1966219867}
   - component: {fileID: 1966219869}
   - component: {fileID: 1966219868}
-  - component: {fileID: 1966219870}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7117,8 +6804,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 213.5, y: -35.000046}
-  m_SizeDelta: {x: 391, y: 50}
+  m_AnchoredPosition: {x: 355.00003, y: -35.000046}
+  m_SizeDelta: {x: 674, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1966219868
 MonoBehaviour:
@@ -7133,7 +6820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8787846, g: 0.8784314, b: 0.8784314, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7160,39 +6847,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966219866}
   m_CullTransparentMesh: 0
---- !u!114 &1966219870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966219866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &1970560572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7262,7 +6916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22485832, guid: 1062b2ca789c5654f97d28a784841704, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22485832, guid: 1062b2ca789c5654f97d28a784841704, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7491,7 +7145,6 @@ MonoBehaviour:
   - {fileID: 1137603964}
   - {fileID: 1410356268}
   - {fileID: 1378458220}
-  Scripts: []
 --- !u!114 &1978517990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7525,7 +7178,6 @@ MonoBehaviour:
   Objects:
   - {fileID: 291296698}
   - {fileID: 260549452}
-  Scripts: []
 --- !u!114 &1978517993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7542,7 +7194,6 @@ MonoBehaviour:
   Active: 0
   Objects:
   - {fileID: 294912443}
-  Scripts: []
 --- !u!114 &1978517994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7560,7 +7211,6 @@ MonoBehaviour:
   Objects:
   - {fileID: 1209961175}
   - {fileID: 1970560574}
-  Scripts: []
 --- !u!114 &1978517995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7580,7 +7230,6 @@ MonoBehaviour:
   - {fileID: 1739644854}
   - {fileID: 822577022}
   - {fileID: 1336159490}
-  Scripts: []
 --- !u!1 &1997606243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7840,84 +7489,6 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2083300088 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 120422, guid: 1ef0494fae6f1f24a8efabcbacbfbec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1620971813}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2083300092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083300088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
---- !u!1 &2106246228 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 182732, guid: b465547a3e79eb2469a98e7170c69a4c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1001064723}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2106246232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106246228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 422216b0699a2f54189649f86ac66aca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  voices:
-    VoiceNameWindows: 
-    VoiceNameMac: 
-    VoiceNameLinux: 
-    VoiceNameAndroid: 
-    VoiceNameIOS: 
-    VoiceNameWSA: 
-    VoiceNameCustom: 
-    Culture: en
-    Gender: 2
-  mode: 0
-  delay: 1.5
-  speakOnlyOnce: 0
-  silenceOnExit: 1
-  source: {fileID: 0}
-  rate: 1
-  pitch: 1
-  volume: 1
-  ChangeColor: 1
-  TextColor: {r: 0, g: 1, b: 0, a: 1}
-  ClearTags: 1
 --- !u!1001 &2108472077
 PrefabInstance:
   m_ObjectHideFlags: 0
