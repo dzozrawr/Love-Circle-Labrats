@@ -9,13 +9,16 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
-    private GameController gameController = null;
+
 
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
 
+    private GameController gameController = null;
+    private CameraController cameraController = null;
+    private ContestantQuestioningManager contestantQuestioningManager = null;
     private void Awake()
     {
         if (instance != null)
@@ -30,6 +33,8 @@ public class GameCanvasController : MonoBehaviour
     void Start()
     {
         gameController = GameController.Instance;
+        cameraController = CameraController.Instance;
+        contestantQuestioningManager = ContestantQuestioningManager.Instance;
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -51,13 +56,13 @@ public class GameCanvasController : MonoBehaviour
 
     public void EliminateButtonEffect()
     {
-        ContestantQuestioningManager.Instance.EliminateSelectedContestants();
-        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+        contestantQuestioningManager.EliminateSelectedContestants();        
+        cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)
     {
-        ContestantQuestioningManager.Instance.CurContestant.SetThumbsUpOrDown(isThumbsUp);
+        contestantQuestioningManager.CurContestant.SetThumbsUpOrDown(isThumbsUp);
         ShowThumbsUpDown(false);
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
@@ -71,7 +76,7 @@ public class GameCanvasController : MonoBehaviour
 
     private void MoveToNextContestant()
     {
-        ContestantQuestioningManager.Instance.MoveToNextContestant();
+        contestantQuestioningManager.MoveToNextContestant();
     }
 
     public void ChoosePlayerButtonEffect(PlayerPickingButton button)
@@ -83,6 +88,6 @@ public class GameCanvasController : MonoBehaviour
     public void PlayButtonEffect()
     {
         mainMenuGroup.SetActive(false);
-        CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
+        cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 }
