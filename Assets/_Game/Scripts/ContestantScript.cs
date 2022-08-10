@@ -55,9 +55,9 @@ public class ContestantScript : MonoBehaviour
     public void ToggleSelectionPhase(bool onOff)
     {
         hitboxForSelection.SetActive(onOff);
-
+        
     }
-
+    
     public bool Select()
     {
         isSelected = !isSelected;
