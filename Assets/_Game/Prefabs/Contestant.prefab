@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 8370866448343335536}
   - component: {fileID: 5432766255424525414}
   - component: {fileID: 3367922938993147876}
+  - component: {fileID: 1417866381543090433}
   m_Layer: 0
   m_Name: Contestant
   m_TagString: Untagged
@@ -156,7 +157,7 @@ MonoBehaviour:
   thumbsDownSprite: {fileID: 21300000, guid: 3d638995412b61341b792c0bb456c4e6, type: 3}
   thumbsUpOrDownImage: {fileID: 224939844667813954}
   hitboxForSelection: {fileID: 8165174560721018455}
-  selectedIndicator: {fileID: 5526029550824873095}
+  selectedIndicator: {fileID: 1417866381543090433}
   dialogueSystemTrigger: {fileID: 1427857905736927823}
 --- !u!114 &5432766255424525414
 MonoBehaviour:
@@ -292,6 +293,24 @@ MonoBehaviour:
     onDialogueSystemUnpause:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &1417866381543090433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300971638426561931}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2933456094637751685
 GameObject:
   m_ObjectHideFlags: 0
