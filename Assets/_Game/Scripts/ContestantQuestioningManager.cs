@@ -28,6 +28,9 @@ public class ContestantQuestioningManager : MonoBehaviour
     #endregion
     private ContestantScript selectedContestant = null;
     private int numberOfSelectedContestants = 0;
+    private CameraController cameraController=null;
+
+    private int eliminatedContestantsN=0;
 
     private void Awake()
     {
@@ -43,16 +46,11 @@ public class ContestantQuestioningManager : MonoBehaviour
     void Start()
     {
         mainCamera = CameraController.Instance.GetComponent<Camera>();
+        cameraController = CameraController.Instance;
     }
 
     private void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);
-        }
-#endif
 
         if (isSelectionPhaseActive)
         {
@@ -100,13 +98,24 @@ public class ContestantQuestioningManager : MonoBehaviour
     {
         foreach (ContestantScript c in contestants)
         {
-            if(c.IsSelected) Destroy(c.gameObject);
+            if(c.IsSelected) c.Eliminate();
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
+
+        
     }
+
+    public void ContestantEliminatedSignal(){
+        eliminatedContestantsN++;
+        if(eliminatedContestantsN>=maxContestantsToEliminate){
+            cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+        }
+    }
+
+
 
     public void StartContestantsDialoguePhase()
     {

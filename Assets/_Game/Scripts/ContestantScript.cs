@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.UI;
 using PixelCrushers;
 using PixelCrushers.DialogueSystem;
+using DG.Tweening;
 
 
 public class ContestantScript : MonoBehaviour
@@ -22,6 +23,10 @@ public class ContestantScript : MonoBehaviour
 
     public GameObject hole=null;
 
+    public Animator animator=null;
+
+    private Vector3 holePreferredScale;
+
     private bool isSelected = false;
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
@@ -30,6 +35,10 @@ public class ContestantScript : MonoBehaviour
 
     private void Awake() {
         selectedIndicator.enabled=false;
+        if(hole!=null){
+            holePreferredScale=hole.transform.localScale;
+            hole.transform.localScale=new Vector3(0,hole.transform.localScale.y,0);
+        }
     }
 
     // Start is called before the first frame update
@@ -73,6 +82,20 @@ public class ContestantScript : MonoBehaviour
     }
 
     public void Eliminate(){
+        selectedIndicator.enabled=false;
+        animator.SetTrigger("Amaze");
+
+        hole.transform.DOScale(holePreferredScale,0.5f).onComplete=()=>{
+            
+            gameObject.transform.DOMoveY(-5f,0.5f).onComplete=()=>{
+                hole.transform.DOScale(new Vector3(0,hole.transform.localScale.y,0),0.5f).onComplete=()=>{
+                    ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
+                };
+            };
+        };
+        // play animation of getting scared
+        // add/activate trail
+        // animation of falling down
         
     }
 }

@@ -5,9 +5,9 @@ using Cinemachine;
 
 public class GameController : MonoBehaviour
 {
-    private static GameController instance=null;
+    private static GameController instance = null;
     public static GameController Instance { get => instance; }
-    
+
 
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
@@ -31,6 +31,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartContestantsPhase();
@@ -49,7 +51,11 @@ public class GameController : MonoBehaviour
         {
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
-            
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);
+        }
+
 #endif
 
 
@@ -64,7 +70,7 @@ public class GameController : MonoBehaviour
     public void StartPlayerPicking()
     {
         CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.PlayerPicking);
-      //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
+        //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
     }
 
     public void StartContestantsPhase()
