@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 
+
 public class ContestantScript : MonoBehaviour
 {
     public CinemachineVirtualCamera cam = null;
@@ -15,16 +16,21 @@ public class ContestantScript : MonoBehaviour
     public Image thumbsUpOrDownImage = null;
 
     public GameObject hitboxForSelection = null;
-    public GameObject selectedIndicator = null;
+    public Outline selectedIndicator = null;
 
     public DialogueSystemTrigger dialogueSystemTrigger=null;
 
+    public GameObject hole=null;
 
     private bool isSelected = false;
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
 
     private GameController gameController;
+
+    private void Awake() {
+        selectedIndicator.enabled=false;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -61,8 +67,12 @@ public class ContestantScript : MonoBehaviour
     public bool Select()
     {
         isSelected = !isSelected;
-        selectedIndicator.SetActive(isSelected);
+        selectedIndicator.enabled=isSelected;
 
         return isSelected;
+    }
+
+    public void Eliminate(){
+        
     }
 }
