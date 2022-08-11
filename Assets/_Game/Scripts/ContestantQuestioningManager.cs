@@ -5,10 +5,10 @@ using UnityEngine;
 public class ContestantQuestioningManager : MonoBehaviour
 {
     private static ContestantQuestioningManager instance = null;
-    public static ContestantQuestioningManager Instance { get => instance;  }
+    public static ContestantQuestioningManager Instance { get => instance; }
 
-    private static int maxContestantsToEliminate=3;
-    
+    private static int maxContestantsToEliminate = 3;
+
 
     public List<ContestantScript> contestants;
 
@@ -19,7 +19,7 @@ public class ContestantQuestioningManager : MonoBehaviour
 
     private int curContestantInd = 0;
     private bool isSelectionPhaseActive = false;
-    private Camera mainCamera=null;
+    private Camera mainCamera = null;
 
     #region Raycast variables
     private Ray ray;
@@ -28,9 +28,9 @@ public class ContestantQuestioningManager : MonoBehaviour
     #endregion
     private ContestantScript selectedContestant = null;
     private int numberOfSelectedContestants = 0;
-    private CameraController cameraController=null;
+    private CameraController cameraController = null;
 
-    private int eliminatedContestantsN=0;
+    private int eliminatedContestantsN = 0;
 
     private void Awake()
     {
@@ -83,7 +83,7 @@ public class ContestantQuestioningManager : MonoBehaviour
                                 numberOfSelectedContestants++;
                             }
 
-                            if(numberOfSelectedContestants== maxContestantsToEliminate)
+                            if (numberOfSelectedContestants == maxContestantsToEliminate)
                             {
                                 GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);
                             }
@@ -98,19 +98,21 @@ public class ContestantQuestioningManager : MonoBehaviour
     {
         foreach (ContestantScript c in contestants)
         {
-            if(c.IsSelected) c.Eliminate();
+            if (c.IsSelected) c.Eliminate();
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
 
-        
+
     }
 
-    public void ContestantEliminatedSignal(){
+    public void ContestantEliminatedSignal()
+    {
         eliminatedContestantsN++;
-        if(eliminatedContestantsN>=maxContestantsToEliminate){
+        if (eliminatedContestantsN >= maxContestantsToEliminate)
+        {
             cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
         }
     }
