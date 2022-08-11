@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using PixelCrushers;
 using PixelCrushers.DialogueSystem;
 
+
 public class ContestantScript : MonoBehaviour
 {
     public CinemachineVirtualCamera cam = null;
@@ -19,6 +20,7 @@ public class ContestantScript : MonoBehaviour
 
     public DialogueSystemTrigger dialogueSystemTrigger=null;
 
+    public GameObject hole=null;
 
     private bool isSelected = false;
 
@@ -68,5 +70,9 @@ public class ContestantScript : MonoBehaviour
         selectedIndicator.enabled=isSelected;
 
         return isSelected;
+    }
+
+    public void Eliminate(){
+        
     }
 }
