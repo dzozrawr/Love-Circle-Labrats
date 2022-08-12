@@ -36,11 +36,11 @@ public class ContestantScript : MonoBehaviour
     private void Awake()
     {
         selectedIndicator.enabled = false;
-        if (hole != null)
-        {
-            holePreferredScale = hole.transform.localScale;
-            hole.transform.localScale = new Vector3(0, hole.transform.localScale.y, 0);
-        }
+        /*         if (hole != null)
+                {
+                    holePreferredScale = hole.transform.localScale;
+                    hole.transform.localScale = new Vector3(0, hole.transform.localScale.y, 0);
+                } */
     }
 
     // Start is called before the first frame update
@@ -48,6 +48,8 @@ public class ContestantScript : MonoBehaviour
     {
         gameController = GameController.Instance;
         gameController.OnConversationChanged += OnConversationChanged;
+
+
     }
 
     private void OnConversationChanged(string conversationName)
@@ -88,10 +90,17 @@ public class ContestantScript : MonoBehaviour
         selectedIndicator.enabled = false;
         animator.SetTrigger("Amaze");
 
-        hole.transform.DOScale(holePreferredScale, 0.5f).onComplete = () =>
+        //hole.transform.DOLocalMoveY(hole.GetComponent<Renderer>().bounds.size.y,0.5f);
+        // hole.transform.DOMove(hole.transform.position+hole.transform.up*hole.GetComponent<Renderer>().bounds.size.y,1f);
+        hole.transform.DOMove(hole.transform.position + hole.transform.up * hole.GetComponent<Renderer>().bounds.size.x, 0.5f).onComplete = () =>
         {
             Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
         };
+
+        /*         hole.transform.DOScale(holePreferredScale, 0.5f).onComplete = () =>
+                {
+                    Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
+                }; */
         // play animation of getting scared
         // add/activate trail
         // animation of falling down
@@ -102,10 +111,11 @@ public class ContestantScript : MonoBehaviour
     {
         gameObject.transform.DOMoveY(-5f, 0.25f).onComplete = () =>
         {
-            hole.transform.DOScale(new Vector3(0, hole.transform.localScale.y, 0), 0.5f).onComplete = () =>
+            ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
+/*             hole.transform.DOScale(new Vector3(0, hole.transform.localScale.y, 0), 0.5f).onComplete = () =>
             {
-                ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
-            };
+                
+            }; */
         };
     }
 }
