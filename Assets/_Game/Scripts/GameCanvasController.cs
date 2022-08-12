@@ -56,7 +56,7 @@ public class GameCanvasController : MonoBehaviour
 
     public void EliminateButtonEffect()
     {
-        contestantQuestioningManager.EliminateSelectedContestants();               
+        contestantQuestioningManager.EliminateSelectedContestants();              
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)

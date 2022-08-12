@@ -901,6 +901,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b75e264a6b26164994d51dae3fddccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &240955685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 240955686}
+  m_Layer: 0
+  m_Name: PlaceForContestant1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &240955686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240955685}
+  m_LocalRotation: {x: -0, y: 0.92933846, z: -0, w: -0.36922917}
+  m_LocalPosition: {x: 18.27, y: 0.98, z: 9.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717493124}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 223.336, z: 0}
 --- !u!1001 &247003922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1815,6 +1845,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2108495903}
     - target: {fileID: 606779022292335741, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 885219442}
+    - target: {fileID: 606779022292335741, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: conversationID
       value: Amelia - Baking
       objectReference: {fileID: 0}
@@ -2334,6 +2368,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1300971638426561930, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
   m_PrefabInstance: {fileID: 489986358}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &515044484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 515044485}
+  m_Layer: 0
+  m_Name: PlaceForContestant2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &515044485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515044484}
+  m_LocalRotation: {x: -0, y: 0.92933846, z: -0, w: -0.36922917}
+  m_LocalPosition: {x: 16.309, y: 0.98, z: 11.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717493124}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 223.336, z: 0}
 --- !u!114 &549401060 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4706769060507545191, guid: ad4cf04bce9578e4e8469fdc808607bb, type: 3}
@@ -2659,6 +2723,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 744836603}
     - target: {fileID: 4706769060507545191, guid: ad4cf04bce9578e4e8469fdc808607bb, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1900757019}
+    - target: {fileID: 4706769060507545191, guid: ad4cf04bce9578e4e8469fdc808607bb, type: 3}
       propertyPath: conversationID
       value: Olivia - Dogs
       objectReference: {fileID: 0}
@@ -2740,6 +2808,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad4cf04bce9578e4e8469fdc808607bb, type: 3}
+--- !u!1 &717493123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717493124}
+  m_Layer: 0
+  m_Name: BakingMiniGameModels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717493124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717493123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 815401086}
+  - {fileID: 240955686}
+  - {fileID: 515044485}
+  - {fileID: 841245933}
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744836602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,19 +2976,49 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815401082}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 18.09, y: 1.466, z: 6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 978991716}
-  m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_Father: {fileID: 717493124}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821246682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6717925560928454213, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
   m_PrefabInstance: {fileID: 8430385283068723927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &841245932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841245933}
+  m_Layer: 0
+  m_Name: PlaceForPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &841245933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841245932}
+  m_LocalRotation: {x: -0, y: -0.44152144, z: -0, w: 0.8972507}
+  m_LocalPosition: {x: 18.618292, y: 1.27, z: 4.2734456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 717493124}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -52.402, z: 0}
 --- !u!1001 &842989316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3121,6 +3253,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &885219442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272155310890074955, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
+  m_PrefabInstance: {fileID: 454042066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &891029882
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,6 +5454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa5718c1c1aa3344869d63726ed1331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1900757019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1046027638413798336, guid: ad4cf04bce9578e4e8469fdc808607bb, type: 3}
+  m_PrefabInstance: {fileID: 666392014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1955873863
 GameObject:
   m_ObjectHideFlags: 0
@@ -6075,8 +6217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   miniGameCam: {fileID: 1558346047}
-  models: {fileID: 815401082}
+  models: {fileID: 717493123}
   canvas: {fileID: 0}
+  placeForContestants:
+  - {fileID: 240955685}
+  - {fileID: 515044484}
+  placeForPlayer: {fileID: 841245932}
 --- !u!1 &2139962508 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8336637757354408090, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}

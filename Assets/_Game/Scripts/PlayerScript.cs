@@ -16,6 +16,8 @@ public class PlayerScript : MonoBehaviour
     public Animator animator = null;
     public MiniGame miniGame = null;
 
+    public GameObject playerModel=null;
+
     private PathFollower pathFollower = null;
     private void Awake()
     {

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour //all of the events are in this class
 {
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
@@ -14,6 +15,8 @@ public class GameController : MonoBehaviour
 
     private PlayerScript chosenPlayer = null;
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
+
+    public UnityEvent ContestantsEliminated;
 
     //public PlayerScript leftPlayer = null, rightPlayer=null;
 

@@ -17,6 +17,7 @@ public class ContestantQuestioningManager : MonoBehaviour
     private ContestantScript curContestant = null;
     public ContestantScript CurContestant { get => curContestant; set => curContestant = value; }
 
+
     private int curContestantInd = 0;
     private bool isSelectionPhaseActive = false;
     private Camera mainCamera = null;
@@ -31,6 +32,9 @@ public class ContestantQuestioningManager : MonoBehaviour
     private CameraController cameraController = null;
 
     private int eliminatedContestantsN = 0;
+
+    private List<ContestantScript> winningContestants = new List<ContestantScript>();
+    public List<ContestantScript> WinningContestants { get => winningContestants; }
 
     private void Awake()
     {
@@ -96,16 +100,31 @@ public class ContestantQuestioningManager : MonoBehaviour
 
     public void EliminateSelectedContestants()
     {
+        /*         for (int i = 0; i < contestants.Count; i++)
+                {
+                    if (contestants[i].IsSelected)
+                    {
+                        contestants[i].Eliminate();
+                       // contestants.Remove(contestants[i]);
+                    }
+                } */
         foreach (ContestantScript c in contestants)
         {
-            if (c.IsSelected) c.Eliminate();
+            if (c.IsSelected)
+            {
+                c.Eliminate();
+            }
+            else
+            {
+                winningContestants.Add(c);
+            }
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
 
-
+        GameController.Instance.ContestantsEliminated?.Invoke();
     }
 
     public void ContestantEliminatedSignal()

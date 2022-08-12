@@ -9,5 +9,10 @@ public abstract class MiniGame : MonoBehaviour
     public GameObject models = null;
     public Canvas canvas = null;
 
-    public abstract void InitializeMiniGame(); 
+
+    public abstract void InitializeMiniGame();
+
+    protected virtual void OnEliminateButtonPressed(){
+
+    }
 }
