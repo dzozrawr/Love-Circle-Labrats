@@ -16,7 +16,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     private PlayerScript chosenPlayer = null;
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
 
-    public UnityEvent ContestantsEliminated;
+    [HideInInspector]
+    public UnityEvent ContestantsEliminated, CurtainOpen;
+
+    public StudioSet[] studioSetList = null;
+    public StudioSet studioSet = null;
+
+    private int studioSetIndex = 0;
+
 
     //public PlayerScript leftPlayer = null, rightPlayer=null;
 
@@ -43,13 +50,20 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            SetConversation("Amelia - Baking");
+            studioSet.gameObject.SetActive(false);
+            studioSetIndex = (studioSetIndex + studioSetList.Length - 1) % studioSetList.Length;
+            studioSet = studioSetList[studioSetIndex];
+            studioSet.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            SetConversation("Olivia - Dogs");
+            studioSet.gameObject.SetActive(false);
+            studioSetIndex = (studioSetIndex + 1) % studioSetList.Length;
+            studioSet = studioSetList[studioSetIndex];
+            studioSet.gameObject.SetActive(true);
         }
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
