@@ -8,6 +8,12 @@ public class BeachStudioSet : StudioSet
     public GameObject curtainL = null, curtainR = null;
 
     private GameObject chosenCurtain=null;
+
+    public override void EliminateContestant(ContestantScript contestant)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void OpenPlayerCurtain(PlayerScript player)
     {
           if (player == playerL)

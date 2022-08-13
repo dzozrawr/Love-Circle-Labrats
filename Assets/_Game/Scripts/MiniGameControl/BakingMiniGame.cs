@@ -13,14 +13,11 @@ public class BakingMiniGame : MiniGame
         models.SetActive(false);
     }
 
-    private void Start()
-    {
-        GameController.Instance.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
-    }
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
         gameController = GameController.Instance;
+        gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
     }
 
     protected override void OnEliminateButtonPressed()

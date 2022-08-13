@@ -88,34 +88,27 @@ public class ContestantScript : MonoBehaviour
     public void Eliminate()
     {
         selectedIndicator.enabled = false;
+
+        gameController.studioSet.EliminateContestant(this);
+/* 
         animator.SetTrigger("Amaze");
 
-        //hole.transform.DOLocalMoveY(hole.GetComponent<Renderer>().bounds.size.y,0.5f);
-        // hole.transform.DOMove(hole.transform.position+hole.transform.up*hole.GetComponent<Renderer>().bounds.size.y,1f);
         hole.transform.DOMove(hole.transform.position + hole.transform.up * hole.GetComponent<Renderer>().bounds.size.x, 0.5f).onComplete = () =>
         {
             Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
-        };
+        }; */
 
-        /*         hole.transform.DOScale(holePreferredScale, 0.5f).onComplete = () =>
-                {
-                    Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
-                }; */
         // play animation of getting scared
         // add/activate trail
         // animation of falling down
 
     }
 
-    private void DropTweenAnimationAfterDelay()
+/*     private void DropTweenAnimationAfterDelay()
     {
         gameObject.transform.DOMoveY(-5f, 0.25f).onComplete = () =>
         {
             ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
-/*             hole.transform.DOScale(new Vector3(0, hole.transform.localScale.y, 0), 0.5f).onComplete = () =>
-            {
-                
-            }; */
         };
-    }
+    } */
 }

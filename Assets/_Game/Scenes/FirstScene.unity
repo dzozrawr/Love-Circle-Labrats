@@ -4043,6 +4043,9 @@ MonoBehaviour:
   playerR: {fileID: 549401060}
   curtainL: {fileID: 1577382986}
   curtainR: {fileID: 598275670}
+  eliminationDelayBeforeGoingUp: 0.5
+  eliminationGoingUpTweenDuration: 1
+  eliminationGoingUpEndHeight: 25
 --- !u!1 &1139351597
 GameObject:
   m_ObjectHideFlags: 3
@@ -5485,6 +5488,16 @@ MonoBehaviour:
   playerR: {fileID: 549401060}
   curtainL: {fileID: 386437366}
   curtainR: {fileID: 427580702}
+  eliminationHoleList:
+  - {fileID: 1853895968}
+  - {fileID: 18379738}
+  - {fileID: 821246682}
+  - {fileID: 1545323847}
+  - {fileID: 2139962508}
+  eliminationHoleTweenDuration: 0.5
+  eliminationDelayBeforeDroppingDown: 0.5
+  eliminationDroppingDownTweenDuration: 0.25
+  eliminationDroppingDownEndHeight: -5
 --- !u!1 &1853895968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7546608454607093833, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
