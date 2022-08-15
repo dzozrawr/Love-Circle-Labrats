@@ -7,7 +7,7 @@ public abstract class StudioSet : MonoBehaviour
     public PlayerScript playerL = null, playerR = null;
 
     protected ContestantQuestioningManager contestantQuestioningManager = null;
-    private void Start()
+    protected virtual void Start()
     {
         contestantQuestioningManager=ContestantQuestioningManager.Instance;
     }

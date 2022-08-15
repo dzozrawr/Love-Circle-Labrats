@@ -37,6 +37,19 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         instance = this;
     }
 
+#if UNITY_EDITOR
+    private void Start()
+    {
+        for (int i = 0; i < studioSetList.Length; i++)
+        {
+            if(studioSetList[i].gameObject.activeSelf){
+                studioSet=studioSetList[i];
+                break;
+            } 
+        }
+    }
+#endif
+
     // Update is called once per frame
     void Update()
     {
