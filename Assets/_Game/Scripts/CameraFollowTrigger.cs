@@ -19,8 +19,8 @@ public class CameraFollowTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        pathFollower.speed = 3;//set the speed
-        player.animator.SetTrigger("Walk");
+/*         pathFollower.speed = 3;//set the speed
+        player.animator.SetTrigger("Walk"); */
       //  player.pathCreator = path;//put player on another path
 
 

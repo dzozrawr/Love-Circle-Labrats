@@ -11,17 +11,17 @@ public class ParticleCollisionTest : MonoBehaviour
     }
 
 
-    private void OnParticleCollision(GameObject other) {
+/*     private void OnParticleCollision(GameObject other) {
           Destroy(other);
-    }
-    private void OnCollisionEnter(Collision other)
+    } */
+/*     private void OnCollisionEnter(Collision other)
     {
         //Debug.Log(other);
-/*         foreach (Component item in other.transform.GetComponents<MonoBehaviour>())
+        foreach (Component item in other.transform.GetComponents<MonoBehaviour>())
         {
             
-        } */
+        } 
     
-    }
+    } */
 
 }

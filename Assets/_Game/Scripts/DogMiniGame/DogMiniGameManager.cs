@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DogMiniGame
 {
@@ -44,6 +45,7 @@ namespace DogMiniGame
                 dogCommandQueue.Dequeue().SetAsDone(); //pop the thing //change the sprite
                // Debug.Log("Correct command!"); //replace with indicator in the game that it is right
                 //play the animation of the dog and owner?
+                dogCommandButton.GetComponent<Button>().transition=Selectable.Transition.None;
 
                 if (dogCommandQueue.Count == 0)
                 {
