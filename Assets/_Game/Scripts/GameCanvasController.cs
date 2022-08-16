@@ -56,8 +56,7 @@ public class GameCanvasController : MonoBehaviour
 
     public void EliminateButtonEffect()
     {
-        contestantQuestioningManager.EliminateSelectedContestants();        
-        cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+        contestantQuestioningManager.EliminateSelectedContestants();              
     }
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)

@@ -9,10 +9,15 @@ public class DogMiniGameM : MiniGame
     {
         models.SetActive(false);
     }
+
+
+
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
         canvas.gameObject.SetActive(false);
         miniGameCam.gameObject.SetActive(true); //this will be the same
+       // gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
     }
+
 }

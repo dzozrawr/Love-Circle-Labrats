@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour //all of the events are in this class
 {
-    private static GameController instance=null;
+    private static GameController instance = null;
     public static GameController Instance { get => instance; }
-    
+
 
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
@@ -15,11 +16,20 @@ public class GameController : MonoBehaviour
     private PlayerScript chosenPlayer = null;
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
 
+    [HideInInspector]
+    public UnityEvent ContestantsEliminated, CurtainOpen;
+
+    public StudioSet[] studioSetList = null;
+    public StudioSet studioSet = null;
+
+    private int studioSetIndex = 0;
+
+
     //public PlayerScript leftPlayer = null, rightPlayer=null;
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
@@ -27,10 +37,25 @@ public class GameController : MonoBehaviour
         instance = this;
     }
 
+#if UNITY_EDITOR
+    private void Start()
+    {
+        for (int i = 0; i < studioSetList.Length; i++)
+        {
+            if(studioSetList[i].gameObject.activeSelf){
+                studioSet=studioSetList[i];
+                break;
+            } 
+        }
+    }
+#endif
+
     // Update is called once per frame
     void Update()
     {
 #if UNITY_EDITOR
+
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartContestantsPhase();
@@ -38,18 +63,29 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            SetConversation("Amelia - Baking");
+            studioSet.gameObject.SetActive(false);
+            studioSetIndex = (studioSetIndex + studioSetList.Length - 1) % studioSetList.Length;
+            studioSet = studioSetList[studioSetIndex];
+            studioSet.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            SetConversation("Olivia - Dogs");
+            studioSet.gameObject.SetActive(false);
+            studioSetIndex = (studioSetIndex + 1) % studioSetList.Length;
+            studioSet = studioSetList[studioSetIndex];
+            studioSet.gameObject.SetActive(true);
         }
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
-            
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);
+        }
+
 #endif
 
 
@@ -64,7 +100,7 @@ public class GameController : MonoBehaviour
     public void StartPlayerPicking()
     {
         CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.PlayerPicking);
-      //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
+        //  CameraController.Instance.playerPickingCam.Priority = CameraController.Instance.introCam.Priority + 1;
     }
 
     public void StartContestantsPhase()

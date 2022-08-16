@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using PathCreation;
 using PathCreation.Examples;
+using UnityEngine.Events;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,25 +12,45 @@ public class PlayerScript : MonoBehaviour
     public GameObject curtain = null;
     public CinemachineVirtualCamera virutalFollowCamera = null;
 
-    [Range(0.0f, 10.0f)]  public float walkingSpeed = 2.5f;
+    [Range(0.0f, 10.0f)] public float walkingSpeed = 2.5f;
 
     public Animator animator = null;
     public MiniGame miniGame = null;
 
+    public GameObject playerModel = null;
+
     private PathFollower pathFollower = null;
+    private GameController gameController = null;
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();
     }
 
+    private void Start()
+    {
+        gameController = GameController.Instance;
+
+    }
+
+
     public void ChoosePlayer()
     {
-        Destroy(curtain); //open the curtain
-        GameController.Instance.SetConversation(conversationID); //set the conversation
+        gameController.studioSet.OpenPlayerCurtain(this);//based on the studio open this curtain (or smth else) in this or that way - studioSet.OpenCurtain(this)
+        gameController.CurtainOpen.AddListener(ActionAfterCurtainOpen);
+    }
+
+    private void ActionAfterCurtainOpen()
+    {
+        gameController.SetConversation(conversationID); //set the conversation
         pathFollower.speed = walkingSpeed;//start the walking sequence and whatnot
         animator.SetTrigger("Walk");//trigger walking animation
 
         miniGame.InitializeMiniGame();
-        GameController.Instance.ChosenPlayer = this;
+        gameController.ChosenPlayer = this;
+
+        gameController.CurtainOpen.RemoveListener(ActionAfterCurtainOpen);
     }
+
+
+
 }
