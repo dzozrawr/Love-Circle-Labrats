@@ -59,8 +59,9 @@ public class BeachStudioSet : StudioSet
         contestantCollider.enabled = true;
         contestantRB.centerOfMass = contestantCollider.center;
         Bounds contestantColliderBounds = contestantCollider.bounds;
-        contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
-        // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
+       // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
+       
+         contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
         //contestantRB.AddForce(a * 23f, ForceMode.VelocityChange);
 
 
