@@ -4113,19 +4113,10 @@ MonoBehaviour:
   - {fileID: 1461984475}
   - {fileID: 1754088974}
   - {fileID: 4826695347242027893}
-<<<<<<< HEAD
   tubeDroppingDownDuration: 0.5
   eliminationDelayBeforeGoingUp: 0.28
   eliminationGoingUpTweenDuration: 0.75
-=======
-  tubeOffsetFromGround: 5
-  tubeDroppingDownDuration: 0.75
-  eliminationDelayBeforeGoingUp: 0.5
-  eliminationGoingUpTweenDuration: 1
->>>>>>> origin/main
   eliminationGoingUpEndHeight: 25
-  contestantSpaceVelocity: 10
-  contestantSpaceRotationIntensity: 0.45
 --- !u!1 &1139351597
 GameObject:
   m_ObjectHideFlags: 3
@@ -6613,6 +6604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 308244853870049832, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 610833500419695187, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_IsActive
       value: 1
