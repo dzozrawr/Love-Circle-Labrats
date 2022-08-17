@@ -15,6 +15,9 @@ public class BeachStudioSet : StudioSet
     [Range(0,44.99f)]
     public float launchVectorDegreeRandomizationRange=0;
 
+    [Range(0,1f)]
+    public float curtainCloseOffset=0f;
+
     private GameObject chosenCurtain = null;
 
     private Bounds springBounds;
@@ -71,7 +74,7 @@ public class BeachStudioSet : StudioSet
             chosenCurtain = curtainR;
         }
 
-        chosenCurtain.transform.DOScale(Vector3.zero, 0.75f).onComplete = () =>
+        chosenCurtain.transform.DOScaleX(curtainCloseOffset, 0.75f).onComplete = () =>
         {
             GameController.Instance.CurtainOpen?.Invoke();
         };
