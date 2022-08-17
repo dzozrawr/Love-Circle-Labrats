@@ -4113,10 +4113,13 @@ MonoBehaviour:
   - {fileID: 1461984475}
   - {fileID: 1754088974}
   - {fileID: 4826695347242027893}
+  tubeOffsetFromGround: 5
   tubeDroppingDownDuration: 0.75
   eliminationDelayBeforeGoingUp: 0.5
   eliminationGoingUpTweenDuration: 1
   eliminationGoingUpEndHeight: 25
+  contestantSpaceVelocity: 10
+  contestantSpaceRotationIntensity: 0.45
 --- !u!1 &1139351597
 GameObject:
   m_ObjectHideFlags: 3
@@ -6604,10 +6607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 308244853870049832, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 610833500419695187, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7576,7 +7575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8645922011757034876, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8986841721257224134, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
       propertyPath: m_RootOrder
@@ -7819,7 +7818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673235349372620849, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1696261367127933956, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_IsActive
