@@ -110,6 +110,7 @@ public class ContestantQuestioningManager : MonoBehaviour
                 } */
         foreach (ContestantScript c in contestants)
         {
+            c.thumbsUpOrDownImage.gameObject.SetActive(false);
             if (c.IsSelected)
             {
                 c.Eliminate();

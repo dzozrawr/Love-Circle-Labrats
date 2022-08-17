@@ -59,6 +59,9 @@ public class DefaultStudioSet : StudioSet
     private IEnumerator DropTweenAnimationAfterDelay(ContestantScript c, float delay)
     {
         yield return new WaitForSeconds(delay);
+        c.animator.SetTrigger("FreeFall");
+        yield return new WaitForSeconds(delay);
+        
         c.transform.DOMoveY(eliminationDroppingDownEndHeight, eliminationDroppingDownTweenDuration).onComplete = () =>
         {
             contestantQuestioningManager.ContestantEliminatedSignal();
