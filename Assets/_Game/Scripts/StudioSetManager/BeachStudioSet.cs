@@ -9,14 +9,15 @@ public class BeachStudioSet : StudioSet
 
     public GameObject[] eliminationSpringlist = null;
 
-    [Range(0,100)]
-    public float eliminationForceMagnitude=23f;
+    [Range(0, 100)]
+    public float eliminationForceMagnitude = 23f;
 
-    [Range(0,44.99f)]
-    public float launchVectorDegreeRandomizationRange=0;
+    [Range(0, 44.99f)]
+    public float launchVectorDegreeRandomizationRange = 0;
 
-    [Range(0,1f)]
-    public float curtainCloseOffset=0f;
+    [ContextMenuItem("Test curtain animation", "CurtainAnimation")]
+    [Range(0, 1f)]
+    public float curtainCloseOffset = 0f;
 
     private GameObject chosenCurtain = null;
 
@@ -26,6 +27,14 @@ public class BeachStudioSet : StudioSet
     {
         base.Start();
         springBounds = eliminationSpringlist[0].GetComponent<Renderer>().bounds;
+    }
+
+    private void CurtainAnimation()
+    {
+        curtainL.transform.DOScaleX(curtainCloseOffset, 0.75f).onComplete = () =>
+      {
+          GameController.Instance.CurtainOpen?.Invoke();
+      };
     }
 
     public override void EliminateContestant(ContestantScript contestant)   //maybe this script should add rigid bodies to contestants
@@ -41,17 +50,17 @@ public class BeachStudioSet : StudioSet
         Vector3 launchVector = contestantRB.transform.up - contestantRB.transform.forward;  //45 degree angle
         launchVector = launchVector.normalized;
 
-        launchVector=Vector3.RotateTowards(launchVector,-contestantRB.transform.forward,Random.Range(-launchVectorDegreeRandomizationRange,launchVectorDegreeRandomizationRange)* Mathf.Deg2Rad,0.0f);
-        launchVector=launchVector.normalized;
+        launchVector = Vector3.RotateTowards(launchVector, -contestantRB.transform.forward, Random.Range(-launchVectorDegreeRandomizationRange, launchVectorDegreeRandomizationRange) * Mathf.Deg2Rad, 0.0f);
+        launchVector = launchVector.normalized;
 
         // Debug.Log(Vector3.Angle(launchVector,-contestantRB.transform.forward));
         contestant.animator.SetTrigger("FreeFall");
 
         contestantCollider.enabled = true;
-        contestantRB.centerOfMass=contestantCollider.center;
-        Bounds contestantColliderBounds=contestantCollider.bounds;
-        contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),Random.Range(-contestantCollider.bounds.extents.z/2,contestantCollider.bounds.extents.z/2)  ), ForceMode.VelocityChange);
-       // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
+        contestantRB.centerOfMass = contestantCollider.center;
+        Bounds contestantColliderBounds = contestantCollider.bounds;
+        contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
+        // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
         //contestantRB.AddForce(a * 23f, ForceMode.VelocityChange);
 
 
