@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
 
     [HideInInspector]
-    public UnityEvent ContestantsEliminated, CurtainOpen;
+    public UnityEvent ContestantsEliminated, CurtainOpen, MiniGameStarted;
 
     public StudioSet[] studioSetList = null;
     public StudioSet studioSet = null;

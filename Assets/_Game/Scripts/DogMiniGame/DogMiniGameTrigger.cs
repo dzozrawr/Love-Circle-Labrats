@@ -10,5 +10,7 @@ public class DogMiniGameTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Instantiate(dogMiniGameCanvas);
+
+        GameController.Instance.MiniGameStarted?.Invoke();
     }
 }

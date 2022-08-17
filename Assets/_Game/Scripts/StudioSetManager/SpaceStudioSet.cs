@@ -49,6 +49,8 @@ public class SpaceStudioSet : StudioSet
     {
         base.Start();
         tubeBounds = alienTubes[0].GetComponent<Renderer>().bounds;
+        
+        GameController.Instance.MiniGameStarted.AddListener(ShowMiniGameSpaceContestants);
     }
 
     public override void OpenPlayerCurtain(PlayerScript player)
