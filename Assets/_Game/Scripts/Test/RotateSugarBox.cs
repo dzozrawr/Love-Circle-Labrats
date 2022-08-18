@@ -25,13 +25,13 @@ public class RotateSugarBox : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButton(0)){
-            if(Vector3.Angle(startingUpVector,transform.up)<120f){
+            if(Vector3.Angle(startingUpVector,transform.up)<zRotLimit){
                 transform.rotation= Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0,0,rotateSpeed) *Time.deltaTime);
             }
           
            // Debug.Log(transform.rotation.eulerAngles.z);
         }else{
-            if(Vector3.Angle(startingUpVector,transform.up)>0.5f){
+            if(Vector3.Angle(startingUpVector,transform.up)>5f){
                  transform.rotation= Quaternion.Euler(transform.rotation.eulerAngles - new Vector3(0,0,backwardsRotateSpeed) *Time.deltaTime);
                  
             }else{

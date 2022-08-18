@@ -6,6 +6,7 @@ using UnityEngine;
 public class Spill : MonoBehaviour
 {
     ParticleSystem particleSystem;
+    public float startAngle = 120f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class Spill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Vector3.Angle(Vector3.down, transform.forward) <= 90f))
+        if ((Vector3.Angle(Vector3.down, transform.forward) <= startAngle))
         {
             particleSystem.Play();
         }
