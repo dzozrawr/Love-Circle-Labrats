@@ -13,8 +13,10 @@ public class SpaceStudioSet : StudioSet
 
     public GameObject[] eliminatedContestantsSpacePos = null;
 
-    [Range(0f,20f)]
-    public float tubeOffsetFromGround=0f;
+    public GameObject[] miniGameSpacePos = null;
+
+    [Range(0f, 20f)]
+    public float tubeOffsetFromGround = 0f;
 
     [Range(0f, 10f)]
     public float tubeDroppingDownDuration = 0.75f;
@@ -27,11 +29,11 @@ public class SpaceStudioSet : StudioSet
     [Range(0f, 50f)]
     public float eliminationGoingUpEndHeight = 25f;
 
-    [Range(0f,30f)]
-    public float contestantSpaceVelocity=10f;
+    [Range(0f, 30f)]
+    public float contestantSpaceVelocity = 10f;
 
-    [Range(0f,1.8f)]
-    public float contestantSpaceRotationIntensity=0.45f;
+    [Range(0f, 1.8f)]
+    public float contestantSpaceRotationIntensity = 0.45f;
 
 
     private GameObject chosenCurtain = null;
@@ -39,6 +41,7 @@ public class SpaceStudioSet : StudioSet
 
     private int spacePosInd = 0;
 
+    private List<ContestantScript> eliminatedContestants = new List<ContestantScript>();
 
 
 
@@ -46,6 +49,8 @@ public class SpaceStudioSet : StudioSet
     {
         base.Start();
         tubeBounds = alienTubes[0].GetComponent<Renderer>().bounds;
+        
+        GameController.Instance.MiniGameStarted.AddListener(ShowMiniGameSpaceContestants);
     }
 
     public override void OpenPlayerCurtain(PlayerScript player)
@@ -71,17 +76,19 @@ public class SpaceStudioSet : StudioSet
     {
         contestant.animator.SetTrigger("Amaze"); //different animation
 
+        eliminatedContestants.Add(contestant);
+
         int contestantInd = contestantQuestioningManager.contestants.IndexOf(contestant);
         GameObject tube = alienTubes[contestantInd];
         GameObject spacePos = eliminatedContestantsSpacePos[spacePosInd++];
 
-        GameObject alienLight=tube.transform.GetChild(0).gameObject;
-        tube.transform.DOMoveY(contestant.transform.position.y + tubeBounds.size.y+tubeOffsetFromGround, tubeDroppingDownDuration).onComplete = () =>
+        GameObject alienLight = tube.transform.GetChild(0).gameObject;
+        tube.transform.DOMoveY(contestant.transform.position.y + tubeBounds.size.y + tubeOffsetFromGround, tubeDroppingDownDuration).onComplete = () =>
         {
-            alienLight.transform.position=contestant.transform.position;
-            alienLight.transform.position+=new Vector3(0,alienLight.GetComponent<Renderer>().bounds.extents.y,0);
+            alienLight.transform.position = contestant.transform.position;
+            alienLight.transform.position += new Vector3(0, alienLight.GetComponent<Renderer>().bounds.extents.y, 0);
             alienLight.SetActive(true);
-            
+
             StartCoroutine(GoUpTweenAnimationAfterDelay(contestant, tube, spacePos, eliminationDelayBeforeGoingUp));
         };
 
@@ -102,28 +109,6 @@ public class SpaceStudioSet : StudioSet
             tube.transform.DOMoveY(eliminationGoingUpEndHeight, 0.1f).onComplete = () =>
             {
                 StartCoroutine(LaunchToSpace(c, spacePos));
-                /*                 c.transform.position = spacePos.transform.position;
-
-
-                                // c.transform.up= Vector3.RotateTowards(c.transform.up,c.transform.right,45f*Mathf.Deg2Rad,0f);
-
-                                //  c.transform.forward=oldForward;
-
-                                Rigidbody rb = c.GetComponent<Rigidbody>();
-                                rb.isKinematic = false;
-                                rb.useGravity = false;
-
-                                BoxCollider collider = c.GetComponent<BoxCollider>();
-                                collider.enabled = true;
-                                rb.centerOfMass = collider.center;
-                                Bounds colliderBounds = collider.bounds;
-                                // float yOffset=Random.Range(-collider.bounds.extents.y/4,collider.bounds.extents.y/4);
-                                //float yOffset = 0f;
-                                //c.transform.Rotate(c.transform.forward, 45f);
-                                // rb.AddForce(spacePos.transform.right*10f,ForceMode.VelocityChange);
-                                // spacePos.transform.position=rb.worldCenterOfMass;
-                                rb.AddForceAtPosition(c.transform.right * 10f, c.transform.position + rb.centerOfMass, ForceMode.VelocityChange);
-                                Debug.DrawRay(spacePos.transform.right, spacePos.transform.right * 100f, Color.red, 10f); */
             };
 
 
@@ -151,9 +136,32 @@ public class SpaceStudioSet : StudioSet
 
     }
 
-    private bool IsPositionEqual(Transform contestantT, Transform spaceTransform)
+    [ContextMenu("ShowMiniGameSpaceContestants")]
+    public void ShowMiniGameSpaceContestants()
     {
-        return contestantT.position.Equals(spaceTransform.position);
+        int i = 0;
+        Rigidbody rb;
+        Vector3 oldAngularVelocity = Vector3.zero; ;
+        foreach (ContestantScript c in eliminatedContestants)
+        {
+            rb = c.GetComponent<Rigidbody>();
+
+            oldAngularVelocity = rb.angularVelocity;
+            rb.isKinematic = true;
+            rb.isKinematic = false;
+            /*             rb.velocity = Vector3.zero;
+                        rb.angularVelocity = Vector3.zero; */
+
+            c.transform.position = miniGameSpacePos[i].transform.position;
+            c.transform.forward = -miniGameSpacePos[i].transform.forward;
+
+            Vector3 r = transform.right * 2f;
+
+            //rb.AddForceAtPosition(miniGameSpacePos[i].transform.right * contestantSpaceVelocity, c.transform.position + rb.centerOfMass + new Vector3(0, UnityEngine.Random.Range(-contestantSpaceRotationIntensity, contestantSpaceRotationIntensity), 0), ForceMode.VelocityChange);
+            rb.AddForce(miniGameSpacePos[i].transform.right * contestantSpaceVelocity, ForceMode.VelocityChange);
+            rb.AddTorque(transform.right * oldAngularVelocity.magnitude , ForceMode.VelocityChange);
+            i++;
+        }
     }
 
 }
