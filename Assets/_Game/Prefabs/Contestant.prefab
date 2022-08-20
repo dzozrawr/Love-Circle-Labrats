@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 5176252238813006128}
   - component: {fileID: 9161429075394252544}
   - component: {fileID: 224939844667813954}
+  - component: {fileID: 2364900870487613396}
   m_Layer: 8
   m_Name: ThumbsUpOrDown
   m_TagString: Untagged
@@ -419,6 +420,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2364900870487613396
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933456094637751685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53716bb2ba9832d47969b70e64966d69, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3562308665682088344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,14 +1380,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
---- !u!4 &1168740605349458438 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4243215916530134, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
-  m_PrefabInstance: {fileID: 1168438147051490256}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1166829950644687364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1770100582750676, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
+  m_PrefabInstance: {fileID: 1168438147051490256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1168740605349458438 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4243215916530134, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
   m_PrefabInstance: {fileID: 1168438147051490256}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4140898082312296087
