@@ -33,6 +33,9 @@ public class ContestantScript : MonoBehaviour
 
     private GameController gameController;
 
+    private Rigidbody parentRb = null;
+    private Collider parentCollider = null;
+
     private void Awake()
     {
         selectedIndicator.enabled = false;
@@ -41,6 +44,8 @@ public class ContestantScript : MonoBehaviour
                     holePreferredScale = hole.transform.localScale;
                     hole.transform.localScale = new Vector3(0, hole.transform.localScale.y, 0);
                 } */
+        parentRb = GetComponent<Rigidbody>();
+        parentCollider = GetComponent<Collider>();
     }
 
     // Start is called before the first frame update
@@ -50,6 +55,46 @@ public class ContestantScript : MonoBehaviour
         gameController.OnConversationChanged += OnConversationChanged;
 
 
+
+        SetRagdollRigidbodyState(false);
+        SetColliderState(false);
+
+
+    }
+
+    public void SetRagdollRigidbodyState(bool state)
+    {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            if (parentRb == rb) continue;
+            rb.isKinematic = !state;
+        }
+    }
+
+    public Rigidbody GetPelvisRigidBody()
+    {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rb in rigidbodies)
+        {
+            if (rb.gameObject.name.Contains("Pelvis")) return rb;
+        }
+
+        return null;
+    }
+
+    public void SetColliderState(bool state)
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider c in colliders)
+        {
+            c.enabled = state;
+        }
+
+        parentCollider.enabled = !state;
     }
 
     private void OnConversationChanged(string conversationName)
