@@ -189,6 +189,28 @@ MonoBehaviour:
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
+  - id: 8
+    fields:
+    - title: Name
+      value: Host
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
   items: []
   locations: []
   variables:
@@ -345,7 +367,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Girls/Amelia - Baking/What type of grocery store shopper
+          are you)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -425,7 +448,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 1/Baking/I always think that I don\u2019t
+          need a cart and end up using my shirt as a bag.)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -475,7 +499,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 2/Baking/I guess that I\u2019m the inspector
+          hahah. I always triple check everything before I buy it)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -525,7 +550,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 3/Baking/Just a normal one, you know. I
+          just leave my cart in the middle of the row and go to the other asle to
+          get what I need.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -577,7 +604,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 4/Baking/MMMMIG~2)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -627,7 +654,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 5/Baking/I don\u2019t see a point in grocery
+          shopping. There is just always food in the fridge. Right)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -672,11 +700,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "What\u2019s the grossest food thing you\u2019ve ever done?"
+        value: "What\u2019s the grossest food thing you\u2019ve done?\r\n"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Girls/Amelia - Baking/What\u2019s the grossest food thing
+          you\u2019ve done)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -756,7 +785,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 1/Baking/I was putting peanut butter on
+          pickles and eating it as a post-workout snack)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -806,7 +836,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 2/Baking/I still enjoy turning canned beans
+          into popsicles and eating them as a refreshing snack)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -856,7 +887,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 3/Baking/I put a full course meal in the
+          blender and drank my lunch since I was thirsty)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -905,7 +937,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 4/Baking/Ice-cream and seafood sandwich.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -954,7 +986,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 5/Baking/Cheeseburger, but instead of buns,
+          I put chocolate chip cookies. )
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -999,11 +1032,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "What\u2019s the stupidest way you\u2019ve hurt yourself?"
+        value: Does pineapple belong on pizza?
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Girls/Amelia - Baking/Does pineapple belong on pizza)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1082,7 +1115,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 1/Baking/I prefer kiwi, but pineapple is
+          fine)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1131,7 +1165,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 2/Baking/Ew, that is the grossest thing
+          ever. Who even puts fruit on pizza)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1180,7 +1215,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 3/Baking/BEST. COMBINATION. EVER. Like omg
+          tasty)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1230,7 +1266,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 4/Baking/Yeah, sure. Just like bread that
+          belongs in the fridge\u2026Pineapple on pizza\u2026.sheesh)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1279,7 +1316,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 5/Baking/Mmmm just like you belong with
+          me)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 1
@@ -1302,8 +1340,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 7.7605476, y: 5.515523}
+    canvasZoom: 0.8800001
   - id: 2
     fields:
     - title: Title
@@ -1315,11 +1353,11 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Actor
-      value: 1
+      value: -1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 2
+      value: -1
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -1359,11 +1397,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1399,8 +1437,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
-        y: 20
+        x: 30.000015
+        y: 18.96907
         width: 160
         height: 30
     - id: 1
@@ -1414,11 +1452,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1454,7 +1492,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.97
   - id: 3
     fields:
     - title: Title
@@ -1466,7 +1504,7 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Actor
-      value: 1
+      value: 8
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
@@ -1510,7 +1548,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -1565,11 +1603,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -1744,7 +1782,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Girls/Olivia - Dogs/Do you like to sniff butts)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -1792,8 +1830,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 51
-        y: 91
+        x: 48.64705
+        y: 89
         width: 160
         height: 30
     - id: 2
@@ -1823,7 +1861,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 1/Dogs/Only on weekends, and sometimes wednesdays.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -1872,7 +1910,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 2/Dogs/Ew no\u2026.why Are you interested)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -1921,7 +1959,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 3/Dogs/No, I\u2019d rather sleep next to
+          smelly socks than do that...I might do it if you pay me)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -1970,7 +2009,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 4/Dogs/I have to sniff butts, I'm a doctor.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2020,7 +2059,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 5/Dogs/I was a dog in my past life. So yes.
+          Also the mercury is in retrograde, don't you feel it as well)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2065,12 +2105,12 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "How long do you wait to get up to pee when you\u2019re watching a
-          really good TV show?"
+        value: "How long do you wait to pee when you\u2019re watching a good movie?"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Girls/Olivia - Dogs/How long do you wait to pee when you\u2019re
+          watching a good movie)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2149,7 +2189,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 1/Dogs/Depends on the show. But max 20 minutes.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2199,7 +2239,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 2/Dogs/Why would I get up to pee I just
+          do it on the couch, I don\u2019t want to waste time..duh)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2249,7 +2290,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 3/Dogs/I just hold it until it\u2019s over,
+          I don\u2019t like to pause whatever I\u2019m watching)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2299,7 +2341,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 4/Dogs/I just immediately run for the bathroom\u2026.I
+          can\u2019t hold my pee\u2026I still wet the bed sometimes\u2026)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2349,7 +2392,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 5/Dogs/Oh I try to hold it in as long as
+          possible. It's like a game for me haha. My record is the duration of the
+          movie Madagascar. )
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2398,7 +2443,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Girls/Olivia - Dogs/What\u2019s the stupidest way you\u2019ve
+          hurt yourself)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2446,8 +2492,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 451.5
-        y: 90
+        x: 450.5
+        y: 88
         width: 160
         height: 30
     - id: 38
@@ -2478,7 +2524,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 1/Dogs/I was standing too close to the door
+          and pulled it towards myself really hard and hit myself in the head)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2528,7 +2575,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: "AudioWait(Guys/Contestant 2/Dogs/I put an oven glove on one of my
+          hand, opened the oven with the hand that had the glove on, and reached
+          in the oven with the unprotected hand\u2026)"
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2579,7 +2628,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 3/Dogs/I dropped my phone on my face)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2629,7 +2678,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 4/Dogs/Burned my chest trying to iron a
+          wrinkle out of my shirt while wearing it.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2679,7 +2729,9 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: AudioWait(Guys/Contestant 5/Dogs/I was running in the house and my
+          pants got caught on the door handle, I pulled the door, fell and then the
+          door fell on me.)
         type: 0
         typeString: CustomFieldType_Text
       conversationID: 4
@@ -2702,8 +2754,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 95.52194}
+    canvasZoom: 0.7600002
   - id: 5
     fields:
     - title: Title
@@ -2715,11 +2767,11 @@ MonoBehaviour:
       type: 0
       typeString: CustomFieldType_Text
     - title: Actor
-      value: 1
+      value: -1
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 2
+      value: -1
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -2759,11 +2811,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 1
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -2814,11 +2866,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 2
+        value: 8
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
