@@ -35,6 +35,7 @@ public class ContestantScript : MonoBehaviour
 
     private Rigidbody parentRb = null;
     private Collider parentCollider = null;
+    private GameObject model = null;
 
     private void Awake()
     {
@@ -54,7 +55,7 @@ public class ContestantScript : MonoBehaviour
         gameController = GameController.Instance;
         gameController.OnConversationChanged += OnConversationChanged;
 
-
+        model = animator.gameObject;
 
         SetRagdollRigidbodyState(false);
         SetColliderState(false);
@@ -64,7 +65,7 @@ public class ContestantScript : MonoBehaviour
 
     public void SetRagdollRigidbodyState(bool state)
     {
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] rigidbodies = model.GetComponentsInChildren<Rigidbody>();
 
         foreach (Rigidbody rb in rigidbodies)
         {
@@ -75,7 +76,7 @@ public class ContestantScript : MonoBehaviour
 
     public Rigidbody GetPelvisRigidBody()
     {
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+        Rigidbody[] rigidbodies = model.GetComponentsInChildren<Rigidbody>();
 
         foreach (Rigidbody rb in rigidbodies)
         {
@@ -87,7 +88,7 @@ public class ContestantScript : MonoBehaviour
 
     public void SetColliderState(bool state)
     {
-        Collider[] colliders = GetComponentsInChildren<Collider>();
+        Collider[] colliders = model.GetComponentsInChildren<Collider>();
 
         foreach (Collider c in colliders)
         {
