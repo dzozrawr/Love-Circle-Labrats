@@ -10,6 +10,7 @@ public class OceanTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         //add splash particle and whatnot, sound maybe
+        Debug.Log("ocean trigger");
         contestantQuestioningManager.ContestantEliminatedSignal();
         other.gameObject.AddComponent<DestroyAfterDelay>();
     }

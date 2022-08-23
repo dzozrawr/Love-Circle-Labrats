@@ -46,7 +46,7 @@ public class BeachStudioSet : StudioSet
 
         Rigidbody contestantRB = contestant.GetComponent<Rigidbody>();
         BoxCollider contestantCollider = contestant.GetComponent<BoxCollider>();
-        contestantRB.isKinematic = false;
+        //contestantRB.isKinematic = false;
         Vector3 launchVector = contestantRB.transform.up - contestantRB.transform.forward;  //45 degree angle
         launchVector = launchVector.normalized;
 
@@ -59,9 +59,15 @@ public class BeachStudioSet : StudioSet
         contestantCollider.enabled = true;
         contestantRB.centerOfMass = contestantCollider.center;
         Bounds contestantColliderBounds = contestantCollider.bounds;
-       // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
-       
-         contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
+        // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
+
+        contestant.animator.enabled = false;
+        contestant.SetRagdollRigidbodyState(true);
+        contestant.SetColliderState(true);
+
+        Rigidbody pelvisRb = contestant.GetPelvisRigidBody();
+        //contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
+        pelvisRb.AddForceAtPosition(launchVector * eliminationForceMagnitude*7f, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), 0), ForceMode.VelocityChange);
         //contestantRB.AddForce(a * 23f, ForceMode.VelocityChange);
 
 
