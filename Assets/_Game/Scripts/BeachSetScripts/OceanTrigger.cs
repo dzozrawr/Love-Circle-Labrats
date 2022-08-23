@@ -14,7 +14,6 @@ public class OceanTrigger : MonoBehaviour
         if (other.gameObject.tag.Equals("Contestant"))
         {
             //add splash particle and whatnot, sound maybe
-            Debug.Log("ocean trigger");
             contestantQuestioningManager.ContestantEliminatedSignal();
             ContestantScript contestantScript= other.transform.GetComponentInParent<ContestantScript>();
             Destroy(contestantScript.gameObject,1f);
