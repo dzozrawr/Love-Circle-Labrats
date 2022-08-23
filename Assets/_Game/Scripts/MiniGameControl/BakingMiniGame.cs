@@ -13,6 +13,7 @@ public class BakingMiniGame : MiniGame
         models.SetActive(false);
     }
 
+    [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
