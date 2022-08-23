@@ -5,13 +5,19 @@ using UnityEngine;
 public class OceanTrigger : MonoBehaviour
 {
     private ContestantQuestioningManager contestantQuestioningManager;
-    private void Start() {
-        contestantQuestioningManager=ContestantQuestioningManager.Instance;
+    private void Start()
+    {
+        contestantQuestioningManager = ContestantQuestioningManager.Instance;
     }
-    private void OnTriggerEnter(Collider other) {
-        //add splash particle and whatnot, sound maybe
-        Debug.Log("ocean trigger");
-        contestantQuestioningManager.ContestantEliminatedSignal();
-        other.gameObject.AddComponent<DestroyAfterDelay>();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag.Equals("Contestant"))
+        {
+            //add splash particle and whatnot, sound maybe
+            Debug.Log("ocean trigger");
+            contestantQuestioningManager.ContestantEliminatedSignal();
+            ContestantScript contestantScript= other.transform.GetComponentInParent<ContestantScript>();
+            Destroy(contestantScript.gameObject,1f);
+        }
     }
 }
