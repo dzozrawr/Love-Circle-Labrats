@@ -53,20 +53,26 @@ public class BeachStudioSet : StudioSet
         launchVector = Vector3.RotateTowards(launchVector, -contestantRB.transform.forward, Random.Range(-launchVectorDegreeRandomizationRange, launchVectorDegreeRandomizationRange) * Mathf.Deg2Rad, 0.0f);
         launchVector = launchVector.normalized;
 
+        // Debug.Log(Vector3.Angle(launchVector,-contestantRB.transform.forward));
         contestant.animator.SetTrigger("FreeFall");
 
         contestantCollider.enabled = true;
         contestantRB.centerOfMass = contestantCollider.center;
         Bounds contestantColliderBounds = contestantCollider.bounds;
+        // contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), Random.Range(-contestantCollider.bounds.extents.z / 2, contestantCollider.bounds.extents.z / 2)), ForceMode.VelocityChange);
 
         contestant.animator.enabled = false;
         contestant.SetRagdollRigidbodyState(true);
         contestant.SetColliderState(true);
 
         Rigidbody pelvisRb = contestant.GetPelvisRigidBody();
-       
+        //contestantRB.AddForceAtPosition(launchVector * eliminationForceMagnitude, contestant.transform.position + contestantRB.centerOfMass +new Vector3(Random.Range(-contestantColliderBounds.extents.x/2,contestantCollider.bounds.extents.x/2),Random.Range(-contestantCollider.bounds.extents.y/2,contestantCollider.bounds.extents.y/2),0  ), ForceMode.VelocityChange);
         pelvisRb.AddForceAtPosition(launchVector * eliminationForceMagnitude*7f, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), 0), ForceMode.VelocityChange);
-        
+        //contestantRB.AddForce(a * 23f, ForceMode.VelocityChange);
+
+
+
+        contestantCollider.isTrigger = true;
 
 
         spring.transform.DOMoveY(spring.transform.position.y + springBounds.size.y, 0.3f);

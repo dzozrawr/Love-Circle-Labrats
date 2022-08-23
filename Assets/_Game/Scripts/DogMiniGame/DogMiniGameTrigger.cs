@@ -9,7 +9,7 @@ public class DogMiniGameTrigger : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        dogMiniGameCanvas.SetActive(true);
+        Instantiate(dogMiniGameCanvas);
 
         GameController.Instance.MiniGameStarted?.Invoke();
     }
