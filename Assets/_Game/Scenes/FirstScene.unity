@@ -23,22 +23,22 @@ RenderSettings:
   m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 1, g: 1, b: 1, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.7
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 133347283e115d147a5fcce7f47a538f, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 32
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1809051, g: 0.22645167, b: 0.30723345, a: 1}
+  m_IndirectSpecularColor: {r: 0.38663095, g: 0.72791976, b: 0.73266333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -70,7 +70,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
-    m_ReflectionCompression: 2
+    m_ReflectionCompression: 1
     m_MixedBakeMode: 2
     m_BakeBackend: 1
     m_PVRSampling: 1
@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4997558123927680, guid: 88c3886132f23c446ba744e6ed356727, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.128
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4997558123927680, guid: 88c3886132f23c446ba744e6ed356727, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4675,6 +4675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerL: {fileID: 139063775}
   playerR: {fileID: 549401060}
+  skybox: {fileID: 2100000, guid: c1c961cbd00909b45b34d97fd7df5cbf, type: 2}
   curtainL: {fileID: 1577382986}
   curtainR: {fileID: 598275670}
   alienTubes:
@@ -5263,6 +5264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerL: {fileID: 139063775}
   playerR: {fileID: 549401060}
+  skybox: {fileID: 2100000, guid: 133347283e115d147a5fcce7f47a538f, type: 2}
   curtainL: {fileID: 87852881}
   curtainR: {fileID: 706713752}
   eliminationSpringlist:
@@ -6522,6 +6524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerL: {fileID: 139063775}
   playerR: {fileID: 549401060}
+  skybox: {fileID: 2100000, guid: 8162517b6ec2309499f99e303b29f146, type: 2}
   curtainL: {fileID: 386437366}
   curtainR: {fileID: 427580702}
   eliminationHoleList:
@@ -10435,6 +10438,10 @@ PrefabInstance:
     - target: {fileID: 1696261367127933956, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863546777072226271, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2050076830467820171, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_RootOrder
