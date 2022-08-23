@@ -11,7 +11,7 @@ public class DogMiniGameM : MiniGame
     }
 
 
-
+    [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
