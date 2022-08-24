@@ -89,4 +89,8 @@ public class GameCanvasController : MonoBehaviour
         mainMenuGroup.SetActive(false);
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
+
+    public void SetPickingButtonEffect(){
+
+    }
 }
