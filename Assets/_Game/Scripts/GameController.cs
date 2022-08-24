@@ -81,6 +81,11 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         {
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
+        }
         if (Input.GetKeyDown(KeyCode.E))
         {
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);

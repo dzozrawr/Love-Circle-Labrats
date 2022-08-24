@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     public enum CameraPhase
     {
-        Intro, PlayerPicking, ContestantsStart, ContestantsElimination, DogMiniGame
+        Intro, PlayerPicking, ContestantsStart, ContestantsElimination, DogMiniGame, BakingMiniGame
     }
 
     public Dictionary<CameraPhase, CinemachineVirtualCamera> camerasDictionary = new Dictionary<CameraPhase, CinemachineVirtualCamera>();

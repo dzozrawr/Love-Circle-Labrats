@@ -7,6 +7,7 @@ public class Spill : MonoBehaviour
 {
     ParticleSystem particleSystem;
     public float startAngle = 120f;
+    public GameObject sugarPile=null;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class Spill : MonoBehaviour
         if ((Vector3.Angle(Vector3.down, transform.forward) <= startAngle))
         {
             particleSystem.Play();
+            sugarPile.transform.localScale=new Vector3(sugarPile.transform.localScale.x>1?1:(sugarPile.transform.localScale.x+Time.deltaTime/4),sugarPile.transform.localScale.y>1?1:(sugarPile.transform.localScale.y+Time.deltaTime/4),sugarPile.transform.localScale.z>1?1:(sugarPile.transform.localScale.z+Time.deltaTime/4));
         }
         else
         {
