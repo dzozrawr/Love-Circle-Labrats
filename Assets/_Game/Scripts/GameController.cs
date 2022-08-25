@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public StudioSet[] studioSetList = null;
     public StudioSet studioSet = null;
 
+    private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
 
 
@@ -35,6 +36,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             return;
         }
         instance = this;
+
+        selectedStudioSetInMenu=studioSet;
     }
 
 #if UNITY_EDITOR
@@ -96,15 +99,32 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     }
     public void PickSet(GameObject set)
     {
+        selectedStudioSetInMenu = set.GetComponent<StudioSet>();
+        /*         for (int i = 0; i < studioSetList.Length; i++)
+                {
+                    if (studioSetList[i].gameObject != set)
+                    {
+                        studioSetList[i].gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        selectedStudioSetInMenu = studioSetList[i];
+                        studioSetList[i].gameObject.SetActive(true);
+                    }
+                } */
+    }
+
+    public void ApplySelectedStudioSet()
+    {
         for (int i = 0; i < studioSetList.Length; i++)
         {
-            if (studioSetList[i].gameObject != set)
+            if (studioSetList[i] != selectedStudioSetInMenu)
             {
                 studioSetList[i].gameObject.SetActive(false);
             }
             else
             {
-                studioSet=studioSetList[i];
+                studioSet=selectedStudioSetInMenu;
                 studioSetList[i].gameObject.SetActive(true);
             }
         }
