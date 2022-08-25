@@ -7,6 +7,7 @@ using System;
 
 public class SpaceStudioSet : StudioSet
 {
+
     public GameObject curtainL = null, curtainR = null;
 
     public GameObject[] alienTubes = null;
@@ -51,6 +52,7 @@ public class SpaceStudioSet : StudioSet
         tubeBounds = alienTubes[0].GetComponent<Renderer>().bounds;
         
         GameController.Instance.MiniGameStarted.AddListener(ShowMiniGameSpaceContestants);
+        RenderSettings.skybox = skybox;
     }
 
     public override void OpenPlayerCurtain(PlayerScript player)

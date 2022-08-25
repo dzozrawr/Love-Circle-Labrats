@@ -7,10 +7,14 @@ public class BakingMiniGame : MiniGame
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
 
+    public Spill sugarSpill = null;
+    public GameObject sugarPile = null;
+
     private GameController gameController = null;
     private void Awake()
     {
         models.SetActive(false);
+        canvas.gameObject.SetActive(false);
     }
 
     [ContextMenu("InitializeMiniGame")]

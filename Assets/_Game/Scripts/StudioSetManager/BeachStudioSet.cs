@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class BeachStudioSet : StudioSet
 {
+
     public GameObject curtainL = null, curtainR = null;
 
     public GameObject[] eliminationSpringlist = null;
@@ -27,6 +28,7 @@ public class BeachStudioSet : StudioSet
     {
         base.Start();
         springBounds = eliminationSpringlist[0].GetComponent<Renderer>().bounds;
+        RenderSettings.skybox = skybox;
     }
 
     private void CurtainAnimation()
