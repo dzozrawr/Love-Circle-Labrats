@@ -2260,10 +2260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -2313,10 +2313,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
+  far clip plane: 200
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 100
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -2339,13 +2339,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345370383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 1080, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &354718942
 GameObject:
   m_ObjectHideFlags: 0
@@ -14905,7 +14905,7 @@ Camera:
   field of view: 70
   orthographic: 0
   orthographic size: 5
-  m_Depth: 1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 471
@@ -14950,7 +14950,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 345370386}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -19609,6 +19610,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1072349075359545468, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1128709562}
+    - target: {fileID: 1072349075359545468, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: setGameObject
+      value: 
+      objectReference: {fileID: 1128709561}
     - target: {fileID: 1184229228671998449, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19625,10 +19634,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1387865406143563221, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1426652791}
+    - target: {fileID: 1387865406143563221, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: setGameObject
+      value: 
+      objectReference: {fileID: 1426652790}
     - target: {fileID: 3723213724677474652, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 549401060}
+    - target: {fileID: 4341451109917145364, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750444698774613747, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1844143109}
+    - target: {fileID: 4750444698774613747, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: setGameObject
+      value: 
+      objectReference: {fileID: 1844143107}
     - target: {fileID: 5402898800557110975, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: player
       value: 
@@ -19643,7 +19672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6873194176729452414, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 82.286194
       objectReference: {fileID: 0}
     - target: {fileID: 6873194176729452414, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -19736,6 +19765,14 @@ PrefabInstance:
     - target: {fileID: 7993559314332275596, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993559314332275597, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 345370386}
+    - target: {fileID: 7993559314332275597, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}

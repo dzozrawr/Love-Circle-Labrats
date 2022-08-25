@@ -15,6 +15,7 @@ public class GameCanvasController : MonoBehaviour
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
+    public GameObject setPickingGroup=null;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
@@ -35,6 +36,9 @@ public class GameCanvasController : MonoBehaviour
         gameController = GameController.Instance;
         cameraController = CameraController.Instance;
         contestantQuestioningManager = ContestantQuestioningManager.Instance;
+
+        //defining default UI state at the beginning of the game below
+        setPickingGroup.SetActive(false);
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -91,6 +95,6 @@ public class GameCanvasController : MonoBehaviour
     }
 
     public void SetPickingButtonEffect(){
-
+        setPickingGroup.SetActive(true);
     }
 }

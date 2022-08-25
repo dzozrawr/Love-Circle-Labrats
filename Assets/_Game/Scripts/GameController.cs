@@ -42,10 +42,11 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     {
         for (int i = 0; i < studioSetList.Length; i++)
         {
-            if(studioSetList[i].gameObject.activeSelf){
-                studioSet=studioSetList[i];
+            if (studioSetList[i].gameObject.activeSelf)
+            {
+                studioSet = studioSetList[i];
                 break;
-            } 
+            }
         }
     }
 #endif
@@ -92,9 +93,21 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
 
 #endif
-
-
-
+    }
+    public void PickSet(GameObject set)
+    {
+        for (int i = 0; i < studioSetList.Length; i++)
+        {
+            if (studioSetList[i].gameObject != set)
+            {
+                studioSetList[i].gameObject.SetActive(false);
+            }
+            else
+            {
+                studioSet=studioSetList[i];
+                studioSetList[i].gameObject.SetActive(true);
+            }
+        }
     }
 
     public void SetConversation(string conversationName)
