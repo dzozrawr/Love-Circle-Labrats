@@ -75,8 +75,9 @@ namespace DogMiniGame
 
                     if (dogCommandQueue.Count == 0)
                     {
-                        Debug.Log("Mini game done!");
-                        Invoke(nameof(HideMiniGame), delayAfterMiniGameDone);
+                       // Debug.Log("Mini game done!");
+                       // Invoke(nameof(HideMiniGame), delayAfterMiniGameDone);
+                       StartCoroutine(WaitForIdle(true));
                     }//check if its the last one for the congratulations message
                 }
                 else
@@ -93,11 +94,13 @@ namespace DogMiniGame
              }
         }
 
-        IEnumerator WaitForIdle(){
+        IEnumerator WaitForIdle(bool isMiniGameOver=false){
             yield return new WaitUntil(()=>!dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
             //System.Func<bool> a=dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
             yield return new WaitUntil(()=>dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+            if(!isMiniGameOver)
             SetButtonsInteractable(true);
+            else HideMiniGame();
         }
 
         private void SetButtonsInteractable(bool b)
