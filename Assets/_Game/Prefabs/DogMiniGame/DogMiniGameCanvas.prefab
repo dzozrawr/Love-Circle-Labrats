@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandsToDoGroup: {fileID: 4988997713564391734}
+  dogAnimator: {fileID: 0}
+  commandUserButtonsGroup: {fileID: 0}
 --- !u!95 &5357320675589865263
 Animator:
   serializedVersion: 3
@@ -277,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 1821833369002269212, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 635c16115cba8f54094374a21e9ca718, type: 3}
+      objectReference: {fileID: 21300000, guid: 73802d82a6d64ff4db65790a2e30a16a, type: 3}
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: dogCommand
       value: 1
@@ -285,7 +287,7 @@ PrefabInstance:
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: successSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6448ab8ea3b9e384a8478bcec6307ea5, type: 3}
+      objectReference: {fileID: 21300000, guid: bcc89859391dd404baab6c4de4d81af4, type: 3}
     - target: {fileID: 5826155166161098940, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Name
       value: DogCommandToDo (1)
@@ -391,7 +393,7 @@ PrefabInstance:
     - target: {fileID: 1821833369002269212, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: cf8795a0f11364545b6c968df00d95e9, type: 3}
+      objectReference: {fileID: 21300000, guid: cd7cf02b3df97f14c8170371c8e33be7, type: 3}
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: dogCommand
       value: 3
@@ -399,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: successSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 49785d1f8479b3041807757bfc9c1df0, type: 3}
+      objectReference: {fileID: 21300000, guid: 5135e6eac6603794c9128f2c9370c30a, type: 3}
     - target: {fileID: 5826155166161098940, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Name
       value: DogCommandToDo (3)
@@ -505,11 +507,11 @@ PrefabInstance:
     - target: {fileID: 1821833369002269212, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2ff0dc9241411964ca442dcb2c3b5f4f, type: 3}
+      objectReference: {fileID: 21300000, guid: e3a25698269bd15428aee752a64a2877, type: 3}
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: successSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 99af83f1f9d217e46904c89824331cc8, type: 3}
+      objectReference: {fileID: 21300000, guid: 113106cfc571b8440acf9a3922751b78, type: 3}
     - target: {fileID: 5826155166161098940, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_Name
       value: DogCommandToDo
@@ -1067,18 +1069,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2598654563918798995}
     m_Modifications:
-    - target: {fileID: 1821833369002269212, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 18e73c49f39a53144bbf858932bf0427, type: 3}
     - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: dogCommand
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4099862922495816721, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
-      propertyPath: successSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1c22d40439aaa4b488de47207a258689, type: 3}
     - target: {fileID: 4243382374245565433, guid: d715eba487fbe584796eb878bcef7ab8, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1
