@@ -11,7 +11,11 @@ public abstract class StudioSet : MonoBehaviour
     protected ContestantQuestioningManager contestantQuestioningManager = null;
     protected virtual void Start()
     {
-        contestantQuestioningManager=ContestantQuestioningManager.Instance;
+        contestantQuestioningManager = ContestantQuestioningManager.Instance;
+    }
+
+    protected virtual void OnEnable()
+    {
         RenderSettings.skybox = skybox;
     }
     public abstract void OpenPlayerCurtain(PlayerScript player);
