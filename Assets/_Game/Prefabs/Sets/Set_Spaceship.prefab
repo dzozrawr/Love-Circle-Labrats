@@ -2293,7 +2293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9130483074058831820
 Transform:
   m_ObjectHideFlags: 0
@@ -3642,7 +3642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2518398717613418013
 Transform:
   m_ObjectHideFlags: 0
@@ -4220,6 +4220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8986841721257224134}
+  - component: {fileID: 7614330765074877661}
   m_Layer: 0
   m_Name: Set_Spaceship
   m_TagString: Untagged
@@ -4291,6 +4292,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7614330765074877661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645922011757034876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6195e9eb235b163428450efa3776f6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerL: {fileID: 0}
+  playerR: {fileID: 0}
+  skybox: {fileID: 2100000, guid: e9824bdb404c54b40a4442dcf1a49a79, type: 2}
+  curtainL: {fileID: 387864187641475299}
+  curtainR: {fileID: 2197640715270368014}
+  alienTubes:
+  - {fileID: 2820463765256212638}
+  - {fileID: 1975764991220275846}
+  - {fileID: 1731244852756248951}
+  - {fileID: 5499294106767253067}
+  - {fileID: 5148220686788757988}
+  eliminatedContestantsSpacePos:
+  - {fileID: 6990707251255108115}
+  - {fileID: 5420183329619501323}
+  - {fileID: 460329728234073100}
+  miniGameSpacePos:
+  - {fileID: 5095225835233766397}
+  - {fileID: 860160965796473556}
+  - {fileID: 2264502086939286421}
+  tubeOffsetFromGround: 0
+  tubeDroppingDownDuration: 0.5
+  eliminationDelayBeforeGoingUp: 0.28
+  eliminationGoingUpTweenDuration: 0.75
+  eliminationGoingUpEndHeight: 25
+  contestantSpaceVelocity: 4.9
+  contestantSpaceRotationIntensity: 0.516
 --- !u!1 &8855773906650949680
 GameObject:
   m_ObjectHideFlags: 0

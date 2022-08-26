@@ -2878,6 +2878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8319282944018546705}
+  - component: {fileID: 8784472203978186288}
   m_Layer: 0
   m_Name: Set_Studio
   m_TagString: Untagged
@@ -2938,6 +2939,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8784472203978186288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8664881075572529835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c42e23a8c5b0f64e81efb30c8ea71c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerL: {fileID: 0}
+  playerR: {fileID: 0}
+  skybox: {fileID: 2100000, guid: d63482a645e42d2419bb9bd0d434844d, type: 2}
+  curtainL: {fileID: 1802098340805669326}
+  curtainR: {fileID: 8729202550863517368}
+  eliminationHoleList:
+  - {fileID: 7546608454607093833}
+  - {fileID: 6394402929485819005}
+  - {fileID: 6717925560928454213}
+  - {fileID: 5366123320523798866}
+  - {fileID: 8336637757354408090}
+  eliminationHoleTweenDuration: 0.28
+  eliminationDelayBeforeDroppingDown: 0.35
+  eliminationDroppingDownTweenDuration: 0.2
+  eliminationDroppingDownEndHeight: -5
 --- !u!1 &8729202550863517368
 GameObject:
   m_ObjectHideFlags: 0
