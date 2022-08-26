@@ -844,6 +844,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2050076830467820171}
+  - component: {fileID: 435473039886475652}
   m_Layer: 0
   m_Name: Set_Beach
   m_TagString: Untagged
@@ -929,6 +930,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435473039886475652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673235349372620849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afd51a7f0cf8034bb8de2d3817d6d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerL: {fileID: 0}
+  playerR: {fileID: 0}
+  skybox: {fileID: 2100000, guid: 72365be61672a444a8e9305a81f8101a, type: 2}
+  curtainL: {fileID: 2641144013363635146}
+  curtainR: {fileID: 2069991985256483019}
+  eliminationSpringlist:
+  - {fileID: 6429599864832293852}
+  - {fileID: 9181134560830985364}
+  - {fileID: 4255962343043177614}
+  - {fileID: 1027800087108891881}
+  - {fileID: 8283177725092586368}
+  eliminationForceMagnitude: 23
+  launchVectorDegreeRandomizationRange: 0
+  curtainCloseOffset: 0.117
 --- !u!1 &1696261367127933956
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4858579698770525813, guid: 2003871147099f348ac3e128a0ffb2b6, type: 3}
+  - {fileID: 2100000, guid: 0d6f038a76b8bb04fbf3cb688d206957, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
