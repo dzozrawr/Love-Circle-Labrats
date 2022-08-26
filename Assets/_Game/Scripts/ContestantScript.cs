@@ -109,10 +109,12 @@ public class ContestantScript : MonoBehaviour
         if (isThumbsUp)
         {
             thumbsUpOrDownImage.sprite = thumbsUpSprite;
+            gameObject.GetComponentInChildren<Animator>().SetTrigger("Happy");
         }
         else
         {
             thumbsUpOrDownImage.sprite = thumbsDownSprite;
+            gameObject.GetComponentInChildren<Animator>().SetTrigger("Sad");
         }
         thumbsUpOrDownImage.gameObject.SetActive(true);
     }
