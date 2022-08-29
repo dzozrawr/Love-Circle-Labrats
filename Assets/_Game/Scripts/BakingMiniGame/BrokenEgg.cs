@@ -12,6 +12,7 @@ public class BrokenEgg : MonoBehaviour
         //play animation of egg breaking
         GameObject eggYolkInstance= Instantiate(eggYolk, placeForYolk.transform.position, Quaternion.identity);
         eggYolkInstance.transform.SetParent(transform.parent);
+        BakingMiniGame.Instance.EggYolks.Add(eggYolkInstance);
         //Debug.Log(transform.position);
     }
 }

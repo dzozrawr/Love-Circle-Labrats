@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BakingMiniGame : MiniGame
 {
+    static private BakingMiniGame instance=null;
     public EggBreakingPhase eggBreakingPhase = new EggBreakingPhase();
     public FlourPourPhase flourPourPhase = new FlourPourPhase();
     public SugarPourPhase sugarPourPhase = new SugarPourPhase();
+    public BakingMixingPhase mixingPhase=new BakingMixingPhase();
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
 
@@ -27,12 +29,31 @@ public class BakingMiniGame : MiniGame
     public Vector3 sugarPileStartScale, sugarPileEndScale;
     public GameObject sugarBox = null;
     public Spill sugarSpill = null;
+
+    public GameObject dough=null;
+
+    public Vector3 doughStartScale, doughEndScale;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
     private GameController gameController = null;
+
+    private Vector3 sugarPileInitPos;
+
+    private List<GameObject> eggYolks=new List<GameObject>();
+
+    public Vector3 SugarPileInitPos { get => sugarPileInitPos; set => sugarPileInitPos = value; }
+    public List<GameObject> EggYolks { get => eggYolks; set => eggYolks = value; }
+    public static BakingMiniGame Instance { get => instance; }
+
     private void Awake()
     {
+        if(instance!=null){
+            Destroy(gameObject);
+            return;
+        }
+        instance=this;
+
         models.SetActive(false);
         canvas.gameObject.SetActive(false);
     }
@@ -43,11 +64,14 @@ public class BakingMiniGame : MiniGame
         models.SetActive(true);
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
+
+        sugarPileInitPos= sugarPile.transform.position;
     }
 
     private void OnEnable()
     {
         currentState = eggBreakingPhase;
+        
     }
     protected override void OnEliminateButtonPressed()
     {

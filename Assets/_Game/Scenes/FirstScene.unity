@@ -7560,17 +7560,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b1e8ef773257b48a4fc7fa7acdf636, type: 3}
---- !u!114 &317297888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1416178989136156900, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
-  m_PrefabInstance: {fileID: 378566662}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b1f5a4ddd66b54e85a94b39d709459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &334278657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1423818154780426, guid: 80e52d0be9c5c754f915a6fa360535bb, type: 3}
@@ -8397,10 +8386,6 @@ PrefabInstance:
       propertyPath: sugarProgressBar
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3175713019379684440, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
-      propertyPath: bakingProgressBar
-      value: 
-      objectReference: {fileID: 317297888}
     - target: {fileID: 3372927605054143954, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
       propertyPath: type
       value: 1
@@ -18596,6 +18581,9 @@ GameObject:
   - component: {fileID: 1210223691}
   - component: {fileID: 1210223693}
   - component: {fileID: 1210223692}
+  - component: {fileID: 1210223696}
+  - component: {fileID: 1210223695}
+  - component: {fileID: 1210223694}
   m_Layer: 0
   m_Name: Dough
   m_TagString: Untagged
@@ -18611,8 +18599,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210223690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1.9101903, y: 1.9101903, z: 1.9101903}
+  m_LocalPosition: {x: 0, y: 0.923, z: 0}
+  m_LocalScale: {x: 0.0055313846, y: 0.0055313846, z: 0.0055313846}
   m_Children: []
   m_Father: {fileID: 574289084}
   m_RootOrder: 0
@@ -18666,6 +18654,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210223690}
   m_Mesh: {fileID: -4428754836550342530, guid: 8323d5a858a58eb4291785100613a679, type: 3}
+--- !u!54 &1210223694
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210223690}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1210223695
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210223690}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4428754836550342530, guid: 8323d5a858a58eb4291785100613a679, type: 3}
+--- !u!114 &1210223696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210223690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3697e3344333e40a6483990c1d794b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1220442297 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1604291275069956, guid: 249b9b1c77ae0f647a80cbcf28d5a152, type: 3}
@@ -24507,6 +24537,9 @@ MonoBehaviour:
   sugarPileEndScale: {x: 1.5, y: 1.5, z: 1.5}
   sugarBox: {fileID: 1159020473}
   sugarSpill: {fileID: 1170405838}
+  dough: {fileID: 1210223690}
+  doughStartScale: {x: 0.5, y: 0.5, z: 0.5}
+  doughEndScale: {x: 1.91019, y: 1.91019, z: 1.91019}
   isMiniGameStarted: 0
 --- !u!1 &2126633209
 GameObject:
