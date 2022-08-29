@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SugarProgressBar : MonoBehaviour
+public class BakingProgressBar : MonoBehaviour
 {
     public Slider slider = null;
     // Start is called before the first frame update

@@ -8,8 +8,7 @@ public class Spill : MonoBehaviour
     ParticleSystem particleSystem;
     public float startAngle = 120f;
     public bool isSpilling=false;
-    public GameObject sugarPile=null;
-    public SugarProgressBar sugarProgressBar = null;
+
 
     // Start is called before the first frame update
     void Start()

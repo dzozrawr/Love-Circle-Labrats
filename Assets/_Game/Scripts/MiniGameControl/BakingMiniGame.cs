@@ -6,19 +6,30 @@ public class BakingMiniGame : MiniGame
 {
     public EggBreakingPhase eggBreakingPhase = new EggBreakingPhase();
     public FlourPourPhase flourPourPhase = new FlourPourPhase();
-    public SugarPourPhase sugarPourPhase=new SugarPourPhase();
+    public SugarPourPhase sugarPourPhase = new SugarPourPhase();
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
 
-    public Spill sugarSpill = null;
-    public GameObject sugarPile = null;
-    public GameObject sugarBox=null;
+
+
 
     public BakingMiniGameCanvas bakingMiniGameCanvas = null;
 
-    public bool isMiniGameStarted=false;
+    public BrokenEgg[] brokenEggs;
 
-    private BakingMiniGameState currentState = null;
+    public GameObject flourPile = null;
+    public Vector3 flourPileStartScale, flourPileEndScale;
+    public GameObject flourBag = null;
+    public Spill flourSpill = null;
+
+    public GameObject sugarPile = null;
+
+    public Vector3 sugarPileStartScale, sugarPileEndScale;
+    public GameObject sugarBox = null;
+    public Spill sugarSpill = null;
+    public bool isMiniGameStarted = false;
+
+    private BakingMiniGameState currentState = null, prevState = null;
     private GameController gameController = null;
     private void Awake()
     {
@@ -51,8 +62,17 @@ public class BakingMiniGame : MiniGame
 
     private void Update()
     {
-        if(!isMiniGameStarted)return;
+        if (!isMiniGameStarted) return;
+
+        if (prevState != currentState)
+        {
+            currentState.InitState(this);
+        }
+
+        prevState = currentState;
         currentState = currentState.DoState(this);
+
+
         /*         if(sugarSpill.isSpilling){
                     sugarPile.transform.localScale=new Vector3(sugarPile.transform.localScale.x>1?1:(sugarPile.transform.localScale.x+Time.deltaTime/4),sugarPile.transform.localScale.y>1?1:(sugarPile.transform.localScale.y+Time.deltaTime/4),sugarPile.transform.localScale.z>1?1:(sugarPile.transform.localScale.z+Time.deltaTime/4));
                     sugarProgressBar.SetFill(sugarPile.transform.localScale.x);

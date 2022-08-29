@@ -118,6 +118,7 @@ MonoBehaviour:
   - {fileID: 1942528235689838063}
   - {fileID: 3372927605054143954}
   - {fileID: 5195335823814959116}
+  sugarProgressBar: {fileID: 0}
 --- !u!1 &8246392490595191072
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,13 +525,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Progress Bar
       objectReference: {fileID: 0}
-    - target: {fileID: 138165626687564601, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 138165626267226439, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 138165626687564601, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138165626687564601, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
