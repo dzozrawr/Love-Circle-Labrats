@@ -6,8 +6,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class BakingUIElement : MonoBehaviour
 {
-    public enum BakingUIElementType{
-        Egg,Flour,Sugar
+    public enum BakingUIElementType
+    {
+        Egg, Flour, Sugar, Blueberries, Cranberries, Stawberries
     }
     public Sprite selectedSprite = null;
     public Sprite unselectedSprite = null;
@@ -19,12 +20,13 @@ public class BakingUIElement : MonoBehaviour
     private void Awake()
     {
         img = GetComponent<Image>();
-        if(img==null){
+        if (img == null)
+        {
             Debug.Log("img s null");
         }
     }
     public void Select(bool shouldSelect)
     {
-        if (shouldSelect)img.sprite=selectedSprite; else img.sprite=unselectedSprite;
+        if (shouldSelect) img.sprite = selectedSprite; else img.sprite = unselectedSprite;
     }
 }

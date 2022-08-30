@@ -9,6 +9,9 @@ public class BakingMiniGame : MiniGame
     public FlourPourPhase flourPourPhase = new FlourPourPhase();
     public SugarPourPhase sugarPourPhase = new SugarPourPhase();
     public BakingMixingPhase mixingPhase=new BakingMixingPhase();
+    public BowlSwitchPhase bowlSwitchPhase=new BowlSwitchPhase();
+    public FruitPuttingPhase fruitPhase=new FruitPuttingPhase();
+
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
 
@@ -33,6 +36,14 @@ public class BakingMiniGame : MiniGame
     public GameObject dough=null;
 
     public Vector3 doughStartScale, doughEndScale;
+
+    public GameObject hitCircleForFruit=null;
+
+    public GameObject pieDishPrefab=null;
+
+    public Transform bowlMovedPlace=null;
+
+    public GameObject mixingBowl=null;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
