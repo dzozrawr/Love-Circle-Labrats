@@ -10,14 +10,19 @@ public class BakingMiniGameCanvas : MonoBehaviour
 
     public GameObject phase3UIElementsGroup = null;
 
+    public GameObject pieCuttingUIElementsGroup=null;
+
     private List<BakingUIElement> fruitIcons = new List<BakingUIElement>();
 
     private GameObject chosenFruit=null;
     private int maxFruitLimit;
 
+    private int chosenPatternNumber=-1;
+
     public List<BakingUIElement> FruitIcons { get => fruitIcons; set => fruitIcons = value; }
     public GameObject ChosenFruit { get => chosenFruit; set => chosenFruit = value; }
     public int MaxFruitLimit { get => maxFruitLimit; set => maxFruitLimit = value; }
+    public int ChosenPatternNumber { get => chosenPatternNumber; set => chosenPatternNumber = value; }
 
     private void Awake()
     {

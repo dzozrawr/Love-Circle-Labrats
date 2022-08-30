@@ -26,6 +26,7 @@ public class BowlSwitchPhase : BakingMiniGameState
         {
             mixingBowl.SetActive(false);
             pieDishInstance = MonoBehaviour.Instantiate(pieDishPrefab, placeToMoveBowlTo.position, Quaternion.identity);
+            bmg.PieDish=pieDishInstance.GetComponent<PieDish>();
             pieDishInstance.transform.SetParent(bmg.models.transform);
             pieDishInstance.transform.DOMove(bowlInitPos,1.5f).OnComplete(()=>{
                 isPhaseFinished=true;
