@@ -10,6 +10,7 @@ public class BrokenEgg : MonoBehaviour
     public void BreakEgg()
     {
         //play animation of egg breaking
+        gameObject.GetComponentInChildren<Animator>().SetTrigger("egg");
         GameObject eggYolkInstance= Instantiate(eggYolk, placeForYolk.transform.position, Quaternion.identity);
         eggYolkInstance.transform.SetParent(transform.parent);
         BakingMiniGame.Instance.EggYolks.Add(eggYolkInstance);

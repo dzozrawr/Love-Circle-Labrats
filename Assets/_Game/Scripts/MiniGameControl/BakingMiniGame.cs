@@ -34,6 +34,7 @@ public class BakingMiniGame : MiniGame
     public Spill sugarSpill = null;
 
     public GameObject dough=null;
+    public GameObject woodenSpoon = null;
 
     public Vector3 doughStartScale, doughEndScale;
 
