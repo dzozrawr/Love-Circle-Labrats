@@ -8,8 +8,10 @@ public class BakingFruitUI : MonoBehaviour  //used to store information about th
     public BakingMiniGameCanvas bakingMiniGameCanvas=null;
     public GameObject fruitPrefab=null;
 
+    public int maxFruitLimit=10;
+
     public void OnButtonClick(){
-        bakingMiniGameCanvas.ChosenFruit=fruitPrefab;
+        bakingMiniGameCanvas.SetChosenFruit(fruitPrefab,maxFruitLimit);
         Image img;
         foreach (BakingFruitUI f in transform.parent.GetComponentsInChildren<BakingFruitUI>())
         {
