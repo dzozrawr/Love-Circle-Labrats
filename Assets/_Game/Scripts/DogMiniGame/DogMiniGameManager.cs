@@ -43,7 +43,7 @@ namespace DogMiniGame
             }
 
             commandUserButtons = commandUserButtonsGroup.GetComponentsInChildren<Button>();
-            Debug.Log(commandUserButtons.Length);
+           // Debug.Log(commandUserButtons.Length);
         }
 
 
