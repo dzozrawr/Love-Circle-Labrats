@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BakingMiniGameCanvas : MonoBehaviour
 {
+    public GameObject phase1UIElementsGroup=null;
     public BakingUIElement[] phase1UIElements;
-    public SugarProgressBar sugarProgressBar=null;
+    public BakingProgressBar bakingProgressBar=null;
 
 }

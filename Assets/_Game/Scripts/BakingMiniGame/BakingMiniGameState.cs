@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface BakingMiniGameState
 {
+    void InitState(BakingMiniGame bmg);
     BakingMiniGameState DoState(BakingMiniGame bmg);
 }

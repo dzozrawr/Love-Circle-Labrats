@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OceanTrigger : MonoBehaviour
 {
+    public ParticleSystem splashParticle=null;
     private ContestantQuestioningManager contestantQuestioningManager;
     private void Start()
     {
@@ -13,10 +14,15 @@ public class OceanTrigger : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Contestant"))
         {
-            //add splash particle and whatnot, sound maybe
+            StartCoroutine(Splash(other.gameObject.transform.position));//add splash particle and whatnot, sound maybe
             contestantQuestioningManager.ContestantEliminatedSignal();
             ContestantScript contestantScript= other.transform.GetComponentInParent<ContestantScript>();
             Destroy(contestantScript.gameObject,1f);
         }
+    }
+
+    IEnumerator Splash(Vector3 pos){
+        Instantiate(splashParticle,pos,Quaternion.identity) ;
+        yield return null;
     }
 }
