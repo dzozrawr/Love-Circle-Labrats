@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17410691, g: 0.21771969, b: 0.29991102, a: 1}
+  m_IndirectSpecularColor: {r: 0.1809054, g: 0.22645195, b: 0.3072343, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6291,7 +6291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102824012}
-  m_LocalRotation: {x: 0.06722379, y: 0.70528483, z: -0.06749076, w: 0.70249504}
+  m_LocalRotation: {x: 0.06722378, y: 0.7052849, z: -0.06749075, w: 0.702495}
   m_LocalPosition: {x: 10.869989, y: 4.19, z: 6.3799973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8100,6 +8100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 489986359}
     m_Modifications:
+    - target: {fileID: 1096549553138506, guid: fbea067456b53a34fb244b36b17dc3bc, type: 3}
+      propertyPath: m_TagString
+      value: Contestant
+      objectReference: {fileID: 0}
     - target: {fileID: 1193798993792288, guid: fbea067456b53a34fb244b36b17dc3bc, type: 3}
       propertyPath: m_Name
       value: TTBoyB (10)
@@ -8333,6 +8337,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -223.06505
       objectReference: {fileID: 0}
+    - target: {fileID: 7310272103863349538, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7310272103863349539, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8341,17 +8349,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7310272103977749340, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 301.0335
-      objectReference: {fileID: 0}
-    - target: {fileID: 7310272103977749340, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 25.8491
-      objectReference: {fileID: 0}
     - target: {fileID: 7310272103977749341, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
       propertyPath: m_Name
       value: Baking Progress Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310272103977749341, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7310272104535724680, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7844480917145863390, guid: 5165fdc91d4b10f419e1b806115e3a41, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8915,11 +8923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8729934237770436257, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.4328552
+      value: -0.43285516
       objectReference: {fileID: 0}
     - target: {fileID: 8729934237770436257, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.032296143
+      value: -0.03229614
       objectReference: {fileID: 0}
     - target: {fileID: 8729934237770436257, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: m_LocalRotation.y
@@ -10716,6 +10724,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 59897641}
     m_Modifications:
+    - target: {fileID: 1486864019482080, guid: 249b9b1c77ae0f647a80cbcf28d5a152, type: 3}
+      propertyPath: m_TagString
+      value: Contestant
+      objectReference: {fileID: 0}
     - target: {fileID: 1655093938508156, guid: 249b9b1c77ae0f647a80cbcf28d5a152, type: 3}
       propertyPath: m_Name
       value: TPMaleB (1)
@@ -20985,6 +20997,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1065303863}
     m_Modifications:
+    - target: {fileID: 1703973291649212, guid: 885bf2caed0dc99499b8f21a592f902a, type: 3}
+      propertyPath: m_TagString
+      value: Contestant
+      objectReference: {fileID: 0}
     - target: {fileID: 1880960205201230, guid: 885bf2caed0dc99499b8f21a592f902a, type: 3}
       propertyPath: m_Name
       value: TPMaleC (2)
@@ -26008,7 +26024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673235349372620849, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1696261367127933956, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_IsActive
@@ -26839,7 +26855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8664881075572529835, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8744645310106059670, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
       propertyPath: m_Name
