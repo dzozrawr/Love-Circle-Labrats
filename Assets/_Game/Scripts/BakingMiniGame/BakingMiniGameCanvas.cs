@@ -13,9 +13,11 @@ public class BakingMiniGameCanvas : MonoBehaviour
     private List<BakingUIElement> fruitIcons = new List<BakingUIElement>();
 
     private GameObject chosenFruit=null;
+    private int maxFruitLimit;
 
     public List<BakingUIElement> FruitIcons { get => fruitIcons; set => fruitIcons = value; }
     public GameObject ChosenFruit { get => chosenFruit; set => chosenFruit = value; }
+    public int MaxFruitLimit { get => maxFruitLimit; set => maxFruitLimit = value; }
 
     private void Awake()
     {
@@ -23,6 +25,11 @@ public class BakingMiniGameCanvas : MonoBehaviour
         {
             fruitIcons.Add(b);
         }    
+    }
+
+    public void SetChosenFruit(GameObject fruit, int maxLimit){
+        chosenFruit=fruit;
+        maxFruitLimit=maxLimit;
     }
 
 }
