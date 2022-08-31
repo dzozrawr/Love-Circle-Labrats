@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BakingMiniGame : MiniGame
 {
@@ -13,6 +14,7 @@ public class BakingMiniGame : MiniGame
     public FruitPuttingPhase fruitPhase=new FruitPuttingPhase();
     public TopLayerPutPhase topLayerPutPhase= new TopLayerPutPhase();
     public PieCuttingPhase pieCuttingPhase=new PieCuttingPhase();
+    public BakingPhase bakingPhase=new BakingPhase();
 
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
@@ -47,6 +49,7 @@ public class BakingMiniGame : MiniGame
     public Transform bowlMovedPlace=null;
 
     public GameObject mixingBowl=null;
+    public CinemachineVirtualCamera topDownBakingCamera=null;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
