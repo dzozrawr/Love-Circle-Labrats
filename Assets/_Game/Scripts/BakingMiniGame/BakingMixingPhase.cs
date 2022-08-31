@@ -59,7 +59,7 @@ public class BakingMixingPhase : BakingMiniGameState
 
             if (progress >= 1f)
             {
-                Debug.Log("Mixing done");
+//                Debug.Log("Mixing done");
                 return bmg.bowlSwitchPhase;
             }
         }
