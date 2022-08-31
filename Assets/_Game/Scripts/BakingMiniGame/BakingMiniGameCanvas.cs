@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using BakingMinigameFruit;
 
 public class BakingMiniGameCanvas : MonoBehaviour
@@ -12,6 +13,10 @@ public class BakingMiniGameCanvas : MonoBehaviour
     public GameObject phase3UIElementsGroup = null;
 
     public GameObject pieCuttingUIElementsGroup=null;
+
+    public static UnityEvent Phase1ElementSelected=new UnityEvent();
+
+    public static BakingUIElement.BakingUIElementType chosenPhase1ElementType;
 
     private List<BakingUIElement> fruitIcons = new List<BakingUIElement>();
 
