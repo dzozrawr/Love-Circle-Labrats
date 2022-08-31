@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BakingMiniGame : MiniGame
 {
-    static private BakingMiniGame instance=null;
+    static private BakingMiniGame instance = null;
     public EggBreakingPhase eggBreakingPhase = new EggBreakingPhase();
     public FlourPourPhase flourPourPhase = new FlourPourPhase();
     public SugarPourPhase sugarPourPhase = new SugarPourPhase();
-    public BakingMixingPhase mixingPhase=new BakingMixingPhase();
-    public BowlSwitchPhase bowlSwitchPhase=new BowlSwitchPhase();
-    public FruitPuttingPhase fruitPhase=new FruitPuttingPhase();
-    public TopLayerPutPhase topLayerPutPhase= new TopLayerPutPhase();
-    public PieCuttingPhase pieCuttingPhase=new PieCuttingPhase();
+    public BakingMixingPhase mixingPhase = new BakingMixingPhase();
+    public BowlSwitchPhase bowlSwitchPhase = new BowlSwitchPhase();
+    public FruitPuttingPhase fruitPhase = new FruitPuttingPhase();
+    public TopLayerPutPhase topLayerPutPhase = new TopLayerPutPhase();
+    public PieCuttingPhase pieCuttingPhase = new PieCuttingPhase();
 
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
@@ -35,18 +36,19 @@ public class BakingMiniGame : MiniGame
     public GameObject sugarBox = null;
     public Spill sugarSpill = null;
 
-    public GameObject dough=null;
+    public GameObject dough = null;
     public GameObject woodenSpoon = null;
 
     public Vector3 doughStartScale, doughEndScale;
 
-    public GameObject hitCircleForFruit=null;
+    public GameObject hitCircleForFruit = null;
 
-    public GameObject pieDishPrefab=null;
+    public GameObject pieDishPrefab = null;
 
-    public Transform bowlMovedPlace=null;
+    public Transform bowlMovedPlace = null;
 
-    public GameObject mixingBowl=null;
+    public GameObject mixingBowl = null;
+    public CinemachineVirtualCamera topDownBakingCamera = null;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
@@ -54,9 +56,9 @@ public class BakingMiniGame : MiniGame
 
     private Vector3 sugarPileInitPos;
 
-    private List<GameObject> eggYolks=new List<GameObject>();
+    private List<GameObject> eggYolks = new List<GameObject>();
 
-    private PieDish pieDish=null;
+    private PieDish pieDish = null;
 
     public Vector3 SugarPileInitPos { get => sugarPileInitPos; set => sugarPileInitPos = value; }
     public List<GameObject> EggYolks { get => eggYolks; set => eggYolks = value; }
@@ -65,11 +67,12 @@ public class BakingMiniGame : MiniGame
 
     private void Awake()
     {
-        if(instance!=null){
+        if (instance != null)
+        {
             Destroy(gameObject);
             return;
         }
-        instance=this;
+        instance = this;
 
         models.SetActive(false);
         canvas.gameObject.SetActive(false);
@@ -82,13 +85,13 @@ public class BakingMiniGame : MiniGame
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
 
-        sugarPileInitPos= sugarPile.transform.position;
+        sugarPileInitPos = sugarPile.transform.position;
     }
 
     private void OnEnable()
     {
         currentState = eggBreakingPhase;
-        
+
     }
     protected override void OnEliminateButtonPressed()
     {

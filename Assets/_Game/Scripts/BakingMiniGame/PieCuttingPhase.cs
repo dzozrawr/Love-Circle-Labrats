@@ -20,7 +20,7 @@ public class PieCuttingPhase : BakingMiniGameState
         pieDish = bmg.PieDish;
 
         bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
-
+        CameraController.Instance.transitionToCMVirtualCamera(bmg.topDownBakingCamera);
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {

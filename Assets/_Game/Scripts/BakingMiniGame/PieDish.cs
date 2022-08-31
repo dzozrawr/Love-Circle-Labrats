@@ -10,4 +10,9 @@ public class PieDish : MonoBehaviour
     
     public GameObject[] pieTopLayers;
     public GameObject[] pieCutters;
+    public GameObject[] pieBakedRedTopLayers;
+    public GameObject[] pieBakedBlueTopLayers;
+    public GameObject bakedBody=null;
+    public ParticleSystem goodBakedParticles=null;
+    public ParticleSystem badBakedParticles=null;
 }
