@@ -14,13 +14,18 @@ public class PieCuttingPhase : BakingMiniGameState
     private bool isPhaseDone = false;
 
     private Vector3 pieCutterInitPos;
+
+
     public void InitState(BakingMiniGame bmg)
     {
         bakingMiniGameCanvas = bmg.bakingMiniGameCanvas;
         pieDish = bmg.PieDish;
 
-        bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+       // bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+       
         CameraController.Instance.transitionToCMVirtualCamera(bmg.topDownBakingCamera);
+        CheckForCameraBlending.onCameraBlendFinished+=()=>bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+        //bmg.topDownBakingCamera.OnTargetObjectWarped()
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
