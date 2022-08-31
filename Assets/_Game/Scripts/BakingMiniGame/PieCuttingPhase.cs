@@ -15,38 +15,43 @@ public class PieCuttingPhase : BakingMiniGameState
 
     private Vector3 pieCutterInitPos;
 
-
+    private bool onceBool = false;
     public void InitState(BakingMiniGame bmg)
     {
         bakingMiniGameCanvas = bmg.bakingMiniGameCanvas;
         pieDish = bmg.PieDish;
 
-       // bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
-       
+        // bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+
         CameraController.Instance.transitionToCMVirtualCamera(bmg.topDownBakingCamera);
-        CheckForCameraBlending.onCameraBlendFinished+=()=>bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+        CheckForCameraBlending.onCameraBlendFinished += () => bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
         //bmg.topDownBakingCamera.OnTargetObjectWarped()
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
         if (isPhaseDone)
         {
-            return this;
+            bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
+            return bmg.bakingPhase;
         }
         if (bakingMiniGameCanvas.ChosenPatternNumber == -1) return this;
 
-        pieCutter = pieDish.pieCutters[bakingMiniGameCanvas.ChosenPatternNumber];
-        pieTopLayerCut = pieDish.pieTopLayers[bakingMiniGameCanvas.ChosenPatternNumber];
-        bakingMiniGameCanvas.ChosenPatternNumber = -1;
-
-        pieCutterInitPos = pieCutter.transform.position;
-        pieCutter.transform.position = pieDish.pieCutterAbovePos.position;
-        pieCutter.gameObject.SetActive(true);
-
-        pieCutter.transform.DOMove(pieCutterInitPos, 1f).OnComplete(() =>
+        if (!onceBool)
         {
-            bmg.StartCoroutine(MoveCutterUpWDelay(0.5f));
-        });
+            pieCutter = pieDish.pieCutters[bakingMiniGameCanvas.ChosenPatternNumber];
+            pieTopLayerCut = pieDish.pieTopLayers[bakingMiniGameCanvas.ChosenPatternNumber];
+
+            pieCutterInitPos = pieCutter.transform.position;
+            pieCutter.transform.position = pieDish.pieCutterAbovePos.position;
+            pieCutter.gameObject.SetActive(true);
+
+            pieCutter.transform.DOMove(pieCutterInitPos, 1f).OnComplete(() =>
+            {
+                bmg.StartCoroutine(MoveCutterUpWDelay(0.5f));
+            });
+            onceBool = true;
+        }
+
 
         return this;
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4538513771043349729}
   - component: {fileID: 5460558709917843637}
   - component: {fileID: 660026921298248131}
+  - component: {fileID: 4417097268773276220}
   m_Layer: 0
   m_Name: Cranberry model
   m_TagString: Untagged
@@ -113,6 +114,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5590942379412241652, guid: 8323d5a858a58eb4291785100613a679, type: 3}
+--- !u!114 &4417097268773276220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621762028982979571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6640389296196d149bb02316b6372571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToParent: {fileID: 6829323843635361079}
 --- !u!1 &6829323843635361079
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244920168200725943}
+  - component: {fileID: -619273426275168741}
   m_Layer: 0
   m_Name: Cranberry
   m_TagString: Untagged
@@ -144,3 +159,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-619273426275168741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829323843635361079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833d411214a67454d8734b7817a1a7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

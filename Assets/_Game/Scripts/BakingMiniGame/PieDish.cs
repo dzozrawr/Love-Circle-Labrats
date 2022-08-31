@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PieDish : MonoBehaviour
 {
+    public GameObject unbakedBody=null;
     public GameObject topLayer=null;
     public Transform topLayerAbovePos=null;
     public Transform pieCutterAbovePos=null;
