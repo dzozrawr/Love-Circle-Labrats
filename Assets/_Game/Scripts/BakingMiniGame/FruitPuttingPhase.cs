@@ -35,7 +35,7 @@ public class FruitPuttingPhase : BakingMiniGameState
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
         if(bakingMiniGameCanvas.ChosenFruit==null) return this;
-        if(progress>=1f) return this;
+        
         if (Input.GetMouseButton(0))
         {
             ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -51,7 +51,7 @@ public class FruitPuttingPhase : BakingMiniGameState
 
             }
         }
-
+        if(progress>=1f) return bmg.topLayerPutPhase;
         
         return this;
     }
