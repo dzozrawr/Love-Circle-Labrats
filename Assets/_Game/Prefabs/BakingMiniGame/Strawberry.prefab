@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 422458466911590494}
+  - component: {fileID: -8657028999100811091}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Untagged
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8657028999100811091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422458466911590489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 833d411214a67454d8734b7817a1a7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4684269997790832647
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +57,7 @@ GameObject:
   - component: {fileID: 6090516693518901555}
   - component: {fileID: 1252200674195112575}
   - component: {fileID: 3536927313798098404}
+  - component: {fileID: 8952151726850942150}
   m_Layer: 0
   m_Name: Strawberry model
   m_TagString: Untagged
@@ -144,3 +158,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3840383602836954559, guid: 8323d5a858a58eb4291785100613a679, type: 3}
+--- !u!114 &8952151726850942150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4684269997790832647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6640389296196d149bb02316b6372571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToParent: {fileID: 422458466911590489}

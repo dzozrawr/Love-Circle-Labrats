@@ -15,7 +15,11 @@ public class BakingUIElement : MonoBehaviour
 
     public BakingUIElementType type;
 
+    private bool isSelected=false;
+
     private Image img = null;
+
+    public bool IsSelected { get => isSelected; set => isSelected = value; }
 
     private void Awake()
     {
@@ -28,5 +32,13 @@ public class BakingUIElement : MonoBehaviour
     public void Select(bool shouldSelect)
     {
         if (shouldSelect) img.sprite = selectedSprite; else img.sprite = unselectedSprite;
+        
+        foreach (BakingUIElement b in transform.parent.GetComponentsInChildren<BakingUIElement>())
+        {
+            b.GetComponent<Button>().enabled=false;
+        }
+        isSelected=true;
+        BakingMiniGameCanvas.chosenPhase1ElementType=type;
+        BakingMiniGameCanvas.Phase1ElementSelected?.Invoke(); 
     }
 }

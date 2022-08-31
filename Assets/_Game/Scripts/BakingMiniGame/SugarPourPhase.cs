@@ -62,7 +62,7 @@ public class SugarPourPhase : BakingMiniGameState
             if (pourProgress < 1) return this;
             else
             {
-                Debug.Log("Sugar pouring done");
+               // Debug.Log("Sugar pouring done");
                 bmg.sugarBox.gameObject.SetActive(false);
                 return bmg.mixingPhase;    //the next phase
             }

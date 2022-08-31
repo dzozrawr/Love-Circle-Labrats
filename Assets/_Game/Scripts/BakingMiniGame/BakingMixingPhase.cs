@@ -59,14 +59,9 @@ public class BakingMixingPhase : BakingMiniGameState
 
             if (progress >= 1f)
             {
-                Debug.Log("Mixing done");
+//                Debug.Log("Mixing done");
                 return bmg.bowlSwitchPhase;
             }
-
-            //Debug.Log("Eggs broken.");
-            /*             isTransitioningToNextPhase = true;
-                        Thread t = new Thread(GoToNextPhase);
-                        t.Start(); */
         }
         else
         {

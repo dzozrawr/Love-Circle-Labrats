@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class BakingMiniGame : MiniGame
 {
@@ -11,6 +12,9 @@ public class BakingMiniGame : MiniGame
     public BakingMixingPhase mixingPhase=new BakingMixingPhase();
     public BowlSwitchPhase bowlSwitchPhase=new BowlSwitchPhase();
     public FruitPuttingPhase fruitPhase=new FruitPuttingPhase();
+    public TopLayerPutPhase topLayerPutPhase= new TopLayerPutPhase();
+    public PieCuttingPhase pieCuttingPhase=new PieCuttingPhase();
+    public BakingPhase bakingPhase=new BakingPhase();
 
     public GameObject[] placeForContestants = null;
     public GameObject placeForPlayer;
@@ -45,6 +49,7 @@ public class BakingMiniGame : MiniGame
     public Transform bowlMovedPlace=null;
 
     public GameObject mixingBowl=null;
+    public CinemachineVirtualCamera topDownBakingCamera=null;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
@@ -54,9 +59,12 @@ public class BakingMiniGame : MiniGame
 
     private List<GameObject> eggYolks=new List<GameObject>();
 
+    private PieDish pieDish=null;
+
     public Vector3 SugarPileInitPos { get => sugarPileInitPos; set => sugarPileInitPos = value; }
     public List<GameObject> EggYolks { get => eggYolks; set => eggYolks = value; }
     public static BakingMiniGame Instance { get => instance; }
+    public PieDish PieDish { get => pieDish; set => pieDish = value; }
 
     private void Awake()
     {
