@@ -11,11 +11,13 @@ public class TopLayerPutPhase : BakingMiniGameState
     private bool isPhaseFinished=false;
     public void InitState(BakingMiniGame bmg)
     {
-        for (int i = 0; i < bmg.bakingMiniGameCanvas.transform.childCount; i++)
+        bmg.bakingMiniGameCanvas.phase3UIElementsGroup.GetComponent<Animator>().SetTrigger("Hide");
+        bmg.bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
+        /*for (int i = 0; i < bmg.bakingMiniGameCanvas.transform.childCount; i++)
         {
             bmg.bakingMiniGameCanvas.transform.GetChild(i).gameObject.SetActive(false);
-        }
-        pieDish= bmg.PieDish;
+        }*/
+        pieDish = bmg.PieDish;
         pieDishInitPos=pieDish.topLayer.transform.position;
         pieDish.topLayer.SetActive(true);
         pieDish.topLayer.transform.position=pieDish.topLayerAbovePos.position;

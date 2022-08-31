@@ -11,6 +11,8 @@ public class BakingMiniGameCanvas : MonoBehaviour
     public BakingUIElement[] phase1UIElements;
     public BakingProgressBar bakingProgressBar = null;
 
+    public GameObject mixingPhaseElements = null;
+
     public GameObject phase3UIElementsGroup = null;
 
     public GameObject pieCuttingUIElementsGroup = null;

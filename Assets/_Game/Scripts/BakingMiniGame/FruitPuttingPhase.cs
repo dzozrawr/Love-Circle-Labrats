@@ -24,9 +24,10 @@ public class FruitPuttingPhase : BakingMiniGameState
         hitCircleForFruit=bmg.hitCircleForFruit;
 
         bakingMiniGameCanvas.phase3UIElementsGroup.SetActive(true);
+        bakingMiniGameCanvas.mixingPhaseElements.SetActive(false);
         hitCircleForFruit.SetActive(true);
         bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
-        bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(true);
+        bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
 
         
 
