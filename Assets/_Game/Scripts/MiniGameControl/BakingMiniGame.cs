@@ -9,6 +9,7 @@ public class BakingMiniGame : MiniGame
     public EggBreakingPhase eggBreakingPhase = new EggBreakingPhase();
     public FlourPourPhase flourPourPhase = new FlourPourPhase();
     public SugarPourPhase sugarPourPhase = new SugarPourPhase();
+    public EggFlourSugarPhase eggFlourSugarPhase=new EggFlourSugarPhase();
     public BakingMixingPhase mixingPhase=new BakingMixingPhase();
     public BowlSwitchPhase bowlSwitchPhase=new BowlSwitchPhase();
     public FruitPuttingPhase fruitPhase=new FruitPuttingPhase();
@@ -61,10 +62,18 @@ public class BakingMiniGame : MiniGame
 
     private PieDish pieDish=null;
 
+    private Stack<Vector3> pileScales=new Stack<Vector3>();
+
+    private GameObject topPile=null;
+    private GameObject bottomPile=null;
+
     public Vector3 SugarPileInitPos { get => sugarPileInitPos; set => sugarPileInitPos = value; }
     public List<GameObject> EggYolks { get => eggYolks; set => eggYolks = value; }
     public static BakingMiniGame Instance { get => instance; }
     public PieDish PieDish { get => pieDish; set => pieDish = value; }
+    public Stack<Vector3> PileScales { get => pileScales;  }
+    public GameObject TopPile { get => topPile; set => topPile = value; }
+    public GameObject BottomPile { get => bottomPile; set => bottomPile = value; }
 
     private void Awake()
     {
@@ -76,6 +85,12 @@ public class BakingMiniGame : MiniGame
 
         models.SetActive(false);
         canvas.gameObject.SetActive(false);
+
+        pileScales.Push(sugarPileEndScale);
+        pileScales.Push(sugarPileStartScale);
+        pileScales.Push(flourPileEndScale);
+        pileScales.Push(flourPileStartScale);
+
     }
 
     [ContextMenu("InitializeMiniGame")]
@@ -90,7 +105,8 @@ public class BakingMiniGame : MiniGame
 
     private void OnEnable()
     {
-        currentState = eggBreakingPhase;
+        //currentState = eggBreakingPhase;
+        currentState=eggFlourSugarPhase;
         
     }
     protected override void OnEliminateButtonPressed()
