@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class BakingMixingPhase : BakingMiniGameState
 {
-    private GameObject sugarPile = null, flourPile = null, dough = null;
+    private GameObject sugarPile = null, flourPile = null, dough = null, woodenSpoon = null;
 
     private float progress = 0f;
 
@@ -22,21 +22,26 @@ public class BakingMixingPhase : BakingMiniGameState
 
         flourPile.SetActive(false);
         dough = bmg.dough;
+        woodenSpoon = bmg.woodenSpoon;
 
         dough.transform.localScale = bmg.doughStartScale;
         dough.SetActive(true);
+        woodenSpoon.SetActive(true);
 
-        foreach (GameObject eggYolk in bmg.EggYolks)
+
+        foreach(GameObject eggYolk in bmg.EggYolks)
         {
             eggYolk.SetActive(false);
         }
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
+
         if (Input.GetMouseButton(0))
         {
             sugarPile.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
             dough.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
+            woodenSpoon.GetComponent<Animator>().speed = 0.6f;
 
             if (progress >= 1f)
             {
@@ -62,6 +67,10 @@ public class BakingMixingPhase : BakingMiniGameState
             /*             isTransitioningToNextPhase = true;
                         Thread t = new Thread(GoToNextPhase);
                         t.Start(); */
+        }
+        else
+        {
+            woodenSpoon.GetComponent<Animator>().speed = 0;
         }
         return this;
     }
