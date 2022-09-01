@@ -20,6 +20,8 @@ public class BakingPhase : BakingMiniGameState
 
         pieDishInitPos = pieDish.transform.position;
 
+        bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
+
 
 
         pieDish.transform.DOMove(placeToMoveBowlTo.position, 1.5f).OnComplete(() =>

@@ -20,6 +20,8 @@ public class PieCuttingPhase : BakingMiniGameState
     {
         bakingMiniGameCanvas = bmg.bakingMiniGameCanvas;
         pieDish = bmg.PieDish;
+        bakingMiniGameCanvas.phase3UIElementsGroup.SetActive(false);
+        bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(false);
 
         // bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
 
@@ -31,7 +33,7 @@ public class PieCuttingPhase : BakingMiniGameState
     {
         if (isPhaseDone)
         {
-            bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
+            bakingMiniGameCanvas.pieCuttingUIElementsGroup.GetComponent<Animator>().SetTrigger("Hide");
             CheckForCameraBlending.onCameraBlendFinished -= ActivateUI;
             return bmg.bakingPhase;
         }

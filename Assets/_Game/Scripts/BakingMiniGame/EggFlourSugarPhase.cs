@@ -46,6 +46,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
+
         if (isEggPhaseDone && isFlourPhaseDone && isSugarPhaseDone)
         {
             BakingMiniGameCanvas.Phase1ElementSelected.RemoveListener(OnPhase1ElementSelected);
@@ -89,7 +90,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                     isFlourPhaseDone = true;
                     isFlourPhaseActive = false;
 
-                    bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(false);
+                    bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
                     flourBag.gameObject.SetActive(false);
 
                     bakingMiniGameCanvas.ReEnablePhase1Buttons();
@@ -115,7 +116,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 if (sugarProgress < 1) return this;
                 else
                 {
-                    bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(false);
+                    bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
                     bmg.sugarBox.SetActive(false);
 
                     isSugarPhaseDone = true;
@@ -145,7 +146,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 isFlourPhaseActive = true;
 
                 bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
-                bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(true);
+                bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
                 flourBag.gameObject.SetActive(true);
 
                 flourPileStartScale = bmg.PileScales.Pop();
@@ -163,7 +164,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
             case BakingUIElement.BakingUIElementType.Sugar:
                 isSugarPhaseActive = true;
 
-                bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(true);
+                bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
                 bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
 
                 bmg.sugarBox.SetActive(true);

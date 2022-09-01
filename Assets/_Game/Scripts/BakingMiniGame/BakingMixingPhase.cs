@@ -11,8 +11,11 @@ public class BakingMixingPhase : BakingMiniGameState
     private Vector3 sugarPileStartPos, sugarPileEndPos;
     public void InitState(BakingMiniGame bmg)
     {
-        bmg.bakingMiniGameCanvas.phase1UIElementsGroup.SetActive(false);
+        bmg.bakingMiniGameCanvas.phase1UIElementsGroup.GetComponent<Animator>().SetTrigger("Hide");
+        bmg.bakingMiniGameCanvas.mixingPhaseElements.SetActive(true);
+        bmg.bakingMiniGameCanvas.mixingPhaseElements.GetComponent<Animation>().Play("Baking Phase Mixing");
         bmg.bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
+        bmg.bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
 
         topPile = bmg.TopPile;
         bottomPile = bmg.BottomPile;

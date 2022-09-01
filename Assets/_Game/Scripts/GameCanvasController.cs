@@ -70,10 +70,10 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
 
-    public void ShowPlayerPickingButtons(bool shouldShow)
+    public void ShowPlayerPickingButtons()
     {
 
-        choosePlayerButtonGroup.SetActive(shouldShow);
+        choosePlayerButtonGroup.SetActive(true);
 
     }
 
@@ -85,16 +85,17 @@ public class GameCanvasController : MonoBehaviour
     public void ChoosePlayerButtonEffect(PlayerPickingButton button)
     {
         button.player.ChoosePlayer();
-        ShowPlayerPickingButtons(false);
+        choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
     }
 
     public void PlayButtonEffect()
     {
-        mainMenuGroup.SetActive(false);
+        mainMenuGroup.GetComponent<Animator>().SetTrigger("Hide");
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 
     public void SetPickingButtonEffect(){
         setPickingGroup.SetActive(true);
+        setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
     }
 }
