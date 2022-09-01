@@ -133,7 +133,12 @@ public class ContestantQuestioningManager : MonoBehaviour
         eliminatedContestantsN++;
         if (eliminatedContestantsN >= maxContestantsToEliminate)
         {
-            cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+            GameObject host = GameController.Instance.host;
+            Transform placeForHostBeforeMiniGame = GameController.Instance.placeForHostBeforeMiniGame;
+            host.transform.position = placeForHostBeforeMiniGame.position;
+            host.transform.rotation = placeForHostBeforeMiniGame.rotation;
+
+            cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.BeforeMiniGame);
         }
     }
 

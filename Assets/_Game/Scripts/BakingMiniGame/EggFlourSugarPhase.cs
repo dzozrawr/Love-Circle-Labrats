@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using DG.Tweening;
 
 public class EggFlourSugarPhase : BakingMiniGameState
 {
@@ -19,6 +20,8 @@ public class EggFlourSugarPhase : BakingMiniGameState
     private float sugarProgress = 0f;
 
     private Vector3 sugarPileStartScale, sugarPileEndScale, flourPileStartScale, flourPileEndScale;
+
+    private float rightOffset = 2f;
     private Coroutine c = null;
     public void InitState(BakingMiniGame bmg)
     {
@@ -62,6 +65,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                     foreach (BrokenEgg b in brokenEggs)
                     {
                         b.BreakEgg();
+
                     }
                     //Debug.Log("Eggs broken.");
                     c = bmg.StartCoroutine(FinishEggPhase(1f));
@@ -87,13 +91,19 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 if (flourProgress < 1) return this;
                 else
                 {
-                    isFlourPhaseDone = true;
+
                     isFlourPhaseActive = false;
 
                     bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
-                    flourBag.gameObject.SetActive(false);
 
-                    bakingMiniGameCanvas.ReEnablePhase1Buttons();
+                    flourBag.transform.DOMove(flourBag.transform.position - flourBag.transform.up * rightOffset, 0.75f).OnComplete(() =>
+                   {
+                       flourBag.gameObject.SetActive(false);
+                       isFlourPhaseDone = true;
+                       bakingMiniGameCanvas.ReEnablePhase1Buttons();
+                   });
+
+                    //bakingMiniGameCanvas.ReEnablePhase1Buttons();
                 }
             }
         }
@@ -117,11 +127,21 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 else
                 {
                     bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
-                    bmg.sugarBox.SetActive(false);
 
-                    isSugarPhaseDone = true;
+
+
+
+                    bmg.sugarBox.transform.DOMove(bmg.sugarBox.transform.position - bmg.sugarBox.transform.up * rightOffset, 0.75f).OnComplete(() =>
+                    {
+                        bmg.sugarBox.SetActive(false);
+                        isSugarPhaseDone = true;
+                        bakingMiniGameCanvas.ReEnablePhase1Buttons();
+                    });
+
+
+
                     isSugarPhaseActive = false;
-                    bakingMiniGameCanvas.ReEnablePhase1Buttons();
+
                 }
             }
         }
@@ -136,18 +156,30 @@ public class EggFlourSugarPhase : BakingMiniGameState
         switch (BakingMiniGameCanvas.chosenPhase1ElementType)
         {
             case BakingUIElement.BakingUIElementType.Egg:
-                isEggPhaseActive = true;
+                //isEggPhaseActive = true;
+                Vector3[] eggsInitPos = new Vector3[2];
                 for (int i = 0; i < brokenEggs.Count; i++)
                 {
+                    eggsInitPos[i] = brokenEggs[i].transform.position;
+                    brokenEggs[i].gameObject.transform.position -= brokenEggs[i].gameObject.transform.up * rightOffset;
                     brokenEggs[i].gameObject.SetActive(true);
+
+                    brokenEggs[i].gameObject.transform.DOMove(eggsInitPos[i], 0.75f);
+                    if ((i + 1) >= brokenEggs.Count)
+                    {
+                        brokenEggs[i].gameObject.transform.DOMove(eggsInitPos[i], 0.75f).OnComplete(() =>
+                        {
+                            isEggPhaseActive = true;
+                        });
+                    }
                 }
                 break;
             case BakingUIElement.BakingUIElementType.Flour:
-                isFlourPhaseActive = true;
+                //isFlourPhaseActive = true;
 
                 bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
                 bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
-                flourBag.gameObject.SetActive(true);
+
 
                 flourPileStartScale = bmg.PileScales.Pop();
                 flourPileEndScale = bmg.PileScales.Pop();
@@ -160,14 +192,22 @@ public class EggFlourSugarPhase : BakingMiniGameState
 
                 flourPile.transform.localScale = flourPileStartScale;   //should be called differently, the scale
                 flourPile.gameObject.SetActive(true);
+
+                Vector3 flourBoxInitPos = flourBag.transform.position;
+                flourBag.transform.position += flourBag.transform.right * rightOffset;
+                flourBag.gameObject.SetActive(true);
+                bmg.flourBag.transform.DOMove(flourBoxInitPos, 0.75f).OnComplete(() =>
+                {
+                    isFlourPhaseActive = true;
+                });
                 break;
             case BakingUIElement.BakingUIElementType.Sugar:
-                isSugarPhaseActive = true;
+                //isSugarPhaseActive = true;
 
                 bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
                 bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
 
-                bmg.sugarBox.SetActive(true);
+
 
                 sugarPileStartScale = bmg.PileScales.Pop();
                 sugarPileEndScale = bmg.PileScales.Pop();
@@ -180,6 +220,14 @@ public class EggFlourSugarPhase : BakingMiniGameState
 
                 bmg.sugarPile.transform.localScale = sugarPileStartScale;
                 bmg.sugarPile.SetActive(true);
+
+                Vector3 sugarBoxInitPos = bmg.sugarBox.transform.position;
+                bmg.sugarBox.transform.position += bmg.sugarBox.transform.right * rightOffset;
+                bmg.sugarBox.SetActive(true);
+                bmg.sugarBox.transform.DOMove(sugarBoxInitPos, 0.75f).OnComplete(() =>
+                {
+                    isSugarPhaseActive = true;
+                });
                 break;
         }
     }
@@ -189,12 +237,20 @@ public class EggFlourSugarPhase : BakingMiniGameState
 
         for (int i = 0; i < brokenEggs.Count; i++)
         {
-            brokenEggs[i].gameObject.SetActive(false);
+
+            brokenEggs[i].gameObject.transform.DOMove(brokenEggs[i].gameObject.transform.position - brokenEggs[i].gameObject.transform.up * rightOffset, 1f).OnComplete(() =>
+            {
+                for (int i = 0; i < brokenEggs.Count; i++)
+                {
+                    brokenEggs[i].gameObject.SetActive(false);
+                }
+
+                isEggPhaseDone = true;
+                isEggPhaseActive = false;
+                bakingMiniGameCanvas.ReEnablePhase1Buttons();
+            });
         }
 
-        isEggPhaseDone = true;
-        isEggPhaseActive = false;
-        bakingMiniGameCanvas.ReEnablePhase1Buttons();
     }
 
 }
