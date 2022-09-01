@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1144943957226261474
 Transform:
   m_ObjectHideFlags: 0
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 4143934409028075983}
   - component: {fileID: 4472642415217294721}
   m_Layer: 0
-  m_Name: PieDish
+  m_Name: PieDish Bad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4014936280903034937
 Transform:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7558459455775456231
 Transform:
   m_ObjectHideFlags: 0
@@ -1694,7 +1694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1292212444390784014, guid: 8fcd27e35204b24408497aad7f61b484, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcd27e35204b24408497aad7f61b484, type: 3}
@@ -1715,10 +1715,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8236231269425542732}
     m_Modifications:
-    - target: {fileID: 79789980944278127, guid: 6d48554df63044a43a22da5b2e63f3e9, type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 79789980944278127, guid: 6d48554df63044a43a22da5b2e63f3e9, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 9.387418

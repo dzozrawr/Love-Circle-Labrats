@@ -138,8 +138,6 @@ public class EggFlourSugarPhase : BakingMiniGameState
                         bakingMiniGameCanvas.ReEnablePhase1Buttons();
                     });
 
-
-
                     isSugarPhaseActive = false;
 
                 }
