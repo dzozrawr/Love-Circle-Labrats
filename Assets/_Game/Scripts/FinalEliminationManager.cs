@@ -3,39 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContestantQuestioningManager : MonoBehaviour
+public class FinalEliminationManager : MonoBehaviour
 {
-    private static ContestantQuestioningManager instance = null;
-    public static ContestantQuestioningManager Instance { get => instance; }
-
-    private static int maxContestantsToEliminate = 3;
-
-
+    private static FinalEliminationManager instance = null;
     public List<ContestantScript> contestants;
+    private static int maxContestantsToEliminate = 1;
 
-
-    private int numberOfContestants = 0;
-    private ContestantScript curContestant = null;
-    public ContestantScript CurContestant { get => curContestant; set => curContestant = value; }
-
-
-    private int curContestantInd = 0;
-    private bool isSelectionPhaseActive = false;
     private Camera mainCamera = null;
+    private CameraController cameraController = null;
 
     #region Raycast variables
     private Ray ray;
     private RaycastHit hit;
     private GameObject hitObject;
+    private bool isSelectionPhaseActive = false;
     #endregion
     private ContestantScript selectedContestant = null;
     private int numberOfSelectedContestants = 0;
-    private CameraController cameraController = null;
 
-    private int eliminatedContestantsN = 0;
-
-    private List<ContestantScript> winningContestants = new List<ContestantScript>();
-    public List<ContestantScript> WinningContestants { get => winningContestants; }
+    public static FinalEliminationManager Instance { get => instance; }
 
     private void Awake()
     {
@@ -45,20 +31,18 @@ public class ContestantQuestioningManager : MonoBehaviour
             return;
         }
         instance = this;
-
-        numberOfContestants = contestants.Count;
     }
+
+    // Start is called before the first frame update
     void Start()
     {
         mainCamera = CameraController.Instance.GetComponent<Camera>();
         cameraController = CameraController.Instance;
-
-        GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.AddListener(EliminateSelectedContestants);
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-
         if (isSelectionPhaseActive)
         {
             if (Input.GetMouseButtonDown(0))
@@ -101,85 +85,42 @@ public class ContestantQuestioningManager : MonoBehaviour
         }
     }
 
-    public void EliminateSelectedContestants()
+    private void EliminationEffect()
     {
-        /*         for (int i = 0; i < contestants.Count; i++)
-                {
-                    if (contestants[i].IsSelected)
-                    {
-                        contestants[i].Eliminate();
-                       // contestants.Remove(contestants[i]);
-                    }
-                } */
         foreach (ContestantScript c in contestants)
         {
             c.thumbsUpOrDownImage.gameObject.SetActive(false);
             if (c.IsSelected)
             {
-                c.Eliminate();
-            }
-            else
-            {
-                winningContestants.Add(c);
+                c.FinalEliminate();
+            }else{
+                c.WinnerAction();
             }
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
+        Invoke(nameof(ShowEOLScreenAfterDelay),3f);
+
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
 
-        GameController.Instance.ContestantsEliminated?.Invoke();
+        //GameController.Instance.ContestantsEliminated?.Invoke();
     }
 
-    public void ContestantEliminatedSignal()
-    {
-        eliminatedContestantsN++;
-        if (eliminatedContestantsN >= maxContestantsToEliminate)
-        {
-            GameObject host = GameController.Instance.host;
-            Transform placeForHostBeforeMiniGame = GameController.Instance.placeForHostBeforeMiniGame;
-            host.transform.position = placeForHostBeforeMiniGame.position;
-            host.transform.rotation = placeForHostBeforeMiniGame.rotation;
-
-            cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.BeforeMiniGame);
-        }
+    private void ShowEOLScreenAfterDelay(){
+        GameCanvasController.Instance.EOLScreen.SetActive(true);
     }
 
-
-
-    public void StartContestantsDialoguePhase()
+    public void StartPhase()
     {
-        curContestant = contestants[0];
-        curContestantInd = 0;
+        GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.AddListener(EliminationEffect);
 
-        CameraController.Instance.transitionToCMVirtualCamera(curContestant.cam); //transition camera to him to start the dialogue
-    }
-
-    public void StartContestantsEliminationPhase()
-    {
         foreach (ContestantScript c in contestants)
         {
             c.ToggleSelectionPhase(true);
         }
         isSelectionPhaseActive = true;
-    }
 
-    public void MoveToNextContestant()
-    {
-        curContestantInd++;
-        if (curContestantInd < contestants.Count)
-        {
-            curContestant = contestants[curContestantInd];
-            CameraController.Instance.transitionToCMVirtualCamera(curContestant.cam);
-        }
-        else
-        {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);
-        }
     }
-    /*    // Update is called once per frame
-        void Update()
-        {
-
-        }*/
 }

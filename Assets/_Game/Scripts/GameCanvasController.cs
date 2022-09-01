@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameCanvasController : MonoBehaviour
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
     public GameObject setPickingGroup=null;
+    public GameObject EOLScreen=null;
+    public Button nextLevelButton=null;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
@@ -58,10 +61,10 @@ public class GameCanvasController : MonoBehaviour
         eliminateButton.gameObject.SetActive(show);
     }
 
-    public void EliminateButtonEffect()
+/*     public void EliminateButtonEffect()
     {
         contestantQuestioningManager.EliminateSelectedContestants();              
-    }
+    } */
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)
     {
@@ -97,5 +100,9 @@ public class GameCanvasController : MonoBehaviour
     public void SetPickingButtonEffect(){
         setPickingGroup.SetActive(true);
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
+    }
+
+    public void NextLevelButtonEffect(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

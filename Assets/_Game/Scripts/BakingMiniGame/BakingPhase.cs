@@ -51,7 +51,9 @@ public class BakingPhase : BakingMiniGameState
             pieDish.transform.DOMove(pieDishInitPos, 1.5f).OnComplete(() =>
             {
                 CameraController.Instance.transitionToCMVirtualCamera(bmg.miniGameCam);
-                isPhaseFinished = true;
+                CheckForCameraBlending.onCameraBlendFinished +=EndPhase;
+
+
             });
         });
     }
@@ -59,10 +61,15 @@ public class BakingPhase : BakingMiniGameState
     {
         if (isPhaseFinished)
         {
-            return this;//next phase or end
+            return null;//next phase or end
         }
         return this;
     }
 
+    private void EndPhase()
+    {
+        isPhaseFinished = true;
+        CheckForCameraBlending.onCameraBlendFinished -=EndPhase;
+    }
 
 }

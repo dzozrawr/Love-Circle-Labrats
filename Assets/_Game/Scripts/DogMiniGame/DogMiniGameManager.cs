@@ -19,15 +19,14 @@ namespace DogMiniGame
         //public DogCommandToDo[] commandsToDo=null;
         public GameObject commandUserButtonsGroup = null;
 
+        public DogMiniGameM dogMiniGameM=null;
+
 
         private Queue<DogCommandToDo> dogCommandQueue = new Queue<DogCommandToDo>();
         private Button[] commandUserButtons;
 
-        private bool dogInAnimation=false;
-        private void Awake()
-        {
-            
-        }
+        private bool dogInAnimation = false;
+
 
         private void Start()
         {
@@ -43,17 +42,18 @@ namespace DogMiniGame
             }
 
             commandUserButtons = commandUserButtonsGroup.GetComponentsInChildren<Button>();
-           // Debug.Log(commandUserButtons.Length);
+            // Debug.Log(commandUserButtons.Length);
         }
 
 
-        private void Update() {
-/*             if(dogInAnimation){
-                 if (dogAnimator.GetCurrentAnimatorStateInfo(0).){
-                    SetButtonsInteractable(true);
-                    dogInAnimation=false;
-                 }
-            } */
+        private void Update()
+        {
+            /*             if(dogInAnimation){
+                             if (dogAnimator.GetCurrentAnimatorStateInfo(0).){
+                                SetButtonsInteractable(true);
+                                dogInAnimation=false;
+                             }
+                        } */
         }
         public void DogCommandButtonEffect(DogCommandButton dogCommandButton)
         {
@@ -65,7 +65,7 @@ namespace DogMiniGame
                 {
                     dogCommandQueue.Dequeue().SetAsDone(); //pop the thing //change the sprite
                     DoDogCommand(dogCommandButton.dogCommand);
-                    dogCommandButton.GetComponent<Image>().sprite=dogCommandButton.GetComponent<Button>().spriteState.selectedSprite;
+                    dogCommandButton.GetComponent<Image>().sprite = dogCommandButton.GetComponent<Button>().spriteState.selectedSprite;
                     SetButtonsInteractable(false);
                     StartCoroutine(WaitForIdle());
                     //dogInAnimation=true;
@@ -75,9 +75,9 @@ namespace DogMiniGame
 
                     if (dogCommandQueue.Count == 0)
                     {
-                       // Debug.Log("Mini game done!");
-                       // Invoke(nameof(HideMiniGame), delayAfterMiniGameDone);
-                       StartCoroutine(WaitForIdle(true));
+                        // Debug.Log("Mini game done!");
+                        // Invoke(nameof(HideMiniGame), delayAfterMiniGameDone);
+                        StartCoroutine(WaitForIdle(true));
                     }//check if its the last one for the congratulations message
                 }
                 else
@@ -89,25 +89,31 @@ namespace DogMiniGame
                 }
             }
 
-             if (dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Sit")){
+            if (dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Sit"))
+            {
                 
-             }
+                
+            }
         }
 
-        IEnumerator WaitForIdle(bool isMiniGameOver=false){
-            yield return new WaitUntil(()=>!dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+        IEnumerator WaitForIdle(bool isMiniGameOver = false)
+        {
+            yield return new WaitUntil(() => !dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
             //System.Func<bool> a=dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
-            yield return new WaitUntil(()=>dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
-            if(!isMiniGameOver)
-            SetButtonsInteractable(true);
-            else HideMiniGame();
+            yield return new WaitUntil(() => dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+            if (!isMiniGameOver)
+                SetButtonsInteractable(true);
+            else{
+                dogMiniGameM.TransitionToContestants();
+                HideMiniGame();
+            } 
         }
 
         private void SetButtonsInteractable(bool b)
         {
             for (int i = 0; i < commandUserButtons.Length; i++)
             {
-                commandUserButtons[i].enabled=b;
+                commandUserButtons[i].enabled = b;
             }
         }
 
