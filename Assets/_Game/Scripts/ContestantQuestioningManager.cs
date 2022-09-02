@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ContestantQuestioningManager : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class ContestantQuestioningManager : MonoBehaviour
     {
         mainCamera = CameraController.Instance.GetComponent<Camera>();
         cameraController = CameraController.Instance;
+
+        GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.AddListener(EliminateSelectedContestants);
     }
 
     private void Update()
@@ -133,7 +136,12 @@ public class ContestantQuestioningManager : MonoBehaviour
         eliminatedContestantsN++;
         if (eliminatedContestantsN >= maxContestantsToEliminate)
         {
-            cameraController.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+            GameObject host = GameController.Instance.host;
+            Transform placeForHostBeforeMiniGame = GameController.Instance.placeForHostBeforeMiniGame;
+            host.transform.position = placeForHostBeforeMiniGame.position;
+            host.transform.rotation = placeForHostBeforeMiniGame.rotation;
+
+            cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.BeforeMiniGame);
         }
     }
 

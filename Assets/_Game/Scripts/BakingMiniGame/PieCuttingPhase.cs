@@ -20,18 +20,21 @@ public class PieCuttingPhase : BakingMiniGameState
     {
         bakingMiniGameCanvas = bmg.bakingMiniGameCanvas;
         pieDish = bmg.PieDish;
+        bakingMiniGameCanvas.phase3UIElementsGroup.SetActive(false);
+        bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(false);
 
         // bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
 
         CameraController.Instance.transitionToCMVirtualCamera(bmg.topDownBakingCamera);
-        CheckForCameraBlending.onCameraBlendFinished += () => bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+        CheckForCameraBlending.onCameraBlendFinished += ActivateUI;
         //bmg.topDownBakingCamera.OnTargetObjectWarped()
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
         if (isPhaseDone)
         {
-            bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
+            bakingMiniGameCanvas.pieCuttingUIElementsGroup.GetComponent<Animator>().SetTrigger("Hide");
+            CheckForCameraBlending.onCameraBlendFinished -= ActivateUI;
             return bmg.bakingPhase;
         }
         if (bakingMiniGameCanvas.ChosenPatternNumber == -1) return this;
@@ -45,7 +48,7 @@ public class PieCuttingPhase : BakingMiniGameState
             pieCutter.transform.position = pieDish.pieCutterAbovePos.position;
             pieCutter.gameObject.SetActive(true);
 
-            pieCutter.transform.DOMove(pieCutterInitPos, 1f).OnComplete(() =>
+            pieCutter.transform.DOMove(pieCutterInitPos, 0.5f).OnComplete(() =>
             {
                 bmg.StartCoroutine(MoveCutterUpWDelay(0.5f));
             });
@@ -56,13 +59,18 @@ public class PieCuttingPhase : BakingMiniGameState
         return this;
     }
 
+    private void ActivateUI()
+    {
+        bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(true);
+    }
+
     IEnumerator MoveCutterUpWDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         pieDish.topLayer.SetActive(false);
         pieTopLayerCut.SetActive(true);
 
-        pieCutter.transform.DOMove(pieDish.pieCutterAbovePos.position, 1f).OnComplete(() =>
+        pieCutter.transform.DOMove(pieDish.pieCutterAbovePos.position, 0.5f).OnComplete(() =>
         {
             isPhaseDone = true;
             pieCutter.SetActive(false);

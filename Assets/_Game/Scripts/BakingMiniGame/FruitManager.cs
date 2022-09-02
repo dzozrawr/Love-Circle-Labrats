@@ -11,7 +11,7 @@ public class FruitManager : MonoBehaviour
     public static void DestroyAllInstances(){
         foreach (GameObject go in instantiatedObjects)
         {
-            Debug.Log(go.name+" destroyed");
+//            Debug.Log(go.name+" destroyed");
             Destroy(go);
 
         }

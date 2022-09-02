@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SugarPileIntersector : MonoBehaviour
+public class PileIntersectorPreventor : MonoBehaviour
 {
     /*     private void OnTriggerEnter(Collider other) {
             Debug.Log("Sugar OnTriggerEnter");

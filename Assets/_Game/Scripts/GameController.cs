@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     public StudioSet[] studioSetList = null;
     public StudioSet studioSet = null;
+    public GameObject host=null;
+    public Transform placeForHostBeforeMiniGame=null;
 
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
@@ -145,5 +147,9 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     {
         CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsStart);
         //CameraController.Instance.contestantsCam.Priority = CameraController.Instance.playerPickingCam.Priority + 1;
+    }
+
+    public void SwitchToRespectivePlayersMiniGameCamera(){
+        CameraController.Instance.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
     }
 }

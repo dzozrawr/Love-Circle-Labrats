@@ -159,4 +159,12 @@ public class ContestantScript : MonoBehaviour
             ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
         };
     } */
+
+    public void FinalEliminate(){
+        animator.SetTrigger("Fall");
+    }
+
+    public void WinnerAction(){
+        animator.SetTrigger("Happy");
+    }
 }

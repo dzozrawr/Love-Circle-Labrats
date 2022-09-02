@@ -18,7 +18,9 @@ public class BowlSwitchPhase : BakingMiniGameState
         pieDishPrefab = bmg.pieDishPrefab;
         placeToMoveBowlTo = bmg.bowlMovedPlace;
 
-        bmg.bakingMiniGameCanvas.bakingProgressBar.gameObject.SetActive(false);
+        bmg.bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Hide");
+        bmg.bakingMiniGameCanvas.mixingPhaseElements.GetComponent<Animation>().Play("Baking Phase Mixing Hide");
+        bmg.bakingMiniGameCanvas.phase1UIElementsGroup.SetActive(false);
 
         bowlInitPos = mixingBowl.transform.position;
 

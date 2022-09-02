@@ -20,6 +20,8 @@ public class BakingPhase : BakingMiniGameState
 
         pieDishInitPos = pieDish.transform.position;
 
+        bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
+
 
 
         pieDish.transform.DOMove(placeToMoveBowlTo.position, 1.5f).OnComplete(() =>
@@ -48,7 +50,10 @@ public class BakingPhase : BakingMiniGameState
 
             pieDish.transform.DOMove(pieDishInitPos, 1.5f).OnComplete(() =>
             {
-                isPhaseFinished = true;
+                CameraController.Instance.transitionToCMVirtualCamera(bmg.miniGameCam);
+                CheckForCameraBlending.onCameraBlendFinished +=EndPhase;
+
+
             });
         });
     }
@@ -56,10 +61,15 @@ public class BakingPhase : BakingMiniGameState
     {
         if (isPhaseFinished)
         {
-            return this;//next phase or end
+            return null;//next phase or end
         }
         return this;
     }
 
+    private void EndPhase()
+    {
+        isPhaseFinished = true;
+        CheckForCameraBlending.onCameraBlendFinished -=EndPhase;
+    }
 
 }
