@@ -159,6 +159,7 @@ public class ContestantScript : MonoBehaviour
 
 
     public void FinalEliminate(){
+        selectedIndicator.enabled = false;
         animator.SetTrigger("Fall");
     }
 

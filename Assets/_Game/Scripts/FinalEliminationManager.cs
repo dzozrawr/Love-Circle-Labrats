@@ -22,6 +22,7 @@ public class FinalEliminationManager : MonoBehaviour
     private int numberOfSelectedContestants = 0;
 
     private ContestantScript winnerContestant = null;
+    private GameCanvasController gameCanvasController = null;
 
     public static FinalEliminationManager Instance { get => instance; }
 
@@ -40,6 +41,7 @@ public class FinalEliminationManager : MonoBehaviour
     {
         mainCamera = CameraController.Instance.GetComponent<Camera>();
         cameraController = CameraController.Instance;
+        gameCanvasController = GameCanvasController.Instance;
     }
 
     // Update is called once per frame
@@ -63,22 +65,37 @@ public class FinalEliminationManager : MonoBehaviour
 
                             if (numberOfSelectedContestants == maxContestantsToEliminate)
                             {
-                                GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
+
+                                gameCanvasController.ToggleEliminateButtonVisibility(false);
                             }
 
                             numberOfSelectedContestants--;
                         }
-                        else
+                        else    //hitting an unselected contestant
                         {
+
+                            if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
+                            {
+                                selectedContestant.Select();
+                                for (int i = 0; i < contestants.Count; i++)
+                                {
+                                    if (contestants[i] != selectedContestant)
+                                    { //deselect the other contestant
+                                        contestants[i].Select();
+                                    }
+                                }
+
+                            }
+
                             if (numberOfSelectedContestants < maxContestantsToEliminate)
                             {
                                 selectedContestant.Select();
                                 numberOfSelectedContestants++;
                             }
 
-                            if (numberOfSelectedContestants == maxContestantsToEliminate)
+                            if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
                             {
-                                GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);
+                                if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);                               
                             }
                         }
                     }
