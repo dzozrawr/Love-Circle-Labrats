@@ -20,6 +20,7 @@ public class DogMiniGameM : MiniGame
 
     private DialogueSystemTrigger dialogueSystemTrigger=null;
 
+
     private void Awake()
     {
         models.SetActive(false);
@@ -56,6 +57,7 @@ public class DogMiniGameM : MiniGame
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -70,6 +72,8 @@ public class DogMiniGameM : MiniGame
     {
         dogAnimator0.SetTrigger("Spin");
         dogAnimator1.SetTrigger("Bark");
+
+        finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
         StartCoroutine(WaitForIdle());
 

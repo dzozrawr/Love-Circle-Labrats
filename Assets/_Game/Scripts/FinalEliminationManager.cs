@@ -21,6 +21,8 @@ public class FinalEliminationManager : MonoBehaviour
     private ContestantScript selectedContestant = null;
     private int numberOfSelectedContestants = 0;
 
+    private ContestantScript winnerContestant = null;
+
     public static FinalEliminationManager Instance { get => instance; }
 
     private void Awake()
@@ -93,21 +95,26 @@ public class FinalEliminationManager : MonoBehaviour
             if (c.IsSelected)
             {
                 c.FinalEliminate();
-            }else{
+            }
+            else
+            {
+                winnerContestant = c;
                 c.WinnerAction();
             }
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
-        Invoke(nameof(ShowEOLScreenAfterDelay),3f);
+        Invoke(nameof(ShowEOLScreenAfterDelay), 1.5f);
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
 
         //GameController.Instance.ContestantsEliminated?.Invoke();
     }
 
-    private void ShowEOLScreenAfterDelay(){
+    private void ShowEOLScreenAfterDelay()
+    {
+        Debug.Log("Match success rate: " + winnerContestant.GetMatchSuccessRate());
         GameCanvasController.Instance.EOLScreen.SetActive(true);
     }
 
