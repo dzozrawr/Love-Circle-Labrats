@@ -10,8 +10,6 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
-
-
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
@@ -19,7 +17,9 @@ public class GameCanvasController : MonoBehaviour
     public GameObject setPickingGroup=null;
     public GameObject settingsGroup = null;
     public GameObject EOLScreen=null;
-    public Button nextLevelButton=null;
+    public Button endEpisodeButton=null;
+
+    public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
@@ -62,10 +62,7 @@ public class GameCanvasController : MonoBehaviour
         eliminateButton.gameObject.SetActive(show);
     }
 
-/*     public void EliminateButtonEffect()
-    {
-        contestantQuestioningManager.EliminateSelectedContestants();              
-    } */
+
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)
     {
@@ -112,6 +109,22 @@ public class GameCanvasController : MonoBehaviour
 
     public void NextLevelButtonEffect(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
+    {
+        EOLScreen.SetActive(true);
+
+        if (successRate == 0f)  //kind of hard coded
+        {
+            terribleMatchGroup.SetActive(true);
+        }else if (successRate == 0.5f)
+        {
+            goodMatchGroup.SetActive(true);
+        }else if (successRate == 1f)
+        {
+            successfulMatchGroup.SetActive(true);
+        }
     }
     public void SetActiveFalse()
     {
