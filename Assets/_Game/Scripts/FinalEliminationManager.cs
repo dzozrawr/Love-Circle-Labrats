@@ -131,8 +131,7 @@ public class FinalEliminationManager : MonoBehaviour
 
     private void ShowEOLScreenAfterDelay()
     {
-        Debug.Log("Match success rate: " + winnerContestant.GetMatchSuccessRate());
-        GameCanvasController.Instance.EOLScreen.SetActive(true);
+        GameCanvasController.Instance.ActivateEOLScreenBasedOnMatchSuccessRate(winnerContestant.GetMatchSuccessRate());
     }
 
     public void StartPhase()
