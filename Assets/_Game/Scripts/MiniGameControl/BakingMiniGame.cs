@@ -163,6 +163,8 @@ public class BakingMiniGame : MiniGame
                 }
                 contestantsMixingBowls[i].SetActive(false);
             }
+            finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Cry");
+            finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Happy");
             CameraController.Instance.transitionToCMVirtualCamera(contestantsPiesCamera);
             isMiniGameDone = true;
         }

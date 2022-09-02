@@ -72,6 +72,8 @@ public class DogMiniGameM : MiniGame
     {
         dogAnimator0.SetTrigger("Spin");
         dogAnimator1.SetTrigger("Bark");
+        finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Clap");
+        finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Embarrass");
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 

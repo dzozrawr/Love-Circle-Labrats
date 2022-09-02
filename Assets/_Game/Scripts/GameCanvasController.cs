@@ -15,6 +15,7 @@ public class GameCanvasController : MonoBehaviour
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
     public GameObject setPickingGroup=null;
+    public GameObject settingsGroup = null;
     public GameObject EOLScreen=null;
     public Button endEpisodeButton=null;
 
@@ -86,6 +87,7 @@ public class GameCanvasController : MonoBehaviour
     {
         button.player.ChoosePlayer();
         choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
+
     }
 
     public void PlayButtonEffect()
@@ -97,6 +99,12 @@ public class GameCanvasController : MonoBehaviour
     public void SetPickingButtonEffect(){
         setPickingGroup.SetActive(true);
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
+    }
+
+    public void SettingsButtonEffect()
+    {
+        settingsGroup.SetActive(true);
+        settingsGroup.GetComponent<Animator>().SetTrigger("Show");
     }
 
     public void NextLevelButtonEffect(){
@@ -117,5 +125,15 @@ public class GameCanvasController : MonoBehaviour
         {
             successfulMatchGroup.SetActive(true);
         }
+    }
+    public void SetActiveFalse()
+    {
+        setPickingGroup.SetActive(false);
+        settingsGroup.SetActive(false);
+    }
+
+    public void InvokeSetActiveFalse()
+    {
+        Invoke(nameof(SetActiveFalse), 0.25f);
     }
 }
