@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using PixelCrushers.DialogueSystem;
+using PathCreation;
+using PathCreation.Examples;
 
 public class DogMiniGameM : MiniGame
 {
@@ -12,6 +14,9 @@ public class DogMiniGameM : MiniGame
     public GameObject[] contestantsDogs = null;
 
     public CinemachineVirtualCamera dogContestantsCam = null;
+
+    public GameObject placeForPlayerAfterFinalElim = null;
+    public PathCreator[] pathsForContestantsAfterFinalElim;
 
     private GameController gameController = null;
     private FinalEliminationManager finalEliminationManager = null;
@@ -46,6 +51,8 @@ public class DogMiniGameM : MiniGame
 
         dogAnimator0 = contestantsDogs[0].GetComponentInChildren<Animator>();
         dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();
+
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     protected override void OnEliminateButtonPressed()
