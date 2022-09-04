@@ -26,8 +26,7 @@ public class FinalEliminationManager : MonoBehaviour
     private ContestantScript winnerContestant = null;
     private GameCanvasController gameCanvasController = null;
 
-    private DogMiniGameM dogMiniGameM = null;
-    private BakingMiniGame bakingMiniGame = null;
+    private MiniGame selectedMiniGame = null;
 
     private GameController gameController = null;
 
@@ -106,7 +105,7 @@ public class FinalEliminationManager : MonoBehaviour
 
                             if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
                             {
-                                if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);                               
+                                if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);
                             }
                         }
                     }
@@ -127,7 +126,7 @@ public class FinalEliminationManager : MonoBehaviour
             else
             {
                 winnerContestant = c;
-                winnerContestantInd= contestants.IndexOf(winnerContestant);
+                winnerContestantInd = contestants.IndexOf(winnerContestant);
                 c.WinnerAction();
             }
         }
@@ -143,18 +142,50 @@ public class FinalEliminationManager : MonoBehaviour
 
     private void AfterEliminationSequence()
     {
-        if (dogMiniGameM != null)
+
+        selectedMiniGame.PlayerInMiniGameGO.transform.position = selectedMiniGame.placeForPlayerAfterFinalElim.transform.position;
+        selectedMiniGame.PlayerInMiniGameGO.transform.rotation = selectedMiniGame.placeForPlayerAfterFinalElim.transform.rotation;
+
+        PathFollower pathFollower = winnerContestant.gameObject.AddComponent<PathFollower>();
+        pathFollower.pathCreator = selectedMiniGame.pathsForContestantsAfterFinalElim[winnerContestantInd];
+        pathFollower.endOfPathInstruction = EndOfPathInstruction.Stop;
+        pathFollower.speed /= 2f;
+
+        winnerContestant.animator.SetTrigger("Walk");
+        winnerContestant.cameraFollow.gameObject.SetActive(true);
+
+        cameraController.transitionToCMVirtualCamera(winnerContestant.cameraFollow);
+        //winni
+
+    }
+
+    public void ContestantEndOfPathAction()
+    {
+        winnerContestant.animator.SetTrigger("Idle");
+        cameraController.transitionToCMVirtualCamera(selectedMiniGame.EOLPlayerContestantCam);
+        CheckForCameraBlending.onCameraBlendFinished += WhenPlayerContestantFinalCameraActive;
+    }
+
+    public void WhenPlayerContestantFinalCameraActive()
+    {
+        switch (winnerContestant.GetMatchSuccessRate())
         {
-            gameController.ChosenPlayer.playerModel.transform.position = dogMiniGameM.placeForPlayerAfterFinalElim.transform.position;
-            gameController.ChosenPlayer.playerModel.transform.rotation = dogMiniGameM.placeForPlayerAfterFinalElim.transform.rotation;
-
-            PathFollower pathFollower= winnerContestant.gameObject.AddComponent<PathFollower>();
-            pathFollower.pathCreator = dogMiniGameM.pathsForContestantsAfterFinalElim[winnerContestantInd];
-            pathFollower.endOfPathInstruction = EndOfPathInstruction.Stop;
-
-            winnerContestant.animator.SetTrigger("Walk");
-            //winni
+            case 0f:
+                selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Cry");
+                break;
+            case 0.5f:
+                //should here stay Idle animation for player?
+                break;
+            case 1f:
+                selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Happy");
+                
+                break;
         }
+        winnerContestant.animator.SetTrigger("Happy");
+
+        Invoke(nameof(ShowEOLScreenAfterDelay), 3f);
+
+        CheckForCameraBlending.onCameraBlendFinished -= WhenPlayerContestantFinalCameraActive;
     }
 
     private void ShowEOLScreenAfterDelay()
@@ -176,14 +207,6 @@ public class FinalEliminationManager : MonoBehaviour
 
     public void SetSelectedMiniGame(MiniGame miniGame)  //I really should've made the parent class hold the needed things for after final elim sequence
     {
-        if(miniGame is DogMiniGameM)
-        {
-            dogMiniGameM = (DogMiniGameM)miniGame;
-        }
-
-        if(miniGame is BakingMiniGame)
-        {
-            bakingMiniGame = (BakingMiniGame)miniGame;
-        }
+        selectedMiniGame = miniGame;
     }
 }

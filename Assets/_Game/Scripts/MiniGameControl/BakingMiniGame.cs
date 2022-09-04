@@ -110,6 +110,8 @@ public class BakingMiniGame : MiniGame
 
         sugarPileInitPos = sugarPile.transform.position;
         finalEliminationManager=FinalEliminationManager.Instance;
+
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     private void OnEnable()

@@ -26,6 +26,17 @@ public class ContestantScript : MonoBehaviour
 
     public Animator animator = null;
 
+    public CinemachineVirtualCamera cameraFollow = null;
+           
+
+
+
+
+
+
+
+
+
     private Vector3 holePreferredScale;
 
     private bool isSelected = false;

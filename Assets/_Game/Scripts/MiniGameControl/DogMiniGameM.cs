@@ -15,8 +15,6 @@ public class DogMiniGameM : MiniGame
 
     public CinemachineVirtualCamera dogContestantsCam = null;
 
-    public GameObject placeForPlayerAfterFinalElim = null;
-    public PathCreator[] pathsForContestantsAfterFinalElim;
 
     private GameController gameController = null;
     private FinalEliminationManager finalEliminationManager = null;
@@ -58,7 +56,12 @@ public class DogMiniGameM : MiniGame
     protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
-        Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+        GameObject playerGameObject;
+
+        PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+
+
+
         ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
