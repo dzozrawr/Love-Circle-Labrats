@@ -18,6 +18,7 @@ public class GameCanvasController : MonoBehaviour
     public GameObject settingsGroup = null;
     public GameObject EOLScreen=null;
     public Button endEpisodeButton=null;
+    public GameObject coinUI = null;
 
     public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
 
@@ -43,6 +44,34 @@ public class GameCanvasController : MonoBehaviour
 
         //defining default UI state at the beginning of the game below
         setPickingGroup.SetActive(false);
+        settingsGroup.SetActive(false);
+        EOLScreen.SetActive(false);
+
+        coinUI.GetComponent<Animation>().Play("Coin UI Show");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            EOLScreen.SetActive(true);
+            terribleMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            EOLScreen.SetActive(true);
+            goodMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            EOLScreen.SetActive(true);
+            successfulMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -93,6 +122,7 @@ public class GameCanvasController : MonoBehaviour
     public void PlayButtonEffect()
     {
         mainMenuGroup.GetComponent<Animator>().SetTrigger("Hide");
+        coinUI.GetComponent<Animation>().Play("Coin UI Hide");
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 
@@ -114,6 +144,7 @@ public class GameCanvasController : MonoBehaviour
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
     {
         EOLScreen.SetActive(true);
+        coinUI.GetComponent<Animation>().Play("Coin UI Show");
 
         if (successRate == 0f)  //kind of hard coded
         {
@@ -121,7 +152,8 @@ public class GameCanvasController : MonoBehaviour
         }else if (successRate == 0.5f)
         {
             goodMatchGroup.SetActive(true);
-        }else if (successRate == 1f)
+        }
+        else if (successRate == 1f)
         {
             successfulMatchGroup.SetActive(true);
         }
@@ -136,4 +168,5 @@ public class GameCanvasController : MonoBehaviour
     {
         Invoke(nameof(SetActiveFalse), 0.25f);
     }
+
 }
