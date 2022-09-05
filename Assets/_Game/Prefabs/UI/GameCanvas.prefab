@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1909274497}
   - component: {fileID: 1909274496}
   m_Layer: 5
-  m_Name: Coin Number
+  m_Name: Coin Number Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13678,6 +13678,7 @@ GameObject:
   - component: {fileID: 3519426482875807934}
   - component: {fileID: 5292756011446567846}
   - component: {fileID: 4467463044751871277}
+  - component: {fileID: 6200903175747626833}
   m_Layer: 5
   m_Name: EOLScreen
   m_TagString: Untagged
@@ -13746,6 +13747,20 @@ MonoBehaviour:
   brokenHeartParticle: {fileID: 33822893720916460}
   coinBurstParticle: {fileID: 7316639405426084624}
   flyingParticles: {fileID: 9142587260221356195}
+--- !u!114 &6200903175747626833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446660768576835882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7868a31da939d35469b6cc118549d310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinAmountReward: 270
+  coinAmountRewardText: {fileID: 2848259923786291370}
 --- !u!1 &4734859733646152910
 GameObject:
   m_ObjectHideFlags: 0
@@ -17139,6 +17154,34 @@ PrefabInstance:
     - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
       propertyPath: acceptableDistanceFromTarget
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6200903175747626833}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ApplyCoinReward
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EOLScreenController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: onCoinReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5803136262851139611, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
       propertyPath: m_Name

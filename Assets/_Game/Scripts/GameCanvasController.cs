@@ -14,16 +14,18 @@ public class GameCanvasController : MonoBehaviour
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
-    public GameObject setPickingGroup=null;
+    public GameObject setPickingGroup = null;
     public GameObject settingsGroup = null;
-    public GameObject EOLScreen=null;
-    public Button endEpisodeButton=null;
+    public GameObject EOLScreen = null;
+    public Button endEpisodeButton = null;
     public GameObject coinUI = null;
 
     public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
+
+    private Text coinAmountTxt = null;
     private ContestantQuestioningManager contestantQuestioningManager = null;
     private void Awake()
     {
@@ -33,6 +35,8 @@ public class GameCanvasController : MonoBehaviour
             return;
         }
         instance = this;
+
+
     }
 
     // Start is called before the first frame update
@@ -41,6 +45,10 @@ public class GameCanvasController : MonoBehaviour
         gameController = GameController.Instance;
         cameraController = CameraController.Instance;
         contestantQuestioningManager = ContestantQuestioningManager.Instance;
+
+        coinAmountTxt = coinUI.GetComponentInChildren<Text>();
+        coinAmountTxt.text = GameController.CoinAmount + "";
+        gameController.CoinAmountUpdated.AddListener(UpdateCoinAmountUI);
 
         //defining default UI state at the beginning of the game below
         setPickingGroup.SetActive(false);
@@ -52,6 +60,7 @@ public class GameCanvasController : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EOLScreen.SetActive(true);
@@ -72,6 +81,7 @@ public class GameCanvasController : MonoBehaviour
             successfulMatchGroup.SetActive(true);
             coinUI.GetComponent<Animation>().Play("Coin UI Show");
         }
+#endif
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -116,9 +126,9 @@ public class GameCanvasController : MonoBehaviour
     {
         foreach (PlayerPickingButton b in choosePlayerButtonGroup.GetComponentsInChildren<PlayerPickingButton>())
         {
-            b.GetComponent<Button>().enabled=false;
+            b.GetComponent<Button>().enabled = false;
         }
-        
+
         button.player.ChoosePlayer();
         choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
 
@@ -131,7 +141,8 @@ public class GameCanvasController : MonoBehaviour
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 
-    public void SetPickingButtonEffect(){
+    public void SetPickingButtonEffect()
+    {
         setPickingGroup.SetActive(true);
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
     }
@@ -142,7 +153,8 @@ public class GameCanvasController : MonoBehaviour
         settingsGroup.GetComponent<Animator>().SetTrigger("Show");
     }
 
-    public void NextLevelButtonEffect(){
+    public void NextLevelButtonEffect()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -154,7 +166,8 @@ public class GameCanvasController : MonoBehaviour
         if (successRate == 0f)  //kind of hard coded
         {
             terribleMatchGroup.SetActive(true);
-        }else if (successRate == 0.5f)
+        }
+        else if (successRate == 0.5f)
         {
             goodMatchGroup.SetActive(true);
         }
@@ -172,6 +185,11 @@ public class GameCanvasController : MonoBehaviour
     public void InvokeSetActiveFalse()
     {
         Invoke(nameof(SetActiveFalse), 0.25f);
+    }
+
+    private void UpdateCoinAmountUI()
+    {
+        coinAmountTxt.text = GameController.CoinAmount + "";
     }
 
 }
