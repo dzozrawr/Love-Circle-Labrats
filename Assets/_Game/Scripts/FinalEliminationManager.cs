@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PathCreation;
+using PathCreation.Examples;
 
 public class FinalEliminationManager : MonoBehaviour
 {
@@ -24,6 +26,12 @@ public class FinalEliminationManager : MonoBehaviour
     private ContestantScript winnerContestant = null;
     private GameCanvasController gameCanvasController = null;
 
+    private MiniGame selectedMiniGame = null;
+
+    private GameController gameController = null;
+
+    private int winnerContestantInd = 0;
+
     public static FinalEliminationManager Instance { get => instance; }
 
     private void Awake()
@@ -34,6 +42,8 @@ public class FinalEliminationManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        gameController = GameController.Instance;
     }
 
     // Start is called before the first frame update
@@ -95,7 +105,7 @@ public class FinalEliminationManager : MonoBehaviour
 
                             if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
                             {
-                                if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);                               
+                                if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);
                             }
                         }
                     }
@@ -116,17 +126,66 @@ public class FinalEliminationManager : MonoBehaviour
             else
             {
                 winnerContestant = c;
+                winnerContestantInd = contestants.IndexOf(winnerContestant);
                 c.WinnerAction();
             }
         }
         isSelectionPhaseActive = false;
         numberOfSelectedContestants = 0;
 
-        Invoke(nameof(ShowEOLScreenAfterDelay), 1.5f);
+        Invoke(nameof(AfterEliminationSequence), 1.5f);
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
 
         //GameController.Instance.ContestantsEliminated?.Invoke();
+    }
+
+    private void AfterEliminationSequence()
+    {
+
+        selectedMiniGame.PlayerInMiniGameGO.transform.position = selectedMiniGame.placeForPlayerAfterFinalElim.transform.position;
+        selectedMiniGame.PlayerInMiniGameGO.transform.rotation = selectedMiniGame.placeForPlayerAfterFinalElim.transform.rotation;
+
+        PathFollower pathFollower = winnerContestant.gameObject.AddComponent<PathFollower>();
+        pathFollower.pathCreator = selectedMiniGame.pathsForContestantsAfterFinalElim[winnerContestantInd];
+        pathFollower.endOfPathInstruction = EndOfPathInstruction.Stop;
+        pathFollower.speed /= 2f;
+
+        winnerContestant.animator.SetTrigger("Walk");
+        winnerContestant.cameraFollow.gameObject.SetActive(true);
+
+        cameraController.transitionToCMVirtualCamera(winnerContestant.cameraFollow);
+        //winni
+
+    }
+
+    public void ContestantEndOfPathAction()
+    {
+        winnerContestant.animator.SetTrigger("Idle");
+        cameraController.transitionToCMVirtualCamera(selectedMiniGame.EOLPlayerContestantCam);
+        CheckForCameraBlending.onCameraBlendFinished += WhenPlayerContestantFinalCameraActive;
+    }
+
+    public void WhenPlayerContestantFinalCameraActive()
+    {
+        switch (winnerContestant.GetMatchSuccessRate())
+        {
+            case 0f:
+                selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Cry");
+                break;
+            case 0.5f:
+                //should here stay Idle animation for player?
+                break;
+            case 1f:
+                selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Happy");
+                
+                break;
+        }
+        winnerContestant.animator.SetTrigger("Happy");
+
+        Invoke(nameof(ShowEOLScreenAfterDelay), 3f);
+
+        CheckForCameraBlending.onCameraBlendFinished -= WhenPlayerContestantFinalCameraActive;
     }
 
     private void ShowEOLScreenAfterDelay()
@@ -144,6 +203,10 @@ public class FinalEliminationManager : MonoBehaviour
             c.ToggleSelectionPhase(true);
         }
         isSelectionPhaseActive = true;
+    }
 
+    public void SetSelectedMiniGame(MiniGame miniGame)  //I really should've made the parent class hold the needed things for after final elim sequence
+    {
+        selectedMiniGame = miniGame;
     }
 }
