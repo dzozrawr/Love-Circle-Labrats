@@ -114,6 +114,11 @@ public class GameCanvasController : MonoBehaviour
 
     public void ChoosePlayerButtonEffect(PlayerPickingButton button)
     {
+        foreach (PlayerPickingButton b in choosePlayerButtonGroup.GetComponentsInChildren<PlayerPickingButton>())
+        {
+            b.GetComponent<Button>().enabled=false;
+        }
+        
         button.player.ChoosePlayer();
         choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
 

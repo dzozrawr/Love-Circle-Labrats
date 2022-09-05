@@ -56,7 +56,6 @@ public class DogMiniGameM : MiniGame
     protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
-        GameObject playerGameObject;
 
         PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
 

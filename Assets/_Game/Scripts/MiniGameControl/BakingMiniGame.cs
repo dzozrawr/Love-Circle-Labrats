@@ -55,6 +55,8 @@ public class BakingMiniGame : MiniGame
     public GameObject[] contestantsMixingBowls;
 
     public CinemachineVirtualCamera contestantsPiesCamera = null;
+
+    public Vector3 contestantPieScale;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
@@ -123,7 +125,7 @@ public class BakingMiniGame : MiniGame
     protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
-        Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+        PlayerInMiniGameGO=Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
 
         
         ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
@@ -152,17 +154,19 @@ public class BakingMiniGame : MiniGame
 
         if (currentState == null)
         {
+            PieDish instantiatedPie=null;
             for (int i = 0; i < contestantsMixingBowls.Length; i++)
             {
                 if (i == 0)
                 {
-                    Instantiate(pieDishBadPrefab, contestantsMixingBowls[i].transform.position, Quaternion.identity);
+                    instantiatedPie=Instantiate(pieDishBadPrefab, contestantsMixingBowls[i].transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(pieDish, contestantsMixingBowls[i].transform.position, Quaternion.identity);
+                    instantiatedPie=Instantiate(pieDish, contestantsMixingBowls[i].transform.position, Quaternion.identity);
                     finalEliminationManager.contestants[i].MatchSuccessPoints++;
                 }
+                instantiatedPie.transform.localScale=contestantPieScale;
                 contestantsMixingBowls[i].SetActive(false);
             }
             finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Cry");
