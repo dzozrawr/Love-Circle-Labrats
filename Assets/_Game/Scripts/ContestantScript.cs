@@ -10,6 +10,7 @@ using DG.Tweening;
 
 public class ContestantScript : MonoBehaviour
 {
+    private static int numberOfFactorsForMatchSuccess=2;
     public CinemachineVirtualCamera cam = null;
     public Sprite thumbsUpSprite = null;
     public Sprite thumbsDownSprite = null;
@@ -25,17 +26,31 @@ public class ContestantScript : MonoBehaviour
 
     public Animator animator = null;
 
+    public CinemachineVirtualCamera cameraFollow = null;
+           
+
+
+
+
+
+
+
+
+
     private Vector3 holePreferredScale;
 
     private bool isSelected = false;
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
+    public int MatchSuccessPoints { get => matchSuccessPoints; set => matchSuccessPoints = value; }
 
     private GameController gameController;
 
     private Rigidbody parentRb = null;
     private Collider parentCollider = null;
     private GameObject model = null;
+
+    private int matchSuccessPoints=0;
 
     private void Awake()
     {
@@ -110,6 +125,7 @@ public class ContestantScript : MonoBehaviour
         {
             thumbsUpOrDownImage.sprite = thumbsUpSprite;
             gameObject.GetComponentInChildren<Animator>().SetTrigger("Happy");
+            matchSuccessPoints++;
         }
         else
         {
@@ -152,19 +168,17 @@ public class ContestantScript : MonoBehaviour
 
     }
 
-/*     private void DropTweenAnimationAfterDelay()
-    {
-        gameObject.transform.DOMoveY(-5f, 0.25f).onComplete = () =>
-        {
-            ContestantQuestioningManager.Instance.ContestantEliminatedSignal();
-        };
-    } */
 
     public void FinalEliminate(){
+        selectedIndicator.enabled = false;
         animator.SetTrigger("Fall");
     }
 
     public void WinnerAction(){
         animator.SetTrigger("Happy");
+    }
+
+    public float GetMatchSuccessRate(){
+        return ((float)matchSuccessPoints)/((float)numberOfFactorsForMatchSuccess);
     }
 }

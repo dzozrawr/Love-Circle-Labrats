@@ -46,15 +46,7 @@ namespace DogMiniGame
         }
 
 
-        private void Update()
-        {
-            /*             if(dogInAnimation){
-                             if (dogAnimator.GetCurrentAnimatorStateInfo(0).){
-                                SetButtonsInteractable(true);
-                                dogInAnimation=false;
-                             }
-                        } */
-        }
+
         public void DogCommandButtonEffect(DogCommandButton dogCommandButton)
         {
             // Debug.Log(dogCommandButton.dogCommand);

@@ -110,6 +110,8 @@ public class BakingMiniGame : MiniGame
 
         sugarPileInitPos = sugarPile.transform.position;
         finalEliminationManager=FinalEliminationManager.Instance;
+
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     private void OnEnable()
@@ -129,6 +131,7 @@ public class BakingMiniGame : MiniGame
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
             contestant=Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -158,9 +161,12 @@ public class BakingMiniGame : MiniGame
                 else
                 {
                     Instantiate(pieDish, contestantsMixingBowls[i].transform.position, Quaternion.identity);
+                    finalEliminationManager.contestants[i].MatchSuccessPoints++;
                 }
                 contestantsMixingBowls[i].SetActive(false);
             }
+            finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Cry");
+            finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Happy");
             CameraController.Instance.transitionToCMVirtualCamera(contestantsPiesCamera);
             isMiniGameDone = true;
         }

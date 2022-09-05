@@ -10,15 +10,17 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
-
-
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
     public GameObject mainMenuGroup = null;
     public GameObject setPickingGroup=null;
+    public GameObject settingsGroup = null;
     public GameObject EOLScreen=null;
-    public Button nextLevelButton=null;
+    public Button endEpisodeButton=null;
+    public GameObject coinUI = null;
+
+    public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
@@ -42,6 +44,34 @@ public class GameCanvasController : MonoBehaviour
 
         //defining default UI state at the beginning of the game below
         setPickingGroup.SetActive(false);
+        settingsGroup.SetActive(false);
+        EOLScreen.SetActive(false);
+
+        coinUI.GetComponent<Animation>().Play("Coin UI Show");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            EOLScreen.SetActive(true);
+            terribleMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            EOLScreen.SetActive(true);
+            goodMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            EOLScreen.SetActive(true);
+            successfulMatchGroup.SetActive(true);
+            coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
     }
 
     public void ShowThumbsUpDown(bool show)
@@ -61,10 +91,7 @@ public class GameCanvasController : MonoBehaviour
         eliminateButton.gameObject.SetActive(show);
     }
 
-/*     public void EliminateButtonEffect()
-    {
-        contestantQuestioningManager.EliminateSelectedContestants();              
-    } */
+
 
     public void ThumbsUpDownButtonEffect(bool isThumbsUp)
     {
@@ -89,11 +116,13 @@ public class GameCanvasController : MonoBehaviour
     {
         button.player.ChoosePlayer();
         choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
+
     }
 
     public void PlayButtonEffect()
     {
         mainMenuGroup.GetComponent<Animator>().SetTrigger("Hide");
+        coinUI.GetComponent<Animation>().Play("Coin UI Hide");
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
     }
 
@@ -102,7 +131,42 @@ public class GameCanvasController : MonoBehaviour
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
     }
 
+    public void SettingsButtonEffect()
+    {
+        settingsGroup.SetActive(true);
+        settingsGroup.GetComponent<Animator>().SetTrigger("Show");
+    }
+
     public void NextLevelButtonEffect(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
+    {
+        EOLScreen.SetActive(true);
+        coinUI.GetComponent<Animation>().Play("Coin UI Show");
+
+        if (successRate == 0f)  //kind of hard coded
+        {
+            terribleMatchGroup.SetActive(true);
+        }else if (successRate == 0.5f)
+        {
+            goodMatchGroup.SetActive(true);
+        }
+        else if (successRate == 1f)
+        {
+            successfulMatchGroup.SetActive(true);
+        }
+    }
+    public void SetActiveFalse()
+    {
+        setPickingGroup.SetActive(false);
+        settingsGroup.SetActive(false);
+    }
+
+    public void InvokeSetActiveFalse()
+    {
+        Invoke(nameof(SetActiveFalse), 0.25f);
+    }
+
 }

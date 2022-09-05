@@ -13,8 +13,12 @@ public class BakingPhase : BakingMiniGameState
     private bool isPhaseFinished = false;
 
     private GameObject[] coloredBakedTopLayer;
+
+    private BakingMiniGame bmg;
     public void InitState(BakingMiniGame bmg)
     {
+        this.bmg=bmg;
+
         pieDish = bmg.PieDish;
         placeToMoveBowlTo = bmg.bowlMovedPlace;
 
@@ -51,7 +55,7 @@ public class BakingPhase : BakingMiniGameState
             pieDish.transform.DOMove(pieDishInitPos, 1.5f).OnComplete(() =>
             {
                 CameraController.Instance.transitionToCMVirtualCamera(bmg.miniGameCam);
-                CheckForCameraBlending.onCameraBlendFinished +=EndPhase;
+                CheckForCameraBlending.onCameraBlendFinished +=ShowPie;
 
 
             });
@@ -66,10 +70,17 @@ public class BakingPhase : BakingMiniGameState
         return this;
     }
 
-    private void EndPhase()
+    private void ShowPie()
     {
-        isPhaseFinished = true;
-        CheckForCameraBlending.onCameraBlendFinished -=EndPhase;
+        bmg.StartCoroutine(EndPhaseWDelay(1.5f));
+        CheckForCameraBlending.onCameraBlendFinished -=ShowPie;
     }
+
+    IEnumerator EndPhaseWDelay(float delay){
+        yield return new WaitForSeconds(delay);
+        isPhaseFinished = true;
+    }
+
+    
 
 }

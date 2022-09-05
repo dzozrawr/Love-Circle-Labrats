@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using PixelCrushers.DialogueSystem;
+using PathCreation;
+using PathCreation.Examples;
 
 public class DogMiniGameM : MiniGame
 {
@@ -13,12 +15,14 @@ public class DogMiniGameM : MiniGame
 
     public CinemachineVirtualCamera dogContestantsCam = null;
 
+
     private GameController gameController = null;
     private FinalEliminationManager finalEliminationManager = null;
 
     private Animator dogAnimator0 = null, dogAnimator1 = null;
 
     private DialogueSystemTrigger dialogueSystemTrigger=null;
+
 
     private void Awake()
     {
@@ -45,17 +49,25 @@ public class DogMiniGameM : MiniGame
 
         dogAnimator0 = contestantsDogs[0].GetComponentInChildren<Animator>();
         dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();
+
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
-        Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+        GameObject playerGameObject;
+
+        PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+
+
+
         ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -70,6 +82,10 @@ public class DogMiniGameM : MiniGame
     {
         dogAnimator0.SetTrigger("Spin");
         dogAnimator1.SetTrigger("Bark");
+        finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Clap");
+        finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Embarrass");
+
+        finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
         StartCoroutine(WaitForIdle());
 
