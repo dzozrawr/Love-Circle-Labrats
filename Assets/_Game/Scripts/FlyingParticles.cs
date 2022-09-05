@@ -32,7 +32,7 @@ public class FlyingParticles : MonoBehaviour
         StartCoroutine(ShootDelayed(target));
     }
 
-    protected IEnumerator ShootDelayed(Transform target, float delay = 0.75f)
+    protected IEnumerator ShootDelayed(Transform target, float delay = 1f)
     {
         if (delay > 0.0f)
         {

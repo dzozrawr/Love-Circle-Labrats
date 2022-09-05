@@ -174,7 +174,7 @@ public class FinalEliminationManager : MonoBehaviour
                 selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Cry");
                 break;
             case 0.5f:
-                //should here stay Idle animation for player?
+                selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Okay");
                 break;
             case 1f:
                 selectedMiniGame.PlayerInMiniGameGO.GetComponent<Animator>().SetTrigger("Happy");
