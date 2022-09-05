@@ -31,6 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1.8016, y: 1.8016, z: 1.8016}
   m_Children:
   - {fileID: 1909274495}
+  - {fileID: 962339735008833682}
   m_Father: {fileID: 1492652440991864423}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6608,7 +6609,7 @@ GameObject:
   - component: {fileID: 33822893720916460}
   - component: {fileID: 8648019019901243024}
   m_Layer: 5
-  m_Name: BrokenHeartParticle
+  m_Name: SadEmojiParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12879,6 +12880,7 @@ MonoBehaviour:
   heartPulseParticle: {fileID: 212380851677584192}
   brokenHeartParticle: {fileID: 33822893720916460}
   coinBurstParticle: {fileID: 7316639405426084624}
+  flyingParticles: {fileID: 0}
 --- !u!1 &4121290192431288193
 GameObject:
   m_ObjectHideFlags: 0
@@ -13675,6 +13677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3519426482875807934}
   - component: {fileID: 5292756011446567846}
+  - component: {fileID: 4467463044751871277}
   m_Layer: 5
   m_Name: EOLScreen
   m_TagString: Untagged
@@ -13727,6 +13730,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4467463044751871277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446660768576835882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b5491a0ea292844eb3e743a0399c066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPulseParticle: {fileID: 212380851677584192}
+  brokenHeartParticle: {fileID: 33822893720916460}
+  coinBurstParticle: {fileID: 7316639405426084624}
+  flyingParticles: {fileID: 9142587260221356195}
 --- !u!1 &4734859733646152910
 GameObject:
   m_ObjectHideFlags: 0
@@ -14329,6 +14348,7 @@ MonoBehaviour:
   heartPulseParticle: {fileID: 212380851677584192}
   brokenHeartParticle: {fileID: 33822893720916460}
   coinBurstParticle: {fileID: 7316639405426084624}
+  flyingParticles: {fileID: 0}
 --- !u!1 &5497323523146384240
 GameObject:
   m_ObjectHideFlags: 0
@@ -14931,6 +14951,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6630911290173282902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 962339735008833682}
+  m_Layer: 5
+  m_Name: CoinShootTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &962339735008833682
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630911290173282902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1298302840}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -33.7, y: 1.4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6632544661184933370
 GameObject:
   m_ObjectHideFlags: 0
@@ -17073,6 +17128,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6708506070097534263}
     m_Modifications:
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 962339735008833682}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: projectileSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: acceptableDistanceFromTarget
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5803136262851139611, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
       propertyPath: m_Name
       value: Coin Burst Particle 3
@@ -17080,6 +17147,18 @@ PrefabInstance:
     - target: {fileID: 5803136262851139613, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803136262851139613, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803136262851139613, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5803136262851139613, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5803136262851139614, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
       propertyPath: m_RootOrder
@@ -17139,6 +17218,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+--- !u!114 &9142587260221356195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -3755452586381841490, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
+  m_PrefabInstance: {fileID: 3819348705427985165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec83d54bb5edde4eb94a3944c63c911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &7316639405426084624 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5803136262851139613, guid: 7e587462532e78b4ea5d941697d70c5b, type: 3}
