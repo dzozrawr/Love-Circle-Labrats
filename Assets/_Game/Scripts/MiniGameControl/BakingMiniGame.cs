@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using BakingMinigameFruit;
 
 public class BakingMiniGame : MiniGame
 {
@@ -44,6 +45,8 @@ public class BakingMiniGame : MiniGame
     public Vector3 doughStartScale, doughEndScale;
 
     public GameObject hitCircleForFruit = null;
+    public Transform placeForFruitBowl = null;
+    public GameObject cranberriesBowl = null, blueberriesBowl = null, strawberriesBowl = null;
 
     public GameObject pieDishPrefab = null;
 
@@ -111,7 +114,7 @@ public class BakingMiniGame : MiniGame
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
 
         sugarPileInitPos = sugarPile.transform.position;
-        finalEliminationManager=FinalEliminationManager.Instance;
+        finalEliminationManager = FinalEliminationManager.Instance;
 
         FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
@@ -125,15 +128,15 @@ public class BakingMiniGame : MiniGame
     protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
-        PlayerInMiniGameGO=Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+        PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
 
-        
+
         ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
-            contestant=Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
-            contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
+            contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -154,19 +157,19 @@ public class BakingMiniGame : MiniGame
 
         if (currentState == null)
         {
-            PieDish instantiatedPie=null;
+            PieDish instantiatedPie = null;
             for (int i = 0; i < contestantsMixingBowls.Length; i++)
             {
                 if (i == 0)
                 {
-                    instantiatedPie=Instantiate(pieDishBadPrefab, contestantsMixingBowls[i].transform.position, Quaternion.identity);
+                    instantiatedPie = Instantiate(pieDishBadPrefab, contestantsMixingBowls[i].transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    instantiatedPie=Instantiate(pieDish, contestantsMixingBowls[i].transform.position, Quaternion.identity);
+                    instantiatedPie = Instantiate(pieDish, contestantsMixingBowls[i].transform.position, Quaternion.identity);
                     finalEliminationManager.contestants[i].MatchSuccessPoints++;
                 }
-                instantiatedPie.transform.localScale=contestantPieScale;
+                instantiatedPie.transform.localScale = contestantPieScale;
                 contestantsMixingBowls[i].SetActive(false);
             }
             finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Cry");
@@ -180,5 +183,20 @@ public class BakingMiniGame : MiniGame
                     sugarPile.transform.localScale=new Vector3(sugarPile.transform.localScale.x>1?1:(sugarPile.transform.localScale.x+Time.deltaTime/4),sugarPile.transform.localScale.y>1?1:(sugarPile.transform.localScale.y+Time.deltaTime/4),sugarPile.transform.localScale.z>1?1:(sugarPile.transform.localScale.z+Time.deltaTime/4));
                     sugarProgressBar.SetFill(sugarPile.transform.localScale.x);
                 } */
+    }
+
+    public GameObject GetFruitBowl(FruitType type)
+    {
+        switch (type)
+        {
+            case FruitType.Blueberry:
+                return blueberriesBowl;
+            case FruitType.Cranberry:
+                return cranberriesBowl;
+            case FruitType.Strawberry:
+                return strawberriesBowl;
+            default:
+                return null;
+        }
     }
 }

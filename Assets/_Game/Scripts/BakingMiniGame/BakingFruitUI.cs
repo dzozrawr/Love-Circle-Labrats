@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace BakingMinigameFruit
 {
-    public enum FruitColor{
-        Red,Blue
+    public enum FruitColor
+    {
+        Red, Blue
+    }
+    public enum FruitType
+    {
+        Cranberry, Blueberry, Strawberry
     }
     public class BakingFruitUI : MonoBehaviour  //used to store information about the fruit model
     {
@@ -14,11 +19,12 @@ namespace BakingMinigameFruit
 
         public int maxFruitLimit = 10;
 
+        public FruitType fruitType;
         public FruitColor fruitColor;
 
         public void OnButtonClick()
         {
-            bakingMiniGameCanvas.SetChosenFruit(fruitPrefab, maxFruitLimit, fruitColor);
+            bakingMiniGameCanvas.SetChosenFruit(fruitType, fruitColor);
             Image img;
             foreach (BakingFruitUI f in transform.parent.GetComponentsInChildren<BakingFruitUI>())
             {

@@ -15,17 +15,19 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     private PlayerScript chosenPlayer = null;
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
+    public static int CoinAmount { get => coinAmount; }
 
     [HideInInspector]
-    public UnityEvent ContestantsEliminated, CurtainOpen, MiniGameStarted;
+    public UnityEvent ContestantsEliminated, CurtainOpen, MiniGameStarted, CoinAmountUpdated;
 
     public StudioSet[] studioSetList = null;
     public StudioSet studioSet = null;
-    public GameObject host=null;
-    public Transform placeForHostBeforeMiniGame=null;
+    public GameObject host = null;
+    public Transform placeForHostBeforeMiniGame = null;
 
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
+    private static int coinAmount;
 
 
     //public PlayerScript leftPlayer = null, rightPlayer=null;
@@ -39,7 +41,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
         instance = this;
 
-        selectedStudioSetInMenu=studioSet;
+        selectedStudioSetInMenu = studioSet;
+        coinAmount=0;
     }
 
 #if UNITY_EDITOR
@@ -126,7 +129,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
             else
             {
-                studioSet=selectedStudioSetInMenu;
+                studioSet = selectedStudioSetInMenu;
                 studioSetList[i].gameObject.SetActive(true);
             }
         }
@@ -149,7 +152,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         //CameraController.Instance.contestantsCam.Priority = CameraController.Instance.playerPickingCam.Priority + 1;
     }
 
-    public void SwitchToRespectivePlayersMiniGameCamera(){
+    public void SwitchToRespectivePlayersMiniGameCamera()
+    {
         CameraController.Instance.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+    }
+
+    public void SetCoinAmount(int x)
+    {
+        coinAmount = x;
+        CoinAmountUpdated?.Invoke();
     }
 }
