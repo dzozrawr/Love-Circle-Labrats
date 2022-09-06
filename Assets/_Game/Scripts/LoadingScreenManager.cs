@@ -21,7 +21,7 @@ public class LoadingScreenManager : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
-        UpdateProgressUI(0);
+       // UpdateProgressUI(0);
 
         StartCoroutine(BeginLoad(sceneIndex));
     }
