@@ -54,7 +54,6 @@ public class FruitPuttingPhase : BakingMiniGameState
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("if (Input.GetMouseButton(0))");
                 fruitBowl =MonoBehaviour.Instantiate(bmg.GetFruitBowl(bakingMiniGameCanvas.ChosenFruitType));
 
 
