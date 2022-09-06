@@ -62,6 +62,9 @@ public class DefaultStudioSet : StudioSet
         c.animator.SetTrigger("FreeFall");
         yield return new WaitForSeconds(delay);
         
+        if(eliminationAudioClip!=null){
+            SoundManager.Instance.PlaySound(eliminationAudioClip,eliminationAudioClipVolume);
+        }
         c.transform.DOMoveY(eliminationDroppingDownEndHeight, eliminationDroppingDownTweenDuration).onComplete = () =>
         {
             contestantQuestioningManager.ContestantEliminatedSignal();

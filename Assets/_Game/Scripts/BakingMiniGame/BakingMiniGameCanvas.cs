@@ -9,11 +9,17 @@ public class BakingMiniGameCanvas : MonoBehaviour
 {
     public GameObject phase1UIElementsGroup = null;
     public BakingUIElement[] phase1UIElements;
+
+    public GameObject phase1TapMsgGO=null,phase1TapAndHoldMsgGO=null;
     public BakingProgressBar bakingProgressBar = null;
 
     public GameObject mixingPhaseElements = null;
 
+    public GameObject mixingPhaseTapAndHoldMsgGO=null;
+
     public GameObject phase3UIElementsGroup = null;
+
+    public GameObject fruitPuttingPhaseTapMsgGO=null;
 
     public GameObject pieCuttingUIElementsGroup = null;
 

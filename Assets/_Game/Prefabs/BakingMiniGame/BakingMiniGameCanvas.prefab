@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6810227292699001772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 219}
+  m_AnchoredPosition: {x: 0, y: 1184}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7436359997949680171
@@ -427,9 +427,13 @@ MonoBehaviour:
   - {fileID: 1942528235689838063}
   - {fileID: 3372927605054143954}
   - {fileID: 5195335823814959116}
+  phase1TapMsgGO: {fileID: 5651612529411428692}
+  phase1TapAndHoldMsgGO: {fileID: 5159310389320392050}
   bakingProgressBar: {fileID: 1416178989136156900}
   mixingPhaseElements: {fileID: 6345597926996040972}
+  mixingPhaseTapAndHoldMsgGO: {fileID: 5453785070937829444}
   phase3UIElementsGroup: {fileID: 7538384111495221825}
+  fruitPuttingPhaseTapMsgGO: {fileID: 59515188021664957}
   pieCuttingUIElementsGroup: {fileID: 5706919955434533178}
   FruitChosen:
     m_PersistentCalls:
@@ -470,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8893138792987484144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -566,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -145.00916, y: -613.551}
+  m_AnchoredPosition: {x: -145.00916, y: 312}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3243899950171451877
@@ -628,7 +632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &343685358270612786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2395,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138165626267226439, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 138165626687564600, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
       propertyPath: m_Maskable
@@ -2411,11 +2415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 138165626687564601, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 138165626687564601, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}

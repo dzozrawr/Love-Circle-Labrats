@@ -20,7 +20,20 @@ public class GameCanvasController : MonoBehaviour
     public Button endEpisodeButton = null;
     public GameObject coinUI = null;
 
+    public AudioClip onPlayerPickAudioClip = null;
+    [Range(0f, 1f)]
+    public float onPlayerPickAudioClipVolume = 1f;
+
     public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
+    public AudioClip successfulMatchAudioClip = null;
+    [Range(0f, 1f)]
+    public float successfulMatchAudioClipVolume = 1f;
+    public AudioClip goodMatchAudioClip = null;
+    [Range(0f, 1f)]
+    public float goodMatchAudioClipVolume = 1f;
+    public AudioClip terribleMatchAudioClip = null;
+    [Range(0f, 1f)]
+    public float terribleMatchAudioClipVolume = 1f;
 
     private GameController gameController = null;
     private CameraController cameraController = null;
@@ -132,6 +145,10 @@ public class GameCanvasController : MonoBehaviour
         button.player.ChoosePlayer();
         choosePlayerButtonGroup.GetComponent<Animator>().SetTrigger("Hide");
 
+        if (onPlayerPickAudioClip != null)
+        {
+            SoundManager.Instance.PlaySound(onPlayerPickAudioClip, onPlayerPickAudioClipVolume);
+        }
     }
 
     public void PlayButtonEffect()
@@ -166,14 +183,26 @@ public class GameCanvasController : MonoBehaviour
         if (successRate == 0f)  //kind of hard coded
         {
             terribleMatchGroup.SetActive(true);
+            if (terribleMatchAudioClip != null)
+            {
+                SoundManager.Instance.PlaySound(terribleMatchAudioClip,terribleMatchAudioClipVolume);
+            }
         }
         else if (successRate == 0.5f)
         {
             goodMatchGroup.SetActive(true);
+            if (goodMatchAudioClip != null)
+            {
+                SoundManager.Instance.PlaySound(goodMatchAudioClip,goodMatchAudioClipVolume);
+            }
         }
         else if (successRate == 1f)
         {
             successfulMatchGroup.SetActive(true);
+            if (successfulMatchAudioClip != null)
+            {
+                SoundManager.Instance.PlaySound(successfulMatchAudioClip,successfulMatchAudioClipVolume);
+            }
         }
     }
     public void SetActiveFalse()

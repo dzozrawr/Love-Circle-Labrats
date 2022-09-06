@@ -19,13 +19,14 @@ namespace DogMiniGame
         //public DogCommandToDo[] commandsToDo=null;
         public GameObject commandUserButtonsGroup = null;
 
-        public DogMiniGameM dogMiniGameM=null;
+        public DogMiniGameM dogMiniGameM = null;
 
 
         private Queue<DogCommandToDo> dogCommandQueue = new Queue<DogCommandToDo>();
         private Button[] commandUserButtons;
 
         private bool dogInAnimation = false;
+        private GameController gameController=null;
 
 
         private void Start()
@@ -42,6 +43,7 @@ namespace DogMiniGame
             }
 
             commandUserButtons = commandUserButtonsGroup.GetComponentsInChildren<Button>();
+            gameController=GameController.Instance;
             // Debug.Log(commandUserButtons.Length);
         }
 
@@ -83,8 +85,8 @@ namespace DogMiniGame
 
             if (dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Sit"))
             {
-                
-                
+
+
             }
         }
 
@@ -95,10 +97,15 @@ namespace DogMiniGame
             yield return new WaitUntil(() => dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
             if (!isMiniGameOver)
                 SetButtonsInteractable(true);
-            else{
+            else
+            {
                 dogMiniGameM.TransitionToContestants();
+                if (gameController.afterMiniGameAudioClip != null)
+                {
+                    SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
+                }
                 HideMiniGame();
-            } 
+            }
         }
 
         private void SetButtonsInteractable(bool b)

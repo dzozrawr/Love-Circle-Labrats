@@ -112,6 +112,7 @@ public class BakingMiniGame : MiniGame
         models.SetActive(true);
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
+        //gameController.AddListenerForMiniGameEnd(this);
 
         sugarPileInitPos = sugarPile.transform.position;
         finalEliminationManager = FinalEliminationManager.Instance;
@@ -175,7 +176,11 @@ public class BakingMiniGame : MiniGame
             finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Cry");
             finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Happy");
             CameraController.Instance.transitionToCMVirtualCamera(contestantsPiesCamera);
+            
             isMiniGameDone = true;
+            if(gameController.afterMiniGameAudioClip!=null){
+                SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip,gameController.afterMiniGameAudioClipVolume);
+            }
         }
 
 

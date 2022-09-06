@@ -25,6 +25,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public GameObject host = null;
     public Transform placeForHostBeforeMiniGame = null;
 
+    public AudioClip afterMiniGameAudioClip = null;
+    [Range(0, 1f)]
+    public float afterMiniGameAudioClipVolume = 1f;
+
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
     private static int coinAmount;
@@ -42,7 +46,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         instance = this;
 
         selectedStudioSetInMenu = studioSet;
-        coinAmount=0;
+        coinAmount = 0;
     }
 
 #if UNITY_EDITOR
@@ -58,6 +62,22 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
     }
 #endif
+
+    public void AddListenerForMiniGameEnd(PlayerScript player)
+    {
+        player.
+        miniGame.
+        MiniGameDone.
+        AddListener(OnMiniGameEnd);
+    }
+
+    public void OnMiniGameEnd()
+    {
+        if(afterMiniGameAudioClip!=null){
+            SoundManager.Instance.PlaySound(afterMiniGameAudioClip,afterMiniGameAudioClipVolume);
+        }
+        chosenPlayer.miniGame.MiniGameDone.RemoveListener(OnMiniGameEnd);
+    }
 
     // Update is called once per frame
     void Update()
@@ -155,6 +175,22 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public void SwitchToRespectivePlayersMiniGameCamera()
     {
         CameraController.Instance.transitionToCMVirtualCamera(GameController.Instance.ChosenPlayer.miniGame.miniGameCam);
+    }
+
+    public void SwitchToQuestioningMusic()
+    {
+        if (studioSet.questioningMusic != null)
+        {
+            SoundManager.Instance.SwitchBackgroundMusic(studioSet.questioningMusic, studioSet.questioningMusicVolume);
+        }
+    }
+
+    public void SwitchToFinalMusic()
+    {
+        if (studioSet.finalMusic != null)
+        {
+            SoundManager.Instance.SwitchBackgroundMusic(studioSet.finalMusic, studioSet.finalMusicVolume);
+        }
     }
 
     public void SetCoinAmount(int x)

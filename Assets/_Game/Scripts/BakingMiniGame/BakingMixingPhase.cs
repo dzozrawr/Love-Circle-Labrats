@@ -36,12 +36,16 @@ public class BakingMixingPhase : BakingMiniGameState
         {
             eggYolk.SetActive(false);
         }
+
+        bmg.bakingMiniGameCanvas.mixingPhaseTapAndHoldMsgGO.SetActive(true);
     }
     public BakingMiniGameState DoState(BakingMiniGame bmg)
     {
 
         if (Input.GetMouseButton(0))
         {
+
+
             topPile.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
             dough.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
             woodenSpoon.GetComponent<Animator>().speed = 0.6f;
@@ -65,6 +69,8 @@ public class BakingMixingPhase : BakingMiniGameState
 //                Debug.Log("Mixing done");
                 return bmg.bowlSwitchPhase;
             }
+
+            bmg.bakingMiniGameCanvas.mixingPhaseTapAndHoldMsgGO.SetActive(false);
         }
         else
         {

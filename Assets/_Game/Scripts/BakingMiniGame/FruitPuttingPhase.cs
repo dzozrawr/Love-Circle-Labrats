@@ -54,7 +54,6 @@ public class FruitPuttingPhase : BakingMiniGameState
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("if (Input.GetMouseButton(0))");
                 fruitBowl =MonoBehaviour.Instantiate(bmg.GetFruitBowl(bakingMiniGameCanvas.ChosenFruitType));
 
 
@@ -68,7 +67,8 @@ public class FruitPuttingPhase : BakingMiniGameState
                                   AddListener(OnBowlDestroyed);*/
                 bmg.StartCoroutine(FinishPhaseAfterDelay(3.5f));
 
-
+                bakingMiniGameCanvas.fruitPuttingPhaseTapMsgGO.SetActive(false);
+                
                 onceBool = true;
             }
 
@@ -83,6 +83,7 @@ public class FruitPuttingPhase : BakingMiniGameState
     private void OnFruitChosen()
     {
         wasFruitChosen = true;
+        bakingMiniGameCanvas.fruitPuttingPhaseTapMsgGO.SetActive(true);
         bakingMiniGameCanvas.FruitChosen.RemoveListener(OnFruitChosen);
     }
 

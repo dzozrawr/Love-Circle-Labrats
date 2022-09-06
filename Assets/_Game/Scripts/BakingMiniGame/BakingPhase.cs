@@ -27,7 +27,7 @@ public class BakingPhase : BakingMiniGameState
         bmg.bakingMiniGameCanvas.pieCuttingUIElementsGroup.SetActive(false);
 
 
-
+        FruitManager.SetParentToAllInstances(pieDish.transform);
         pieDish.transform.DOMove(placeToMoveBowlTo.position, 1.5f).OnComplete(() =>
         {
             pieDish.unbakedBody.SetActive(false);//disable unbaked base
