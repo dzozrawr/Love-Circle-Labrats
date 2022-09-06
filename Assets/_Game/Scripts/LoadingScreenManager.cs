@@ -32,10 +32,10 @@ public class LoadingScreenManager : MonoBehaviour
 
         while (!operation.isDone)
         {
-            UpdateProgressUI(operation.progress);
+            //UpdateProgressUI(operation.progress);
             yield return null;
         }
-        UpdateProgressUI(operation.progress);
+       // UpdateProgressUI(operation.progress);
         operation = null;
     }
 
