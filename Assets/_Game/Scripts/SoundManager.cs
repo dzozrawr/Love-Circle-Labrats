@@ -101,7 +101,7 @@ public class SoundManager : MonoBehaviour
 
         // backgroundMusic = Resources.Load<AudioClip>("backgroundMusic");
 
-        //backgroundMusicAudioSrc.loop = true;
+        backgroundMusicAudioSrc.loop = true;
         //  backgroundMusicAudioSrc.clip = backgroundMusic;
         //backgroundMusicAudioSrc.volume = 0.1f;
         //backgroundMusicAudioSrc.time = backgroundMusicStartTime;
