@@ -9411,6 +9411,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 654377321831332928}
+          m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+          m_MethodName: SwitchToQuestioningMusic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     runOnConversationEndEventsAtEndOfFrame: 0
     onConversationCancelled:
       m_PersistentCalls:
@@ -9692,7 +9704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8729934237770436257, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.43285516
+      value: -0.4328552
       objectReference: {fileID: 0}
     - target: {fileID: 8729934237770436257, guid: edddd800c0e6fde48979c3b55c80f221, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10557,6 +10569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splashParticle: {fileID: 379641154664030739, guid: 122c3cb2e6114674e8eec4a884c3aa0b, type: 3}
+  beachStudioSet: {fileID: 1426652791}
 --- !u!65 &529853325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10753,6 +10766,18 @@ MonoBehaviour:
         - m_Target: {fileID: 654377321831332928}
           m_TargetAssemblyTypeName: GameController, Assembly-CSharp
           m_MethodName: SwitchToRespectivePlayersMiniGameCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 654377321831332928}
+          m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+          m_MethodName: SwitchToFinalMusic
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -28234,6 +28259,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2317080424541583915}
     - target: {fileID: 4784464801275451325, guid: fbacf3b82d5d17249af50b8427a3e368, type: 3}
+      propertyPath: afterMiniGameAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 11bfe2c4c0d93bf40b6d6965fbc4a32b, type: 3}
+    - target: {fileID: 4784464801275451325, guid: fbacf3b82d5d17249af50b8427a3e368, type: 3}
       propertyPath: placeForHostBeforeMiniGame
       value: 
       objectReference: {fileID: 1211334737}
@@ -28262,6 +28291,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3f968543b419f4a89e1b25e89a09a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1068743514142807877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1068743513074804737, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068743513074804749, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1a5757f85e276b4c8b2a74e4f918ff4, type: 3}
 --- !u!1001 &1300971638388835251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29329,6 +29415,14 @@ PrefabInstance:
       propertyPath: playerR
       value: 
       objectReference: {fileID: 549401060}
+    - target: {fileID: 7614330765074877661, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
+      propertyPath: startingMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 23d27210ee71c934092950e51758309a, type: 3}
+    - target: {fileID: 7614330765074877661, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
+      propertyPath: eliminationAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: aa7da4c77e3851d429253c75a9283572, type: 3}
     - target: {fileID: 7731049996095891530, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
       propertyPath: m_SpotAngle
       value: 88.77872
@@ -30114,6 +30208,22 @@ PrefabInstance:
       propertyPath: playerR
       value: 
       objectReference: {fileID: 549401060}
+    - target: {fileID: 435473039886475652, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
+      propertyPath: startingMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 25ab031829ff3ae48bb9aefec07c1a26, type: 3}
+    - target: {fileID: 435473039886475652, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
+      propertyPath: springAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f296323afb21144c928441a467c39e2, type: 3}
+    - target: {fileID: 435473039886475652, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
+      propertyPath: eliminationAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cbf7cce8fb7ef444c81952c4247fd2b8, type: 3}
+    - target: {fileID: 435473039886475652, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
+      propertyPath: waterSplashAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 74e8646e75dcffa47b013bb284b3c337, type: 3}
     - target: {fileID: 840975685451376819, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.78
@@ -30590,6 +30700,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1909274495, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13.057793
+      objectReference: {fileID: 0}
     - target: {fileID: 18364000885644788, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -30629,6 +30743,10 @@ PrefabInstance:
     - target: {fileID: 653480409273495292, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 962339735008833682, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.699997
       objectReference: {fileID: 0}
     - target: {fileID: 994228730091709528, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -31219,6 +31337,22 @@ PrefabInstance:
       propertyPath: playerR
       value: 
       objectReference: {fileID: 549401060}
+    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
+      propertyPath: finalMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: d3c14649b002cba47a43e38d39d47c3b, type: 3}
+    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
+      propertyPath: startingMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: e588554a53828b04d8baf9d51bef2000, type: 3}
+    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
+      propertyPath: questioningMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: f93d30cc6656b744c971f4ec17f7460b, type: 3}
+    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
+      propertyPath: eliminationAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 17d8a7970c76ec342b64458ddf17bb1f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
 --- !u!1001 &8920085915602352530

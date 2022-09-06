@@ -91,6 +91,10 @@ public class SpaceStudioSet : StudioSet
             alienLight.transform.position += new Vector3(0, alienLight.GetComponent<Renderer>().bounds.extents.y, 0);
             alienLight.SetActive(true);
 
+            if(eliminationAudioClip!=null){
+                SoundManager.Instance.PlaySound(eliminationAudioClip,eliminationAudioClipVolume);
+            }
+
             StartCoroutine(GoUpTweenAnimationAfterDelay(contestant, tube, spacePos, eliminationDelayBeforeGoingUp));
         };
 

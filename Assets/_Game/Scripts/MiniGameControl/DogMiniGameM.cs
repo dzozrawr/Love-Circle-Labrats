@@ -46,6 +46,7 @@ public class DogMiniGameM : MiniGame
 
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
+       // gameController.AddListenerForMiniGameEnd(this);
 
         dogAnimator0 = contestantsDogs[0].GetComponentInChildren<Animator>();
         dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();

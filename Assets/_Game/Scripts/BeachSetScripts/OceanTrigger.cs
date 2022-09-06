@@ -5,6 +5,7 @@ using UnityEngine;
 public class OceanTrigger : MonoBehaviour
 {
     public ParticleSystem splashParticle=null;
+    public BeachStudioSet beachStudioSet=null;
     private ContestantQuestioningManager contestantQuestioningManager;
     private void Start()
     {
@@ -15,6 +16,9 @@ public class OceanTrigger : MonoBehaviour
         if (other.gameObject.tag.Equals("Contestant"))
         {
             //StartCoroutine(Splash(other.gameObject.transform.position));//add splash particle and whatnot, sound maybe
+            if(beachStudioSet.waterSplashAudioClip!=null){
+                SoundManager.Instance.PlaySound(beachStudioSet.waterSplashAudioClip,beachStudioSet.waterSplashAudioClipVolume);
+            }
             Instantiate(splashParticle,other.gameObject.transform.position,Quaternion.identity) ;
             contestantQuestioningManager.ContestantEliminatedSignal();
             ContestantScript contestantScript= other.transform.GetComponentInParent<ContestantScript>();
