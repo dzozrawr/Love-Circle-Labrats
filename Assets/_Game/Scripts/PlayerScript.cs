@@ -35,7 +35,10 @@ public class PlayerScript : MonoBehaviour
 
     public void ChoosePlayer()
     {
+        
+        //gameController.AddListenerForMiniGameEnd(this);
         gameController.studioSet.OpenPlayerCurtain(this);//based on the studio open this curtain (or smth else) in this or that way - studioSet.OpenCurtain(this)
+        
         gameController.CurtainOpen.AddListener(ActionAfterCurtainOpen);
     }
 
@@ -45,8 +48,9 @@ public class PlayerScript : MonoBehaviour
         pathFollower.speed = walkingSpeed;//start the walking sequence and whatnot
         animator.SetTrigger("Walk");//trigger walking animation
 
-        miniGame.InitializeMiniGame();
         gameController.ChosenPlayer = this;
+        miniGame.InitializeMiniGame();
+        
 
         gameController.CurtainOpen.RemoveListener(ActionAfterCurtainOpen);
     }

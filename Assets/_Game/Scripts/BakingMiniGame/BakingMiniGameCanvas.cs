@@ -9,11 +9,17 @@ public class BakingMiniGameCanvas : MonoBehaviour
 {
     public GameObject phase1UIElementsGroup = null;
     public BakingUIElement[] phase1UIElements;
+
+    public GameObject phase1TapMsgGO=null,phase1TapAndHoldMsgGO=null;
     public BakingProgressBar bakingProgressBar = null;
 
     public GameObject mixingPhaseElements = null;
 
+    public GameObject mixingPhaseTapAndHoldMsgGO=null;
+
     public GameObject phase3UIElementsGroup = null;
+
+    public GameObject fruitPuttingPhaseTapMsgGO=null;
 
     public GameObject pieCuttingUIElementsGroup = null;
 
@@ -23,14 +29,16 @@ public class BakingMiniGameCanvas : MonoBehaviour
 
     private List<BakingUIElement> fruitIcons = new List<BakingUIElement>();
 
-    private GameObject chosenFruit = null;
+    private FruitType chosenFruitType;
     private FruitColor chosenFruitColor;
     private int maxFruitLimit;
 
     private int chosenPatternNumber = -1;
+    [HideInInspector]
+    public UnityEvent FruitChosen;
 
     public List<BakingUIElement> FruitIcons { get => fruitIcons; set => fruitIcons = value; }
-    public GameObject ChosenFruit { get => chosenFruit; set => chosenFruit = value; }
+    public FruitType ChosenFruitType { get => chosenFruitType; set => chosenFruitType = value; }
     public int MaxFruitLimit { get => maxFruitLimit; set => maxFruitLimit = value; }
     public int ChosenPatternNumber { get => chosenPatternNumber; set => chosenPatternNumber = value; }
     public FruitColor ChosenFruitColor { get => chosenFruitColor; set => chosenFruitColor = value; }
@@ -43,11 +51,11 @@ public class BakingMiniGameCanvas : MonoBehaviour
         }
     }
 
-    public void SetChosenFruit(GameObject fruit, int maxLimit, FruitColor c)
+    public void SetChosenFruit(FruitType fruitType, FruitColor c)
     {
-        chosenFruit = fruit;
-        maxFruitLimit = maxLimit;
+        chosenFruitType = fruitType;
         chosenFruitColor = c;
+        FruitChosen?.Invoke();
     }
 
     public void ReEnablePhase1Buttons()

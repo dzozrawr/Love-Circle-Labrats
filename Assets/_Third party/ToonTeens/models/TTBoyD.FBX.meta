@@ -1,290 +1,854 @@
 fileFormatVersion: 2
 guid: 3f67b3596395d6d4789e43abdd577187
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: HEAD
-    100002: ROOT
-    100004: TPGlasses
-    100006: TT
-    100008: TT Head
-    100010: TT L Calf
-    100012: TT L Clavicle
-    100014: TT L Finger0
-    100016: TT L Finger01
-    100018: TT L Finger02
-    100020: TT L Finger1
-    100022: TT L Finger11
-    100024: TT L Finger12
-    100026: TT L Finger2
-    100028: TT L Finger21
-    100030: TT L Finger22
-    100032: TT L Finger3
-    100034: TT L Finger31
-    100036: TT L Finger32
-    100038: TT L Finger4
-    100040: TT L Finger41
-    100042: TT L Finger42
-    100044: TT L Foot
-    100046: TT L Forearm
-    100048: TT L Hand
-    100050: TT L Thigh
-    100052: TT L Toe0
-    100054: TT L UpperArm
-    100056: TT Neck
-    100058: TT Pelvis
-    100060: TT R Calf
-    100062: TT R Clavicle
-    100064: TT R Finger0
-    100066: TT R Finger01
-    100068: TT R Finger02
-    100070: TT R Finger1
-    100072: TT R Finger11
-    100074: TT R Finger12
-    100076: TT R Finger2
-    100078: TT R Finger21
-    100080: TT R Finger22
-    100082: TT R Finger3
-    100084: TT R Finger31
-    100086: TT R Finger32
-    100088: TT R Finger4
-    100090: TT R Finger41
-    100092: TT R Finger42
-    100094: TT R Foot
-    100096: TT R Forearm
-    100098: TT R Hand
-    100100: TT R Thigh
-    100102: TT R Toe0
-    100104: TT R UpperArm
-    100106: TT Spine
-    100108: TT Spine1
-    100110: TT Spine2
-    100112: TTBFeetA
-    100114: TTBFeetB
-    100116: TTBFeetC
-    100118: TTBFeetD
-    100120: TTBHairA
-    100122: TTBHairB
-    100124: TTBHairC
-    100126: TTBHairD
-    100128: TTBHairE
-    100130: TTBHoodA
-    100132: TTBHoodB
-    100134: TTBJacket
-    100136: TTBLegsA
-    100138: TTBLegsB
-    100140: //RootNode
-    100142: TTBSweater
-    100144: TTBTshirtA
-    100146: TTHatA
-    100148: TTHatB
-    100150: Glasses
-    100152: HEADsimple
-    100154: TTBHatA
-    100156: TTBHatB
-    100158: TTBLegsLA
-    100160: TTBLegsLB
-    100162: TTBLegsLC
-    100164: TTBLegsLD
-    100166: TTBLegsSA
-    100168: TTBLegsSB
-    100170: TTBTshirtLA
-    100172: TTBTshirtLB
-    100174: TTBTshirtLC
-    100176: TTBTshirtSA
-    100178: TTBTshirtSB
-    100180: TTBTshirtSC
-    100182: ROOT 1
-    100184: TTBChest
-    100186: TTBFeet
-    100188: TTBLegs
-    100190: TTBLegsSC
-    100192: TTBTshirtLD
-    400000: HEAD
-    400002: ROOT
-    400004: TPGlasses
-    400006: TT
-    400008: TT Head
-    400010: TT L Calf
-    400012: TT L Clavicle
-    400014: TT L Finger0
-    400016: TT L Finger01
-    400018: TT L Finger02
-    400020: TT L Finger1
-    400022: TT L Finger11
-    400024: TT L Finger12
-    400026: TT L Finger2
-    400028: TT L Finger21
-    400030: TT L Finger22
-    400032: TT L Finger3
-    400034: TT L Finger31
-    400036: TT L Finger32
-    400038: TT L Finger4
-    400040: TT L Finger41
-    400042: TT L Finger42
-    400044: TT L Foot
-    400046: TT L Forearm
-    400048: TT L Hand
-    400050: TT L Thigh
-    400052: TT L Toe0
-    400054: TT L UpperArm
-    400056: TT Neck
-    400058: TT Pelvis
-    400060: TT R Calf
-    400062: TT R Clavicle
-    400064: TT R Finger0
-    400066: TT R Finger01
-    400068: TT R Finger02
-    400070: TT R Finger1
-    400072: TT R Finger11
-    400074: TT R Finger12
-    400076: TT R Finger2
-    400078: TT R Finger21
-    400080: TT R Finger22
-    400082: TT R Finger3
-    400084: TT R Finger31
-    400086: TT R Finger32
-    400088: TT R Finger4
-    400090: TT R Finger41
-    400092: TT R Finger42
-    400094: TT R Foot
-    400096: TT R Forearm
-    400098: TT R Hand
-    400100: TT R Thigh
-    400102: TT R Toe0
-    400104: TT R UpperArm
-    400106: TT Spine
-    400108: TT Spine1
-    400110: TT Spine2
-    400112: TTBFeetA
-    400114: TTBFeetB
-    400116: TTBFeetC
-    400118: TTBFeetD
-    400120: TTBHairA
-    400122: TTBHairB
-    400124: TTBHairC
-    400126: TTBHairD
-    400128: TTBHairE
-    400130: TTBHoodA
-    400132: TTBHoodB
-    400134: TTBJacket
-    400136: TTBLegsA
-    400138: TTBLegsB
-    400140: //RootNode
-    400142: TTBSweater
-    400144: TTBTshirtA
-    400146: TTHatA
-    400148: TTHatB
-    400150: Glasses
-    400152: HEADsimple
-    400154: TTBHatA
-    400156: TTBHatB
-    400158: TTBLegsLA
-    400160: TTBLegsLB
-    400162: TTBLegsLC
-    400164: TTBLegsLD
-    400166: TTBLegsSA
-    400168: TTBLegsSB
-    400170: TTBTshirtLA
-    400172: TTBTshirtLB
-    400174: TTBTshirtLC
-    400176: TTBTshirtSA
-    400178: TTBTshirtSB
-    400180: TTBTshirtSC
-    400182: ROOT 1
-    400184: TTBChest
-    400186: TTBFeet
-    400188: TTBLegs
-    400190: TTBLegsSC
-    400192: TTBTshirtLD
-    2300000: TPGlasses
-    2300002: Glasses
-    2300004: HEADsimple
-    3300000: TPGlasses
-    3300002: Glasses
-    3300004: HEADsimple
-    4300000: TPGlasses
-    4300002: TTBFeetB
-    4300004: TTBFeetA
-    4300006: TTBLegsA
-    4300008: TTBHoodA
-    4300010: TTBJacket
-    4300012: TTBFeetD
-    4300014: TTBFeetC
-    4300016: TTBHoodB
-    4300018: TTBHairC
-    4300020: TTBHairB
-    4300022: TTBHairA
-    4300024: TTBHairD
-    4300026: TTBHairE
-    4300028: TTHatA
-    4300030: TTBSweater
-    4300032: TTBTshirtA
-    4300034: TTBLegsB
-    4300036: TTHatB
-    4300038: HEAD
-    4300040: Glasses
-    4300042: HEADsimple
-    4300044: TTBLegsLC
-    4300046: TTBHatA
-    4300048: TTBTshirtLA
-    4300050: TTBHatB
-    4300052: TTBTshirtLC
-    4300054: TTBTshirtSB
-    4300056: TTBTshirtSA
-    4300058: TTBTshirtSC
-    4300060: TTBTshirtLB
-    4300062: TTBLegsLD
-    4300064: TTBLegsLB
-    4300066: TTBLegsSA
-    4300068: TTBLegsLA
-    4300070: TTBLegsSB
-    4300072: TTBLegsSC
-    4300074: TTBTshirtLD
-    4300076: TTBChest
-    4300078: TTBLegs
-    4300080: TTBFeet
-    9500000: //RootNode
-    13700000: HEAD
-    13700002: TTBFeetA
-    13700004: TTBFeetB
-    13700006: TTBFeetC
-    13700008: TTBFeetD
-    13700010: TTBHairA
-    13700012: TTBHairB
-    13700014: TTBHairC
-    13700016: TTBHairD
-    13700018: TTBHairE
-    13700020: TTBHoodA
-    13700022: TTBHoodB
-    13700024: TTBJacket
-    13700026: TTBLegsA
-    13700028: TTBLegsB
-    13700030: TTBSweater
-    13700032: TTBTshirtA
-    13700034: TTHatA
-    13700036: TTHatB
-    13700038: TTBHatA
-    13700040: TTBHatB
-    13700042: TTBLegsLA
-    13700044: TTBLegsLB
-    13700046: TTBLegsLC
-    13700048: TTBLegsLD
-    13700050: TTBLegsSA
-    13700052: TTBLegsSB
-    13700054: TTBTshirtLA
-    13700056: TTBTshirtLB
-    13700058: TTBTshirtLC
-    13700060: TTBTshirtSA
-    13700062: TTBTshirtSB
-    13700064: TTBTshirtSC
-    13700066: HEADsimple
-    13700068: TTBChest
-    13700070: TTBFeet
-    13700072: TTBLegs
-    13700074: TTBLegsSC
-    13700076: TTBTshirtLD
-    2186277476908879412: ImportLogs
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: HEAD
+  - first:
+      1: 100002
+    second: ROOT
+  - first:
+      1: 100004
+    second: TPGlasses
+  - first:
+      1: 100006
+    second: TT
+  - first:
+      1: 100008
+    second: TT Head
+  - first:
+      1: 100010
+    second: TT L Calf
+  - first:
+      1: 100012
+    second: TT L Clavicle
+  - first:
+      1: 100014
+    second: TT L Finger0
+  - first:
+      1: 100016
+    second: TT L Finger01
+  - first:
+      1: 100018
+    second: TT L Finger02
+  - first:
+      1: 100020
+    second: TT L Finger1
+  - first:
+      1: 100022
+    second: TT L Finger11
+  - first:
+      1: 100024
+    second: TT L Finger12
+  - first:
+      1: 100026
+    second: TT L Finger2
+  - first:
+      1: 100028
+    second: TT L Finger21
+  - first:
+      1: 100030
+    second: TT L Finger22
+  - first:
+      1: 100032
+    second: TT L Finger3
+  - first:
+      1: 100034
+    second: TT L Finger31
+  - first:
+      1: 100036
+    second: TT L Finger32
+  - first:
+      1: 100038
+    second: TT L Finger4
+  - first:
+      1: 100040
+    second: TT L Finger41
+  - first:
+      1: 100042
+    second: TT L Finger42
+  - first:
+      1: 100044
+    second: TT L Foot
+  - first:
+      1: 100046
+    second: TT L Forearm
+  - first:
+      1: 100048
+    second: TT L Hand
+  - first:
+      1: 100050
+    second: TT L Thigh
+  - first:
+      1: 100052
+    second: TT L Toe0
+  - first:
+      1: 100054
+    second: TT L UpperArm
+  - first:
+      1: 100056
+    second: TT Neck
+  - first:
+      1: 100058
+    second: TT Pelvis
+  - first:
+      1: 100060
+    second: TT R Calf
+  - first:
+      1: 100062
+    second: TT R Clavicle
+  - first:
+      1: 100064
+    second: TT R Finger0
+  - first:
+      1: 100066
+    second: TT R Finger01
+  - first:
+      1: 100068
+    second: TT R Finger02
+  - first:
+      1: 100070
+    second: TT R Finger1
+  - first:
+      1: 100072
+    second: TT R Finger11
+  - first:
+      1: 100074
+    second: TT R Finger12
+  - first:
+      1: 100076
+    second: TT R Finger2
+  - first:
+      1: 100078
+    second: TT R Finger21
+  - first:
+      1: 100080
+    second: TT R Finger22
+  - first:
+      1: 100082
+    second: TT R Finger3
+  - first:
+      1: 100084
+    second: TT R Finger31
+  - first:
+      1: 100086
+    second: TT R Finger32
+  - first:
+      1: 100088
+    second: TT R Finger4
+  - first:
+      1: 100090
+    second: TT R Finger41
+  - first:
+      1: 100092
+    second: TT R Finger42
+  - first:
+      1: 100094
+    second: TT R Foot
+  - first:
+      1: 100096
+    second: TT R Forearm
+  - first:
+      1: 100098
+    second: TT R Hand
+  - first:
+      1: 100100
+    second: TT R Thigh
+  - first:
+      1: 100102
+    second: TT R Toe0
+  - first:
+      1: 100104
+    second: TT R UpperArm
+  - first:
+      1: 100106
+    second: TT Spine
+  - first:
+      1: 100108
+    second: TT Spine1
+  - first:
+      1: 100110
+    second: TT Spine2
+  - first:
+      1: 100112
+    second: TTBFeetA
+  - first:
+      1: 100114
+    second: TTBFeetB
+  - first:
+      1: 100116
+    second: TTBFeetC
+  - first:
+      1: 100118
+    second: TTBFeetD
+  - first:
+      1: 100120
+    second: TTBHairA
+  - first:
+      1: 100122
+    second: TTBHairB
+  - first:
+      1: 100124
+    second: TTBHairC
+  - first:
+      1: 100126
+    second: TTBHairD
+  - first:
+      1: 100128
+    second: TTBHairE
+  - first:
+      1: 100130
+    second: TTBHoodA
+  - first:
+      1: 100132
+    second: TTBHoodB
+  - first:
+      1: 100134
+    second: TTBJacket
+  - first:
+      1: 100136
+    second: TTBLegsA
+  - first:
+      1: 100138
+    second: TTBLegsB
+  - first:
+      1: 100140
+    second: //RootNode
+  - first:
+      1: 100142
+    second: TTBSweater
+  - first:
+      1: 100144
+    second: TTBTshirtA
+  - first:
+      1: 100146
+    second: TTHatA
+  - first:
+      1: 100148
+    second: TTHatB
+  - first:
+      1: 100150
+    second: Glasses
+  - first:
+      1: 100152
+    second: HEADsimple
+  - first:
+      1: 100154
+    second: TTBHatA
+  - first:
+      1: 100156
+    second: TTBHatB
+  - first:
+      1: 100158
+    second: TTBLegsLA
+  - first:
+      1: 100160
+    second: TTBLegsLB
+  - first:
+      1: 100162
+    second: TTBLegsLC
+  - first:
+      1: 100164
+    second: TTBLegsLD
+  - first:
+      1: 100166
+    second: TTBLegsSA
+  - first:
+      1: 100168
+    second: TTBLegsSB
+  - first:
+      1: 100170
+    second: TTBTshirtLA
+  - first:
+      1: 100172
+    second: TTBTshirtLB
+  - first:
+      1: 100174
+    second: TTBTshirtLC
+  - first:
+      1: 100176
+    second: TTBTshirtSA
+  - first:
+      1: 100178
+    second: TTBTshirtSB
+  - first:
+      1: 100180
+    second: TTBTshirtSC
+  - first:
+      1: 100182
+    second: ROOT 1
+  - first:
+      1: 100184
+    second: TTBChest
+  - first:
+      1: 100186
+    second: TTBFeet
+  - first:
+      1: 100188
+    second: TTBLegs
+  - first:
+      1: 100190
+    second: TTBLegsSC
+  - first:
+      1: 100192
+    second: TTBTshirtLD
+  - first:
+      4: 400000
+    second: HEAD
+  - first:
+      4: 400002
+    second: ROOT
+  - first:
+      4: 400004
+    second: TPGlasses
+  - first:
+      4: 400006
+    second: TT
+  - first:
+      4: 400008
+    second: TT Head
+  - first:
+      4: 400010
+    second: TT L Calf
+  - first:
+      4: 400012
+    second: TT L Clavicle
+  - first:
+      4: 400014
+    second: TT L Finger0
+  - first:
+      4: 400016
+    second: TT L Finger01
+  - first:
+      4: 400018
+    second: TT L Finger02
+  - first:
+      4: 400020
+    second: TT L Finger1
+  - first:
+      4: 400022
+    second: TT L Finger11
+  - first:
+      4: 400024
+    second: TT L Finger12
+  - first:
+      4: 400026
+    second: TT L Finger2
+  - first:
+      4: 400028
+    second: TT L Finger21
+  - first:
+      4: 400030
+    second: TT L Finger22
+  - first:
+      4: 400032
+    second: TT L Finger3
+  - first:
+      4: 400034
+    second: TT L Finger31
+  - first:
+      4: 400036
+    second: TT L Finger32
+  - first:
+      4: 400038
+    second: TT L Finger4
+  - first:
+      4: 400040
+    second: TT L Finger41
+  - first:
+      4: 400042
+    second: TT L Finger42
+  - first:
+      4: 400044
+    second: TT L Foot
+  - first:
+      4: 400046
+    second: TT L Forearm
+  - first:
+      4: 400048
+    second: TT L Hand
+  - first:
+      4: 400050
+    second: TT L Thigh
+  - first:
+      4: 400052
+    second: TT L Toe0
+  - first:
+      4: 400054
+    second: TT L UpperArm
+  - first:
+      4: 400056
+    second: TT Neck
+  - first:
+      4: 400058
+    second: TT Pelvis
+  - first:
+      4: 400060
+    second: TT R Calf
+  - first:
+      4: 400062
+    second: TT R Clavicle
+  - first:
+      4: 400064
+    second: TT R Finger0
+  - first:
+      4: 400066
+    second: TT R Finger01
+  - first:
+      4: 400068
+    second: TT R Finger02
+  - first:
+      4: 400070
+    second: TT R Finger1
+  - first:
+      4: 400072
+    second: TT R Finger11
+  - first:
+      4: 400074
+    second: TT R Finger12
+  - first:
+      4: 400076
+    second: TT R Finger2
+  - first:
+      4: 400078
+    second: TT R Finger21
+  - first:
+      4: 400080
+    second: TT R Finger22
+  - first:
+      4: 400082
+    second: TT R Finger3
+  - first:
+      4: 400084
+    second: TT R Finger31
+  - first:
+      4: 400086
+    second: TT R Finger32
+  - first:
+      4: 400088
+    second: TT R Finger4
+  - first:
+      4: 400090
+    second: TT R Finger41
+  - first:
+      4: 400092
+    second: TT R Finger42
+  - first:
+      4: 400094
+    second: TT R Foot
+  - first:
+      4: 400096
+    second: TT R Forearm
+  - first:
+      4: 400098
+    second: TT R Hand
+  - first:
+      4: 400100
+    second: TT R Thigh
+  - first:
+      4: 400102
+    second: TT R Toe0
+  - first:
+      4: 400104
+    second: TT R UpperArm
+  - first:
+      4: 400106
+    second: TT Spine
+  - first:
+      4: 400108
+    second: TT Spine1
+  - first:
+      4: 400110
+    second: TT Spine2
+  - first:
+      4: 400112
+    second: TTBFeetA
+  - first:
+      4: 400114
+    second: TTBFeetB
+  - first:
+      4: 400116
+    second: TTBFeetC
+  - first:
+      4: 400118
+    second: TTBFeetD
+  - first:
+      4: 400120
+    second: TTBHairA
+  - first:
+      4: 400122
+    second: TTBHairB
+  - first:
+      4: 400124
+    second: TTBHairC
+  - first:
+      4: 400126
+    second: TTBHairD
+  - first:
+      4: 400128
+    second: TTBHairE
+  - first:
+      4: 400130
+    second: TTBHoodA
+  - first:
+      4: 400132
+    second: TTBHoodB
+  - first:
+      4: 400134
+    second: TTBJacket
+  - first:
+      4: 400136
+    second: TTBLegsA
+  - first:
+      4: 400138
+    second: TTBLegsB
+  - first:
+      4: 400140
+    second: //RootNode
+  - first:
+      4: 400142
+    second: TTBSweater
+  - first:
+      4: 400144
+    second: TTBTshirtA
+  - first:
+      4: 400146
+    second: TTHatA
+  - first:
+      4: 400148
+    second: TTHatB
+  - first:
+      4: 400150
+    second: Glasses
+  - first:
+      4: 400152
+    second: HEADsimple
+  - first:
+      4: 400154
+    second: TTBHatA
+  - first:
+      4: 400156
+    second: TTBHatB
+  - first:
+      4: 400158
+    second: TTBLegsLA
+  - first:
+      4: 400160
+    second: TTBLegsLB
+  - first:
+      4: 400162
+    second: TTBLegsLC
+  - first:
+      4: 400164
+    second: TTBLegsLD
+  - first:
+      4: 400166
+    second: TTBLegsSA
+  - first:
+      4: 400168
+    second: TTBLegsSB
+  - first:
+      4: 400170
+    second: TTBTshirtLA
+  - first:
+      4: 400172
+    second: TTBTshirtLB
+  - first:
+      4: 400174
+    second: TTBTshirtLC
+  - first:
+      4: 400176
+    second: TTBTshirtSA
+  - first:
+      4: 400178
+    second: TTBTshirtSB
+  - first:
+      4: 400180
+    second: TTBTshirtSC
+  - first:
+      4: 400182
+    second: ROOT 1
+  - first:
+      4: 400184
+    second: TTBChest
+  - first:
+      4: 400186
+    second: TTBFeet
+  - first:
+      4: 400188
+    second: TTBLegs
+  - first:
+      4: 400190
+    second: TTBLegsSC
+  - first:
+      4: 400192
+    second: TTBTshirtLD
+  - first:
+      23: 2300000
+    second: TPGlasses
+  - first:
+      23: 2300002
+    second: Glasses
+  - first:
+      23: 2300004
+    second: HEADsimple
+  - first:
+      33: 3300000
+    second: TPGlasses
+  - first:
+      33: 3300002
+    second: Glasses
+  - first:
+      33: 3300004
+    second: HEADsimple
+  - first:
+      43: 4300000
+    second: TPGlasses
+  - first:
+      43: 4300002
+    second: TTBFeetB
+  - first:
+      43: 4300004
+    second: TTBFeetA
+  - first:
+      43: 4300006
+    second: TTBLegsA
+  - first:
+      43: 4300008
+    second: TTBHoodA
+  - first:
+      43: 4300010
+    second: TTBJacket
+  - first:
+      43: 4300012
+    second: TTBFeetD
+  - first:
+      43: 4300014
+    second: TTBFeetC
+  - first:
+      43: 4300016
+    second: TTBHoodB
+  - first:
+      43: 4300018
+    second: TTBHairC
+  - first:
+      43: 4300020
+    second: TTBHairB
+  - first:
+      43: 4300022
+    second: TTBHairA
+  - first:
+      43: 4300024
+    second: TTBHairD
+  - first:
+      43: 4300026
+    second: TTBHairE
+  - first:
+      43: 4300028
+    second: TTHatA
+  - first:
+      43: 4300030
+    second: TTBSweater
+  - first:
+      43: 4300032
+    second: TTBTshirtA
+  - first:
+      43: 4300034
+    second: TTBLegsB
+  - first:
+      43: 4300036
+    second: TTHatB
+  - first:
+      43: 4300038
+    second: HEAD
+  - first:
+      43: 4300040
+    second: Glasses
+  - first:
+      43: 4300042
+    second: HEADsimple
+  - first:
+      43: 4300044
+    second: TTBLegsLC
+  - first:
+      43: 4300046
+    second: TTBHatA
+  - first:
+      43: 4300048
+    second: TTBTshirtLA
+  - first:
+      43: 4300050
+    second: TTBHatB
+  - first:
+      43: 4300052
+    second: TTBTshirtLC
+  - first:
+      43: 4300054
+    second: TTBTshirtSB
+  - first:
+      43: 4300056
+    second: TTBTshirtSA
+  - first:
+      43: 4300058
+    second: TTBTshirtSC
+  - first:
+      43: 4300060
+    second: TTBTshirtLB
+  - first:
+      43: 4300062
+    second: TTBLegsLD
+  - first:
+      43: 4300064
+    second: TTBLegsLB
+  - first:
+      43: 4300066
+    second: TTBLegsSA
+  - first:
+      43: 4300068
+    second: TTBLegsLA
+  - first:
+      43: 4300070
+    second: TTBLegsSB
+  - first:
+      43: 4300072
+    second: TTBLegsSC
+  - first:
+      43: 4300074
+    second: TTBTshirtLD
+  - first:
+      43: 4300076
+    second: TTBChest
+  - first:
+      43: 4300078
+    second: TTBLegs
+  - first:
+      43: 4300080
+    second: TTBFeet
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: HEAD
+  - first:
+      137: 13700002
+    second: TTBFeetA
+  - first:
+      137: 13700004
+    second: TTBFeetB
+  - first:
+      137: 13700006
+    second: TTBFeetC
+  - first:
+      137: 13700008
+    second: TTBFeetD
+  - first:
+      137: 13700010
+    second: TTBHairA
+  - first:
+      137: 13700012
+    second: TTBHairB
+  - first:
+      137: 13700014
+    second: TTBHairC
+  - first:
+      137: 13700016
+    second: TTBHairD
+  - first:
+      137: 13700018
+    second: TTBHairE
+  - first:
+      137: 13700020
+    second: TTBHoodA
+  - first:
+      137: 13700022
+    second: TTBHoodB
+  - first:
+      137: 13700024
+    second: TTBJacket
+  - first:
+      137: 13700026
+    second: TTBLegsA
+  - first:
+      137: 13700028
+    second: TTBLegsB
+  - first:
+      137: 13700030
+    second: TTBSweater
+  - first:
+      137: 13700032
+    second: TTBTshirtA
+  - first:
+      137: 13700034
+    second: TTHatA
+  - first:
+      137: 13700036
+    second: TTHatB
+  - first:
+      137: 13700038
+    second: TTBHatA
+  - first:
+      137: 13700040
+    second: TTBHatB
+  - first:
+      137: 13700042
+    second: TTBLegsLA
+  - first:
+      137: 13700044
+    second: TTBLegsLB
+  - first:
+      137: 13700046
+    second: TTBLegsLC
+  - first:
+      137: 13700048
+    second: TTBLegsLD
+  - first:
+      137: 13700050
+    second: TTBLegsSA
+  - first:
+      137: 13700052
+    second: TTBLegsSB
+  - first:
+      137: 13700054
+    second: TTBTshirtLA
+  - first:
+      137: 13700056
+    second: TTBTshirtLB
+  - first:
+      137: 13700058
+    second: TTBTshirtLC
+  - first:
+      137: 13700060
+    second: TTBTshirtSA
+  - first:
+      137: 13700062
+    second: TTBTshirtSB
+  - first:
+      137: 13700064
+    second: TTBTshirtSC
+  - first:
+      137: 13700066
+    second: HEADsimple
+  - first:
+      137: 13700068
+    second: TTBChest
+  - first:
+      137: 13700070
+    second: TTBFeet
+  - first:
+      137: 13700072
+    second: TTBLegs
+  - first:
+      137: 13700074
+    second: TTBLegsSC
+  - first:
+      137: 13700076
+    second: TTBTshirtLD
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -402,7 +966,7 @@ ModelImporter:
       name: teeth
     second: {fileID: 2100000, guid: 72b418fa8a7f7be47834a946c74544c7, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 2
     materialLocation: 0
@@ -419,6 +983,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -427,25 +992,37 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
     importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -453,10 +1030,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 0
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: TT Pelvis
       humanName: Hips
@@ -1093,8 +1673,7 @@ ModelImporter:
     - name: TT R Finger01
       parentName: TT R Finger0
       position: {x: -0.052350957, y: 0.000000076293944, z: 0}
-      rotation: {x: -0.000000014417497, y: 0.0000000072185764, z: -0.00023400702,
-        w: 1}
+      rotation: {x: -0.000000014417497, y: 0.0000000072185764, z: -0.00023400702, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: TT R Finger02
       parentName: TT R Finger01
@@ -1168,15 +1747,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: cc00aa675dd3667479f421eb6895ac8f,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: cc00aa675dd3667479f421eb6895ac8f, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

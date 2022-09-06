@@ -160,9 +160,10 @@ GameObject:
   - component: {fileID: 5565709564461951149}
   - component: {fileID: 5565709564461951148}
   - component: {fileID: 917494150736706217}
+  - component: {fileID: 2735096819033488019}
   m_Layer: 0
   m_Name: Bowl model
-  m_TagString: Untagged
+  m_TagString: BowlOfFruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +245,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2780877127832901583, guid: 8323d5a858a58eb4291785100613a679, type: 3}
+--- !u!54 &2735096819033488019
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565709564461951154}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &5565709564544383550
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565709564544383550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.36, y: 0.143, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5906089920072118599}

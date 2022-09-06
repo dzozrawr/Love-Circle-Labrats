@@ -20,6 +20,13 @@ public class BeachStudioSet : StudioSet
     [Range(0, 1f)]
     public float curtainCloseOffset = 0f;
 
+    public AudioClip springAudioClip = null;
+    [Range(0, 1f)]
+    public float springAudioClipVolume = 1f;
+    public AudioClip waterSplashAudioClip = null;
+    [Range(0, 1f)]
+    public float waterSplashAudioClipVolume = 0.5f;
+
     private GameObject chosenCurtain = null;
 
     private Bounds springBounds;
@@ -66,12 +73,26 @@ public class BeachStudioSet : StudioSet
         contestant.SetColliderState(true);
 
         Rigidbody pelvisRb = contestant.GetPelvisRigidBody();
-       
-        pelvisRb.AddForceAtPosition(launchVector * eliminationForceMagnitude*7f, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), 0), ForceMode.VelocityChange);
-        
 
+        pelvisRb.AddForceAtPosition(launchVector * eliminationForceMagnitude * 7f, contestant.transform.position + contestantRB.centerOfMass + new Vector3(Random.Range(-contestantColliderBounds.extents.x / 2, contestantCollider.bounds.extents.x / 2), Random.Range(-contestantCollider.bounds.extents.y / 2, contestantCollider.bounds.extents.y / 2), 0), ForceMode.VelocityChange);
 
         spring.transform.DOMoveY(spring.transform.position.y + springBounds.size.y, 0.3f);
+
+        if (springAudioClip != null)
+        {
+            SoundManager.Instance.PlaySound(springAudioClip,springAudioClipVolume);
+        }
+
+        Invoke(nameof(PlayEliminationSoundAfterDelay), 0.5f);
+
+    }
+
+    private void PlayEliminationSoundAfterDelay()
+    {
+        if (eliminationAudioClip != null)
+        {
+            SoundManager.Instance.PlaySound(eliminationAudioClip, eliminationAudioClipVolume);
+        }
     }
 
     public override void OpenPlayerCurtain(PlayerScript player)

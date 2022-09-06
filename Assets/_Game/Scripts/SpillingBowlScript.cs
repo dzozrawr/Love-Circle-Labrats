@@ -3,7 +3,7 @@ using DG.Tweening.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 public class SpillingBowlScript : MonoBehaviour
 {
@@ -11,6 +11,11 @@ public class SpillingBowlScript : MonoBehaviour
     public float delayBeforeAnimationStart = 0.4f;
     public float delayBeforeAnimationEnd = 0.5f;
     public GameObject bowlModelToDestroy = null;
+
+    private UnityEvent bowlDestroyed;
+
+    public UnityEvent BowlDestroyed { get => bowlDestroyed; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +27,7 @@ public class SpillingBowlScript : MonoBehaviour
     private void Spill()
     {
       //  transform.DOMove(new Vector3(0, transform.position.y, transform.position.z), durationOfAnimation);
-        var tween= transform.DORotate(new Vector3(0, 0, 160), durationOfAnimation);
+        var tween= transform.DOLocalRotate(new Vector3(transform.localRotation.x, transform.localRotation.y, 160), durationOfAnimation);
         tween.OnComplete(() =>
         {
             Invoke(nameof(DestroyBowl), delayBeforeAnimationEnd);
@@ -31,6 +36,7 @@ public class SpillingBowlScript : MonoBehaviour
     }
 
     private void DestroyBowl() {
+        bowlDestroyed?.Invoke();
         if (bowlModelToDestroy)
         {
             Destroy(bowlModelToDestroy);
@@ -47,13 +53,16 @@ public class SpillingBowlScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
-
+       
     }
     private void UnparentBowlContent(){
-        foreach (GameObject go in transform.GetComponentsInChildren<GameObject>())
+        GameObject go=null;
+        for (int i = 0; i < transform.childCount; i++)
         {
-            if(go==bowlModelToDestroy) continue;
-            go.transform.SetParent(transform.parent);
-        }        
+            go = transform.GetChild(i).gameObject;
+            if (go == bowlModelToDestroy) continue;
+            go.transform.SetParent(transform.parent.parent);
+        }
+
     }
 }
