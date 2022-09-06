@@ -67,7 +67,8 @@ public class FruitPuttingPhase : BakingMiniGameState
                                   AddListener(OnBowlDestroyed);*/
                 bmg.StartCoroutine(FinishPhaseAfterDelay(3.5f));
 
-
+                bakingMiniGameCanvas.fruitPuttingPhaseTapMsgGO.SetActive(false);
+                
                 onceBool = true;
             }
 
@@ -82,6 +83,7 @@ public class FruitPuttingPhase : BakingMiniGameState
     private void OnFruitChosen()
     {
         wasFruitChosen = true;
+        bakingMiniGameCanvas.fruitPuttingPhaseTapMsgGO.SetActive(true);
         bakingMiniGameCanvas.FruitChosen.RemoveListener(OnFruitChosen);
     }
 

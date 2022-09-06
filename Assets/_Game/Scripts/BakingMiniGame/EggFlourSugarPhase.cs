@@ -69,6 +69,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                     }
                     //Debug.Log("Eggs broken.");
                     c = bmg.StartCoroutine(FinishEggPhase(1f));
+                    bakingMiniGameCanvas.phase1TapMsgGO.SetActive(false);
                 }
             }
         }
@@ -77,6 +78,8 @@ public class EggFlourSugarPhase : BakingMiniGameState
         {  //flour phase code
             if (bmg.flourSpill.isSpilling)
             {
+                bakingMiniGameCanvas.phase1TapAndHoldMsgGO.SetActive(false);
+
                 if (flourProgress >= 1f)
                 {
                     flourProgress = 1f;
@@ -112,6 +115,8 @@ public class EggFlourSugarPhase : BakingMiniGameState
         {  //sugar phase code
             if (bmg.sugarSpill.isSpilling)
             {
+                bakingMiniGameCanvas.phase1TapAndHoldMsgGO.SetActive(false);
+
                 if (sugarProgress >= 1f)
                 {
                     sugarProgress = 1f;
@@ -171,6 +176,7 @@ public class EggFlourSugarPhase : BakingMiniGameState
                         });
                     }
                 }
+                bakingMiniGameCanvas.phase1TapMsgGO.SetActive(true);
                 break;
             case BakingUIElement.BakingUIElementType.Flour:
                 //isFlourPhaseActive = true;
@@ -198,6 +204,8 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 {
                     isFlourPhaseActive = true;
                 });
+
+                bakingMiniGameCanvas.phase1TapAndHoldMsgGO.SetActive(true);
                 break;
             case BakingUIElement.BakingUIElementType.Sugar:
                 //isSugarPhaseActive = true;
@@ -226,6 +234,8 @@ public class EggFlourSugarPhase : BakingMiniGameState
                 {
                     isSugarPhaseActive = true;
                 });
+
+                bakingMiniGameCanvas.phase1TapAndHoldMsgGO.SetActive(true);
                 break;
         }
     }

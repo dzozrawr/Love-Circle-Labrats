@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6810227292699001772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -427,9 +427,13 @@ MonoBehaviour:
   - {fileID: 1942528235689838063}
   - {fileID: 3372927605054143954}
   - {fileID: 5195335823814959116}
+  phase1TapMsgGO: {fileID: 5651612529411428692}
+  phase1TapAndHoldMsgGO: {fileID: 5159310389320392050}
   bakingProgressBar: {fileID: 1416178989136156900}
   mixingPhaseElements: {fileID: 6345597926996040972}
+  mixingPhaseTapAndHoldMsgGO: {fileID: 5453785070937829444}
   phase3UIElementsGroup: {fileID: 7538384111495221825}
+  fruitPuttingPhaseTapMsgGO: {fileID: 59515188021664957}
   pieCuttingUIElementsGroup: {fileID: 5706919955434533178}
   FruitChosen:
     m_PersistentCalls:
@@ -470,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8893138792987484144
 RectTransform:
   m_ObjectHideFlags: 0
@@ -628,7 +632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &343685358270612786
 RectTransform:
   m_ObjectHideFlags: 0
