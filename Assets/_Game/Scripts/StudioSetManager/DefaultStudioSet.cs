@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class DefaultStudioSet : StudioSet
 {
+    
     public GameObject curtainL = null, curtainR = null;
 
     public GameObject[] eliminationHoleList = null;
