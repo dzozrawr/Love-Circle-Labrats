@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public abstract class StudioSet : MonoBehaviour
 {
     public Text episodeNumberText=null;
-    public PlayerScript playerL = null, playerR = null;
+   // public PlayerScript playerL = null, playerR = null;
 
     public Material skybox;
 

@@ -15,6 +15,9 @@ public class GameCanvasController : MonoBehaviour
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
+
+    public PlayerPickingButton playerPickingButtonR = null;
+
     public GameObject mainMenuGroup = null;
     public GameObject setPickingGroup = null;
     public GameObject settingsGroup = null;

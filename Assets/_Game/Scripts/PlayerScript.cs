@@ -22,6 +22,9 @@ public class PlayerScript : MonoBehaviour
     private GameController gameController = null;
 
     public MiniGame miniGamePrefab=null;
+
+    public Sprite buttonIcon = null;
+
     public PrefabReferenceHolder selfReferencePrefabHolder=null;
     private void Awake()
     {

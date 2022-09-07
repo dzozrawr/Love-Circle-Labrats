@@ -44,6 +44,16 @@ namespace DogMiniGame
 
             commandUserButtons = commandUserButtonsGroup.GetComponentsInChildren<Button>();
             gameController=GameController.Instance;
+
+            Canvas canvas = GetComponent<Canvas>();
+            if (canvas.worldCamera == null)
+            {
+                GameObject go = GameObject.FindGameObjectWithTag("CameraUI");
+                if (go != null)
+                {
+                    canvas.worldCamera = go.GetComponent<Camera>();
+                }
+            }
             // Debug.Log(commandUserButtons.Length);
         }
 

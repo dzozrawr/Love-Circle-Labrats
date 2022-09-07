@@ -10,16 +10,16 @@ public class BakingMiniGameCanvas : MonoBehaviour
     public GameObject phase1UIElementsGroup = null;
     public BakingUIElement[] phase1UIElements;
 
-    public GameObject phase1TapMsgGO=null,phase1TapAndHoldMsgGO=null;
+    public GameObject phase1TapMsgGO = null, phase1TapAndHoldMsgGO = null;
     public BakingProgressBar bakingProgressBar = null;
 
     public GameObject mixingPhaseElements = null;
 
-    public GameObject mixingPhaseTapAndHoldMsgGO=null;
+    public GameObject mixingPhaseTapAndHoldMsgGO = null;
 
     public GameObject phase3UIElementsGroup = null;
 
-    public GameObject fruitPuttingPhaseTapMsgGO=null;
+    public GameObject fruitPuttingPhaseTapMsgGO = null;
 
     public GameObject pieCuttingUIElementsGroup = null;
 
@@ -51,6 +51,19 @@ public class BakingMiniGameCanvas : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas.worldCamera == null)
+        {
+            GameObject go = GameObject.FindGameObjectWithTag("CameraUI");
+            if (go != null)
+            {
+                canvas.worldCamera = go.GetComponent<Camera>();
+            }
+        }
+    }
+
     public void SetChosenFruit(FruitType fruitType, FruitColor c)
     {
         chosenFruitType = fruitType;
@@ -62,8 +75,9 @@ public class BakingMiniGameCanvas : MonoBehaviour
     {//reenables buttons that were not yet pressed
         foreach (BakingUIElement b in phase1UIElementsGroup.GetComponentsInChildren<BakingUIElement>())
         {
-            if(!b.IsSelected){
-                b.GetComponent<Button>().enabled=true;
+            if (!b.IsSelected)
+            {
+                b.GetComponent<Button>().enabled = true;
             }
         }
 

@@ -5,6 +5,7 @@ using Cinemachine;
 using UnityEngine.Events;
 using PathCreation;
 using PathCreation.Examples;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour //all of the events are in this class
 {
@@ -70,14 +71,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         selectedStudioSetInMenu = studioSet;
         coinAmount = 0;
 
-        if (unchosenPlayerPrefab != null)
-        {
-            AddUnchosenPlayer();
-        }
-        else
-        {
-            Debug.Log("unchosenPlayer=null");
-        }
+       
 
         if (prefabTest != null) prefabStaticTest = prefabTest;
 
@@ -105,7 +99,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
         }
 #endif
-
+        if (unchosenPlayerPrefab != null)
+        {
+            AddUnchosenPlayer();
+        }
+        else
+        {
+            Debug.Log("unchosenPlayer=null");
+        }
     }
 
 
@@ -120,6 +121,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
         //= go.GetComponent<MiniGame>();
         playerR.GetComponent<PathFollower>().pathCreator = playerPathR;
+
+        PlayerPickingButton playerPickingButtonR = GameCanvasController.Instance.playerPickingButtonR;
+        playerPickingButtonR.player = playerR;
+        playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
     }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
@@ -168,12 +173,12 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+          //  CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
+           // CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
