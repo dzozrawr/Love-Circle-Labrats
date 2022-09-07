@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private GameController gameController = null;
 
     public MiniGame miniGamePrefab=null;
-    public GameObject selfPrefab=null;
+    public PrefabReferenceHolder selfReferencePrefabHolder=null;
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();

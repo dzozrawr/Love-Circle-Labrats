@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     private static GameObject unchosenPlayerPrefab = null;
 
+    private static GameObject prefabStaticTest = null;
 
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
@@ -36,9 +37,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public PlayerScript playerL = null;
     public PlayerScript playerR = null;
 
+    public GameObject playerLPrefab = null;
+    public GameObject playerRPrefab = null;
+
     public Transform startingPlayerRTransform = null;
 
     public PathCreator playerPathR = null;
+
+    public GameObject prefabTest = null;
 
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
@@ -58,9 +64,31 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
         instance = this;
 
+        //reading persistent data
+        unchosenPlayerPrefab = PersistentData.unchosenPlayerPrefab;
+
         selectedStudioSetInMenu = studioSet;
         coinAmount = 0;
 
+        if (unchosenPlayerPrefab != null)
+        {
+            AddUnchosenPlayer();
+        }
+        else
+        {
+            Debug.Log("unchosenPlayer=null");
+        }
+
+        if (prefabTest != null) prefabStaticTest = prefabTest;
+
+        if (prefabStaticTest != null)
+        {
+            Debug.Log("prefabStaticTest != null");
+        }
+        else
+        {
+            Debug.Log("prefabStaticTest == null");
+        }
 
     }
 
@@ -77,14 +105,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
         }
 #endif
-        if (unchosenPlayerPrefab != null)
-        {
-            AddUnchosenPlayer();
-        }
-        else
-        {
-            Debug.Log("unchosenPlayer=null");
-        }
+
     }
 
 
@@ -165,15 +186,17 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     {
         chosenPlayer = playerScript;
 
-        if (chosenPlayer != playerL)
+        if (chosenPlayer == playerL)
         {
-            unchosenPlayerPrefab = playerR.selfPrefab;
+            unchosenPlayerPrefab = playerR.selfReferencePrefabHolder.prefabRefence;
+            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
             Debug.Log("unchosenPlayer = playerR.selfPrefab;");
         }
 
-        if (chosenPlayer != playerR)
+        if (chosenPlayer == playerR)
         {
-            unchosenPlayerPrefab = playerL.selfPrefab;
+            unchosenPlayerPrefab = playerL.selfReferencePrefabHolder.prefabRefence;
+            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
             Debug.Log("unchosenPlayer = playerL.selfPrefab;");
         }
     }
