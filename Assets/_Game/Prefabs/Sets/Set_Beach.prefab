@@ -187,7 +187,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800775469938661882}
-  m_LocalRotation: {x: 0.5476607, y: -0.3223035, z: 0.27035993, w: 0.72325224}
+  m_LocalRotation: {x: 0.36938667, y: -0.3460912, z: 0.16304329, w: 0.8468715}
   m_LocalPosition: {x: -3.12, y: 8.71, z: 6.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -515,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1631578255245415350
 Transform:
   m_ObjectHideFlags: 0
@@ -945,6 +945,14 @@ MonoBehaviour:
   playerL: {fileID: 0}
   playerR: {fileID: 0}
   skybox: {fileID: 2100000, guid: 72365be61672a444a8e9305a81f8101a, type: 2}
+  startingMusic: {fileID: 8300000, guid: 25ab031829ff3ae48bb9aefec07c1a26, type: 3}
+  startingMusicVolume: 0.045
+  questioningMusic: {fileID: 8300000, guid: 56a2bfc270c1fb24d98c6a8b2c699b29, type: 3}
+  questioningMusicVolume: 0.07
+  finalMusic: {fileID: 8300000, guid: 873b753488a48954fb95d18e3c324486, type: 3}
+  finalMusicVolume: 0.092
+  eliminationAudioClip: {fileID: 8300000, guid: cbf7cce8fb7ef444c81952c4247fd2b8, type: 3}
+  eliminationAudioClipVolume: 0.144
   curtainL: {fileID: 2641144013363635146}
   curtainR: {fileID: 2069991985256483019}
   eliminationSpringlist:
@@ -956,6 +964,10 @@ MonoBehaviour:
   eliminationForceMagnitude: 23
   launchVectorDegreeRandomizationRange: 0
   curtainCloseOffset: 0.117
+  springAudioClip: {fileID: 8300000, guid: 3f296323afb21144c928441a467c39e2, type: 3}
+  springAudioClipVolume: 0.087
+  waterSplashAudioClip: {fileID: 8300000, guid: 74e8646e75dcffa47b013bb284b3c337, type: 3}
+  waterSplashAudioClipVolume: 0.077
 --- !u!1 &1696261367127933956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,7 +4149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4764754631235452809
 Transform:
   m_ObjectHideFlags: 0
@@ -4145,7 +4157,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7427274598127819134}
-  m_LocalRotation: {x: -0.002476959, y: 0.9574698, z: -0.2884057, w: 0.008223186}
+  m_LocalRotation: {x: -0.0031143753, y: 0.9771428, z: -0.21241055, w: 0.008003548}
   m_LocalPosition: {x: -0.07, y: 11.5, z: 7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4166,8 +4178,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1000
   m_Range: 18.4
-  m_SpotAngle: 119.720795
-  m_InnerSpotAngle: 48.655857
+  m_SpotAngle: 69.85308
+  m_InnerSpotAngle: 40.409023
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1

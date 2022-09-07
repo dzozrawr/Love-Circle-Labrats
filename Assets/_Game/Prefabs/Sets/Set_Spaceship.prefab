@@ -2227,8 +2227,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 250
   m_Range: 18.4
-  m_SpotAngle: 119.720795
-  m_InnerSpotAngle: 48.655857
+  m_SpotAngle: 88.77872
+  m_InnerSpotAngle: 41.538662
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -3360,7 +3360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6302664544808037884}
   m_LocalRotation: {x: -0.002476959, y: 0.9574698, z: -0.2884057, w: 0.008223186}
-  m_LocalPosition: {x: -0.07, y: 11.5, z: 7.7}
+  m_LocalPosition: {x: -0.07, y: 7.5, z: 8.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8986841721257224134}
@@ -3380,8 +3380,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 250
   m_Range: 18.4
-  m_SpotAngle: 119.720795
-  m_InnerSpotAngle: 48.655857
+  m_SpotAngle: 74.33544
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1
@@ -4307,6 +4307,14 @@ MonoBehaviour:
   playerL: {fileID: 0}
   playerR: {fileID: 0}
   skybox: {fileID: 2100000, guid: 508ffc4363925274d9de52708f18aeff, type: 2}
+  startingMusic: {fileID: 8300000, guid: d3c14649b002cba47a43e38d39d47c3b, type: 3}
+  startingMusicVolume: 0.06
+  questioningMusic: {fileID: 8300000, guid: 3f929357e619bbc42af1cb9864d4736c, type: 3}
+  questioningMusicVolume: 0.08
+  finalMusic: {fileID: 8300000, guid: 56a2bfc270c1fb24d98c6a8b2c699b29, type: 3}
+  finalMusicVolume: 0.08
+  eliminationAudioClip: {fileID: 8300000, guid: aa7da4c77e3851d429253c75a9283572, type: 3}
+  eliminationAudioClipVolume: 0.4
   curtainL: {fileID: 387864187641475299}
   curtainR: {fileID: 2197640715270368014}
   alienTubes:
