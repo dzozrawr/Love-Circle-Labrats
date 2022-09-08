@@ -10,9 +10,14 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
+    
+
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
     public GameObject choosePlayerButtonGroup = null;
+
+    public PlayerPickingButton playerPickingButtonR = null;
+
     public GameObject mainMenuGroup = null;
     public GameObject setPickingGroup = null;
     public GameObject settingsGroup = null;
@@ -40,6 +45,8 @@ public class GameCanvasController : MonoBehaviour
 
     private Text coinAmountTxt = null;
     private ContestantQuestioningManager contestantQuestioningManager = null;
+
+    
     private void Awake()
     {
         if (instance != null)
@@ -49,7 +56,7 @@ public class GameCanvasController : MonoBehaviour
         }
         instance = this;
 
-
+        
     }
 
     // Start is called before the first frame update
@@ -93,6 +100,10 @@ public class GameCanvasController : MonoBehaviour
             EOLScreen.SetActive(true);
             successfulMatchGroup.SetActive(true);
             coinUI.GetComponent<Animation>().Play("Coin UI Show");
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            EndEpisodeButtonEffect();
         }
 #endif
     }
@@ -170,9 +181,11 @@ public class GameCanvasController : MonoBehaviour
         settingsGroup.GetComponent<Animator>().SetTrigger("Show");
     }
 
-    public void NextLevelButtonEffect()
+    public void EndEpisodeButtonEffect()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
+        if(nextSceneIndex==0) nextSceneIndex++;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)

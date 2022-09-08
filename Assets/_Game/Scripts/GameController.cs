@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.Events;
+using PathCreation;
+using PathCreation.Examples;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour //all of the events are in this class
 {
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
 
+    private static GameObject unchosenPlayerPrefab = null;
+
+    private static GameObject prefabStaticTest = null;
 
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
@@ -29,9 +35,23 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     [Range(0, 1f)]
     public float afterMiniGameAudioClipVolume = 1f;
 
+    public PlayerScript playerL = null;
+    public PlayerScript playerR = null;
+
+    public GameObject playerLPrefab = null;
+    public GameObject playerRPrefab = null;
+
+    public Transform startingPlayerRTransform = null;
+
+    public PathCreator playerPathR = null;
+
+    public GameObject prefabTest = null;
+
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
     private static int coinAmount;
+
+
 
 
     //public PlayerScript leftPlayer = null, rightPlayer=null;
@@ -45,13 +65,31 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
         instance = this;
 
+        //reading persistent data
+        unchosenPlayerPrefab = PersistentData.unchosenPlayerPrefab;
+
         selectedStudioSetInMenu = studioSet;
         coinAmount = 0;
+
+       
+
+        if (prefabTest != null) prefabStaticTest = prefabTest;
+
+        if (prefabStaticTest != null)
+        {
+            Debug.Log("prefabStaticTest != null");
+        }
+        else
+        {
+            Debug.Log("prefabStaticTest == null");
+        }
+
     }
 
-#if UNITY_EDITOR
     private void Start()
     {
+
+#if UNITY_EDITOR
         for (int i = 0; i < studioSetList.Length; i++)
         {
             if (studioSetList[i].gameObject.activeSelf)
@@ -60,8 +98,34 @@ public class GameController : MonoBehaviour //all of the events are in this clas
                 break;
             }
         }
-    }
 #endif
+        if (unchosenPlayerPrefab != null)
+        {
+            AddUnchosenPlayer();
+        }
+        else
+        {
+            Debug.Log("unchosenPlayer=null");
+        }
+    }
+
+
+
+    public void AddUnchosenPlayer()
+    {
+        Debug.Log("AddUnchosenPlayer()");
+        GameObject go = Instantiate(unchosenPlayerPrefab, startingPlayerRTransform.position, Quaternion.identity);
+        playerR = go.GetComponent<PlayerScript>();
+
+        playerR.miniGame = Instantiate(playerR.miniGamePrefab);
+
+        //= go.GetComponent<MiniGame>();
+        playerR.GetComponent<PathFollower>().pathCreator = playerPathR;
+
+        PlayerPickingButton playerPickingButtonR = GameCanvasController.Instance.playerPickingButtonR;
+        playerPickingButtonR.player = playerR;
+        playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
+    }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
     {
@@ -73,8 +137,9 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     public void OnMiniGameEnd()
     {
-        if(afterMiniGameAudioClip!=null){
-            SoundManager.Instance.PlaySound(afterMiniGameAudioClip,afterMiniGameAudioClipVolume);
+        if (afterMiniGameAudioClip != null)
+        {
+            SoundManager.Instance.PlaySound(afterMiniGameAudioClip, afterMiniGameAudioClipVolume);
         }
         chosenPlayer.miniGame.MiniGameDone.RemoveListener(OnMiniGameEnd);
     }
@@ -108,12 +173,12 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+          //  CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
+           // CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -121,6 +186,24 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         }
 
 #endif
+    }
+    public void ChoosePlayer(PlayerScript playerScript)//chooses player and sets not chosen player
+    {
+        chosenPlayer = playerScript;
+
+        if (chosenPlayer == playerL)
+        {
+            unchosenPlayerPrefab = playerR.selfReferencePrefabHolder.prefabRefence;
+            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+            Debug.Log("unchosenPlayer = playerR.selfPrefab;");
+        }
+
+        if (chosenPlayer == playerR)
+        {
+            unchosenPlayerPrefab = playerL.selfReferencePrefabHolder.prefabRefence;
+            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+            Debug.Log("unchosenPlayer = playerL.selfPrefab;");
+        }
     }
     public void PickSet(GameObject set)
     {

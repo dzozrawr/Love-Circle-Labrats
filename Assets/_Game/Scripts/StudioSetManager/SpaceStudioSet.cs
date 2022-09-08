@@ -58,12 +58,12 @@ public class SpaceStudioSet : StudioSet
     public override void OpenPlayerCurtain(PlayerScript player)
     {
 
-        if (player == playerL)
+        if (player == GameController.Instance.playerL)
         {
             chosenCurtain = curtainL;
         }
         else
-        if (player == playerR)
+        if (player == GameController.Instance.playerR)
         {
             chosenCurtain = curtainR;
         }

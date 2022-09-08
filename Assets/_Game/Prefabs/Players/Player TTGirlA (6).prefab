@@ -136,8 +136,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778179779307773112}
-  m_LocalRotation: {x: -0.03229614, y: 0.8983877, z: -0.06703041, w: -0.4328551}
-  m_LocalPosition: {x: 4.38, y: 2.68, z: 3.53}
+  m_LocalRotation: {x: -0.032296143, y: 0.8983877, z: -0.06703039, w: -0.4328552}
+  m_LocalPosition: {x: 4.866667, y: 2.977778, z: 3.9222224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1127736738150698424}
@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 4421127632933572388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 1442788706811691086}
   - {fileID: 7269597964977872397}
@@ -228,13 +228,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b75e264a6b26164994d51dae3fddccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationID: 
-  curtain: {fileID: 0}
+  conversationID: Amelia - Baking
   virutalFollowCamera: {fileID: 5603484195353242611}
   walkingSpeed: 2.5
   animator: {fileID: 1442788706500722458}
   miniGame: {fileID: 0}
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1442788706811600302}
+  miniGamePrefab: {fileID: 2510799875481859193, guid: 4f219482711f34947a9b3c1731637b07, type: 3}
+  buttonIcon: {fileID: 21300000, guid: 69a65edc6e543e14ea8322243e4039ee, type: 3}
+  selfReferencePrefabHolder: {fileID: 11400000, guid: 1eed826c5eba6b749b35aeb2bb643163, type: 2}
 --- !u!54 &1269783765927970891
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -360,6 +362,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 49ca965ee0554e6459c1b35e57c70fa4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ba1ec167a3840c43804b422b5078d4a, type: 3}
+--- !u!1 &1442788706811600302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5392377010390354451, guid: 5ba1ec167a3840c43804b422b5078d4a, type: 3}
+  m_PrefabInstance: {fileID: 6832034290797090749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1442788706811691086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5392377010390259699, guid: 5ba1ec167a3840c43804b422b5078d4a, type: 3}

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class DefaultStudioSet : StudioSet
 {
+    
     public GameObject curtainL = null, curtainR = null;
 
     public GameObject[] eliminationHoleList = null;
@@ -25,12 +27,12 @@ public class DefaultStudioSet : StudioSet
 
     public override void OpenPlayerCurtain(PlayerScript player)
     {
-        if (player == playerL)
+        if (player == GameController.Instance.playerL)
         {
             chosenCurtain = curtainL;
         }
         else
-        if (player == playerR)
+        if (player == GameController.Instance.playerR)
         {
             chosenCurtain = curtainR;
         }
