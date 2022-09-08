@@ -136,8 +136,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7377244456286671420}
-  m_LocalRotation: {x: 0.024566872, y: 0.92398876, z: -0.060235504, w: 0.37684608}
-  m_LocalPosition: {x: -4.59, y: 2.68, z: 4.64}
+  m_LocalRotation: {x: 0.024566868, y: 0.92398876, z: -0.060235508, w: 0.37684608}
+  m_LocalPosition: {x: -5.1000004, y: 2.977778, z: 5.1555557}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5062034337299927790}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 7353514931220884866}
   - component: {fileID: 1584664952457505714}
   m_Layer: 0
-  m_Name: Player Olivia
+  m_Name: Player TTGirlA (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 8386120199251041598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 1049625310217379346}
   - {fileID: 7969108042612817690}
@@ -227,13 +227,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b75e264a6b26164994d51dae3fddccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationID: 
-  curtain: {fileID: 0}
+  conversationID: Olivia - Dogs
   virutalFollowCamera: {fileID: 562495259715104386}
   walkingSpeed: 2.5
   animator: {fileID: 4711309671186494928}
   miniGame: {fileID: 0}
-  playerModel: {fileID: 0}
+  playerModel: {fileID: 1046027638413798336}
+  miniGamePrefab: {fileID: 9197975320880664796, guid: cd44a2c5e22584a4bbd0fa5ecd911ef7, type: 3}
+  buttonIcon: {fileID: 21300000, guid: 507e7a48c7c95224495f1ee12f232dd3, type: 3}
+  selfReferencePrefabHolder: {fileID: 11400000, guid: e60a67e8507d3104aa9c7db0457aa753, type: 2}
 --- !u!54 &8107357728625771260
 Rigidbody:
   m_ObjectHideFlags: 0

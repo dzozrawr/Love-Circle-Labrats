@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public abstract class StudioSet : MonoBehaviour
 {
-    public PlayerScript playerL = null, playerR = null;
+    public Text episodeNumberText=null;
+   // public PlayerScript playerL = null, playerR = null;
 
     public Material skybox;
 
@@ -28,8 +31,7 @@ public abstract class StudioSet : MonoBehaviour
     protected virtual void Start()
     {
         contestantQuestioningManager = ContestantQuestioningManager.Instance;
-
-
+        episodeNumberText.text="Episode "+SceneManager.GetActiveScene().buildIndex;        
     }
 
     protected virtual void OnEnable()
