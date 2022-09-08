@@ -21,11 +21,12 @@ public class PlayerScript : MonoBehaviour
     private PathFollower pathFollower = null;
     private GameController gameController = null;
 
-    public MiniGame miniGamePrefab=null;
+    public MiniGame miniGamePrefab = null;
 
     public Sprite buttonIcon = null;
 
-    public PrefabReferenceHolder selfReferencePrefabHolder=null;
+    public Sprite playerNameSprite = null;
+    public PrefabReferenceHolder selfReferencePrefabHolder = null;
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();

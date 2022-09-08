@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using BakingMinigameFruit;
+using PixelCrushers.DialogueSystem;
 
 public class BakingMiniGame : MiniGame
 {
@@ -60,6 +61,7 @@ public class BakingMiniGame : MiniGame
     public CinemachineVirtualCamera contestantsPiesCamera = null;
 
     public Vector3 contestantPieScale;
+    public DialogueSystemEvents dialogueEventForFinalElim=null;
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
@@ -104,7 +106,11 @@ public class BakingMiniGame : MiniGame
         pileScales.Push(flourPileEndScale);
         pileScales.Push(flourPileStartScale);
 
+
+
+        dialogueEventForFinalElim.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase()); 
     }
+    
 
     [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
