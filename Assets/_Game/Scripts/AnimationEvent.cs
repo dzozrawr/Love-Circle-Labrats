@@ -8,6 +8,7 @@ public class AnimationEvent : MonoBehaviour
     public ParticleSystem brokenHeartParticle = null;
     public ParticleSystem coinBurstParticle = null;
     public FlyingParticles flyingParticles = null;
+    public AudioClip dogBarking = null;
     public void PlayHeartPulseParticle()
     {
         heartPulseParticle.Play();
@@ -22,5 +23,10 @@ public class AnimationEvent : MonoBehaviour
     {
         coinBurstParticle.Play();
         flyingParticles.Shoot();
+    }
+
+    public void DogBarking()
+    {
+        SoundManager.audioSrc.PlayOneShot(dogBarking);
     }
 }
