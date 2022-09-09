@@ -108,6 +108,6 @@ public class DancingMiniGameM : MiniGame
         //System.Func<bool> a=dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
         yield return new WaitUntil(() => finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"));
         dialogueSystemTrigger.enabled = true;
-        Debug.Log("dialogueSystemTrigger.enabled");
+//        Debug.Log("dialogueSystemTrigger.enabled");
     }
 }

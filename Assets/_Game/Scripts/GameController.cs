@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using PathCreation;
 using PathCreation.Examples;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour //all of the events are in this class
 {
@@ -80,6 +81,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
         }
 #endif
+        if(SceneManager.GetActiveScene().buildIndex==1){
+            unchosenPlayerPrefab=null;
+            PersistentData.unchosenPlayerPrefab=null;
+        }
         if (unchosenPlayerPrefab != null)
         {
             AddUnchosenPlayer();
