@@ -496,6 +496,7 @@ MonoBehaviour:
   - {fileID: 2510799876562370366}
   contestantsPiesCamera: {fileID: 2510799876590239401}
   contestantPieScale: {x: 0.35, y: 0.35, z: 0.35}
+  dialogueEventForFinalElim: {fileID: 2510799876590239414}
   isMiniGameStarted: 0
 --- !u!1 &2510799875604745328
 GameObject:
@@ -6483,19 +6484,7 @@ MonoBehaviour:
         m_Calls: []
     onConversationEnd:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: FinalEliminationManager, Assembly-CSharp
-          m_MethodName: StartPhase
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     runOnConversationEndEventsAtEndOfFrame: 0
     onConversationCancelled:
       m_PersistentCalls:

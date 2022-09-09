@@ -235,6 +235,7 @@ MonoBehaviour:
   playerModel: {fileID: 1046027638413798336}
   miniGamePrefab: {fileID: 9197975320880664796, guid: cd44a2c5e22584a4bbd0fa5ecd911ef7, type: 3}
   buttonIcon: {fileID: 21300000, guid: 507e7a48c7c95224495f1ee12f232dd3, type: 3}
+  playerNameSprite: {fileID: 21300000, guid: 716a89c0309b3f944a80f84ad1253856, type: 3}
   selfReferencePrefabHolder: {fileID: 11400000, guid: e60a67e8507d3104aa9c7db0457aa753, type: 2}
 --- !u!54 &8107357728625771260
 Rigidbody:
@@ -294,6 +295,18 @@ PrefabInstance:
     - target: {fileID: 4542168795171196, guid: 103df74585fd5af42807a9ce22a6977a, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542168795171196, guid: 103df74585fd5af42807a9ce22a6977a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542168795171196, guid: 103df74585fd5af42807a9ce22a6977a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542168795171196, guid: 103df74585fd5af42807a9ce22a6977a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 4542168795171196, guid: 103df74585fd5af42807a9ce22a6977a, type: 3}
       propertyPath: m_LocalPosition.x

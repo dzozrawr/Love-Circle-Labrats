@@ -23,6 +23,7 @@ public class DogMiniGameM : MiniGame
 
     private DialogueSystemTrigger dialogueSystemTrigger=null;
 
+    private DialogueSystemEvents dialogueSystemEvents=null;
 
     private void Awake()
     {
@@ -34,6 +35,11 @@ public class DogMiniGameM : MiniGame
     private void Start()
     {
         finalEliminationManager = FinalEliminationManager.Instance;
+        dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
+
+
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase()); 
+        //dialogueSystemEvents.OnConversationEnd(null).AddListener(finalEliminationManager.StartPhase);
     }
 
 

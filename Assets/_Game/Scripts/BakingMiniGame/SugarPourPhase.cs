@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SugarPourPhase : BakingMiniGameState
 {
-    private bool firstTimeBool = false;
 
     private float pourProgress = 0f;
 
