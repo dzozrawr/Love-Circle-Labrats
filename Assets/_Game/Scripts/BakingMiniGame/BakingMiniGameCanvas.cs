@@ -56,9 +56,11 @@ public class BakingMiniGameCanvas : MonoBehaviour
         Canvas canvas = GetComponent<Canvas>();
         if (canvas.worldCamera == null)
         {
+         
             GameObject go = GameObject.FindGameObjectWithTag("CameraUI");
             if (go != null)
             {
+                
                 canvas.worldCamera = go.GetComponent<Camera>();
             }
         }

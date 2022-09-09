@@ -52,6 +52,8 @@ public class FinalEliminationManager : MonoBehaviour
         mainCamera = CameraController.Instance.GetComponent<Camera>();
         cameraController = CameraController.Instance;
         gameCanvasController = GameCanvasController.Instance;
+
+        
     }
 
     // Update is called once per frame

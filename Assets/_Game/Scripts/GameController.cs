@@ -14,8 +14,6 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     private static GameObject unchosenPlayerPrefab = null;
 
-    private static GameObject prefabStaticTest = null;
-
     public delegate void ConversationChangeHandler(string conversationName);
     public event ConversationChangeHandler OnConversationChanged;
 
@@ -71,19 +69,6 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         selectedStudioSetInMenu = studioSet;
         coinAmount = 0;
 
-       
-
-        if (prefabTest != null) prefabStaticTest = prefabTest;
-
-        if (prefabStaticTest != null)
-        {
-            Debug.Log("prefabStaticTest != null");
-        }
-        else
-        {
-            Debug.Log("prefabStaticTest == null");
-        }
-
     }
 
     private void Start()
@@ -103,17 +88,13 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         {
             AddUnchosenPlayer();
         }
-        else
-        {
-            Debug.Log("unchosenPlayer=null");
-        }
     }
 
 
 
     public void AddUnchosenPlayer()
     {
-        Debug.Log("AddUnchosenPlayer()");
+       // Debug.Log("AddUnchosenPlayer()");
         GameObject go = Instantiate(unchosenPlayerPrefab, startingPlayerRTransform.position, Quaternion.identity);
         playerR = go.GetComponent<PlayerScript>();
 
@@ -125,6 +106,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         PlayerPickingButton playerPickingButtonR = GameCanvasController.Instance.playerPickingButtonR;
         playerPickingButtonR.player = playerR;
         playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
+        playerPickingButtonR.nameImage.sprite=playerR.playerNameSprite;
     }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
