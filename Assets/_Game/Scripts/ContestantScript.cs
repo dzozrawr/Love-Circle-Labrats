@@ -10,7 +10,7 @@ using DG.Tweening;
 
 public class ContestantScript : MonoBehaviour
 {
-    private static int numberOfFactorsForMatchSuccess=2;
+    private static int numberOfFactorsForMatchSuccess = 2;
     public CinemachineVirtualCamera cam = null;
     public Sprite thumbsUpSprite = null;
     public Sprite thumbsDownSprite = null;
@@ -22,19 +22,10 @@ public class ContestantScript : MonoBehaviour
 
     public DialogueSystemTrigger dialogueSystemTrigger = null;
 
-    public GameObject hole = null;
 
     public Animator animator = null;
 
     public CinemachineVirtualCamera cameraFollow = null;
-           
-
-
-
-
-
-
-
 
 
     private Vector3 holePreferredScale;
@@ -50,7 +41,7 @@ public class ContestantScript : MonoBehaviour
     private Collider parentCollider = null;
     private GameObject model = null;
 
-    private int matchSuccessPoints=0;
+    private int matchSuccessPoints = 0;
 
     private void Awake()
     {
@@ -154,13 +145,13 @@ public class ContestantScript : MonoBehaviour
         selectedIndicator.enabled = false;
 
         gameController.studioSet.EliminateContestant(this);
-/* 
-        animator.SetTrigger("Amaze");
+        /* 
+                animator.SetTrigger("Amaze");
 
-        hole.transform.DOMove(hole.transform.position + hole.transform.up * hole.GetComponent<Renderer>().bounds.size.x, 0.5f).onComplete = () =>
-        {
-            Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
-        }; */
+                hole.transform.DOMove(hole.transform.position + hole.transform.up * hole.GetComponent<Renderer>().bounds.size.x, 0.5f).onComplete = () =>
+                {
+                    Invoke(nameof(DropTweenAnimationAfterDelay), 0.5f);
+                }; */
 
         // play animation of getting scared
         // add/activate trail
@@ -169,16 +160,19 @@ public class ContestantScript : MonoBehaviour
     }
 
 
-    public void FinalEliminate(){
+    public void FinalEliminate()
+    {
         selectedIndicator.enabled = false;
         animator.SetTrigger("Fall");
     }
 
-    public void WinnerAction(){
+    public void WinnerAction()
+    {
         animator.SetTrigger("Happy");
     }
 
-    public float GetMatchSuccessRate(){
-        return ((float)matchSuccessPoints)/((float)numberOfFactorsForMatchSuccess);
+    public float GetMatchSuccessRate()
+    {
+        return ((float)matchSuccessPoints) / ((float)numberOfFactorsForMatchSuccess);
     }
 }

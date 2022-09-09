@@ -99,7 +99,8 @@ namespace DancingMiniGame
                 {
                     SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
                 }
-                Invoke(nameof(HideMiniGame), 2f);
+                HideMiniGame();
+                //Invoke(nameof(HideMiniGame), 2f);
             }
         }
 

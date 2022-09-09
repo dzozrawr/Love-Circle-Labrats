@@ -133,7 +133,9 @@ public class ContestantQuestioningManager : MonoBehaviour
 
     public void ContestantEliminatedSignal()
     {
+        
         eliminatedContestantsN++;
+//        Debug.Log("ContestantEliminatedSignal() eliminatedContestantsN=");
         if (eliminatedContestantsN >= maxContestantsToEliminate)
         {
             GameObject host = GameController.Instance.host;

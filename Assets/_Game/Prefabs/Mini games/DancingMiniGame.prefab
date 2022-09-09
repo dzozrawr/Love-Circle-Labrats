@@ -855,6 +855,7 @@ MonoBehaviour:
   placeForContestants:
   - {fileID: 6199601551130250503}
   - {fileID: 6199601552655645921}
+  dancingMiniGameCanvasM: {fileID: 2104489042137472088}
   dancingContestantsCam: {fileID: 6199601552316979643}
 --- !u!114 &6199601552644428754
 MonoBehaviour:
@@ -946,19 +947,7 @@ MonoBehaviour:
         m_Calls: []
     onConversationEnd:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: FinalEliminationManager, Assembly-CSharp
-          m_MethodName: StartPhase
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     runOnConversationEndEventsAtEndOfFrame: 0
     onConversationCancelled:
       m_PersistentCalls:
@@ -1515,6 +1504,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
+--- !u!1 &8628579247703443021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2429612694877664497, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
+  m_PrefabInstance: {fileID: 6199601551403496124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1384032523526368138 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4988997713564391734, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
+  m_PrefabInstance: {fileID: 6199601551403496124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2104489042137472088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5421715345638682340, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
+  m_PrefabInstance: {fileID: 6199601551403496124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649669446686644139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26faba16d96671744a5a3d8c6bd3fa02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5649669446686644135 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1760556358584706331, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
@@ -1528,15 +1538,5 @@ GameObject:
 --- !u!223 &5649669446686644134 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1760556358584706330, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
-  m_PrefabInstance: {fileID: 6199601551403496124}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8628579247703443021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2429612694877664497, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
-  m_PrefabInstance: {fileID: 6199601551403496124}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1384032523526368138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4988997713564391734, guid: 15e1ef97f815135499e11ca275a848b9, type: 3}
   m_PrefabInstance: {fileID: 6199601551403496124}
   m_PrefabAsset: {fileID: 0}
