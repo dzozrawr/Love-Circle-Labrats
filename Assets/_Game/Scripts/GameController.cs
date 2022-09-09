@@ -108,6 +108,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         playerPickingButtonR.player = playerR;
         playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
         playerPickingButtonR.nameImage.sprite = playerR.playerNameSprite;
+        playerPickingButtonR.descriptonText.text= playerR.playerDescriptonString;
     }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
