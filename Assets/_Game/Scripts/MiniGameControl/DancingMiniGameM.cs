@@ -5,11 +5,14 @@ using Cinemachine;
 using PixelCrushers.DialogueSystem;
 using PathCreation;
 using PathCreation.Examples;
+using DancingMiniGame;
 
 public class DancingMiniGameM : MiniGame
 {
     public GameObject placeForPlayer = null;
     public GameObject[] placeForContestants = null;
+
+    public DancingMiniGameManager dancingMiniGameCanvasM=null;
 
     //public GameObject[] contestantsDogs = null;
 
@@ -21,19 +24,26 @@ public class DancingMiniGameM : MiniGame
 
     //private Animator dogAnimator0 = null, dogAnimator1 = null;
 
-    private DialogueSystemTrigger dialogueSystemTrigger=null;
+    private DialogueSystemTrigger dialogueSystemTrigger = null;
+
+    private DialogueSystemEvents dialogueSystemEvents = null;
 
 
     private void Awake()
     {
         models.SetActive(false);
 
-        dialogueSystemTrigger=GetComponent<DialogueSystemTrigger>();
+        dialogueSystemTrigger = GetComponent<DialogueSystemTrigger>();
     }
 
     private void Start()
     {
         finalEliminationManager = FinalEliminationManager.Instance;
+
+        dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
+
+
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase()); 
     }
 
 
@@ -46,7 +56,7 @@ public class DancingMiniGameM : MiniGame
 
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
-       // gameController.AddListenerForMiniGameEnd(this);
+        // gameController.AddListenerForMiniGameEnd(this);
 
         //dogAnimator0 = contestantsDogs[0].GetComponentInChildren<Animator>();
         //dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();
@@ -59,15 +69,15 @@ public class DancingMiniGameM : MiniGame
         ContestantScript contestant;
 
         PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
-
-
+        
+        dancingMiniGameCanvasM.dancingAnimator= PlayerInMiniGameGO.GetComponent<Animator>();
 
         ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
-            contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
+            contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -97,6 +107,7 @@ public class DancingMiniGameM : MiniGame
         yield return new WaitUntil(() => !finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"));
         //System.Func<bool> a=dogAnimator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
         yield return new WaitUntil(() => finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Idle"));
-        dialogueSystemTrigger.enabled=true;
+        dialogueSystemTrigger.enabled = true;
+//        Debug.Log("dialogueSystemTrigger.enabled");
     }
 }

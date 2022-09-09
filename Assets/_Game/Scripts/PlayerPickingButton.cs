@@ -7,4 +7,6 @@ public class PlayerPickingButton : MonoBehaviour
 {
     public PlayerScript player = null;
     public Image nameImage=null;
+
+    public Text descriptonText=null;
 }

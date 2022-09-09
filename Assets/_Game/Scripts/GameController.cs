@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using PathCreation;
 using PathCreation.Examples;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour //all of the events are in this class
 {
@@ -36,14 +37,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public PlayerScript playerL = null;
     public PlayerScript playerR = null;
 
-    public GameObject playerLPrefab = null;
-    public GameObject playerRPrefab = null;
-
     public Transform startingPlayerRTransform = null;
 
     public PathCreator playerPathR = null;
 
-    public GameObject prefabTest = null;
 
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
@@ -84,6 +81,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
         }
 #endif
+        if(SceneManager.GetActiveScene().buildIndex==1){
+            unchosenPlayerPrefab=null;
+            PersistentData.unchosenPlayerPrefab=null;
+        }
         if (unchosenPlayerPrefab != null)
         {
             AddUnchosenPlayer();
@@ -94,7 +95,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     public void AddUnchosenPlayer()
     {
-       // Debug.Log("AddUnchosenPlayer()");
+        // Debug.Log("AddUnchosenPlayer()");
         GameObject go = Instantiate(unchosenPlayerPrefab, startingPlayerRTransform.position, Quaternion.identity);
         playerR = go.GetComponent<PlayerScript>();
 
@@ -106,7 +107,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         PlayerPickingButton playerPickingButtonR = GameCanvasController.Instance.playerPickingButtonR;
         playerPickingButtonR.player = playerR;
         playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
-        playerPickingButtonR.nameImage.sprite=playerR.playerNameSprite;
+        playerPickingButtonR.nameImage.sprite = playerR.playerNameSprite;
+        playerPickingButtonR.descriptonText.text= playerR.playerDescriptonString;
     }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
@@ -155,12 +157,12 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-          //  CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
+            //  CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.DogMiniGame);
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-           // CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
+            // CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.BakingMiniGame);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -173,18 +175,24 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     {
         chosenPlayer = playerScript;
 
+        if (playerR == null)
+        {
+            Debug.Log("PlayerR is not set!");
+            return;
+        }
+
         if (chosenPlayer == playerL)
         {
             unchosenPlayerPrefab = playerR.selfReferencePrefabHolder.prefabRefence;
             PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
-            Debug.Log("unchosenPlayer = playerR.selfPrefab;");
+            //            Debug.Log("unchosenPlayer = playerR.selfPrefab;");
         }
 
         if (chosenPlayer == playerR)
         {
             unchosenPlayerPrefab = playerL.selfReferencePrefabHolder.prefabRefence;
             PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
-            Debug.Log("unchosenPlayer = playerL.selfPrefab;");
+            //   Debug.Log("unchosenPlayer = playerL.selfPrefab;");
         }
     }
     public void PickSet(GameObject set)

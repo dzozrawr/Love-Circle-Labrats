@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
 
     public Sprite playerNameSprite = null;
     public PrefabReferenceHolder selfReferencePrefabHolder = null;
+
+    public string playerDescriptonString=null;
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();
