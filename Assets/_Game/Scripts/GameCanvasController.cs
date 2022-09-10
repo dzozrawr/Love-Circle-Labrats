@@ -183,6 +183,7 @@ public class GameCanvasController : MonoBehaviour
 
     public void EndEpisodeButtonEffect()
     {
+        Debug.Log("EndEpisodeButtonEffect()");
         int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
         if(nextSceneIndex==0) nextSceneIndex++;
         SceneManager.LoadScene(nextSceneIndex);
