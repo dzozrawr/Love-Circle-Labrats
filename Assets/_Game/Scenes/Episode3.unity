@@ -5671,6 +5671,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &868469130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1073149845919160765, guid: 997cdf4f4c7e44048a682d5efd404e68, type: 3}
+  m_PrefabInstance: {fileID: 1113524475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b75e264a6b26164994d51dae3fddccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872918389
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,6 +6117,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5604088775325167832, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604709406633075233, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5604709406633075234, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
@@ -6801,8 +6816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba53ac61d543a7428fb87b6312b0f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  channelCounter: {fileID: 0}
-  redCounterFinishValue: 2249
   progressBarSlider: {fileID: 561894098}
 --- !u!114 &1063515161
 MonoBehaviour:
@@ -7162,6 +7175,14 @@ PrefabInstance:
       propertyPath: miniGame
       value: 
       objectReference: {fileID: 1182978367}
+    - target: {fileID: 1073149845919160765, guid: 997cdf4f4c7e44048a682d5efd404e68, type: 3}
+      propertyPath: conversationID
+      value: Amelia - Baking
+      objectReference: {fileID: 0}
+    - target: {fileID: 2501833827299699875, guid: 997cdf4f4c7e44048a682d5efd404e68, type: 3}
+      propertyPath: pathCreator
+      value: 
+      objectReference: {fileID: 639017598}
     - target: {fileID: 4311121868435827428, guid: 997cdf4f4c7e44048a682d5efd404e68, type: 3}
       propertyPath: m_Name
       value: Player Jennifer makeup
@@ -7675,7 +7696,7 @@ MonoBehaviour:
   channelCounter: {fileID: 900501511}
   redCounterFinishValue: 2249
   makeUpMiniGameCanvas: {fileID: 1063515160}
-  p3DPaintSphere: {fileID: 0}
+  p3DPaintSphere: {fileID: 2022564687}
 --- !u!1 &1207925281 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1678714360285636, guid: 80e52d0be9c5c754f915a6fa360535bb, type: 3}
@@ -13221,7 +13242,7 @@ PrefabInstance:
     - target: {fileID: 4784464801275451325, guid: fbacf3b82d5d17249af50b8427a3e368, type: 3}
       propertyPath: playerL
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 868469130}
     - target: {fileID: 4784464801275451325, guid: fbacf3b82d5d17249af50b8427a3e368, type: 3}
       propertyPath: introCam
       value: 
@@ -15497,7 +15518,7 @@ PrefabInstance:
     - target: {fileID: 5402898800557110975, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 868469130}
     - target: {fileID: 5419393735625508152, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
