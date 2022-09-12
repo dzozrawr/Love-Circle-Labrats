@@ -25,6 +25,8 @@ public class MakeupMiniGame : MiniGame
 
     public CinemachineVirtualCamera contestantsResultsCam=null;
 
+    public Material girlGoodLipstickMat=null;
+
     private GameController gameController;
 
     private Slider progressBarSlider = null;
@@ -111,7 +113,9 @@ public class MakeupMiniGame : MiniGame
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
-        //set the lipstick to the player
+        ToonModelScript playerScriptModel=PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
+        Debug.Log(playerScriptModel);
+        PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
 
         Invoke(nameof(StartFinalEliminationConversation),1.5f);
      //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
