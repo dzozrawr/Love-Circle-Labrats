@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using PaintIn3D;
+using PixelCrushers.DialogueSystem;
+using Cinemachine;
 
 public class MakeupMiniGame : MiniGame
 {
@@ -15,21 +17,43 @@ public class MakeupMiniGame : MiniGame
     [Range(0, 2432)]
     public int redCounterFinishValue = 2368;
 
-    public MakeUpMiniGameCanvas makeUpMiniGameCanvas=null;
+    public MakeUpMiniGameCanvas makeUpMiniGameCanvas = null;
 
-    public P3dPaintSphere p3DPaintSphere=null;
+    public P3dPaintSphere p3DPaintSphere = null;
+
+    public GameObject[] placeForContestants=null;
+
+    public CinemachineVirtualCamera contestantsResultsCam=null;
 
     private GameController gameController;
 
-    private Slider progressBarSlider=null;
+    private Slider progressBarSlider = null;
 
-    private float progress=0f;
+    private float progress = 0f;
 
-    private bool isMiniGameActive=false;
+    private bool isMiniGameActive = false;
+
+    private FinalEliminationManager finalEliminationManager = null;
+    private DialogueSystemTrigger dialogueSystemTrigger = null;
+
+    private DialogueSystemEvents dialogueSystemEvents = null;
     private void Awake()
     {
         models.SetActive(false);
         playerModelInMinigame.SetActive(false);
+
+        dialogueSystemTrigger = GetComponent<DialogueSystemTrigger>();
+    }
+
+    private void Start()
+    {
+
+        finalEliminationManager = FinalEliminationManager.Instance;
+
+        dialogueSystemEvents = GetComponent<DialogueSystemEvents>();
+
+
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
     }
     public override void InitializeMiniGame()
     {
@@ -42,28 +66,60 @@ public class MakeupMiniGame : MiniGame
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
 
-        progressBarSlider=makeUpMiniGameCanvas.progressBarSlider;
-        progressBarSlider.value=0f;
-        progressBarSlider.maxValue=1f;
+        progressBarSlider = makeUpMiniGameCanvas.progressBarSlider;
+        progressBarSlider.value = 0f;
+        progressBarSlider.maxValue = 1f;
+
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     protected override void OnEliminateButtonPressed()
     {
-        //ContestantScript contestant;
+        ContestantScript contestant;
 
         playerModelInMinigame.SetActive(true);
-        //PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+
+        PlayerInMiniGameGO = gameController.ChosenPlayer.playerModel;
+       // PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
 
 
 
-        /*   ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
+           ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
           for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
           {
               contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
               contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
               finalEliminationManager.contestants.Add(contestant);
-          } */
+          } 
+    }
+
+    public void TransitionToContestants()
+    {
+        //set lipstick materials to contestants
+
+        CameraController.Instance.transitionToCMVirtualCamera(contestantsResultsCam);
+        CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;
+    }
+
+    public void ActionWhenCameraOnContestants()
+    {
+        //dogAnimator0.SetTrigger("Spin");
+        //dogAnimator1.SetTrigger("Bark");
+        finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
+        finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
+
+        finalEliminationManager.contestants[0].MatchSuccessPoints++;
+
+        //set the lipstick to the player
+
+        Invoke(nameof(StartFinalEliminationConversation),1.5f);
+     //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
+        CheckForCameraBlending.onCameraBlendFinished -= ActionWhenCameraOnContestants;
+    }
+
+    private void StartFinalEliminationConversation(){
+        dialogueSystemTrigger.enabled = true;
     }
 
     public void TriggerMiniGame()
@@ -71,24 +127,28 @@ public class MakeupMiniGame : MiniGame
         p3DPaintSphere.gameObject.SetActive(true);
         makeUpMiniGameCanvas.gameObject.SetActive(true);
 
-        isMiniGameActive=true;
+        isMiniGameActive = true;
     }
 
-    private void Update() {
-        if(!isMiniGameActive) return;
+    private void Update()
+    {
+        if (!isMiniGameActive) return;
         if (Input.GetMouseButton(0))
         {
-            progress=((float)channelCounter.CountR)/((float)redCounterFinishValue);
+            progress = ((float)channelCounter.CountR) / ((float)redCounterFinishValue);
 
-            if(progress>1f) progress=1f;
+            if (progress > 1f) progress = 1f;
 
             progressBarSlider.value = progress;
 
-            if(progress>=1f){                
+            if (progress >= 1f)
+            {
                 p3DPaintSphere.gameObject.SetActive(false);
                 //lipstick model disable
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
-                isMiniGameActive=false;
+                isMiniGameActive = false;
+
+                TransitionToContestants();
                 Debug.Log("End mini game");
             }
         }

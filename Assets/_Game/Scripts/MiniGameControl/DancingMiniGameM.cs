@@ -42,8 +42,7 @@ public class DancingMiniGameM : MiniGame
 
         dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
 
-
-        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase()); 
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase());
     }
 
 
