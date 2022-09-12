@@ -229,7 +229,6 @@ MonoBehaviour:
   hitboxForSelection: {fileID: 8165174560721018455}
   selectedIndicator: {fileID: 1417866381543090433}
   dialogueSystemTrigger: {fileID: 1427857905736927823}
-  hole: {fileID: 0}
   animator: {fileID: 0}
   cameraFollow: {fileID: 76546166121137410}
 --- !u!114 &5432766255424525414
@@ -1418,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 1770100582750676, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770100582750676, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1776116587386998, guid: 4be57c6e540bc084e88fa8d0d728a96a, type: 3}
       propertyPath: m_Layer
