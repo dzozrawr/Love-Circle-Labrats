@@ -6,6 +6,7 @@ using PixelCrushers.DialogueSystem;
 using PathCreation;
 using PathCreation.Examples;
 using DancingMiniGame;
+using Contestant;
 
 public class DancingMiniGameM : MiniGame
 {

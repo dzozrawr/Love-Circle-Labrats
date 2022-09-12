@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using BakingMinigameFruit;
 using PixelCrushers.DialogueSystem;
+using Contestant;
 
 public class BakingMiniGame : MiniGame
 {
