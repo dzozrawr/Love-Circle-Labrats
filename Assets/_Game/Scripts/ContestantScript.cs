@@ -39,6 +39,8 @@ namespace Contestant
 
         private bool isSelected = false;
 
+        private VoiceLineManagerClass voiceLineManagerClass;
+
         public bool IsSelected { get => isSelected; set => isSelected = value; }
         public int MatchSuccessPoints { get => matchSuccessPoints; set => matchSuccessPoints = value; }
 
@@ -60,6 +62,8 @@ namespace Contestant
                     } */
             parentRb = GetComponent<Rigidbody>();
             parentCollider = GetComponent<Collider>();
+
+            voiceLineManagerClass=new VoiceLineManagerClass(GetComponent<AudioSource>(),animator);
         }
 
         // Start is called before the first frame update
@@ -73,6 +77,10 @@ namespace Contestant
             SetRagdollRigidbodyState(false);
             SetColliderState(false);
 
+        }
+
+        private void Update() {
+            voiceLineManagerClass.DoUpdate();
         }
 
         public void SetRagdollRigidbodyState(bool state)
