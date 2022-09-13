@@ -6,6 +6,7 @@ using PixelCrushers.DialogueSystem;
 using PathCreation;
 using PathCreation.Examples;
 using DancingMiniGame;
+using Contestant;
 
 public class DancingMiniGameM : MiniGame
 {
@@ -42,8 +43,7 @@ public class DancingMiniGameM : MiniGame
 
         dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
 
-
-        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase()); 
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x)=>finalEliminationManager.StartPhase());
     }
 
 

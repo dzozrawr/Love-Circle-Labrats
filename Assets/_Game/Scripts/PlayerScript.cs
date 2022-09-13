@@ -29,6 +29,9 @@ public class PlayerScript : MonoBehaviour
     public PrefabReferenceHolder selfReferencePrefabHolder = null;
 
     public string playerDescriptonString=null;
+
+
+  //  public SkinnedMeshRenderer headSkinnedMeshRenderer=null;
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();
@@ -64,6 +67,8 @@ public class PlayerScript : MonoBehaviour
         gameController.CurtainOpen.RemoveListener(ActionAfterCurtainOpen);
     }
 
-
+/*     public void SetHeadMainMaterial(Material mat){
+        headSkinnedMeshRenderer.materials[1]=mat;
+    } */
 
 }

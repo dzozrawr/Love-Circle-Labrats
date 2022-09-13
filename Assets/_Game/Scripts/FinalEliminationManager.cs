@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using PathCreation;
 using PathCreation.Examples;
+using Contestant;
 
 public class FinalEliminationManager : MonoBehaviour
 {
