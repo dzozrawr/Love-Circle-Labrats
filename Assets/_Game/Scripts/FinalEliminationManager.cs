@@ -62,6 +62,7 @@ public class FinalEliminationManager : MonoBehaviour
     {
         if (isSelectionPhaseActive)
         {
+            if(GameController.IsOverRaycastBlockingUI()) return;    //blocks the selection if the UI is in front of it
             if (Input.GetMouseButtonDown(0))
             {
                 ray = mainCamera.ScreenPointToRay(Input.mousePosition);

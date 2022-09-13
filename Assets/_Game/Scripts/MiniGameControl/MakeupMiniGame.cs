@@ -173,7 +173,7 @@ public class MakeupMiniGame : MiniGame
         isMiniGameActive = true;
 
         greenBlueCounterStartValue = channelCounter.CountG;
-        Debug.Log(greenBlueCounterStartValue);
+//        Debug.Log(greenBlueCounterStartValue);
     }
 
     private void Update()
