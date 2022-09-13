@@ -189,6 +189,10 @@ namespace Contestant
         {
             return ((float)matchSuccessPoints) / ((float)numberOfFactorsForMatchSuccess);
         }
+
+        public void TriggerAnimator(string triggerString){
+            animator.SetTrigger(triggerString);
+        }
     }
 
 }

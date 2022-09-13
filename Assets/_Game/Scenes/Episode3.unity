@@ -985,26 +985,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4.38
       objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
     - target: {fileID: 3372960718578825766, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3519,22 +3499,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
     - target: {fileID: 3372960718578825766, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3859,6 +3823,7 @@ GameObject:
   - component: {fileID: 552973685}
   - component: {fileID: 552973684}
   - component: {fileID: 552973683}
+  - component: {fileID: 552973686}
   m_Layer: 0
   m_Name: BeforeMiniGameCam
   m_TagString: Untagged
@@ -4103,6 +4068,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &552973686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552973680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f944128dfd1f75648b926c2184fc7c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &560491581
 GameObject:
   m_ObjectHideFlags: 0
@@ -6234,26 +6211,6 @@ PrefabInstance:
     - target: {fileID: 3342508804514847831, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 3372960718578825766, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
@@ -9573,26 +9530,6 @@ PrefabInstance:
     - target: {fileID: 3342508804514847831, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLine.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 3367922938993147876, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
-      propertyPath: conversationEvents.onConversationLineEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 3372960718578825766, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
       propertyPath: m_RootOrder
