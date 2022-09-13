@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Contestant;
 
 public abstract class StudioSet : MonoBehaviour
 {

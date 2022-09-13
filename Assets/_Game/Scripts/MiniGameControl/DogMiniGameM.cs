@@ -5,6 +5,7 @@ using Cinemachine;
 using PixelCrushers.DialogueSystem;
 using PathCreation;
 using PathCreation.Examples;
+using Contestant;
 
 public class DogMiniGameM : MiniGame
 {

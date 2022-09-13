@@ -178,7 +178,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0.1
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: 785.90967, y: 464.7717, z: -543.78296}
 --- !u!1 &4311121868435827428
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,3 +445,21 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5604709406633075233, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
   m_PrefabInstance: {fileID: 9175117931890985386}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &3710828639755673674 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5488502393615575520, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+  m_PrefabInstance: {fileID: 9175117931890985386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6393439204071803616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644393580393032584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb7a5e642ab96043bbb1383c6b83b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headSkinnedMeshRenderer: {fileID: 3710828639755673674}

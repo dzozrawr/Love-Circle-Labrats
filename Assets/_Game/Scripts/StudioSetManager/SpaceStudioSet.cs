@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Threading.Tasks;
 using System;
+using Contestant;
 
 public class SpaceStudioSet : StudioSet
 {

@@ -5,9 +5,16 @@ using UnityEngine.UI;
 using PaintIn3D;
 using PixelCrushers.DialogueSystem;
 using Cinemachine;
+using Contestant;
 
 public class MakeupMiniGame : MiniGame
 {
+    [System.Serializable]
+    public class ContestantMaterialContainer
+    {
+        public ContestantModelType type;
+        public Material mat;
+    }
 
     //public Transform placeForPlayer=null;
     public GameObject playerModelInMinigame = null;
@@ -21,9 +28,19 @@ public class MakeupMiniGame : MiniGame
 
     public P3dPaintSphere p3DPaintSphere = null;
 
-    public GameObject[] placeForContestants=null;
+    public GameObject[] placeForContestants = null;
 
-    public CinemachineVirtualCamera contestantsResultsCam=null;
+    public CinemachineVirtualCamera contestantsResultsCam = null;
+
+    [NonReorderable]
+    public List<ContestantMaterialContainer> contestantGoodLipstickMatsList = new List<ContestantMaterialContainer>();
+    [NonReorderable]
+    public List<ContestantMaterialContainer> contestantBadLipstickMatsList = new List<ContestantMaterialContainer>();
+
+    public Dictionary<ContestantModelType, Material> contestantGoodLipstickMatsDict = new Dictionary<ContestantModelType, Material>();
+    public Dictionary<ContestantModelType, Material> contestantBadLipstickMatsDict = new Dictionary<ContestantModelType, Material>();
+
+    public Material girlGoodLipstickMat = null;
 
     private GameController gameController;
 
@@ -37,12 +54,24 @@ public class MakeupMiniGame : MiniGame
     private DialogueSystemTrigger dialogueSystemTrigger = null;
 
     private DialogueSystemEvents dialogueSystemEvents = null;
+
+
     private void Awake()
     {
         models.SetActive(false);
         playerModelInMinigame.SetActive(false);
 
         dialogueSystemTrigger = GetComponent<DialogueSystemTrigger>();
+
+        foreach (ContestantMaterialContainer c in contestantGoodLipstickMatsList)
+        {
+            contestantGoodLipstickMatsDict.Add(c.type, c.mat);
+        }
+
+        foreach (ContestantMaterialContainer c in contestantBadLipstickMatsList)
+        {
+            contestantBadLipstickMatsDict.Add(c.type, c.mat);
+        }
     }
 
     private void Start()
@@ -80,23 +109,27 @@ public class MakeupMiniGame : MiniGame
         playerModelInMinigame.SetActive(true);
 
         PlayerInMiniGameGO = gameController.ChosenPlayer.playerModel;
-       // PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
+        // PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
 
 
 
-           ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
+        ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
-          for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
-          {
-              contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
-              contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
-              finalEliminationManager.contestants.Add(contestant);
-          } 
+        for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
+        {
+            contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
+            finalEliminationManager.contestants.Add(contestant);
+        }
     }
 
     public void TransitionToContestants()
     {
         //set lipstick materials to contestants
+        ContestantScript winnerContestant= finalEliminationManager.contestants[0], loserContenstant=finalEliminationManager.contestants[1];
+
+        winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
+        loserContenstant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
 
         CameraController.Instance.transitionToCMVirtualCamera(contestantsResultsCam);
         CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;
@@ -111,14 +144,17 @@ public class MakeupMiniGame : MiniGame
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
-        //set the lipstick to the player
+        ToonModelScript playerScriptModel = PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
+        Debug.Log(playerScriptModel);
+        PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
 
-        Invoke(nameof(StartFinalEliminationConversation),1.5f);
-     //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
+        Invoke(nameof(StartFinalEliminationConversation), 1.5f);
+        //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
         CheckForCameraBlending.onCameraBlendFinished -= ActionWhenCameraOnContestants;
     }
 
-    private void StartFinalEliminationConversation(){
+    private void StartFinalEliminationConversation()
+    {
         dialogueSystemTrigger.enabled = true;
     }
 
