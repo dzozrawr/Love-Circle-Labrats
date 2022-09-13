@@ -21,8 +21,8 @@ public class MakeupMiniGame : MiniGame
 
     public P3dChannelCounter channelCounter = null;
 
-    [Range(0, 2432)]
-    public int redCounterFinishValue = 2368;
+    [Range(0, 262144)]
+    public int greenBlueCounterFinishValue = 242144;
 
     public MakeUpMiniGameCanvas makeUpMiniGameCanvas = null;
 
@@ -55,6 +55,8 @@ public class MakeupMiniGame : MiniGame
 
     private DialogueSystemEvents dialogueSystemEvents = null;
 
+    private int greenBlueCounterStartValue;
+
 
     private void Awake()
     {
@@ -83,7 +85,12 @@ public class MakeupMiniGame : MiniGame
 
 
         dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
+
+        
+       
     }
+
+
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
@@ -126,7 +133,7 @@ public class MakeupMiniGame : MiniGame
     public void TransitionToContestants()
     {
         //set lipstick materials to contestants
-        ContestantScript winnerContestant= finalEliminationManager.contestants[0], loserContenstant=finalEliminationManager.contestants[1];
+        ContestantScript winnerContestant = finalEliminationManager.contestants[0], loserContenstant = finalEliminationManager.contestants[1];
 
         winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
         loserContenstant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
@@ -139,13 +146,13 @@ public class MakeupMiniGame : MiniGame
     {
         //dogAnimator0.SetTrigger("Spin");
         //dogAnimator1.SetTrigger("Bark");
-        finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
-        finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
+        //  finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
+        //  finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
         ToonModelScript playerScriptModel = PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
-        Debug.Log(playerScriptModel);
+        //Debug.Log(playerScriptModel);
         PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
 
         Invoke(nameof(StartFinalEliminationConversation), 1.5f);
@@ -164,6 +171,9 @@ public class MakeupMiniGame : MiniGame
         makeUpMiniGameCanvas.gameObject.SetActive(true);
 
         isMiniGameActive = true;
+
+        greenBlueCounterStartValue = channelCounter.CountG;
+        Debug.Log(greenBlueCounterStartValue);
     }
 
     private void Update()
@@ -171,9 +181,12 @@ public class MakeupMiniGame : MiniGame
         if (!isMiniGameActive) return;
         if (Input.GetMouseButton(0))
         {
-            progress = ((float)channelCounter.CountR) / ((float)redCounterFinishValue);
+            progress = ((float)((greenBlueCounterStartValue-greenBlueCounterFinishValue) - (channelCounter.CountG - greenBlueCounterFinishValue))) / ((float)(greenBlueCounterStartValue - greenBlueCounterFinishValue));
 
             if (progress > 1f) progress = 1f;
+           // Debug.Log(progress);
+          //   Debug.Log(((greenBlueCounterStartValue-greenBlueCounterFinishValue)-(channelCounter.CountG-greenBlueCounterFinishValue)));//259772
+         //    Debug.Log((greenBlueCounterStartValue-greenBlueCounterFinishValue));//2372
 
             progressBarSlider.value = progress;
 
@@ -184,8 +197,8 @@ public class MakeupMiniGame : MiniGame
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
 
-                TransitionToContestants();
-                Debug.Log("End mini game");
+                Invoke(nameof(TransitionToContestants),1f);
+                //Debug.Log("End mini game");
             }
         }
     }
