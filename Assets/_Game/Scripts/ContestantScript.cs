@@ -73,7 +73,6 @@ namespace Contestant
             SetRagdollRigidbodyState(false);
             SetColliderState(false);
 
-
         }
 
         public void SetRagdollRigidbodyState(bool state)
