@@ -46,7 +46,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     private GameController gameController;
 
-    private Slider progressBarSlider = null;
+    private ProgressBar progressBar = null;
 
     private float progress = 0f;
 
@@ -105,9 +105,10 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
 
-        progressBarSlider = makeUpMiniGameCanvas.progressBarSlider;
-        progressBarSlider.value = 0f;
-        progressBarSlider.maxValue = 1f;
+        progressBar = makeUpMiniGameCanvas.progressBar;
+        progressBar.SetMaxProgress(1f);
+        progressBar.SetProgress(0f);
+        //progressBar.maxValue = 1f;
 
         FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
@@ -193,7 +194,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
             //   Debug.Log(((greenBlueCounterStartValue-greenBlueCounterFinishValue)-(channelCounter.CountG-greenBlueCounterFinishValue)));//259772
             //    Debug.Log((greenBlueCounterStartValue-greenBlueCounterFinishValue));//2372
 
-            progressBarSlider.value = progress;
+            progressBar.SetProgress(progress);
 
             if (progress >= 1f)
             {
