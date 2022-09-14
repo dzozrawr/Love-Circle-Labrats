@@ -126,6 +126,7 @@ public class SoundManager : MonoBehaviour
     private void SwitchForAudio_valueChanged(bool value)
     {
         audioSrc.enabled = value;
+        
     }
 
     private void MusicToggle_valueChanged(bool value)

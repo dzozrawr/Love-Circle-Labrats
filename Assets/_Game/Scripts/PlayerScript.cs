@@ -21,6 +21,8 @@ public class PlayerScript : MonoBehaviour
     private PathFollower pathFollower = null;
     private GameController gameController = null;
 
+    
+
     public MiniGame miniGamePrefab = null;
 
     public Sprite buttonIcon = null;
@@ -35,6 +37,7 @@ public class PlayerScript : MonoBehaviour
     private void Awake()
     {
         pathFollower = GetComponent<PathFollower>();
+        
     }
 
     private void Start()
