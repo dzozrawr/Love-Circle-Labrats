@@ -7,7 +7,7 @@ using PixelCrushers.DialogueSystem;
 using Cinemachine;
 using Contestant;
 
-public class MakeupMiniGame : MiniGame
+public class MakeupMiniGame : MiniGame, IHitPoint
 {
     [System.Serializable]
     public class ContestantMaterialContainer
@@ -26,7 +26,7 @@ public class MakeupMiniGame : MiniGame
 
     public MakeUpMiniGameCanvas makeUpMiniGameCanvas = null;
 
-    public P3dPaintSphere p3DPaintSphere = null;
+    public P3dHitScreen p3DHitScreen = null;
 
     public GameObject[] placeForContestants = null;
 
@@ -41,6 +41,8 @@ public class MakeupMiniGame : MiniGame
     public Dictionary<ContestantModelType, Material> contestantBadLipstickMatsDict = new Dictionary<ContestantModelType, Material>();
 
     public Material girlGoodLipstickMat = null;
+
+    public GameObject lipstickGO = null;
 
     private GameController gameController;
 
@@ -86,8 +88,8 @@ public class MakeupMiniGame : MiniGame
 
         dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
 
-        
-       
+
+
     }
 
 
@@ -97,7 +99,8 @@ public class MakeupMiniGame : MiniGame
         canvas.gameObject.SetActive(false);
         miniGameCam.gameObject.SetActive(true); //this will be the same
 
-        p3DPaintSphere.gameObject.SetActive(false);
+        //p3DHitScreen.gameObject.SetActive(false);
+        p3DHitScreen.enabled = false;
 
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
@@ -167,13 +170,14 @@ public class MakeupMiniGame : MiniGame
 
     public void TriggerMiniGame()
     {
-        p3DPaintSphere.gameObject.SetActive(true);
+        //p3DHitScreen.gameObject.SetActive(true);
+        p3DHitScreen.enabled = true;
         makeUpMiniGameCanvas.gameObject.SetActive(true);
 
         isMiniGameActive = true;
 
         greenBlueCounterStartValue = channelCounter.CountG;
-//        Debug.Log(greenBlueCounterStartValue);
+        //        Debug.Log(greenBlueCounterStartValue);
     }
 
     private void Update()
@@ -181,25 +185,33 @@ public class MakeupMiniGame : MiniGame
         if (!isMiniGameActive) return;
         if (Input.GetMouseButton(0))
         {
-            progress = ((float)((greenBlueCounterStartValue-greenBlueCounterFinishValue) - (channelCounter.CountG - greenBlueCounterFinishValue))) / ((float)(greenBlueCounterStartValue - greenBlueCounterFinishValue));
+            //p3DHitScreen.Connector.
+            progress = ((float)((greenBlueCounterStartValue - greenBlueCounterFinishValue) - (channelCounter.CountG - greenBlueCounterFinishValue))) / ((float)(greenBlueCounterStartValue - greenBlueCounterFinishValue));
 
             if (progress > 1f) progress = 1f;
-           // Debug.Log(progress);
-          //   Debug.Log(((greenBlueCounterStartValue-greenBlueCounterFinishValue)-(channelCounter.CountG-greenBlueCounterFinishValue)));//259772
-         //    Debug.Log((greenBlueCounterStartValue-greenBlueCounterFinishValue));//2372
+            // Debug.Log(progress);
+            //   Debug.Log(((greenBlueCounterStartValue-greenBlueCounterFinishValue)-(channelCounter.CountG-greenBlueCounterFinishValue)));//259772
+            //    Debug.Log((greenBlueCounterStartValue-greenBlueCounterFinishValue));//2372
 
             progressBarSlider.value = progress;
 
             if (progress >= 1f)
             {
-                p3DPaintSphere.gameObject.SetActive(false);
+                //p3DHitScreen.gameObject.SetActive(false);
+                p3DHitScreen.enabled = false;
                 //lipstick model disable
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
 
-                Invoke(nameof(TransitionToContestants),1f);
+                Invoke(nameof(TransitionToContestants), 1f);
                 //Debug.Log("End mini game");
             }
         }
+    }
+
+    public void HandleHitPoint(bool preview, int priority, float pressure, int seed, Vector3 position, Quaternion rotation)
+    {
+        lipstickGO.transform.position = position;
+        lipstickGO.transform.rotation = rotation;
     }
 }
