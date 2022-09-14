@@ -85,7 +85,7 @@ namespace Contestant
             dialogueSystemTrigger.GetComponent<Collider>().enabled=false;
             dialogueSystemTrigger.GetComponent<Collider>().enabled=true;
 
-            GameCanvasController.Instance.ShowThumbsUpDown(false);
+           // GameCanvasController.Instance.ShowThumbsUpDown(false);
         }
 
         private void Update() {

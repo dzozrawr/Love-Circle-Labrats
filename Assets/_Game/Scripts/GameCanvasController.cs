@@ -134,6 +134,11 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
 
+    public void AnotherQuestionButtonEffect(){
+        ShowThumbsUpDown(false);
+        contestantQuestioningManager.CurContestant.RestartConversation();
+    }
+
     public void ShowPlayerPickingButtons()
     {
 
