@@ -200,9 +200,11 @@ public class MakeupMiniGame : MiniGame, IHitPoint
             {
                 //p3DHitScreen.gameObject.SetActive(false);
                 p3DHitScreen.enabled = false;
-                //lipstick model disable
+                lipstickGO.SetActive(false);//lipstick model disable
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
+
+
 
                 Invoke(nameof(TransitionToContestants), 1f);
                 //Debug.Log("End mini game");
