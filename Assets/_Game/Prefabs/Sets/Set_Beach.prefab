@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afd51a7f0cf8034bb8de2d3817d6d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  episodeNumberText: {fileID: 6824639963599031387}
+  episodeNumberText: {fileID: 0}
   skybox: {fileID: 2100000, guid: 72365be61672a444a8e9305a81f8101a, type: 2}
   startingMusic: {fileID: 8300000, guid: 25ab031829ff3ae48bb9aefec07c1a26, type: 3}
   startingMusicVolume: 0.045
@@ -6734,6 +6734,14 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4616241750365535476, guid: be1fe026c55408c4180ca1315afce813, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.64705896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616241750365535476, guid: be1fe026c55408c4180ca1315afce813, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5906616120558804423, guid: be1fe026c55408c4180ca1315afce813, type: 3}
       propertyPath: m_Name
       value: Episode Number Canvas
@@ -6829,17 +6837,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8658157505393347878, guid: be1fe026c55408c4180ca1315afce813, type: 3}
   m_PrefabInstance: {fileID: 5566949779482265288}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6824639963599031387 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1437838739601328787, guid: be1fe026c55408c4180ca1315afce813, type: 3}
-  m_PrefabInstance: {fileID: 5566949779482265288}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5600293259812605719
 PrefabInstance:
   m_ObjectHideFlags: 0
