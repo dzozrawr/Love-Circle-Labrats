@@ -175,6 +175,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         //p3DHitScreen.gameObject.SetActive(true);
         p3DHitScreen.enabled = true;
         makeUpMiniGameCanvas.gameObject.SetActive(true);
+        lipstickGO.SetActive(true);
 
         isMiniGameActive = true;
 

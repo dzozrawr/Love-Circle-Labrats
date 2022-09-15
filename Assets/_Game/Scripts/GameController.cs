@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     public void AddUnchosenPlayer()
     {
-       //  Debug.Log("AddUnchosenPlayer()");
+        //  Debug.Log("AddUnchosenPlayer()");
         GameObject go = Instantiate(unchosenPlayerPrefab, startingPlayerRTransform.position, Quaternion.identity);
         playerR = go.GetComponent<PlayerScript>();
 
@@ -196,6 +196,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             //   Debug.Log("unchosenPlayer = playerL.selfPrefab;");
         }
     }
+
+#if UNITY_EDITOR
+    public void SetUnchosenPlayer(PlayerScript playerScript)
+    {
+        unchosenPlayerPrefab = playerScript.selfReferencePrefabHolder.prefabRefence;
+        PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+    }
+#endif
     public void PickSet(GameObject set)
     {
         selectedStudioSetInMenu = set.GetComponent<StudioSet>();
