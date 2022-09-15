@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Contestant;
+using TMPro;
 
 public abstract class StudioSet : MonoBehaviour
 {
-    public Text episodeNumberText=null;
+    public TMP_Text episodeNumberText=null;
    // public PlayerScript playerL = null, playerR = null;
 
     public Material skybox;
