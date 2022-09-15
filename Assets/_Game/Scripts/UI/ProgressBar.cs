@@ -10,17 +10,20 @@ public class ProgressBar : MonoBehaviour
     private Vector3 compartmentCounterStartPos;
     private Vector3 compartmentCounterYOffset;
 
-    private float targetValue=0f;
+    private float targetValue = 0f;
     private float fillSpeed = 5f;
 
 
-
+    private void Awake()
+    {
+        slider.value = 0f;
+    }
 
     public void SetMaxProgress(float progress)
     {
         slider.maxValue = progress;
 
-       // compartmentCounterTxt.text = ((int)slider.value) + "/" + ((int)slider.maxValue);
+        // compartmentCounterTxt.text = ((int)slider.value) + "/" + ((int)slider.maxValue);
     }
 
 
@@ -40,13 +43,13 @@ public class ProgressBar : MonoBehaviour
 #endif
 
         slider.value = Mathf.Lerp(slider.value, targetValue, fillSpeed * Time.deltaTime);
-       
+
         //slider.value = Mathf.Lerp();
     }
 
     public void SetProgress(float progress)
     {
         targetValue = progress;
-      //  compartmentCounterTxt.text = ((int)progress) + "/" + ((int)slider.maxValue);
+        //  compartmentCounterTxt.text = ((int)progress) + "/" + ((int)slider.maxValue);
     }
 }
