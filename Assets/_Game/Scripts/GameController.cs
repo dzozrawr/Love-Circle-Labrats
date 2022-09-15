@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     public void AddUnchosenPlayer()
     {
-        // Debug.Log("AddUnchosenPlayer()");
+       //  Debug.Log("AddUnchosenPlayer()");
         GameObject go = Instantiate(unchosenPlayerPrefab, startingPlayerRTransform.position, Quaternion.identity);
         playerR = go.GetComponent<PlayerScript>();
 
