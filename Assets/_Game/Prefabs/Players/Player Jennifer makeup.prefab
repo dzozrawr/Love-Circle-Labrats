@@ -235,9 +235,9 @@ MonoBehaviour:
   miniGame: {fileID: 0}
   playerModel: {fileID: 3644393580393032584}
   miniGamePrefab: {fileID: 0}
-  buttonIcon: {fileID: 0}
-  playerNameSprite: {fileID: 0}
-  selfReferencePrefabHolder: {fileID: 11400000, guid: 1eed826c5eba6b749b35aeb2bb643163, type: 2}
+  buttonIcon: {fileID: 21300000, guid: 2ac11443e66fe3d45a0e4cd763747805, type: 3}
+  playerNameSprite: {fileID: 21300000, guid: 5e3fc8694621bdf49883d45070c82645, type: 3}
+  selfReferencePrefabHolder: {fileID: 11400000, guid: b9e06e65ef673c64e83604d76f0d7c94, type: 2}
   playerDescriptonString: 'Likes: Makeup Age: 19'
 --- !u!54 &1661832439516081547
 Rigidbody:
@@ -380,6 +380,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 583264373510701729}
     m_Modifications:
+    - target: {fileID: 5604709406633075233, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604709406633075233, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9a934dab9c2c9d041a3f0e516829fdaa, type: 2}
     - target: {fileID: 5604709406633075234, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
       propertyPath: m_Name
       value: Makeup girl

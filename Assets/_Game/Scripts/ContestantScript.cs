@@ -14,7 +14,7 @@ namespace Contestant
         TP_E_MaleA01, TP_E_MaleB01, TP_E_MaleC01, TP_E_MaleD01, TPMaleA01,
         TPMaleB01, TPMaleC01, TPMaleD01, TTBoyA01, TTBoyB01, TTBoyC01, TTBoyD01
     }
-    public class ContestantScript : MonoBehaviour
+    public class ContestantScript : MonoBehaviour 
     {
         private static int numberOfFactorsForMatchSuccess = 2;
         public CinemachineVirtualCamera cam = null;
@@ -39,6 +39,8 @@ namespace Contestant
 
         private bool isSelected = false;
 
+        private VoiceLineManagerClass voiceLineManagerClass;
+
         public bool IsSelected { get => isSelected; set => isSelected = value; }
         public int MatchSuccessPoints { get => matchSuccessPoints; set => matchSuccessPoints = value; }
 
@@ -60,6 +62,8 @@ namespace Contestant
                     } */
             parentRb = GetComponent<Rigidbody>();
             parentCollider = GetComponent<Collider>();
+
+            voiceLineManagerClass=new VoiceLineManagerClass(GetComponent<AudioSource>(),animator);
         }
 
         // Start is called before the first frame update
@@ -73,7 +77,19 @@ namespace Contestant
             SetRagdollRigidbodyState(false);
             SetColliderState(false);
 
+           
+        }
 
+        [ContextMenu("RestartConversation")]
+        public void RestartConversation(){
+            dialogueSystemTrigger.GetComponent<Collider>().enabled=false;
+            dialogueSystemTrigger.GetComponent<Collider>().enabled=true;
+
+           // GameCanvasController.Instance.ShowThumbsUpDown(false);
+        }
+
+        private void Update() {
+            voiceLineManagerClass.DoUpdate();
         }
 
         public void SetRagdollRigidbodyState(bool state)
@@ -181,6 +197,10 @@ namespace Contestant
         public float GetMatchSuccessRate()
         {
             return ((float)matchSuccessPoints) / ((float)numberOfFactorsForMatchSuccess);
+        }
+
+        public void TriggerAnimator(string triggerString){
+            animator.SetTrigger(triggerString);
         }
     }
 

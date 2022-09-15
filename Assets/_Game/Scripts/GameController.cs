@@ -81,9 +81,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             }
         }
 #endif
-        if(SceneManager.GetActiveScene().buildIndex==1){
-            unchosenPlayerPrefab=null;
-            PersistentData.unchosenPlayerPrefab=null;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            unchosenPlayerPrefab = null;
+            PersistentData.unchosenPlayerPrefab = null;
         }
         if (unchosenPlayerPrefab != null)
         {
@@ -108,7 +109,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         playerPickingButtonR.player = playerR;
         playerPickingButtonR.GetComponent<Image>().sprite = playerR.buttonIcon;
         playerPickingButtonR.nameImage.sprite = playerR.playerNameSprite;
-        playerPickingButtonR.descriptonText.text= playerR.playerDescriptonString;
+        playerPickingButtonR.descriptonText.text = playerR.playerDescriptonString;
     }
 
     public void AddListenerForMiniGameEnd(PlayerScript player)
@@ -270,5 +271,20 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     {
         coinAmount = x;
         CoinAmountUpdated?.Invoke();
+    }
+
+    public static bool IsOverRaycastBlockingUI()
+    {
+        int id = 0;
+#if UNITY_EDITOR
+        id = -1;
+#endif
+        //  bool isOverUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(id);       //this checks if the pointer is over UI (through EventSystem) and if it is then it blocks raycasts
+        bool isOverBlockingUI =
+                                UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(id) &&
+                                UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject != null &&
+                                UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.CompareTag("UIRayBlock");       //this checks if the pointer is over UI (through EventSystem) and if it is then it blocks raycasts
+
+        return isOverBlockingUI;
     }
 }
