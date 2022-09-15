@@ -106,8 +106,9 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
 
         progressBar = makeUpMiniGameCanvas.progressBar;
+        //progressBar.SetProgress(0f);
         progressBar.SetMaxProgress(1f);
-        progressBar.SetProgress(0f);
+
         //progressBar.maxValue = 1f;
 
         FinalEliminationManager.Instance.SetSelectedMiniGame(this);
