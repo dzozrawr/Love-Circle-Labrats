@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class GameCanvasController : MonoBehaviour
     private GameController gameController = null;
     private CameraController cameraController = null;
 
-    private Text coinAmountTxt = null;
+    private TMP_Text coinAmountTxt = null;
     private ContestantQuestioningManager contestantQuestioningManager = null;
 
     
@@ -66,7 +67,7 @@ public class GameCanvasController : MonoBehaviour
         cameraController = CameraController.Instance;
         contestantQuestioningManager = ContestantQuestioningManager.Instance;
 
-        coinAmountTxt = coinUI.GetComponentInChildren<Text>();
+        coinAmountTxt = coinUI.GetComponentInChildren<TMP_Text>();
         coinAmountTxt.text = GameController.CoinAmount + "";
         gameController.CoinAmountUpdated.AddListener(UpdateCoinAmountUI);
 
@@ -188,7 +189,7 @@ public class GameCanvasController : MonoBehaviour
 
     public void EndEpisodeButtonEffect()
     {
-        Debug.Log("EndEpisodeButtonEffect()");
+//        Debug.Log("EndEpisodeButtonEffect()");
         int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
         if(nextSceneIndex==0) nextSceneIndex++;
         SceneManager.LoadScene(nextSceneIndex);

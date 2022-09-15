@@ -66,9 +66,18 @@ public class PlayerScript : MonoBehaviour
 
         miniGame.InitializeMiniGame();
 
+//        Debug.Log("miniGame.InitializeMiniGame();");
+
 
         gameController.CurtainOpen.RemoveListener(ActionAfterCurtainOpen);
     }
+
+    #if UNITY_EDITOR
+    [ContextMenu("SetAsUnchosenPlayer")]
+    public void SetAsUnchosenPlayer(){
+        GameController.Instance.SetUnchosenPlayer(this);
+    }
+    #endif
 
 /*     public void SetHeadMainMaterial(Material mat){
         headSkinnedMeshRenderer.materials[1]=mat;
