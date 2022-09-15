@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MakeUpMiniGameCanvas : MonoBehaviour
 {
-    public Slider progressBarSlider = null;
+    public ProgressBar progressBar = null;
 
 
 
