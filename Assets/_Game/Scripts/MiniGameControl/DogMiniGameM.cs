@@ -9,16 +9,16 @@ using Contestant;
 
 public class DogMiniGameM : MiniGame
 {
-    public GameObject placeForPlayer = null;
-    public GameObject[] placeForContestants = null;
+/*    public GameObject placeForPlayer = null;
+    public GameObject[] placeForContestants = null;*/
 
     public GameObject[] contestantsDogs = null;
 
     public CinemachineVirtualCamera dogContestantsCam = null;
 
 
-    private GameController gameController = null;
-    private FinalEliminationManager finalEliminationManager = null;
+/*    private GameController gameController = null;
+    private FinalEliminationManager finalEliminationManager = null;*/
 
     private Animator dogAnimator0 = null, dogAnimator1 = null;
 
@@ -33,9 +33,10 @@ public class DogMiniGameM : MiniGame
         dialogueSystemTrigger=GetComponent<DialogueSystemTrigger>();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        finalEliminationManager = FinalEliminationManager.Instance;
+        base.Start();
+        //finalEliminationManager = FinalEliminationManager.Instance;
         dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
 
 
@@ -47,21 +48,13 @@ public class DogMiniGameM : MiniGame
     [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
     {
-        models.SetActive(true);
-        canvas.gameObject.SetActive(false);
-        miniGameCam.gameObject.SetActive(true); //this will be the same
-
-        gameController = GameController.Instance;
-        gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
-       // gameController.AddListenerForMiniGameEnd(this);
+        base.InitializeMiniGame();
 
         dogAnimator0 = contestantsDogs[0].GetComponentInChildren<Animator>();
         dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();
-
-        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
-    protected override void OnEliminateButtonPressed()
+/*    protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
 
@@ -77,7 +70,7 @@ public class DogMiniGameM : MiniGame
             contestant.MatchSuccessPoints=contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
-    }
+    }*/
 
     public void TransitionToContestants()
     {
