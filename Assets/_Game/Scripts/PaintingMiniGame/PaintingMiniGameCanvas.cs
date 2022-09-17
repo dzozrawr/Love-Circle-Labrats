@@ -7,8 +7,13 @@ public class PaintingMiniGameCanvas : MonoBehaviour
 {
     public GameObject thirdPlanGroup = null;
     public GameObject secondPlanGroup = null;
+    public GameObject firstPlanGroup = null;
+
+    private GameObject curActiveGroup = null;
 
     private int i = 0;
+
+    public GameObject CurActiveGroup { get => curActiveGroup;  }
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +45,9 @@ public class PaintingMiniGameCanvas : MonoBehaviour
         }
     }
 
-    public void DisableSecondPlanGroupSelection()
+    public void DisableStencilGroupSelection()
     {
-        foreach (StencilButton s in secondPlanGroup.GetComponentsInChildren<StencilButton>())
+        foreach (StencilButton s in curActiveGroup.GetComponentsInChildren<StencilButton>())
         {
             if (s.Image.sprite == s.unselectedSprite)
             {
@@ -59,5 +64,14 @@ public class PaintingMiniGameCanvas : MonoBehaviour
         {
             b.enabled = enabledValue;
         }            
+    }
+
+    public void SetEnabledGroup(GameObject group, bool enabledValue)
+    {
+        group.SetActive(enabledValue);
+        if (enabledValue)
+        {
+            curActiveGroup = group;
+;        }
     }
 }

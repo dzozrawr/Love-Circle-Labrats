@@ -27,7 +27,7 @@ public class PaintingMiniGame : MiniGame
     private Coroutine waitForCanvasPaintCoroutine = null;
 
     private bool isFirstPhaseActive = false;
-    private bool isSecondPhaseActive = false;
+    private bool isStencilPhaseActive = false;
 
     private float ratioForCompletenessOfStencil=-1f;
 
@@ -77,16 +77,18 @@ public class PaintingMiniGame : MiniGame
             if(canvasChangeCounterComponent.Ratio==canvasBackgroundFilledRatio)
             {
                 isFirstPhaseActive = false;
-                paintingMiniGameCanvas.thirdPlanGroup.SetActive(false);
-                paintingMiniGameCanvas.secondPlanGroup.SetActive(true);
+                paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.thirdPlanGroup,false);
+                paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.secondPlanGroup, true);
+/*                paintingMiniGameCanvas.thirdPlanGroup.SetActive(false);
+                paintingMiniGameCanvas.secondPlanGroup.SetActive(true);*/
             }
         }
 
-        if (isSecondPhaseActive)
+        if (isStencilPhaseActive)
         {
             if (Mathf.Approximately(canvasChangeCounterComponent.Ratio, ratioForCompletenessOfStencil))
             {
-                isSecondPhaseActive = false;
+                isStencilPhaseActive = false;
                
 
                 if (waitForCanvasPaintCoroutine != null)
@@ -99,7 +101,17 @@ public class PaintingMiniGame : MiniGame
                 {
                     curStencil.SetActive(false);
                     curStencil = null;
-                    paintingMiniGameCanvas.secondPlanGroup.SetActive(false);
+                    if (paintingMiniGameCanvas.CurActiveGroup == paintingMiniGameCanvas.secondPlanGroup)
+                    {
+                        paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.secondPlanGroup,false);
+                        paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.firstPlanGroup, true);
+                    }
+                    else
+                    {
+                        paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.firstPlanGroup, false);
+                        //and something else here, like go to final elimination
+                    }
+                   
                 });
 
                 //activate third phase
@@ -137,7 +149,7 @@ public class PaintingMiniGame : MiniGame
         }
 
         paintSphere.gameObject.SetActive(false);
-        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.secondPlanGroup,false);
+        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.CurActiveGroup,false);
         if (curStencil != null)
         {
             //paintSphere.gameObject.SetActive(false);
@@ -181,7 +193,7 @@ public class PaintingMiniGame : MiniGame
 
     private void AllowStencilPainting(Texture invertedTexture, Color brushColor, float ratioForCompleteness)
     {
-        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.secondPlanGroup, true);
+        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.CurActiveGroup, true);
 
         waitForCanvasPaintCoroutine = StartCoroutine(WaitForCanvasHit());
 
@@ -219,9 +231,9 @@ public class PaintingMiniGame : MiniGame
                     hitObject = hit.collider.gameObject;
                     if (hitObject == curStencil || hitObject == canvas)
                     {
-                        paintingMiniGameCanvas.DisableSecondPlanGroupSelection();
+                        paintingMiniGameCanvas.DisableStencilGroupSelection();
                         wasHit = true;
-                        isSecondPhaseActive = true;
+                        isStencilPhaseActive = true;
                     }
                 }
             //}
