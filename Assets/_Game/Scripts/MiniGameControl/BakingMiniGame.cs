@@ -20,8 +20,8 @@ public class BakingMiniGame : MiniGame
     public PieCuttingPhase pieCuttingPhase = new PieCuttingPhase();
     public BakingPhase bakingPhase = new BakingPhase();
 
-    public GameObject[] placeForContestants = null;
-    public GameObject placeForPlayer;
+    //public GameObject[] placeForContestants = null;
+    //public GameObject placeForPlayer;
 
 
 
@@ -66,7 +66,7 @@ public class BakingMiniGame : MiniGame
     public bool isMiniGameStarted = false;
 
     private BakingMiniGameState currentState = null, prevState = null;
-    private GameController gameController = null;
+    //private GameController gameController = null;
 
     private Vector3 sugarPileInitPos;
 
@@ -80,7 +80,7 @@ public class BakingMiniGame : MiniGame
     private GameObject bottomPile = null;
     private bool isMiniGameDone = false;
 
-    private FinalEliminationManager finalEliminationManager;
+    //private FinalEliminationManager finalEliminationManager;
 
     public Vector3 SugarPileInitPos { get => sugarPileInitPos; set => sugarPileInitPos = value; }
     public List<GameObject> EggYolks { get => eggYolks; set => eggYolks = value; }
@@ -116,15 +116,17 @@ public class BakingMiniGame : MiniGame
     [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
     {
-        models.SetActive(true);
+        /*models.SetActive(true);
         gameController = GameController.Instance;
         gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
         //gameController.AddListenerForMiniGameEnd(this);
 
-        sugarPileInitPos = sugarPile.transform.position;
+        
         finalEliminationManager = FinalEliminationManager.Instance;
 
-        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
+        FinalEliminationManager.Instance.SetSelectedMiniGame(this);*/
+        base.InitializeMiniGame();
+        sugarPileInitPos = sugarPile.transform.position;
     }
 
     private void OnEnable()
@@ -133,7 +135,7 @@ public class BakingMiniGame : MiniGame
         currentState = eggFlourSugarPhase;
 
     }
-    protected override void OnEliminateButtonPressed()
+/*    protected override void OnEliminateButtonPressed()
     {
         ContestantScript contestant;
         PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
@@ -147,7 +149,7 @@ public class BakingMiniGame : MiniGame
             contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }
-    }
+    }*/
 
     private void Update()
     {
