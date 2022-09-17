@@ -2615,7 +2615,7 @@ MonoBehaviour:
   existing: 2
   conversion: 0
   localMaskTexture: {fileID: 2800000, guid: b9b38ddead998734ea1ce8fe38a5f6c3, type: 3}
-  localMaskChannel: 0
+  localMaskChannel: 3
   shaderKeyword: 
   hash:
     v: 0
@@ -3132,6 +3132,10 @@ PrefabInstance:
       propertyPath: stencilGameObject
       value: 
       objectReference: {fileID: 1104941422}
+    - target: {fileID: 3882454726597759935, guid: 09d01331f539e004a984d31e83046305, type: 3}
+      propertyPath: ratioForCompleteness
+      value: 0.9067383
+      objectReference: {fileID: 0}
     - target: {fileID: 5688368446850130084, guid: 09d01331f539e004a984d31e83046305, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6457,7 +6461,7 @@ MonoBehaviour:
   existing: 2
   conversion: 0
   localMaskTexture: {fileID: 2800000, guid: 39fd1588b8b21d348a9aa19553b455d4, type: 3}
-  localMaskChannel: 0
+  localMaskChannel: 3
   shaderKeyword: 
   hash:
     v: 0
@@ -7012,7 +7016,7 @@ MonoBehaviour:
   existing: 2
   conversion: 0
   localMaskTexture: {fileID: 2800000, guid: bd0aa2af9cb40bd44a3a92100761d99d, type: 3}
-  localMaskChannel: 0
+  localMaskChannel: 3
   shaderKeyword: 
   hash:
     v: 0
@@ -7261,7 +7265,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -238.6143
+  cooldown: -264.37958
   currentReader:
     dirty: 0
     requested: 0
@@ -7298,6 +7302,20 @@ MonoBehaviour:
     downsampleSteps: 0
     downsampleBoost: 0
     tempTexture: {fileID: 0}
+--- !u!64 &1104941447
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104941422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6337505320598229535, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
 --- !u!1 &1128709561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8645922011757034876, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
@@ -10548,6 +10566,10 @@ PrefabInstance:
       propertyPath: stencilGameObject
       value: 
       objectReference: {fileID: 335681060}
+    - target: {fileID: 3882454726597759935, guid: 09d01331f539e004a984d31e83046305, type: 3}
+      propertyPath: ratioForCompleteness
+      value: 0.9157715
+      objectReference: {fileID: 0}
     - target: {fileID: 5688368446850130084, guid: 09d01331f539e004a984d31e83046305, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13703,11 +13725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.4328552
+      value: -0.43285516
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.032296143
+      value: -0.03229614
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.y
@@ -14404,6 +14426,10 @@ PrefabInstance:
       propertyPath: stencilGameObject
       value: 
       objectReference: {fileID: 1058245993}
+    - target: {fileID: 3882454726597759935, guid: 09d01331f539e004a984d31e83046305, type: 3}
+      propertyPath: ratioForCompleteness
+      value: 0.98999023
+      objectReference: {fileID: 0}
     - target: {fileID: 5688368446850130084, guid: 09d01331f539e004a984d31e83046305, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

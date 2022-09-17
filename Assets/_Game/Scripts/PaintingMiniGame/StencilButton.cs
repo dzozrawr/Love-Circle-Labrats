@@ -12,6 +12,8 @@ public class StencilButton : MonoBehaviour
     public GameObject stencilGameObject = null;
     public Color brushColor;
 
+    public float ratioForCompleteness = 0f;
+
     private Button button = null;
     private Image image = null;
 
@@ -37,7 +39,7 @@ public class StencilButton : MonoBehaviour
         }
         //button.enabled = false;
 
-        PaintingMiniGame.Instance.SetStencil(invertedTexture,stencilGameObject,brushColor);
+        PaintingMiniGame.Instance.SetStencil(invertedTexture,stencilGameObject,brushColor,ratioForCompleteness);
     }
 
     public void SetSelectedAppearance(bool shouldEnable)

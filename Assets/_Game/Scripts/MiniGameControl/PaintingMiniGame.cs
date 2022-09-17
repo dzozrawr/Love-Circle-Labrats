@@ -23,6 +23,9 @@ public class PaintingMiniGame : MiniGame
     private Coroutine waitForCanvasPaintCoroutine = null;
 
     private bool isFirstPhaseActive = false;
+    private bool isSecondPhaseActive = false;
+
+    private float ratioForCompletenessOfStencil=-1f;
 
     public static PaintingMiniGame Instance { get => instance; }
 
@@ -74,6 +77,18 @@ public class PaintingMiniGame : MiniGame
                 paintingMiniGameCanvas.secondPlanGroup.SetActive(true);
             }
         }
+
+        if (isSecondPhaseActive)
+        {
+            if (Mathf.Approximately(canvasChangeCounterComponent.Ratio, ratioForCompletenessOfStencil))
+            {
+                isSecondPhaseActive = false;
+                paintingMiniGameCanvas.secondPlanGroup.SetActive(false);
+                curStencil.SetActive(false);//tweening goes here
+                //activate third phase
+            }
+            //Debug.Log(canvasChangeCounterComponent.Ratio);
+        }
         //Debug.Log(canvasChangeCounterComponent.Ratio);
     }
     public void TriggerMiniGame()
@@ -94,7 +109,7 @@ public class PaintingMiniGame : MiniGame
         isFirstPhaseActive = true;
     }
 
-    public void SetStencil(Texture invertedTexture, GameObject stencilGameObject, Color brushColor)
+    public void SetStencil(Texture invertedTexture, GameObject stencilGameObject, Color brushColor, float ratioForCompleteness)
     {
         if (curStencil != null)
         {
@@ -109,7 +124,11 @@ public class PaintingMiniGame : MiniGame
         curStencil = stencilGameObject;
         curStencil.SetActive(true);     //tweening goes here
 
+        waitForCanvasPaintCoroutine = StartCoroutine(WaitForCanvasHit());
+
         canvasPaintableTexComponent.LocalMaskTexture = invertedTexture;
+
+        ratioForCompletenessOfStencil = ratioForCompleteness;
 
        /* Destroy(canvasChangeCounterComponent);
         canvasChangeCounterComponent = null;
@@ -128,7 +147,7 @@ public class PaintingMiniGame : MiniGame
         paintSphere.Color = brushColor;
         paintSphere.gameObject.SetActive(true);
 
-        waitForCanvasPaintCoroutine = StartCoroutine(WaitForCanvasHit());
+        
     }
 
     IEnumerator WaitForCanvasHit()
@@ -151,6 +170,7 @@ public class PaintingMiniGame : MiniGame
                     {
                         paintingMiniGameCanvas.DisableSecondPlanGroupSelection();
                         wasHit = true;
+                        isSecondPhaseActive = true;
                     }
                 }
             }
