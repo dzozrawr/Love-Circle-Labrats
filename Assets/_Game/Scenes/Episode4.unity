@@ -684,6 +684,7 @@ Transform:
   - {fileID: 1057933683}
   - {fileID: 257198648}
   - {fileID: 317282399}
+  - {fileID: 698585053}
   m_Father: {fileID: 1410437521}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5278,6 +5279,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693554123}
   m_CullTransparentMesh: 1
+--- !u!1 &698585052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698585053}
+  m_Layer: 0
+  m_Name: StartingPlaceForStencil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698585053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698585052}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.82, y: 1.0570166, z: -0.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 28731306}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744861089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 871018115251802367, guid: 354fe5f7fea66d14a894412063118835, type: 3}
@@ -5600,6 +5631,36 @@ CapsuleCollider:
   m_Height: 0.06768894
   m_Direction: 1
   m_Center: {x: 0, y: 0.03384447, z: 0}
+--- !u!1 &850340774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 850340775}
+  m_Layer: 0
+  m_Name: EndPlaceForStencil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &850340775
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850340774}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0000018467505, y: 1.0570166, z: -0.9109571}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2085907024}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856487006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7993559314332275584, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
@@ -7265,7 +7326,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -264.37958
+  cooldown: -312.51398
   currentReader:
     dirty: 0
     requested: 0
@@ -7316,6 +7377,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6337505320598229535, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
+--- !u!1 &1124407589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124407590}
+  m_Layer: 0
+  m_Name: StartingPlaceForStencil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124407590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124407589}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.82, y: 1.0570166, z: -0.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2085907024}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1128709561 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8645922011757034876, guid: b83f896e6e4645a44b7fe91a0e719b84, type: 3}
@@ -8759,6 +8850,8 @@ MonoBehaviour:
   paintSphere: {fileID: 627736975}
   canvasPaintableTexComponent: {fileID: 1104941434}
   canvasBackgroundFilledRatio: 0.5625
+  startingPlaceForStencil: {fileID: 1124407590}
+  endPlaceForStencil: {fileID: 850340775}
 --- !u!1 &1426652790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1673235349372620849, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
@@ -12794,6 +12887,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0750c101778e0143a4133b3eb1fa283, type: 3}
+--- !u!4 &2085907024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1747022367368579012, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
+  m_PrefabInstance: {fileID: 1104941421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2102418475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1891898166380908, guid: 31538c88caef5e14fb1a4299c7182b12, type: 3}
@@ -13725,11 +13823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.43285516
+      value: -0.4328552
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.03229614
+      value: -0.032296147
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.y
@@ -13737,7 +13835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7356346863231434119, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0670304
+      value: -0.06703039
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9744e05a9f97e2043b42a4caf1b9a8cf, type: 3}

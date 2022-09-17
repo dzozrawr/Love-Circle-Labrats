@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PaintIn3D;
+using DG.Tweening;
 
 public class PaintingMiniGame : MiniGame
 {
@@ -11,6 +12,9 @@ public class PaintingMiniGame : MiniGame
 
 
     public float canvasBackgroundFilledRatio = 0.56256f;
+
+    public Transform startingPlaceForStencil = null;
+    public Transform endPlaceForStencil = null;
 
 
     private PaintingMiniGameCanvas paintingMiniGameCanvas = null;
@@ -83,8 +87,21 @@ public class PaintingMiniGame : MiniGame
             if (Mathf.Approximately(canvasChangeCounterComponent.Ratio, ratioForCompletenessOfStencil))
             {
                 isSecondPhaseActive = false;
-                paintingMiniGameCanvas.secondPlanGroup.SetActive(false);
-                curStencil.SetActive(false);//tweening goes here
+               
+
+                if (waitForCanvasPaintCoroutine != null)
+                {
+                    StopCoroutine(waitForCanvasPaintCoroutine);
+                    waitForCanvasPaintCoroutine = null;
+                }
+
+                curStencil.transform.DOMove(startingPlaceForStencil.position, 0.5f).OnComplete(() =>
+                {
+                    curStencil.SetActive(false);
+                    curStencil = null;
+                    paintingMiniGameCanvas.secondPlanGroup.SetActive(false);
+                });
+
                 //activate third phase
             }
             //Debug.Log(canvasChangeCounterComponent.Ratio);
@@ -111,30 +128,66 @@ public class PaintingMiniGame : MiniGame
 
     public void SetStencil(Texture invertedTexture, GameObject stencilGameObject, Color brushColor, float ratioForCompleteness)
     {
-        if (curStencil != null)
-        {
-            curStencil.SetActive(false);//tweening goes here
-        }
+
+
         if (waitForCanvasPaintCoroutine != null)
         {
             StopCoroutine(waitForCanvasPaintCoroutine);
             waitForCanvasPaintCoroutine = null;
         }
 
-        curStencil = stencilGameObject;
-        curStencil.SetActive(true);     //tweening goes here
+        paintSphere.gameObject.SetActive(false);
+        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.secondPlanGroup,false);
+        if (curStencil != null)
+        {
+            //paintSphere.gameObject.SetActive(false);
+            curStencil.transform.DOMove(startingPlaceForStencil.position, 0.5f).OnComplete(()=>
+            {
+                curStencil.SetActive(false);
+
+                curStencil = stencilGameObject;
+
+               // Vector3 stencilFinalPos = curStencil.transform.position;
+
+                //paintSphere.gameObject.SetActive(false);
+                curStencil.transform.position = startingPlaceForStencil.position;
+                curStencil.transform.DOMove(endPlaceForStencil.position, 0.5f).OnComplete(() =>
+                {
+                    AllowStencilPainting(invertedTexture, brushColor, ratioForCompleteness);
+                });
+
+                curStencil.SetActive(true);  
+            });
+           
+        }
+        else
+        {
+            curStencil = stencilGameObject;
+
+           // Vector3 stencilFinalPos = curStencil.transform.position;
+
+            
+
+            curStencil.transform.position = startingPlaceForStencil.position;
+            curStencil.transform.DOMove(endPlaceForStencil.position, 0.5f).OnComplete(() =>
+            {
+                AllowStencilPainting(invertedTexture, brushColor, ratioForCompleteness);
+            });
+
+            curStencil.SetActive(true);     //tweening goes here
+        }
+
+    }
+
+    private void AllowStencilPainting(Texture invertedTexture, Color brushColor, float ratioForCompleteness)
+    {
+        paintingMiniGameCanvas.SetEnabledButtonsInGroup(paintingMiniGameCanvas.secondPlanGroup, true);
 
         waitForCanvasPaintCoroutine = StartCoroutine(WaitForCanvasHit());
 
         canvasPaintableTexComponent.LocalMaskTexture = invertedTexture;
 
         ratioForCompletenessOfStencil = ratioForCompleteness;
-
-       /* Destroy(canvasChangeCounterComponent);
-        canvasChangeCounterComponent = null;
-
-        canvasChangeCounterComponent=canvasPaintableTexComponent.gameObject.AddComponent<P3dChangeCounter>();
-        canvasChangeCounterComponent.PaintableTexture = canvasPaintableTexComponent;*/
 
         canvasChangeCounterComponent.Color = brushColor;
         canvasChangeCounterComponent.MaskTexture = invertedTexture;
@@ -146,8 +199,6 @@ public class PaintingMiniGame : MiniGame
 
         paintSphere.Color = brushColor;
         paintSphere.gameObject.SetActive(true);
-
-        
     }
 
     IEnumerator WaitForCanvasHit()
@@ -160,8 +211,8 @@ public class PaintingMiniGame : MiniGame
 
         while (!wasHit)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
+            //if (Input.GetMouseButtonDown(0))
+            //{
                 ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {
@@ -173,7 +224,7 @@ public class PaintingMiniGame : MiniGame
                         isSecondPhaseActive = true;
                     }
                 }
-            }
+            //}
             if (!wasHit) yield return null;
         }
         yield return null;

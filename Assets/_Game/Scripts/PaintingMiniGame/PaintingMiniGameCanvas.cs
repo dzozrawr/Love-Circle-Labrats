@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaintingMiniGameCanvas : MonoBehaviour
 {
@@ -50,5 +51,13 @@ public class PaintingMiniGameCanvas : MonoBehaviour
             s.Button.enabled = false;
         }
         
+    }
+
+    public void SetEnabledButtonsInGroup(GameObject group, bool enabledValue)
+    {
+        foreach (Button b in group.GetComponentsInChildren<Button>())
+        {
+            b.enabled = enabledValue;
+        }            
     }
 }
