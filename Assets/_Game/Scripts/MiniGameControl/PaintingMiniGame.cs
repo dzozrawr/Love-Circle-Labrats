@@ -15,6 +15,7 @@ public class PaintingMiniGame : MiniGame
 
     public Transform startingPlaceForStencil = null;
     public Transform endPlaceForStencil = null;
+    public P3dColorCounter colorCounterComponent=null;
 
 
     private PaintingMiniGameCanvas paintingMiniGameCanvas = null;
@@ -30,6 +31,8 @@ public class PaintingMiniGame : MiniGame
     private bool isStencilPhaseActive = false;
 
     private float ratioForCompletenessOfStencil=-1f;
+
+    private P3dColor paint3DColor=null;
 
     public static PaintingMiniGame Instance { get => instance; }
 
@@ -47,6 +50,7 @@ public class PaintingMiniGame : MiniGame
         paintingMiniGameCanvas = canvas.GetComponent<PaintingMiniGameCanvas>();
 
         canvasChangeCounterComponent = canvasPaintableTexComponent.GetComponent<P3dChangeCounter>();
+        paint3DColor=GetComponent<P3dColor>();
     }
     /*    public override void InitializeMiniGame()
         {
@@ -117,6 +121,7 @@ public class PaintingMiniGame : MiniGame
                 //activate third phase
             }
             //Debug.Log(canvasChangeCounterComponent.Ratio);
+            Debug.Log(colorCounterComponent.Count(paint3DColor));
         }
         //Debug.Log(canvasChangeCounterComponent.Ratio);
     }
@@ -203,6 +208,13 @@ public class PaintingMiniGame : MiniGame
 
         canvasChangeCounterComponent.Color = brushColor;
         canvasChangeCounterComponent.MaskTexture = invertedTexture;
+
+        colorCounterComponent.MaskTexture=invertedTexture;
+        paint3DColor.Color=brushColor;
+        colorCounterComponent.Count(paint3DColor);
+        //colorCounterComponent.Contributions.Add(p3dColor.Contribute())
+        //p3DColor.Contribute(colorCounterComponent,1);
+        
 
         if (paintSphere.BlendMode.Index != P3dBlendMode.ALPHA_BLEND)
         {
