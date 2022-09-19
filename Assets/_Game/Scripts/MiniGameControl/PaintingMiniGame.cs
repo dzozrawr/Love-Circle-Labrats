@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using PaintIn3D;
 using DG.Tweening;
+using Contestant;
+using Cinemachine;
+using PixelCrushers.DialogueSystem;
 
 public class PaintingMiniGame : MiniGame
 {
@@ -18,6 +21,12 @@ public class PaintingMiniGame : MiniGame
     public P3dColorCounter colorCounterComponent = null;
 
     public GameObject canvasGameObject = null;
+
+    public CinemachineVirtualCamera contestantsResultsCam=null;
+
+    public GameObject leftContestantFailCanvas=null;
+
+    public PantingCanvasScript rightContestantWinCanvas=null;
 
 
     private PaintingMiniGameCanvas paintingMiniGameCanvas = null;
@@ -36,6 +45,8 @@ public class PaintingMiniGame : MiniGame
 
     private P3dColor paint3DColor = null;
 
+    private DialogueSystemTrigger dialogueSystemTrigger=null;
+
     public static PaintingMiniGame Instance { get => instance; }
 
     // private GameController gameController=null;
@@ -53,6 +64,7 @@ public class PaintingMiniGame : MiniGame
 
         canvasChangeCounterComponent = canvasPaintableTexComponent.GetComponent<P3dChangeCounter>();
         paint3DColor = GetComponent<P3dColor>();
+        dialogueSystemTrigger=GetComponent<DialogueSystemTrigger>();
     }
     /*    public override void InitializeMiniGame()
         {
@@ -66,10 +78,10 @@ public class PaintingMiniGame : MiniGame
             FinalEliminationManager.Instance.SetSelectedMiniGame(this);
         }*/
 
-    /*    protected override void OnEliminateButtonPressed()
-        {
-            base.OnEliminateButtonPressed();
-        }*/
+    protected override void OnEliminateButtonPressed()
+    {
+        base.OnEliminateButtonPressed();
+    }
     protected override void Start()
     {
         base.Start();
@@ -196,13 +208,14 @@ public class PaintingMiniGame : MiniGame
                  else
                  {
                      paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.firstPlanGroup, false);
+                     Invoke(nameof(TransitionToContestants), 1f);
                      //and something else here, like go to final elimination
                  }
 
              });
 
         paintingMiniGameCanvas.continueButton.onClick.RemoveListener(ContinueFromStencilPhase);
-         paintingMiniGameCanvas.continueButton.gameObject.SetActive(false);  //or hide it with animation
+        paintingMiniGameCanvas.continueButton.gameObject.SetActive(false);  //or hide it with animation
         // paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.firstPlanGroup, true);
     }
 
@@ -289,9 +302,48 @@ public class PaintingMiniGame : MiniGame
         paintSphere.gameObject.SetActive(true);
     }
 
+    public void TransitionToContestants()
+    {
+        //set lipstick materials to contestants
+        ContestantScript winnerContestant = finalEliminationManager.contestants[1], loserContenstant = finalEliminationManager.contestants[0];
+
+        leftContestantFailCanvas.SetActive(true);
+        rightContestantWinCanvas.SetCanvasMaterial(canvasGameObject.GetComponent<MeshRenderer>().material);
+        rightContestantWinCanvas.gameObject.SetActive(true);
+
+        // winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
+        // loserContenstant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
+
+        CameraController.Instance.transitionToCMVirtualCamera(contestantsResultsCam);
+        CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;
+    }
+
+    public void ActionWhenCameraOnContestants()
+    {
+        //dogAnimator0.SetTrigger("Spin");
+        //dogAnimator1.SetTrigger("Bark");
+        //  finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
+        //  finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
+
+        finalEliminationManager.contestants[0].MatchSuccessPoints++;
+
+       // ToonModelScript playerScriptModel = PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
+        //Debug.Log(playerScriptModel);
+       // PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
+
+        Invoke(nameof(StartFinalEliminationConversation), 1.5f);
+        //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
+        CheckForCameraBlending.onCameraBlendFinished -= ActionWhenCameraOnContestants;
+    }
+
+    private void StartFinalEliminationConversation()
+    {
+        dialogueSystemTrigger.enabled = true;
+    }
+
     IEnumerator WaitForCanvasHit()
     {
-//        Debug.Log("WaitForCanvasHit() start");
+        //        Debug.Log("WaitForCanvasHit() start");
         Ray ray;
         RaycastHit hit;
         GameObject hitObject;
@@ -310,7 +362,7 @@ public class PaintingMiniGame : MiniGame
                 {
                     //paintingMiniGameCanvas.DisableStencilGroupSelection();
                     paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.CurActiveGroup, false);
-                  //  Debug.Log("paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.CurActiveGroup, false);");
+                    //  Debug.Log("paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.CurActiveGroup, false);");
                     wasHit = true;
                     // isStencilPhaseActive = true;
                 }
