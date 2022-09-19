@@ -9,6 +9,7 @@ public class BackgroundButton : MonoBehaviour
     private Button button = null;
     private Image image = null;
 
+    public Sprite unselectedSprite = null;
     public Sprite selectedSprite = null;
     public Texture paintingTexture = null;
 
@@ -28,11 +29,22 @@ public class BackgroundButton : MonoBehaviour
         foreach (BackgroundButton b in transform.parent.GetComponentsInChildren<BackgroundButton>())
         {
             if (b == this) continue;
-            b.Image.color = new Color(b.Image.color.r, b.Image.color.g, b.Image.color.b,0.5f);
-            b.Button.enabled = false;
+            b.SetSelectedAppearance(false);
         }
-        button.enabled = false;
+        //button.enabled = false;
 
         PaintingMiniGame.Instance.SetBackgroundTexture(paintingTexture);
+    }
+
+    public void SetSelectedAppearance(bool shouldEnable)
+    {
+        if (shouldEnable)
+        {
+            Image.sprite = selectedSprite;
+        }
+        else
+        {
+            Image.sprite = unselectedSprite;
+        }
     }
 }
