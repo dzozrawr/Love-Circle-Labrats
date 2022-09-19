@@ -28,7 +28,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public P3dHitScreen p3DHitScreen = null;
 
-    public GameObject[] placeForContestants = null;
+  //  public GameObject[] placeForContestants = null;
 
     public CinemachineVirtualCamera contestantsResultsCam = null;
 
@@ -44,7 +44,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public GameObject lipstickGO = null;
 
-    private GameController gameController;
+    //private GameController gameController;
 
     private ProgressBar progressBar = null;
 
@@ -52,7 +52,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     private bool isMiniGameActive = false;
 
-    private FinalEliminationManager finalEliminationManager = null;
+   // private FinalEliminationManager finalEliminationManager = null;
     private DialogueSystemTrigger dialogueSystemTrigger = null;
 
     private DialogueSystemEvents dialogueSystemEvents = null;
@@ -78,10 +78,10 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         }
     }
 
-    private void Start()
+    protected override void Start()
     {
-
-        finalEliminationManager = FinalEliminationManager.Instance;
+        base.Start();
+        //finalEliminationManager = FinalEliminationManager.Instance;
 
         dialogueSystemEvents = GetComponent<DialogueSystemEvents>();
 
@@ -95,23 +95,11 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public override void InitializeMiniGame()
     {
-        models.SetActive(true);
-        canvas.gameObject.SetActive(false);
-        miniGameCam.gameObject.SetActive(true); //this will be the same
+        base.InitializeMiniGame();
 
-        //p3DHitScreen.gameObject.SetActive(false);
         p3DHitScreen.enabled = false;
-
-        gameController = GameController.Instance;
-        gameController.ContestantsEliminated.AddListener(OnEliminateButtonPressed);
-
         progressBar = makeUpMiniGameCanvas.progressBar;
-        //progressBar.SetProgress(0f);
         progressBar.SetMaxProgress(1f);
-
-        //progressBar.maxValue = 1f;
-
-        FinalEliminationManager.Instance.SetSelectedMiniGame(this);
     }
 
     protected override void OnEliminateButtonPressed()

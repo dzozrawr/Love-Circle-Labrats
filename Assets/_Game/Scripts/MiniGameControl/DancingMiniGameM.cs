@@ -10,8 +10,8 @@ using Contestant;
 
 public class DancingMiniGameM : MiniGame
 {
-    public GameObject placeForPlayer = null;
-    public GameObject[] placeForContestants = null;
+/*    public GameObject placeForPlayer = null;
+    public GameObject[] placeForContestants = null;*/
 
     public DancingMiniGameManager dancingMiniGameCanvasM=null;
 
@@ -20,8 +20,8 @@ public class DancingMiniGameM : MiniGame
     public CinemachineVirtualCamera dancingContestantsCam = null;
 
 
-    private GameController gameController = null;
-    private FinalEliminationManager finalEliminationManager = null;
+/*    private GameController gameController = null;
+    private FinalEliminationManager finalEliminationManager = null;*/
 
     //private Animator dogAnimator0 = null, dogAnimator1 = null;
 
@@ -37,9 +37,9 @@ public class DancingMiniGameM : MiniGame
         dialogueSystemTrigger = GetComponent<DialogueSystemTrigger>();
     }
 
-    private void Start()
+    protected override void Start()
     {
-        finalEliminationManager = FinalEliminationManager.Instance;
+        base.Start();       
 
         dialogueSystemEvents=GetComponent<DialogueSystemEvents>();
 
@@ -47,7 +47,7 @@ public class DancingMiniGameM : MiniGame
     }
 
 
-    [ContextMenu("InitializeMiniGame")]
+/*    [ContextMenu("InitializeMiniGame")]
     public override void InitializeMiniGame()
     {
         models.SetActive(true);
@@ -62,24 +62,12 @@ public class DancingMiniGameM : MiniGame
         //dogAnimator1 = contestantsDogs[1].GetComponentInChildren<Animator>();
 
         FinalEliminationManager.Instance.SetSelectedMiniGame(this);
-    }
+    }*/
 
     protected override void OnEliminateButtonPressed()
     {
-        ContestantScript contestant;
-
-        PlayerInMiniGameGO = Instantiate(gameController.ChosenPlayer.playerModel, placeForPlayer.transform.position, placeForPlayer.transform.rotation); //copy player to position
-        
-        dancingMiniGameCanvasM.dancingAnimator= PlayerInMiniGameGO.GetComponent<Animator>();
-
-        ContestantQuestioningManager contestantQuestioningManager = ContestantQuestioningManager.Instance;
-
-        for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
-        {
-            contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
-            contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
-            finalEliminationManager.contestants.Add(contestant);
-        }
+        base.OnEliminateButtonPressed();
+        dancingMiniGameCanvasM.dancingAnimator = PlayerInMiniGameGO.GetComponent<Animator>();
     }
 
     public void TransitionToContestants()
