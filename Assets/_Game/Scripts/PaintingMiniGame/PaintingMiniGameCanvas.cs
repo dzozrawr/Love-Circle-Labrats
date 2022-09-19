@@ -74,6 +74,7 @@ public class PaintingMiniGameCanvas : MonoBehaviour
         if (enabledValue)
         {
             curActiveGroup = group;
+            curActiveGroup.GetComponent<Animation>().Play("Painting Groups Show");
         }
     }
 }
