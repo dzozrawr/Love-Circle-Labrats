@@ -687,6 +687,7 @@ Transform:
   - {fileID: 1748116519}
   - {fileID: 698585053}
   - {fileID: 1432571749}
+  - {fileID: 435617447}
   - {fileID: 935948819}
   - {fileID: 1429179742}
   - {fileID: 2114224694010563538}
@@ -852,7 +853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48424108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.09, y: 0.98, z: -1.39}
+  m_LocalPosition: {x: 21.42, y: 0.98, z: -1.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 28731306}
@@ -2168,8 +2169,8 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 20.21, y: 0.98, z: -1.39}
-      - {x: 20.275654, y: 0.98, z: -1.1593971}
+      - {x: 21.42, y: 0.98, z: -1.39}
+      - {x: 21.485655, y: 0.98, z: -1.1593971}
       - {x: 18.79158, y: 0.98, z: -0.73126596}
       - {x: 18.647905, y: 0.98, z: -0.22525918}
       - {x: 17.710676, y: 0.98, z: 3.0755632}
@@ -3429,6 +3430,131 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1221560460553377426, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
+--- !u!1 &435617446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435617447}
+  - component: {fileID: 435617452}
+  - component: {fileID: 435617451}
+  - component: {fileID: 435617450}
+  - component: {fileID: 435617449}
+  - component: {fileID: 435617448}
+  m_Layer: 0
+  m_Name: EndOfPathTriggerContestantIdleAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435617447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.51, y: 0.98, z: 5.049762}
+  m_LocalScale: {x: 0.14179, y: 0.14179, z: 0.14179}
+  m_Children: []
+  m_Father: {fileID: 28731306}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435617448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dfa80a5d994c324dbc9722f8c8f8a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &435617449
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &435617450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &435617451
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &435617452
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435617446}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &438545186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1849381197761432, guid: 5e3471ec9636c3b48b1348d48c8ef5b1, type: 3}
@@ -6799,7 +6925,7 @@ Transform:
   m_Children:
   - {fileID: 71302044}
   m_Father: {fileID: 28731306}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 1.454, y: -267.364, z: -0.248}
 --- !u!114 &935948820
 MonoBehaviour:
@@ -7227,8 +7353,8 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: 24.3, y: 0.98, z: -1.39}
-      - {x: 24.365654, y: 0.98, z: -1.1593971}
+      - {x: 23.09, y: 0.98, z: -1.25}
+      - {x: 23.155655, y: 0.98, z: -1.0193971}
       - {x: 25.772465, y: 0.98, z: -0.7347827}
       - {x: 25.903143, y: 0.98, z: -0.22525918}
       - {x: 26.749704, y: 0.98, z: 3.0755632}
@@ -8310,7 +8436,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -1114.5248
+  cooldown: -1177.5282
   currentReader:
     dirty: 0
     requested: 0
@@ -8364,7 +8490,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -432.9708
+  cooldown: -495.9896
   currentReader:
     dirty: 0
     requested: 0
@@ -10025,6 +10151,7 @@ GameObject:
   - component: {fileID: 1410437522}
   - component: {fileID: 1410437523}
   - component: {fileID: 1410437524}
+  - component: {fileID: 1410437525}
   m_Layer: 0
   m_Name: PaintingMiniGame
   m_TagString: Untagged
@@ -10082,8 +10209,9 @@ MonoBehaviour:
   colorCounterComponent: {fileID: 1104941438}
   canvasGameObject: {fileID: 1104941424}
   contestantsResultsCam: {fileID: 1432571753}
-  leftContestantFailCanvas: {fileID: 1534730858}
+  leftContestantFailCanvas: {fileID: 1534730859}
   rightContestantWinCanvas: {fileID: 1593408423342084457}
+  canvasFailMat: {fileID: 2100000, guid: 1efd836b66f399149aa4533b66ae6e6b, type: 2}
 --- !u!114 &1410437523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10169,6 +10297,84 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: c32fd45a36a7e494f996cf798d2428f9, type: 2}
+--- !u!114 &1410437525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410437520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversationEvents:
+    onConversationStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    runOnConversationEndEventsAtEndOfFrame: 0
+    onConversationCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLine:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationLineCancelled:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenu:
+      m_PersistentCalls:
+        m_Calls: []
+    onConversationResponseMenuTimeout:
+      m_PersistentCalls:
+        m_Calls: []
+    onLinkedConversationStart:
+      m_PersistentCalls:
+        m_Calls: []
+  barkEvents:
+    onBarkStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkEnd:
+      m_PersistentCalls:
+        m_Calls: []
+    onBarkLine:
+      m_PersistentCalls:
+        m_Calls: []
+  sequenceEvents:
+    onSequenceStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onSequenceEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  questEvents:
+    onQuestStateChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingEnabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onQuestTrackingDisabled:
+      m_PersistentCalls:
+        m_Calls: []
+    onUpdateQuestTracker:
+      m_PersistentCalls:
+        m_Calls: []
+  pauseEvents:
+    onDialogueSystemPause:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueSystemUnpause:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1426652790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1673235349372620849, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
@@ -10217,7 +10423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_LocalScale.x
@@ -10434,7 +10640,7 @@ PrefabInstance:
     - target: {fileID: -936767438793133610, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1efd836b66f399149aa4533b66ae6e6b, type: 2}
+      objectReference: {fileID: 2100000, guid: 6313c416c63372d4389c1934bb10a4d8, type: 2}
     - target: {fileID: -97236530104315884, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10481,7 +10687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4666911024536272513, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
       propertyPath: m_IsActive
@@ -11164,8 +11370,8 @@ MonoBehaviour:
   interval: 0
   async: 1
   downsampleSteps: 3
-  registeredPaintableTexture: {fileID: 0}
-  cooldown: -428.7618
+  registeredPaintableTexture: {fileID: 1429179777}
+  cooldown: -445.83838
   currentReader:
     dirty: 0
     requested: 0
@@ -11206,8 +11412,8 @@ MonoBehaviour:
   interval: 0
   async: 1
   downsampleSteps: 3
-  registeredPaintableTexture: {fileID: 0}
-  cooldown: -1110.3167
+  registeredPaintableTexture: {fileID: 1429179777}
+  cooldown: -1127.3887
   currentReader:
     dirty: 0
     requested: 0
@@ -11345,6 +11551,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4192728564377462247, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
+--- !u!23 &1429179800 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -936767438793133610, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
+  m_PrefabInstance: {fileID: 1429179741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1432571748
 GameObject:
   m_ObjectHideFlags: 0
@@ -11355,9 +11566,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1432571749}
   - component: {fileID: 1432571753}
-  - component: {fileID: 1432571752}
-  - component: {fileID: 1432571751}
-  - component: {fileID: 1432571750}
   m_Layer: 0
   m_Name: ContestantsPaintingsShowcaseCam
   m_TagString: Untagged
@@ -11380,169 +11588,6 @@ Transform:
   m_Father: {fileID: 28731306}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 6.679, y: -179.358, z: 0.003}
---- !u!114 &1432571750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432571748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a5473918a168c44fa0294bd4d1399f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conversationEvents:
-    onConversationStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    runOnConversationEndEventsAtEndOfFrame: 0
-    onConversationCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLine:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationLineCancelled:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenu:
-      m_PersistentCalls:
-        m_Calls: []
-    onConversationResponseMenuTimeout:
-      m_PersistentCalls:
-        m_Calls: []
-    onLinkedConversationStart:
-      m_PersistentCalls:
-        m_Calls: []
-  barkEvents:
-    onBarkStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    onBarkLine:
-      m_PersistentCalls:
-        m_Calls: []
-  sequenceEvents:
-    onSequenceStart:
-      m_PersistentCalls:
-        m_Calls: []
-    onSequenceEnd:
-      m_PersistentCalls:
-        m_Calls: []
-  questEvents:
-    onQuestStateChange:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingEnabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onQuestTrackingDisabled:
-      m_PersistentCalls:
-        m_Calls: []
-    onUpdateQuestTracker:
-      m_PersistentCalls:
-        m_Calls: []
-  pauseEvents:
-    onDialogueSystemPause:
-      m_PersistentCalls:
-        m_Calls: []
-    onDialogueSystemUnpause:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!114 &1432571751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432571748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 8
-  condition:
-    luaConditions: []
-    questConditions: []
-    acceptedTags: []
-    acceptedGameObjects: []
-    luaWizardIndex: -1
-    lastEvaluationValue: 0
-  setQuestState: 1
-  questName: 
-  questState: 0
-  setQuestEntryState: 0
-  questEntryNumber: 1
-  questEntryState: 0
-  setAnotherQuestEntryState: 0
-  anotherQuestEntryNumber: 1
-  anotherQuestEntryState: 0
-  luaCode: 
-  sequence: 
-  sequenceSpeaker: {fileID: 0}
-  sequenceListener: {fileID: 0}
-  waitOneFrameOnStartOrEnable: 1
-  alertMessage: 
-  textTable: {fileID: 0}
-  alertDuration: 0
-  sendMessages: []
-  barkSource: 0
-  barkConversation: 
-  barkText: 
-  barkTextSequence: 
-  barker: {fileID: 0}
-  barkTarget: {fileID: 0}
-  barkOrder: 0
-  allowBarksDuringConversations: 0
-  skipBarkIfNoValidEntries: 0
-  cacheBarkLines: 0
-  conversation: FinalEliminationHost
-  conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
-  startConversationEntryID: -1
-  exclusive: 0
-  replace: 0
-  skipIfNoValidEntries: 0
-  preventRestartOnSameFrameEnded: 0
-  stopConversationOnTriggerExit: 0
-  stopConversationIfTooFar: 0
-  maxConversationDistance: 5
-  monitorConversationDistanceFrequency: 1
-  showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
-  setActiveActions: []
-  setEnabledActions: []
-  setAnimatorStateActions: []
-  onExecute:
-    m_PersistentCalls:
-      m_Calls: []
-  useConversationTitlePicker: 1
-  useBarkTitlePicker: 1
-  useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: c32fd45a36a7e494f996cf798d2428f9, type: 2}
---- !u!65 &1432571752
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432571748}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1432571753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11840,6 +11885,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 704b81a017fc0bb4d877553d3730f9fe, type: 3}
   m_PrefabInstance: {fileID: 1429179741}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1534730859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534730858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6532d8affb3f5349aebd751588014ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1429179800}
 --- !u!1001 &1535699593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19444,11 +19502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038250306709977267, guid: 28bcd5160077dcb4d8fb2c4ebf5a0497, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7703182799985648137, guid: 28bcd5160077dcb4d8fb2c4ebf5a0497, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7703182799985648137, guid: 28bcd5160077dcb4d8fb2c4ebf5a0497, type: 3}
       propertyPath: m_LocalPosition.x
