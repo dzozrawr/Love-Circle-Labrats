@@ -192,6 +192,10 @@ public class GameCanvasController : MonoBehaviour
 //        Debug.Log("EndEpisodeButtonEffect()");
         int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
         if(nextSceneIndex==0) nextSceneIndex++;
+
+        SaveData saveData=new SaveData(nextSceneIndex);
+        SaveSystem.SaveGame(saveData);
+
         SceneManager.LoadScene(nextSceneIndex);
     }
 

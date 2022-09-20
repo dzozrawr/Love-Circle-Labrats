@@ -74,7 +74,7 @@ public class DogMiniGameM : MiniGame
 
     public void TransitionToContestants()
     {
-        MiniGameDone?.Invoke();
+       // MiniGameDone?.Invoke();
 
         CameraController.Instance.transitionToCMVirtualCamera(dogContestantsCam);
         CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;

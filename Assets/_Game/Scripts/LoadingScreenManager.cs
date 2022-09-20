@@ -13,15 +13,30 @@ public class LoadingScreenManager : MonoBehaviour
     private AsyncOperation operation;
     private Canvas canvas;
 
+    private int levelToLoad;
+
+    private void Awake()
+    {
+        SaveData saveData = SaveSystem.LoadGame();
+        if (saveData != null)
+        {
+            levelToLoad = saveData.level;
+            GameController.CoinAmount=saveData.coins;
+        }
+        else
+        {
+            levelToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        }
+    }
 
     private void Start()
     {
-        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadScene(levelToLoad);
     }
 
     public void LoadScene(int sceneIndex)
     {
-       // UpdateProgressUI(0);
+        // UpdateProgressUI(0);
 
         StartCoroutine(BeginLoad(sceneIndex));
     }
@@ -35,7 +50,7 @@ public class LoadingScreenManager : MonoBehaviour
             //UpdateProgressUI(operation.progress);
             yield return null;
         }
-       // UpdateProgressUI(operation.progress);
+        // UpdateProgressUI(operation.progress);
         operation = null;
     }
 
