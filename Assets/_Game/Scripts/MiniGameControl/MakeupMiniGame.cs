@@ -17,7 +17,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
     }
 
     //public Transform placeForPlayer=null;
-    public GameObject playerModelInMinigame = null;
+    public GameObject playerModelInMinigame = null; //the model with paintable lips in the mini game
 
     public P3dChannelCounter channelCounter = null;
 
@@ -119,6 +119,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
             contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
+
+            Destroy(contestant.dialogueSystemTrigger.gameObject);
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -141,6 +143,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         //dogAnimator1.SetTrigger("Bark");
         //  finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
         //  finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
+
+        playerModelInMinigame.SetActive(false);
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
