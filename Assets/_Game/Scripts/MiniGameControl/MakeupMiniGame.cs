@@ -44,6 +44,10 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public GameObject lipstickGO = null;
 
+    public Material lipstickFinishedMat=null;
+
+    public Renderer lipsRenderer=null;
+
     //private GameController gameController;
 
     private ProgressBar progressBar = null;
@@ -58,6 +62,12 @@ public class MakeupMiniGame : MiniGame, IHitPoint
     private DialogueSystemEvents dialogueSystemEvents = null;
 
     private int greenBlueCounterStartValue;
+
+    private Ray ray;
+    private RaycastHit hit;
+    private GameObject hitObject;
+
+    private Camera mainCamera = null;
 
 
     private void Awake()
@@ -89,7 +99,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
 
 
-
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
 
@@ -180,6 +190,18 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         if (!isMiniGameActive) return;
         if (Input.GetMouseButton(0))
         {
+
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                hitObject = hit.collider.gameObject;
+
+                lipstickGO.transform.position = hit.point;
+                //lipstickGO.transform.right = -hit.normal;
+                //lipstickGO.transform.rotation = rotation;
+                //hit.normal
+            }
+
             //p3DHitScreen.Connector.
             progress = ((float)((greenBlueCounterStartValue - greenBlueCounterFinishValue) - (channelCounter.CountG - greenBlueCounterFinishValue))) / ((float)(greenBlueCounterStartValue - greenBlueCounterFinishValue));
 
@@ -193,10 +215,12 @@ public class MakeupMiniGame : MiniGame, IHitPoint
             if (progress >= 1f)
             {
                 //p3DHitScreen.gameObject.SetActive(false);
-                //p3DHitScreen.enabled = false;
+                p3DHitScreen.enabled = false;
                 lipstickGO.SetActive(false);//lipstick model disable
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
+
+                lipsRenderer.material=new Material(lipstickFinishedMat);
 
 
                 if (gameController.afterMiniGameAudioClip != null)
