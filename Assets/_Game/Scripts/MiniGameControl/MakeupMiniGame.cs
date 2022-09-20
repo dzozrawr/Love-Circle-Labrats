@@ -28,7 +28,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public P3dHitScreen p3DHitScreen = null;
 
-  //  public GameObject[] placeForContestants = null;
+    //  public GameObject[] placeForContestants = null;
 
     public CinemachineVirtualCamera contestantsResultsCam = null;
 
@@ -52,7 +52,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     private bool isMiniGameActive = false;
 
-   // private FinalEliminationManager finalEliminationManager = null;
+    // private FinalEliminationManager finalEliminationManager = null;
     private DialogueSystemTrigger dialogueSystemTrigger = null;
 
     private DialogueSystemEvents dialogueSystemEvents = null;
@@ -189,13 +189,16 @@ public class MakeupMiniGame : MiniGame, IHitPoint
             if (progress >= 1f)
             {
                 //p3DHitScreen.gameObject.SetActive(false);
-                p3DHitScreen.enabled = false;
+                //p3DHitScreen.enabled = false;
                 lipstickGO.SetActive(false);//lipstick model disable
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
 
 
-
+                if (gameController.afterMiniGameAudioClip != null)
+                {
+                    SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
+                }
                 Invoke(nameof(TransitionToContestants), 1f);
                 //Debug.Log("End mini game");
             }
