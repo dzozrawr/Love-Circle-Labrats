@@ -13,7 +13,12 @@ public class EOLScreenController : MonoBehaviour
        // coinAmountRewardText.text=coinAmountReward+"";
     }
 
+    private void OnEnable() {
+        GameController.CoinAmount+=coinAmountReward;
+    }
+
     public void ApplyCoinReward(){
-        GameController.Instance.SetCoinAmount(coinAmountReward);
+        //GameController.Instance.SetCoinAmount(GameController.CoinAmount+coinAmountReward);
+        GameCanvasController.Instance.UpdateCoinAmountUI();
     }
 }

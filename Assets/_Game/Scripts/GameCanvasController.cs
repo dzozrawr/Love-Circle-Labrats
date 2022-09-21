@@ -240,7 +240,7 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(SetActiveFalse), 0.25f);
     }
 
-    private void UpdateCoinAmountUI()
+    public void UpdateCoinAmountUI()
     {
         coinAmountTxt.text = GameController.CoinAmount + "";
     }
