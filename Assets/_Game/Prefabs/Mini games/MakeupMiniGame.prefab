@@ -245,6 +245,8 @@ MonoBehaviour:
     mat: {fileID: 2100000, guid: 28dd75ab74008b147874bfa03225118a, type: 2}
   girlGoodLipstickMat: {fileID: 2100000, guid: fd41b9b01a1cb2e41bad985d491aeccb, type: 2}
   lipstickGO: {fileID: 7202124473712400599}
+  lipstickFinishedMat: {fileID: 2100000, guid: 0193cf568a529664c9f4b829e4943e80, type: 2}
+  lipsRenderer: {fileID: 4447699058145858598}
 --- !u!114 &7805156744030229059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2377,11 +2379,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
---- !u!224 &7907089850699235476 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 138165626267226438, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
-  m_PrefabInstance: {fileID: 7805156745769488850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1417855837715852582 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9222317517728513268, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
@@ -2393,6 +2390,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c9e879d5ff5824191f015b43171ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &7907089850699235476 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 138165626267226438, guid: 86ee597d16ba15947ba2f6882b225817, type: 3}
+  m_PrefabInstance: {fileID: 7805156745769488850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7805156745883717129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2673,11 +2675,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5604709406633075234, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
   m_PrefabInstance: {fileID: 7805156745957135111}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2422247876994632017 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5606120793243212374, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
-  m_PrefabInstance: {fileID: 7805156745957135111}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8328707022756024286 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2289234182014524633, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
@@ -2689,6 +2686,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c192c747e3eba458dd59e5bb7150d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &4447699058145858598 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5901995961375999777, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+  m_PrefabInstance: {fileID: 7805156745957135111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2422247876994632017 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5606120793243212374, guid: 5e8b5a622764e484c8018a626f7bb7f1, type: 3}
+  m_PrefabInstance: {fileID: 7805156745957135111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7805156745991055765
 PrefabInstance:
   m_ObjectHideFlags: 0
