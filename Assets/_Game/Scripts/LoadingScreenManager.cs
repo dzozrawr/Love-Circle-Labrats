@@ -22,6 +22,12 @@ public class LoadingScreenManager : MonoBehaviour
         {
             levelToLoad = saveData.level;
             GameController.CoinAmount=saveData.coins;
+            GameController.UnchosenPlayerPrefab= (GameObject)Resources.InstanceIDToObject(saveData.unchosenPlayerPrefabInstanceID);
+
+            Resources.UnloadUnusedAssets();
+           // GameController.UnchosenPlayerPrefab=saveData.unchosenPlayerPrefab;
+            //GameObject.
+           
         }
         else
         {
