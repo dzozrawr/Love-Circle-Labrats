@@ -60,7 +60,7 @@ public abstract class SettingsToggle : MonoBehaviour, IPointerDownHandler
     }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        // HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);  //play haptic
+         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);  //play haptic
         Toggle(!isOn);//flips the switch when clicked
     }
 
