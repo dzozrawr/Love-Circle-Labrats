@@ -17,7 +17,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
     }
 
     //public Transform placeForPlayer=null;
-    public GameObject playerModelInMinigame = null;
+    public GameObject playerModelInMinigame = null; //the model with paintable lips in the mini game
 
     public P3dChannelCounter channelCounter = null;
 
@@ -28,7 +28,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public P3dHitScreen p3DHitScreen = null;
 
-  //  public GameObject[] placeForContestants = null;
+    //  public GameObject[] placeForContestants = null;
 
     public CinemachineVirtualCamera contestantsResultsCam = null;
 
@@ -44,6 +44,10 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public GameObject lipstickGO = null;
 
+    public Material lipstickFinishedMat=null;
+
+    public Renderer lipsRenderer=null;
+
     //private GameController gameController;
 
     private ProgressBar progressBar = null;
@@ -52,12 +56,18 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     private bool isMiniGameActive = false;
 
-   // private FinalEliminationManager finalEliminationManager = null;
+    // private FinalEliminationManager finalEliminationManager = null;
     private DialogueSystemTrigger dialogueSystemTrigger = null;
 
     private DialogueSystemEvents dialogueSystemEvents = null;
 
     private int greenBlueCounterStartValue;
+
+    private Ray ray;
+    private RaycastHit hit;
+    private GameObject hitObject;
+
+    private Camera mainCamera = null;
 
 
     private void Awake()
@@ -89,7 +99,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
 
 
-
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
 
@@ -119,6 +129,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
             contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
+
+            Destroy(contestant.dialogueSystemTrigger.gameObject);
             finalEliminationManager.contestants.Add(contestant);
         }
     }
@@ -141,6 +153,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         //dogAnimator1.SetTrigger("Bark");
         //  finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
         //  finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
+
+        playerModelInMinigame.SetActive(false);
 
         finalEliminationManager.contestants[0].MatchSuccessPoints++;
 
@@ -176,6 +190,18 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         if (!isMiniGameActive) return;
         if (Input.GetMouseButton(0))
         {
+
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                hitObject = hit.collider.gameObject;
+
+                lipstickGO.transform.position = hit.point;
+                //lipstickGO.transform.right = -hit.normal;
+                //lipstickGO.transform.rotation = rotation;
+                //hit.normal
+            }
+
             //p3DHitScreen.Connector.
             progress = ((float)((greenBlueCounterStartValue - greenBlueCounterFinishValue) - (channelCounter.CountG - greenBlueCounterFinishValue))) / ((float)(greenBlueCounterStartValue - greenBlueCounterFinishValue));
 
@@ -194,8 +220,13 @@ public class MakeupMiniGame : MiniGame, IHitPoint
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
 
+                lipsRenderer.material=new Material(lipstickFinishedMat);
 
 
+                if (gameController.afterMiniGameAudioClip != null)
+                {
+                    SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
+                }
                 Invoke(nameof(TransitionToContestants), 1f);
                 //Debug.Log("End mini game");
             }

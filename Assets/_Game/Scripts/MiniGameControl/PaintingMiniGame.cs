@@ -22,11 +22,13 @@ public class PaintingMiniGame : MiniGame
 
     public GameObject canvasGameObject = null;
 
-    public CinemachineVirtualCamera contestantsResultsCam=null;
+    public CinemachineVirtualCamera contestantsResultsCam = null;
 
-    public GameObject leftContestantFailCanvas=null;
+    public PantingCanvasScript leftContestantFailCanvas = null;
 
-    public PantingCanvasScript rightContestantWinCanvas=null;
+    public PantingCanvasScript rightContestantWinCanvas = null;
+
+    public Material canvasFailMat = null;
 
 
     private PaintingMiniGameCanvas paintingMiniGameCanvas = null;
@@ -45,7 +47,9 @@ public class PaintingMiniGame : MiniGame
 
     private P3dColor paint3DColor = null;
 
-    private DialogueSystemTrigger dialogueSystemTrigger=null;
+    private DialogueSystemTrigger dialogueSystemTrigger = null;
+
+    private DialogueSystemEvents dialogueSystemEvents = null;
 
     public static PaintingMiniGame Instance { get => instance; }
 
@@ -64,7 +68,7 @@ public class PaintingMiniGame : MiniGame
 
         canvasChangeCounterComponent = canvasPaintableTexComponent.GetComponent<P3dChangeCounter>();
         paint3DColor = GetComponent<P3dColor>();
-        dialogueSystemTrigger=GetComponent<DialogueSystemTrigger>();
+        dialogueSystemTrigger = GetComponent<DialogueSystemTrigger>();
     }
     /*    public override void InitializeMiniGame()
         {
@@ -86,6 +90,11 @@ public class PaintingMiniGame : MiniGame
     {
         base.Start();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        dialogueSystemEvents = GetComponent<DialogueSystemEvents>();
+
+
+        dialogueSystemEvents.conversationEvents.onConversationEnd.AddListener((x) => finalEliminationManager.StartPhase());
     }
 
     private void Update()
@@ -208,6 +217,11 @@ public class PaintingMiniGame : MiniGame
                  else
                  {
                      paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.firstPlanGroup, false);
+
+                     if (gameController.afterMiniGameAudioClip != null)
+                     {
+                         SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
+                     }
                      Invoke(nameof(TransitionToContestants), 1f);
                      //and something else here, like go to final elimination
                  }
@@ -305,9 +319,12 @@ public class PaintingMiniGame : MiniGame
     public void TransitionToContestants()
     {
         //set lipstick materials to contestants
+        paintSphere.gameObject.SetActive(false);
+
         ContestantScript winnerContestant = finalEliminationManager.contestants[1], loserContenstant = finalEliminationManager.contestants[0];
 
-        leftContestantFailCanvas.SetActive(true);
+        leftContestantFailCanvas.SetCanvasMaterial(canvasFailMat);
+        leftContestantFailCanvas.gameObject.SetActive(true);
         rightContestantWinCanvas.SetCanvasMaterial(canvasGameObject.GetComponent<MeshRenderer>().material);
         rightContestantWinCanvas.gameObject.SetActive(true);
 
@@ -325,13 +342,13 @@ public class PaintingMiniGame : MiniGame
         //  finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("Happy");
         //  finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Sad");
 
-        finalEliminationManager.contestants[0].MatchSuccessPoints++;
+        finalEliminationManager.contestants[1].MatchSuccessPoints++;
 
-       // ToonModelScript playerScriptModel = PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
+        // ToonModelScript playerScriptModel = PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>();
         //Debug.Log(playerScriptModel);
-       // PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
+        // PlayerInMiniGameGO.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(girlGoodLipstickMat);
 
-        Invoke(nameof(StartFinalEliminationConversation), 1.5f);
+        Invoke(nameof(StartFinalEliminationConversation), 0.75f);
         //   StartCoroutine(WaitForIdle());   ovde sam stao pre nego sto je god emperor branima stigao
         CheckForCameraBlending.onCameraBlendFinished -= ActionWhenCameraOnContestants;
     }

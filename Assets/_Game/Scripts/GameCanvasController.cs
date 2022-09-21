@@ -192,6 +192,10 @@ public class GameCanvasController : MonoBehaviour
 //        Debug.Log("EndEpisodeButtonEffect()");
         int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
         if(nextSceneIndex==0) nextSceneIndex++;
+
+        SaveData saveData=new SaveData(nextSceneIndex);
+        SaveSystem.SaveGame(saveData);
+
         SceneManager.LoadScene(nextSceneIndex);
     }
 
@@ -236,7 +240,7 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(SetActiveFalse), 0.25f);
     }
 
-    private void UpdateCoinAmountUI()
+    public void UpdateCoinAmountUI()
     {
         coinAmountTxt.text = GameController.CoinAmount + "";
     }

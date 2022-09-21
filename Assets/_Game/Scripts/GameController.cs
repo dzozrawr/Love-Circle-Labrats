@@ -20,7 +20,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     private PlayerScript chosenPlayer = null;
     public PlayerScript ChosenPlayer { get => chosenPlayer; set => chosenPlayer = value; }
-    public static int CoinAmount { get => coinAmount; }
+    public static int CoinAmount { get => coinAmount; set => coinAmount = value; }
+    public static GameObject UnchosenPlayerPrefab { get => unchosenPlayerPrefab; set => unchosenPlayerPrefab = value; }
 
     [HideInInspector]
     public UnityEvent ContestantsEliminated, CurtainOpen, MiniGameStarted, CoinAmountUpdated;
@@ -44,7 +45,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
 
     private StudioSet selectedStudioSetInMenu = null;
     private int studioSetIndex = 0;
-    private static int coinAmount;
+    private static int coinAmount=0;
 
 
 
@@ -61,10 +62,10 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         instance = this;
 
         //reading persistent data
-        unchosenPlayerPrefab = PersistentData.unchosenPlayerPrefab;
+       // unchosenPlayerPrefab = PersistentData.unchosenPlayerPrefab;
 
         selectedStudioSetInMenu = studioSet;
-        coinAmount = 0;
+        //coinAmount = 0;
 
     }
 
@@ -84,7 +85,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             unchosenPlayerPrefab = null;
-            PersistentData.unchosenPlayerPrefab = null;
+          //  PersistentData.unchosenPlayerPrefab = null;
         }
         if (unchosenPlayerPrefab != null)
         {
@@ -185,14 +186,14 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         if (chosenPlayer == playerL)
         {
             unchosenPlayerPrefab = playerR.selfReferencePrefabHolder.prefabRefence;
-            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+           // PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
             //            Debug.Log("unchosenPlayer = playerR.selfPrefab;");
         }
 
         if (chosenPlayer == playerR)
         {
             unchosenPlayerPrefab = playerL.selfReferencePrefabHolder.prefabRefence;
-            PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+           // PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
             //   Debug.Log("unchosenPlayer = playerL.selfPrefab;");
         }
     }
@@ -201,7 +202,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     public void SetUnchosenPlayer(PlayerScript playerScript)
     {
         unchosenPlayerPrefab = playerScript.selfReferencePrefabHolder.prefabRefence;
-        PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
+       // PersistentData.unchosenPlayerPrefab = unchosenPlayerPrefab;
     }
 #endif
     public void PickSet(GameObject set)

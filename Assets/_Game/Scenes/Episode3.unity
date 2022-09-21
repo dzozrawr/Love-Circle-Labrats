@@ -10150,6 +10150,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0750c101778e0143a4133b3eb1fa283, type: 3}
+--- !u!1 &2095127209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419776295413375967, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
+  m_PrefabInstance: {fileID: 7805156745212871426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2095127212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095127209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: a6d05d4ae6bb8ae44afff957d52bc506, type: 3}
 --- !u!1 &2102418475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1891898166380908, guid: 31538c88caef5e14fb1a4299c7182b12, type: 3}
@@ -12935,7 +12954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805156744030229052, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805156744030229052, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13433,6 +13452,10 @@ PrefabInstance:
     - target: {fileID: 5419393735625508152, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820187339192343409, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_text
+      value: 'Likes: Makeup Age: 19'
       objectReference: {fileID: 0}
     - target: {fileID: 5867449870543286764, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_SizeDelta.y
