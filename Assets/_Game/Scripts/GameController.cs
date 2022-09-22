@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour //all of the events are in this clas
     private static GameController instance = null;
     public static GameController Instance { get => instance; }
 
+    public static int missionID;
+
     private static GameObject unchosenPlayerPrefab = null;
 
     public delegate void ConversationChangeHandler(string conversationName);

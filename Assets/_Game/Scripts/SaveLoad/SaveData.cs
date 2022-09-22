@@ -11,14 +11,18 @@ public class SaveData
     public int coins;
     public int unchosenPlayerPrefabInstanceID;
 
+    public int missionID;
+
 
 
 
     public SaveData(int _level)
     {
         level = _level;
+        missionID=GameController.missionID;
         coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
+        
     }
 
     /*     public SaveData(int _level, int _coins, int _missionID, int _optionalLevelID)

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using NiceVibrations.CrazyLabsExtension;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -79,10 +80,10 @@ public class GameCanvasController : MonoBehaviour
         coinUI.GetComponent<Animation>().Play("Coin UI Show");
     }
 #if UNITY_EDITOR
-/*     private void Update()
+    private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+/*         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EOLScreen.SetActive(true);
             terribleMatchGroup.SetActive(true);
@@ -101,13 +102,13 @@ public class GameCanvasController : MonoBehaviour
             EOLScreen.SetActive(true);
             successfulMatchGroup.SetActive(true);
             coinUI.GetComponent<Animation>().Play("Coin UI Show");
-        }
+        } */
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.N)){
             EndEpisodeButtonEffect();
         }
 
-    } */
+    } 
 #endif
 
     public void ShowThumbsUpDown(bool show)
@@ -174,18 +175,24 @@ public class GameCanvasController : MonoBehaviour
         mainMenuGroup.GetComponent<Animator>().SetTrigger("Hide");
         coinUI.GetComponent<Animation>().Play("Coin UI Hide");
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void SetPickingButtonEffect()
     {
         setPickingGroup.SetActive(true);
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void SettingsButtonEffect()
     {
         settingsGroup.SetActive(true);
         settingsGroup.GetComponent<Animator>().SetTrigger("Show");
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void EndEpisodeButtonEffect()
@@ -195,15 +202,19 @@ public class GameCanvasController : MonoBehaviour
         if(nextSceneIndex==0) nextSceneIndex++;
 
         SaveData saveData=new SaveData(nextSceneIndex);
+
+        saveData.missionID=++GameController.missionID;
+
         SaveSystem.SaveGame(saveData);
 
         SceneManager.LoadScene(nextSceneIndex);
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
     {
-        EOLScreen.SetActive(true);
-        coinUI.GetComponent<Animation>().Play("Coin UI Show");
+
 
         EOLScreen.GetComponent<EOLScreenController>().ActivateEOLScreenBasedOnMatchSuccessRate(successRate);
  /*        if (successRate == 0f)  //kind of hard coded
@@ -240,6 +251,7 @@ public class GameCanvasController : MonoBehaviour
     public void InvokeSetActiveFalse()
     {
         Invoke(nameof(SetActiveFalse), 0.25f);
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void UpdateCoinAmountUI()

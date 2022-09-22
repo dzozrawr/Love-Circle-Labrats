@@ -1103,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.331
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1256,7 +1256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.331
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1323,42 +1323,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 6f39a439b55755843a060f1edc9aef1d, type: 3}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 532985684876412875}
-    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DogCommandButtonEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DogMiniGame.DogMiniGameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 287920050038402265}
-    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: DogCommandButton, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce131d87fed01054790465b3697ab10d, type: 3}
---- !u!114 &287920050038402265 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7354060142811763751, guid: ce131d87fed01054790465b3697ab10d, type: 3}
-  m_PrefabInstance: {fileID: 7345436404985837822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df031065394c3234b8549756b2d4cdc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &9107315284592756091 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
@@ -1405,7 +1374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.331
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1672,7 +1641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 167.331
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1987096245050817925, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1744,7 +1713,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: b2860b5b99c204d409929d6b42be0e6b, type: 3}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1755,6 +1724,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 532985684876412875}
@@ -1763,7 +1736,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2088177457555925127}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7439530466687734890}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
@@ -1775,12 +1756,20 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DogMiniGame.DogMiniGameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ButtonHaptic, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1798,8 +1787,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8048344123725683992, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+--- !u!114 &7439530466687734890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1867784297042341958, guid: ce131d87fed01054790465b3697ab10d, type: 3}
+  m_PrefabInstance: {fileID: 9139270835312043052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48abbc72b8127c46b656629b9b79837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1791281306688811019 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7354060142811763751, guid: ce131d87fed01054790465b3697ab10d, type: 3}

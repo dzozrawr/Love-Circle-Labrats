@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5764485875607170286}
   - component: {fileID: 1633872858195043069}
   - component: {fileID: 6020582042878367564}
+  - component: {fileID: 739747359085356561}
   m_Layer: 0
   m_Name: BackgroundButton
   m_TagString: Untagged
@@ -133,6 +134,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 739747359085356561}
+        m_TargetAssemblyTypeName: ButtonHaptic, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &6020582042878367564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,5 +170,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c8fda9d39c3254788f23ccba699ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unselectedSprite: {fileID: 0}
   selectedSprite: {fileID: 0}
   paintingTexture: {fileID: 0}
+--- !u!114 &739747359085356561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633872858195043068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48abbc72b8127c46b656629b9b79837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
