@@ -30,6 +30,8 @@ public class PaintingMiniGame : MiniGame
 
     public Material canvasFailMat = null;
 
+    public GameObject handOnboarding = null;
+
 
     private PaintingMiniGameCanvas paintingMiniGameCanvas = null;
 
@@ -382,6 +384,7 @@ public class PaintingMiniGame : MiniGame
                     //  Debug.Log("paintingMiniGameCanvas.SetEnabledGroup(paintingMiniGameCanvas.CurActiveGroup, false);");
                     wasHit = true;
                     // isStencilPhaseActive = true;
+                    handOnboarding.SetActive(false);
                 }
             }
             //}

@@ -18,14 +18,9 @@ public class MusicToggle : SettingsToggle
         instance = this;
     }
 
-    private void Start()
+    protected override void Start()
     {
-        toggleIndicatorImage = toggleIndicator.gameObject.GetComponent<Image>();
-
-        offX = toggleIndicator.anchoredPosition.x;
-        onX = backgroundImage.rectTransform.rect.width - toggleIndicator.rect.width;
-
-        audioSource = this.GetComponent<AudioSource>();
+        base.Start();
 
         int musicInt = PlayerPrefs.GetInt("music", -1);
         if (musicInt == -1)
@@ -36,6 +31,9 @@ public class MusicToggle : SettingsToggle
         {
             RefreshButtonStatus(musicInt == 1);
         }
+
+        SoundManager.Instance.MusicToggle=this;
+        valueChanged += SoundManager.Instance.MusicToggle_valueChanged;
     }
     protected override void SpecificToggleEffect()
     {

@@ -16,6 +16,8 @@ public class BakingMixingPhase : BakingMiniGameState
         bmg.bakingMiniGameCanvas.mixingPhaseElements.GetComponent<Animation>().Play("Baking Phase Mixing");
         bmg.bakingMiniGameCanvas.bakingProgressBar.SetFill(0f);
         bmg.bakingMiniGameCanvas.bakingProgressBar.GetComponent<Animation>().Play("Progress Bar Show");
+        bmg.bakingMiniGameCanvas.mixingPhaseOnboarding.SetActive(true);
+        bmg.bakingMiniGameCanvas.mixingPhaseOnboarding.GetComponent<Animation>().Play("HandMoveBakingOnboardingAnim");
 
         topPile = bmg.TopPile;
         bottomPile = bmg.BottomPile;
@@ -49,6 +51,7 @@ public class BakingMixingPhase : BakingMiniGameState
             topPile.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
             dough.transform.Rotate(Vector3.up, Time.deltaTime * 50f);
             woodenSpoon.GetComponent<Animator>().speed = 0.6f;
+            bmg.bakingMiniGameCanvas.mixingPhaseOnboarding.SetActive(false);
 
             if (progress >= 1f)
             {
