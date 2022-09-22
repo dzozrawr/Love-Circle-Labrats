@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17410666, g: 0.21771936, b: 0.2999102, a: 1}
+  m_IndirectSpecularColor: {r: 0.17410691, g: 0.21771969, b: 0.29991102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3871,7 +3871,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: ContestantsIntro
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
+  conversationActor: {fileID: 2121489933}
   startConversationEntryID: -1
   exclusive: 0
   replace: 0
@@ -9543,7 +9543,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -3745.5696
+  cooldown: -1379.2305
   currentReader:
     dirty: 0
     requested: 0
@@ -9597,7 +9597,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -3063.9314
+  cooldown: -697.6933
   currentReader:
     dirty: 0
     requested: 0
@@ -16076,7 +16076,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -3013.7842
+  cooldown: -647.55206
   currentReader:
     dirty: 0
     requested: 0
@@ -16118,7 +16118,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -3695.4236
+  cooldown: -1329.091
   currentReader:
     dirty: 0
     requested: 0
@@ -24086,6 +24086,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e20ce569ac57b69419f1af65d7393456, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+--- !u!1 &7993559314585876502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2087470825411828732, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+  m_PrefabInstance: {fileID: 7993559314585876501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8430385283068723927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24603,6 +24608,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
+      propertyPath: handGesture
+      value: 
+      objectReference: {fileID: 7993559314585876502}
     - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
       propertyPath: contestants.Array.size
       value: 5
