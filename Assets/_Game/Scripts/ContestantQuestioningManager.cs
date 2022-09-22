@@ -84,8 +84,13 @@ public class ContestantQuestioningManager : MonoBehaviour
                             if (numberOfSelectedContestants == maxContestantsToEliminate)
                             {
                                 GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
-                                eliminationOnboardingGroup.SetActive(true);
-                                eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingAnim");
+
+                                if (eliminationOnboardingGroup != null)
+                                {
+                                    eliminationOnboardingGroup.SetActive(true);
+                                    eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingAnim");
+                                }
+
                             }
 
                             numberOfSelectedContestants--;
@@ -101,7 +106,7 @@ public class ContestantQuestioningManager : MonoBehaviour
                             if (numberOfSelectedContestants == maxContestantsToEliminate)
                             {
                                 GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);
-                                eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
+                                if (eliminationOnboardingGroup != null) eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
                             }
                         }
                     }
@@ -136,16 +141,16 @@ public class ContestantQuestioningManager : MonoBehaviour
         numberOfSelectedContestants = 0;
 
         GameCanvasController.Instance.ToggleEliminateButtonVisibility(false);
-        eliminationOnboardingGroup.SetActive(false);
+        if (eliminationOnboardingGroup != null) eliminationOnboardingGroup.SetActive(false);
 
         GameController.Instance.ContestantsEliminated?.Invoke();
     }
 
     public void ContestantEliminatedSignal()
     {
-        
+
         eliminatedContestantsN++;
-//        Debug.Log("ContestantEliminatedSignal() eliminatedContestantsN=");
+        //        Debug.Log("ContestantEliminatedSignal() eliminatedContestantsN=");
         if (eliminatedContestantsN >= maxContestantsToEliminate)
         {
             GameObject host = GameController.Instance.host;
@@ -174,7 +179,7 @@ public class ContestantQuestioningManager : MonoBehaviour
             c.ToggleSelectionPhase(true);
         }
         isSelectionPhaseActive = true;
-        eliminationOnboardingGroup.SetActive(true);
+        if (eliminationOnboardingGroup != null) eliminationOnboardingGroup.SetActive(true);
         handGesture.SetActive(true);
     }
 

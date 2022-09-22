@@ -3470,6 +3470,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1300971638426561930, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
   m_PrefabInstance: {fileID: 489986358}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &525089701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2087470825411828732, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+  m_PrefabInstance: {fileID: 7993559314585876501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &529853320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7265670635272762156, guid: 199e61bc38a5bac4ab9e570a1d7f6332, type: 3}
@@ -13004,6 +13009,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1026642295}
+    - target: {fileID: 7805156744030229057, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
+      propertyPath: mouseOffset
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 7805156744876255437, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: editorData._bezierPath.points.Array.data[0].x
       value: 22.579523
@@ -14025,6 +14034,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
+      propertyPath: handGesture
+      value: 
+      objectReference: {fileID: 525089701}
     - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
       propertyPath: contestants.Array.size
       value: 5
