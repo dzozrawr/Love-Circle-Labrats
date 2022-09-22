@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17410691, g: 0.21771969, b: 0.29991102, a: 1}
+  m_IndirectSpecularColor: {r: 0.17410666, g: 0.21771936, b: 0.2999102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3923,6 +3923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contestants: []
+  eliminationOnboardingGroup: {fileID: 7993559314585876503}
 --- !u!4 &451455822
 Transform:
   m_ObjectHideFlags: 0
@@ -6843,10 +6844,10 @@ RectTransform:
   m_Father: {fileID: 1143437720}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 311, y: -604}
-  m_SizeDelta: {x: 154.72281, y: 1146.499}
+  m_SizeDelta: {x: 154.72278, y: 1146.499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &738635155
 Animation:
@@ -9543,7 +9544,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -1379.2305
+  cooldown: -1471.8403
   currentReader:
     dirty: 0
     requested: 0
@@ -9597,7 +9598,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -697.6933
+  cooldown: -790.30316
   currentReader:
     dirty: 0
     requested: 0
@@ -12006,7 +12007,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 738635154}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.001205}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 7.9953537, y: -43.541412}
@@ -16076,7 +16077,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -647.55206
+  cooldown: -740.1619
   currentReader:
     dirty: 0
     requested: 0
@@ -16118,7 +16119,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -1329.091
+  cooldown: -1421.7008
   currentReader:
     dirty: 0
     requested: 0
@@ -24089,6 +24090,11 @@ PrefabInstance:
 --- !u!1 &7993559314585876502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2087470825411828732, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+  m_PrefabInstance: {fileID: 7993559314585876501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7993559314585876503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3356257351417459521, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
   m_PrefabInstance: {fileID: 7993559314585876501}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8430385283068723927
