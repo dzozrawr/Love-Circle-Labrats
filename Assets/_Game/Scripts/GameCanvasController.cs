@@ -30,7 +30,7 @@ public class GameCanvasController : MonoBehaviour
     [Range(0f, 1f)]
     public float onPlayerPickAudioClipVolume = 1f;
 
-    public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
+    //public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
     public AudioClip successfulMatchAudioClip = null;
     [Range(0f, 1f)]
     public float successfulMatchAudioClipVolume = 1f;
@@ -78,10 +78,10 @@ public class GameCanvasController : MonoBehaviour
 
         coinUI.GetComponent<Animation>().Play("Coin UI Show");
     }
-
-    private void Update()
-    {
 #if UNITY_EDITOR
+/*     private void Update()
+    {
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EOLScreen.SetActive(true);
@@ -106,8 +106,9 @@ public class GameCanvasController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             EndEpisodeButtonEffect();
         }
+
+    } */
 #endif
-    }
 
     public void ShowThumbsUpDown(bool show)
     {
@@ -204,7 +205,8 @@ public class GameCanvasController : MonoBehaviour
         EOLScreen.SetActive(true);
         coinUI.GetComponent<Animation>().Play("Coin UI Show");
 
-        if (successRate == 0f)  //kind of hard coded
+        EOLScreen.GetComponent<EOLScreenController>().ActivateEOLScreenBasedOnMatchSuccessRate(successRate);
+ /*        if (successRate == 0f)  //kind of hard coded
         {
             terribleMatchGroup.SetActive(true);
             if (terribleMatchAudioClip != null)
@@ -227,7 +229,7 @@ public class GameCanvasController : MonoBehaviour
             {
                 SoundManager.Instance.PlaySound(successfulMatchAudioClip,successfulMatchAudioClipVolume);
             }
-        }
+        } */
     }
     public void SetActiveFalse()
     {
