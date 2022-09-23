@@ -4,6 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using System.Text;
 using System;
+using System.Threading;
+using System.Runtime.Serialization;
 
 public static class SaveSystem
 {
@@ -12,12 +14,44 @@ public static class SaveSystem
     public static string fullSavePath = Application.persistentDataPath + "/FridgeOrganizingSaveData.bin";
     public static void SaveGame(SaveData saveData)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
+         BinaryFormatter formatter = new BinaryFormatter();
 
         FileStream stream = new FileStream(fullSavePath, FileMode.Create);
 
         formatter.Serialize(stream, saveData);
-        stream.Close();
+        stream.Close(); 
+
+/*           DataContractSerializer bf = new DataContractSerializer(data.GetType());
+        MemoryStream streamer = new MemoryStream();
+
+        //Serialize the file
+        bf.WriteObject(streamer, saveData);
+        streamer.Seek(0, SeekOrigin.Begin);
+
+        //Save to disk
+        file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+
+        // Close the file to prevent any corruptions
+        file.Close();
+
+        string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
+        Debug.Log("Serialized Result: " + result); */
+    }
+
+    public static void SaveGameAsync(SaveData saveData)
+    {
+        Thread t = new Thread(() =>
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            FileStream stream = new FileStream(fullSavePath, FileMode.Create);
+
+            formatter.Serialize(stream, saveData);
+            stream.Close();
+        });
+
+        t.Start();
+
     }
 
     public static SaveData LoadGame()

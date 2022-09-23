@@ -70,7 +70,7 @@ public class SetPickingElement : MonoBehaviour
 
         gameController.PickSet(studioSet.gameObject);
 
-        //if(HapticFeedbackController.)
+        
         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 }
