@@ -4,40 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using NiceVibrations.CrazyLabsExtension;
 
-[RequireComponent(typeof(Image))]
 public class SetPickingElement : MonoBehaviour
 {
-    public Sprite selectedSprite = null;
-    public Sprite unselectedSprite = null;
+    //public Sprite selectedSprite = null;
+    //public Sprite unselectedSprite = null;
     public StudioSet studioSet = null;
 
+    public GameObject setSelectedBackgroundGO = null;
+
     private GameController gameController = null;
-    private Image image = null;
+
     private SetPickingElement[] setPickingElements;
 
 
-    private void Awake()
-    {
-        image = GetComponent<Image>();
-    }
 
 
     private void Start()
     {
         gameController = GameController.Instance;
-        if (gameController.studioSet == studioSet) image.sprite = selectedSprite;
+        if (gameController.studioSet == studioSet) setSelectedBackgroundGO.SetActive(true);
         setPickingElements = transform.parent.GetComponentsInChildren<SetPickingElement>();
     }
 
     // Update is called once per frame
     public void OnButtonClick()
     {
-        image.sprite = selectedSprite;
+        setSelectedBackgroundGO.SetActive(true);
 
         for (int i = 0; i < setPickingElements.Length; i++)
         {
             if (setPickingElements[i] == this) continue;
-            setPickingElements[i].image.sprite = setPickingElements[i].unselectedSprite;
+            setPickingElements[i].setSelectedBackgroundGO.SetActive(false);
+
+            //setPickingElements[i].image.sprite = setPickingElements[i].unselectedSprite;
         }
 
         gameController.PickSet(studioSet.gameObject);

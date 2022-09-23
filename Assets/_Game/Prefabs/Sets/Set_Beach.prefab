@@ -845,6 +845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050076830467820171}
   - component: {fileID: 435473039886475652}
+  - component: {fileID: 1297622118952221572}
   m_Layer: 0
   m_Name: Set_Beach
   m_TagString: Untagged
@@ -967,6 +968,25 @@ MonoBehaviour:
   springAudioClipVolume: 0.087
   waterSplashAudioClip: {fileID: 8300000, guid: 74e8646e75dcffa47b013bb284b3c337, type: 3}
   waterSplashAudioClipVolume: 0.077
+--- !u!95 &1297622118952221572
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673235349372620849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f14336974aea0d478b36c1a63af32c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1696261367127933956
 GameObject:
   m_ObjectHideFlags: 0
