@@ -8,8 +8,8 @@ using TMPro;
 
 public abstract class StudioSet : MonoBehaviour
 {
-    public TMP_Text episodeNumberText=null;
-   // public PlayerScript playerL = null, playerR = null;
+    public TMP_Text episodeNumberText = null;
+    // public PlayerScript playerL = null, playerR = null;
 
     public Material skybox;
 
@@ -33,7 +33,7 @@ public abstract class StudioSet : MonoBehaviour
     protected virtual void Start()
     {
         contestantQuestioningManager = ContestantQuestioningManager.Instance;
-        episodeNumberText.text="Episode "+SceneManager.GetActiveScene().buildIndex;        
+        episodeNumberText.text = "Episode " + GameController.missionID;
     }
 
     protected virtual void OnEnable()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using NiceVibrations.CrazyLabsExtension;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class GameCanvasController : MonoBehaviour
     [Range(0f, 1f)]
     public float onPlayerPickAudioClipVolume = 1f;
 
-    public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
+    //public GameObject successfulMatchGroup = null, goodMatchGroup = null, terribleMatchGroup = null;
     public AudioClip successfulMatchAudioClip = null;
     [Range(0f, 1f)]
     public float successfulMatchAudioClipVolume = 1f;
@@ -78,11 +79,11 @@ public class GameCanvasController : MonoBehaviour
 
         coinUI.GetComponent<Animation>().Play("Coin UI Show");
     }
-
+#if UNITY_EDITOR
     private void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+/*         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EOLScreen.SetActive(true);
             terribleMatchGroup.SetActive(true);
@@ -101,13 +102,14 @@ public class GameCanvasController : MonoBehaviour
             EOLScreen.SetActive(true);
             successfulMatchGroup.SetActive(true);
             coinUI.GetComponent<Animation>().Play("Coin UI Show");
-        }
+        } */
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.N)){
             EndEpisodeButtonEffect();
         }
+
+    } 
 #endif
-    }
 
     public void ShowThumbsUpDown(bool show)
     {
@@ -173,18 +175,24 @@ public class GameCanvasController : MonoBehaviour
         mainMenuGroup.GetComponent<Animator>().SetTrigger("Hide");
         coinUI.GetComponent<Animation>().Play("Coin UI Hide");
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void SetPickingButtonEffect()
     {
         setPickingGroup.SetActive(true);
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void SettingsButtonEffect()
     {
         settingsGroup.SetActive(true);
         settingsGroup.GetComponent<Animator>().SetTrigger("Show");
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void EndEpisodeButtonEffect()
@@ -194,17 +202,22 @@ public class GameCanvasController : MonoBehaviour
         if(nextSceneIndex==0) nextSceneIndex++;
 
         SaveData saveData=new SaveData(nextSceneIndex);
+
+        saveData.missionID=++GameController.missionID;
+
         SaveSystem.SaveGame(saveData);
 
         SceneManager.LoadScene(nextSceneIndex);
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
     {
-        EOLScreen.SetActive(true);
-        coinUI.GetComponent<Animation>().Play("Coin UI Show");
 
-        if (successRate == 0f)  //kind of hard coded
+
+        EOLScreen.GetComponent<EOLScreenController>().ActivateEOLScreenBasedOnMatchSuccessRate(successRate);
+ /*        if (successRate == 0f)  //kind of hard coded
         {
             terribleMatchGroup.SetActive(true);
             if (terribleMatchAudioClip != null)
@@ -227,7 +240,7 @@ public class GameCanvasController : MonoBehaviour
             {
                 SoundManager.Instance.PlaySound(successfulMatchAudioClip,successfulMatchAudioClipVolume);
             }
-        }
+        } */
     }
     public void SetActiveFalse()
     {
@@ -238,6 +251,7 @@ public class GameCanvasController : MonoBehaviour
     public void InvokeSetActiveFalse()
     {
         Invoke(nameof(SetActiveFalse), 0.25f);
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 
     public void UpdateCoinAmountUI()

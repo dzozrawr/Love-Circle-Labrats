@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using NiceVibrations.CrazyLabsExtension;
 
 [RequireComponent(typeof(Image))]
 public class SetPickingElement : MonoBehaviour
@@ -40,5 +41,7 @@ public class SetPickingElement : MonoBehaviour
         }
 
         gameController.PickSet(studioSet.gameObject);
+
+        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 }
