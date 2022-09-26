@@ -46,7 +46,12 @@ public class SetPickingElement : MonoBehaviour
                 ChooseSet();
 
                 GameController.Instance.SetCoinAmount(GameController.CoinAmount-price);
+
                 priceGameObject.SetActive(false);
+
+                SetShop.Instance.SetSetAsBought(id);
+
+              //  SaveSystem.SaveGameAsync();
             }
         }
         else

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SetShop : MonoBehaviour
 {
+    private static SetShop instance=null;
+    public static SetShop Instance { get => instance;  }
     public enum SetID{
         None, Beach, Space
     }
@@ -25,7 +27,16 @@ public class SetShop : MonoBehaviour
 
     public List<SetPickingElement> setsInShopInstances=null;
 
+    
+
     private void Awake() {
+        if(instance!=null){
+            Destroy(gameObject);
+            return;
+        }
+        instance=this;
+
+
         if(setsInShopInfos==null){ //save file empty
             setsInShopInfos=new List<SetInfo>();
             foreach (SetPickingElement spe in setsInShopInstances)

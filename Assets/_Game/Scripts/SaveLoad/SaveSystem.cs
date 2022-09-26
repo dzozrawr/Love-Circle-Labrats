@@ -22,7 +22,7 @@ public static class SaveSystem
                 formatter.Serialize(stream, saveData);
                 stream.Close();  */
 
-       // FileStream file = File.Create(fullSavePath);
+        FileStream file = File.Create(fullSavePath);
 
         DataContractSerializer bf = new DataContractSerializer(saveData.GetType());
         MemoryStream streamer = new MemoryStream();
@@ -33,22 +33,22 @@ public static class SaveSystem
 
         //bf.ReadObject()
 
-        string b64String= EncodeTo64(System.Text.ASCIIEncoding.ASCII.GetString(streamer.GetBuffer()));
+/*         string b64String= EncodeTo64(System.Text.ASCIIEncoding.ASCII.GetString(streamer.GetBuffer()));
 
         Debug.Log(System.Text.ASCIIEncoding.ASCII.GetString(streamer.GetBuffer()));
         Debug.Log(b64String);
 
-        byte[] writeBuffer = Convert.FromBase64String(b64String);
+        byte[] writeBuffer = Convert.FromBase64String(b64String); */
 
         //Save to disk
        // File.WriteAllText(fullSavePath,b64String);
-        File.WriteAllBytes(fullSavePath,writeBuffer);
-       // file.Write(writeBuffer, 0, writeBuffer.Length);
+       // File.WriteAllBytes(fullSavePath,writeBuffer);
+        file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
 
         // Close the file to prevent any corruptions
       //  file.Close();
 
-        string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
+       // string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
         //        Debug.Log("Serialized Result: " + result);
     }
 
@@ -75,11 +75,12 @@ public static class SaveSystem
             //bf.ReadObject()
 
 
-            byte[] writeBuffer = EncodeTo64(streamer.GetBuffer());
+         //   byte[] writeBuffer = EncodeTo64(streamer.GetBuffer());
             //System.Text.ASCIIEncoding.ASCII.GetBytes(System.Convert.ToBase64String(streamer.GetBuffer()));
 
             //Save to disk
-            file.Write(writeBuffer, 0, writeBuffer.Length);
+            //file.Write(writeBuffer, 0, writeBuffer.Length);
+            file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
 
             // Close the file to prevent any corruptions
             file.Close();
@@ -122,11 +123,12 @@ public static class SaveSystem
             file.Read(bytes, 0, (int)file.Length);
 
             //string b64String= DecodeFrom64(Convert.ToBase64String(bytes));
-            string str= System.Text.ASCIIEncoding.ASCII.GetString(bytes);
-            byte[] readBytes= Convert.FromBase64String(str);
+           // string str= System.Text.ASCIIEncoding.ASCII.GetString(bytes);
+            //byte[] readBytes= Convert.FromBase64String(str);
 
            // byte[] readBytes=DecodeFrom64(bytes);
-            streamer.Write(readBytes, 0, readBytes.Length);
+           // streamer.Write(readBytes, 0, readBytes.Length);
+            streamer.Write(bytes, 0, bytes.Length);
             DataContractSerializer bf = new DataContractSerializer(typeof(SaveData));
 
             streamer.Seek(0, SeekOrigin.Begin);
