@@ -22,9 +22,17 @@ public class SetPickingElement : MonoBehaviour
 
     private SetPickingElement[] setPickingElements;
 
+    private bool isBought=false;
+
 
     private void Awake()
     {
+        isBought=SetShop.IsSetBought(id);
+
+        if(isBought){
+            priceGameObject.SetActive(false);
+        }
+
         price = int.Parse(priceGameObject.GetComponentInChildren<TMP_Text>().text);
     }
 
@@ -49,9 +57,11 @@ public class SetPickingElement : MonoBehaviour
 
                 priceGameObject.SetActive(false);
 
+                isBought=false;
+
                 SetShop.Instance.SetSetAsBought(id);
 
-              //  SaveSystem.SaveGameAsync();
+                SaveSystem.SaveGameAsync(new SaveData());
             }
         }
         else

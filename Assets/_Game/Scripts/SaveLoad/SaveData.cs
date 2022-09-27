@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using UnityEditor;
 using UnityEngine;
 using System.Runtime.Serialization;
+using UnityEngine.SceneManagement;
 
 [DataContract]
 public class SaveData
@@ -29,12 +30,16 @@ public class SaveData
         missionID = GameController.missionID;
         coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
-
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
-    private SaveData()
+    public SaveData()
     {
-
+        level = SceneManager.GetActiveScene().buildIndex;
+        missionID = GameController.missionID;
+        coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
+        unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
 

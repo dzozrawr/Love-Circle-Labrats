@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Runtime.Serialization;
 public class SetShop : MonoBehaviour
 {
     private static SetShop instance=null;
@@ -9,8 +9,13 @@ public class SetShop : MonoBehaviour
     public enum SetID{
         None, Beach, Space
     }
+
+    [DataContract]
     public class SetInfo{
+
+        [DataMember]
         private SetID id;
+        [DataMember]
         private bool isBought=false;
 
         public bool IsBought { get => isBought; set => isBought = value; }
@@ -62,6 +67,18 @@ public class SetShop : MonoBehaviour
         }
 
         //save the game here (async)
+    }
+
+    public static bool IsSetBought(SetID id){
+        if(setsInShopInfos==null) return false;
+
+        foreach (SetInfo si in setsInShopInfos)
+        {
+            if(si.Id==id){
+                return si.IsBought;
+            }
+        }
+        return false;
     }
 
 
