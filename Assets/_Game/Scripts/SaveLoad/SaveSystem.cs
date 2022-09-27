@@ -33,22 +33,23 @@ public static class SaveSystem
 
         //bf.ReadObject()
 
-/*         string b64String= EncodeTo64(System.Text.ASCIIEncoding.ASCII.GetString(streamer.GetBuffer()));
+        string b64String = EncodeTo64(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
 
-        Debug.Log(System.Text.ASCIIEncoding.ASCII.GetString(streamer.GetBuffer()));
-        Debug.Log(b64String);
+        // Debug.Log(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
+        // Debug.Log(b64String);
 
-        byte[] writeBuffer = Convert.FromBase64String(b64String); */
+        byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
 
         //Save to disk
-       // File.WriteAllText(fullSavePath,b64String);
-       // File.WriteAllBytes(fullSavePath,writeBuffer);
-        file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+        // File.WriteAllText(fullSavePath,b64String);
+        // File.WriteAllBytes(fullSavePath,writeBuffer);
+        //file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+        file.Write(writeBuffer, 0, writeBuffer.Length);
 
         // Close the file to prevent any corruptions
-      //  file.Close();
+        //  file.Close();
 
-       // string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
+        // string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
         //        Debug.Log("Serialized Result: " + result);
     }
 
@@ -74,16 +75,18 @@ public static class SaveSystem
 
             //bf.ReadObject()
 
+            string b64String = EncodeTo64(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
 
-         //   byte[] writeBuffer = EncodeTo64(streamer.GetBuffer());
-            //System.Text.ASCIIEncoding.ASCII.GetBytes(System.Convert.ToBase64String(streamer.GetBuffer()));
+            // Debug.Log(System.Text.UTF8Encoding.UTF8.GetString(streamer.GetBuffer()));
+            // Debug.Log(b64String);
+
+            byte[] writeBuffer = System.Text.UTF8Encoding.UTF8.GetBytes(b64String);
 
             //Save to disk
-            //file.Write(writeBuffer, 0, writeBuffer.Length);
-            file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
-
-            // Close the file to prevent any corruptions
-            file.Close();
+            // File.WriteAllText(fullSavePath,b64String);
+            // File.WriteAllBytes(fullSavePath,writeBuffer);
+            //file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
+            file.Write(writeBuffer, 0, writeBuffer.Length);
         });
 
         t.Start();
@@ -123,12 +126,16 @@ public static class SaveSystem
             file.Read(bytes, 0, (int)file.Length);
 
             //string b64String= DecodeFrom64(Convert.ToBase64String(bytes));
-           // string str= System.Text.ASCIIEncoding.ASCII.GetString(bytes);
-            //byte[] readBytes= Convert.FromBase64String(str);
+            string str = System.Text.UTF8Encoding.UTF8.GetString(bytes);
+//            Debug.Log("str= " + str);
 
-           // byte[] readBytes=DecodeFrom64(bytes);
-           // streamer.Write(readBytes, 0, readBytes.Length);
-            streamer.Write(bytes, 0, bytes.Length);
+            string fromB64String = DecodeFrom64(str);
+           // Debug.Log("fromB64String=" + fromB64String);
+            byte[] readBytes = System.Text.UTF8Encoding.UTF8.GetBytes(fromB64String);
+
+            // byte[] readBytes=DecodeFrom64(bytes);
+            streamer.Write(readBytes, 0, readBytes.Length);
+            //streamer.Write(bytes, 0, bytes.Length);
             DataContractSerializer bf = new DataContractSerializer(typeof(SaveData));
 
             streamer.Seek(0, SeekOrigin.Begin);
@@ -187,8 +194,8 @@ public static class SaveSystem
     static public byte[] DecodeFrom64(byte[] byteStringToDecode)
     {
         string b64String = System.Convert.ToBase64String(byteStringToDecode);
-        byte[] data=Convert.FromBase64String(b64String);
-        string decodedString=System.Text.ASCIIEncoding.ASCII.GetString(data);
+        byte[] data = Convert.FromBase64String(b64String);
+        string decodedString = System.Text.ASCIIEncoding.ASCII.GetString(data);
         Debug.Log(decodedString);
         byte[] returnValue = System.Text.ASCIIEncoding.ASCII.GetBytes(decodedString);
 
