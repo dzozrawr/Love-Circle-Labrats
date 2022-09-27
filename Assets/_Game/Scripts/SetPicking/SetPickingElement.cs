@@ -16,24 +16,31 @@ public class SetPickingElement : MonoBehaviour
 
     public GameObject priceGameObject = null;
 
-    private int price = 0;
+    public int price = 0;
 
     private GameController gameController = null;
 
     private SetPickingElement[] setPickingElements;
 
-    private bool isBought=false;
+    private bool isBought = false;
 
+    private TMP_Text priceText = null;
+
+    public bool IsBought { get => isBought; set => isBought = value; }
+
+    // public int Price { get => price; set => price = value; }
 
     private void Awake()
     {
-        isBought=SetShop.IsSetBought(id);
+        isBought = SetShop.IsSetBought(id);
 
-        if(isBought){
+        if (isBought)
+        {
             priceGameObject.SetActive(false);
         }
 
-        price = int.Parse(priceGameObject.GetComponentInChildren<TMP_Text>().text);
+        priceText = priceGameObject.GetComponentInChildren<TMP_Text>();
+        priceText.text=price+"";
     }
 
 
@@ -53,11 +60,11 @@ public class SetPickingElement : MonoBehaviour
             {
                 ChooseSet();
 
-                GameController.Instance.SetCoinAmount(GameController.CoinAmount-price);
+                GameController.Instance.SetCoinAmount(GameController.CoinAmount - price);
 
                 priceGameObject.SetActive(false);
 
-                isBought=false;
+                isBought = false;
 
                 SetShop.Instance.SetSetAsBought(id);
 
@@ -66,7 +73,7 @@ public class SetPickingElement : MonoBehaviour
         }
         else
         {
-           ChooseSet();
+            ChooseSet();
         }
     }
 
@@ -85,7 +92,7 @@ public class SetPickingElement : MonoBehaviour
 
         gameController.PickSet(studioSet.gameObject);
 
-        
+
         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
     }
 }

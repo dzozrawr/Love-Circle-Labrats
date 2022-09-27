@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization;
+using UnityEngine.Events;
+
 public class SetShop : MonoBehaviour
 {
     private static SetShop instance=null;
@@ -31,6 +33,9 @@ public class SetShop : MonoBehaviour
     public static List<SetInfo> setsInShopInfos= null;
 
     public List<SetPickingElement> setsInShopInstances=null;
+
+    [HideInInspector]
+    public UnityEvent SetBought;
 
     
 
@@ -63,6 +68,7 @@ public class SetShop : MonoBehaviour
         {
             if(si.Id==id){
                 si.IsBought=true;
+                SetBought?.Invoke();
             }
         }
 
