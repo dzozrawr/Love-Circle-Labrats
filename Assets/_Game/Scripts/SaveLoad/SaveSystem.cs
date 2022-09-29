@@ -11,8 +11,8 @@ using System.Xml.Linq;
 public static class SaveSystem
 {
     public static string filePath = Application.persistentDataPath;
-    public static string fileName = "FridgeOrganizingSaveData.bin";
-    public static string fullSavePath = Application.persistentDataPath + "/FridgeOrganizingSaveData.bin";
+    public static string fileName = "DatelineShow.bin";
+    public static string fullSavePath = Application.persistentDataPath + "/DatelineShow.bin";
     public static void SaveGame(SaveData saveData)
     {
         /*          BinaryFormatter formatter = new BinaryFormatter();

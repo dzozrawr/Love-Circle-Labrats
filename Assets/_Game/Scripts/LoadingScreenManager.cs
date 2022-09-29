@@ -28,7 +28,7 @@ public class LoadingScreenManager : MonoBehaviour
             GameController.CoinAmount=saveData.coins;
             GameController.UnchosenPlayerPrefab= (GameObject)Resources.InstanceIDToObject(saveData.unchosenPlayerPrefabInstanceID);   
             GameController.missionID=saveData.missionID;      
-            SetShop.setsInShopInfos=saveData.setsInShopInfos;   
+           // SetShop.setsInShopInfos=saveData.setsInShopInfos;   
 
             Resources.UnloadUnusedAssets();
            // GameController.UnchosenPlayerPrefab=saveData.unchosenPlayerPrefab;
