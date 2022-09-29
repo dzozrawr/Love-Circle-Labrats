@@ -15,6 +15,7 @@ public class SetPickingElement : MonoBehaviour
     public GameObject setSelectedBackgroundGO = null;
 
     public GameObject priceGameObject = null;
+    public GameObject lockOverlay = null;
 
     public int price = 0;
 
@@ -34,13 +35,13 @@ public class SetPickingElement : MonoBehaviour
     {
         isBought = SetShop.IsSetBought(id);
 
-        if (isBought)
-        {
-            priceGameObject.SetActive(false);
-        }
+        if(id==SetShop.SetID.None){
+            SetLockedAppearance(false);
+        }else
+        SetLockedAppearance(!isBought);
 
         priceText = priceGameObject.GetComponentInChildren<TMP_Text>();
-        priceText.text=price+"";
+        priceText.text = price + "";
     }
 
 
@@ -62,7 +63,7 @@ public class SetPickingElement : MonoBehaviour
 
                 GameController.Instance.SetCoinAmount(GameController.CoinAmount - price);
 
-                priceGameObject.SetActive(false);
+                SetLockedAppearance(false);
 
                 isBought = false;
 
@@ -75,6 +76,12 @@ public class SetPickingElement : MonoBehaviour
         {
             ChooseSet();
         }
+    }
+
+    private void SetLockedAppearance(bool isLocked)
+    {
+        priceGameObject.SetActive(isLocked);
+        lockOverlay.SetActive(isLocked);
     }
 
     private void ChooseSet()
