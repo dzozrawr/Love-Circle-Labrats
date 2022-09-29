@@ -47,7 +47,7 @@ public static class SaveSystem
         file.Write(writeBuffer, 0, writeBuffer.Length);
 
         // Close the file to prevent any corruptions
-        //  file.Close();
+        file.Close();
 
         // string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
         //        Debug.Log("Serialized Result: " + result);
@@ -87,6 +87,8 @@ public static class SaveSystem
             // File.WriteAllBytes(fullSavePath,writeBuffer);
             //file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
             file.Write(writeBuffer, 0, writeBuffer.Length);
+
+            file.Close();
         });
 
         t.Start();

@@ -18,8 +18,8 @@ public class SaveData
     [DataMember]
     public int missionID;
 
-    //[DataMember]
-    //public List<SetShop.SetInfo> setsInShopInfos;
+    [DataMember]
+    public List<SetShop.SetInfo> setsInShopInfos;
 
 
 
@@ -30,7 +30,7 @@ public class SaveData
         missionID = GameController.missionID;
         coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
-       // setsInShopInfos=SetShop.setsInShopInfos;
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
     public SaveData()
@@ -39,7 +39,7 @@ public class SaveData
         missionID = GameController.missionID;
         coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
-       // setsInShopInfos=SetShop.setsInShopInfos;
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
 
