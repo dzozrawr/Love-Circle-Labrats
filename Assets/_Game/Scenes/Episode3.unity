@@ -3014,7 +3014,7 @@ MonoBehaviour:
   cacheBarkLines: 0
   conversation: ContestantsIntro
   conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
+  conversationActor: {fileID: 2121489933}
   startConversationEntryID: -1
   exclusive: 0
   replace: 0
@@ -3066,6 +3066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contestants: []
+  eliminationOnboardingGroup: {fileID: 7993559314585876502}
 --- !u!4 &451455822
 Transform:
   m_ObjectHideFlags: 0
@@ -3469,6 +3470,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1300971638426561930, guid: 0b4ff2133f1d9534e92c1ef1fc8e5a6d, type: 3}
   m_PrefabInstance: {fileID: 489986358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &525089701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2087470825411828732, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+  m_PrefabInstance: {fileID: 7993559314585876501}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &529853320 stripped
 GameObject:
@@ -10150,6 +10156,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0750c101778e0143a4133b3eb1fa283, type: 3}
+--- !u!1 &2095127209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2419776295413375967, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
+  m_PrefabInstance: {fileID: 7805156745212871426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2095127212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095127209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: a6d05d4ae6bb8ae44afff957d52bc506, type: 3}
 --- !u!1 &2102418475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1891898166380908, guid: 31538c88caef5e14fb1a4299c7182b12, type: 3}
@@ -12481,6 +12506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2126633210}
     m_Modifications:
+    - target: {fileID: 2792334990246448821, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3385825478566470147, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 3.844
@@ -12935,7 +12964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805156744030229052, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7805156744030229052, guid: e1a8dd81e3163964cacf6d02d3198e3b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13266,6 +13295,10 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1643424389399624796, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1844143109}
     - target: {fileID: 1732327041352730910, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -51.76465
@@ -13306,6 +13339,10 @@ PrefabInstance:
       propertyPath: studioSet
       value: 
       objectReference: {fileID: 1128709562}
+    - target: {fileID: 2793907531990776408, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.70000076
+      objectReference: {fileID: 0}
     - target: {fileID: 2989645693958654545, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -13414,6 +13451,10 @@ PrefabInstance:
       propertyPath: setGameObject
       value: 
       objectReference: {fileID: 1844143107}
+    - target: {fileID: 4927172967517132666, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1426652791}
     - target: {fileID: 5123410125140226708, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_LocalPosition.z
       value: -17
@@ -13433,6 +13474,10 @@ PrefabInstance:
     - target: {fileID: 5419393735625508152, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820187339192343409, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: m_text
+      value: 'Likes: Makeup Age: 19'
       objectReference: {fileID: 0}
     - target: {fileID: 5867449870543286764, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -13456,6 +13501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 6468253474537581267, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+      propertyPath: studioSet
+      value: 
+      objectReference: {fileID: 1128709562}
     - target: {fileID: 6473814112723567998, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
@@ -13642,6 +13691,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2ac11443e66fe3d45a0e4cd763747805, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+--- !u!1 &7993559314585876502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3356257351417459521, guid: 09c12c4653aeb6248ba99ede9a2ae67c, type: 3}
+  m_PrefabInstance: {fileID: 7993559314585876501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8430385283068723927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14002,6 +14056,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
+      propertyPath: handGesture
+      value: 
+      objectReference: {fileID: 525089701}
     - target: {fileID: 3538534615866571281, guid: bb6e5ec39c2a36c409dd7088c0b2b248, type: 3}
       propertyPath: contestants.Array.size
       value: 5

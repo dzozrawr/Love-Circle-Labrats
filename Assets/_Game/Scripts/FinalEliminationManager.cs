@@ -15,6 +15,8 @@ public class FinalEliminationManager : MonoBehaviour
     private Camera mainCamera = null;
     private CameraController cameraController = null;
 
+    public GameObject eliminationOnboardingGroup = null;
+
     #region Raycast variables
     private Ray ray;
     private RaycastHit hit;
@@ -81,6 +83,7 @@ public class FinalEliminationManager : MonoBehaviour
                             {
 
                                 gameCanvasController.ToggleEliminateButtonVisibility(false);
+                                eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingAnim");
                             }
 
                             numberOfSelectedContestants--;
@@ -110,6 +113,7 @@ public class FinalEliminationManager : MonoBehaviour
                             if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
                             {
                                 if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);
+                                eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
                             }
                         }
                     }
@@ -201,6 +205,8 @@ public class FinalEliminationManager : MonoBehaviour
     {
         GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.RemoveAllListeners();
         GameCanvasController.Instance.eliminateButton.GetComponent<Button>().onClick.AddListener(EliminationEffect);
+        eliminationOnboardingGroup.SetActive(true);
+        eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingAnim");
 
         foreach (ContestantScript c in contestants)
         {

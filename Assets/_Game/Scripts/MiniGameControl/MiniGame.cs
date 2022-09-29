@@ -61,6 +61,7 @@ public abstract class MiniGame : MonoBehaviour
         for (int i = 0; i < placeForContestants.Length; i++)    //copy contestants to positions
         {
             contestant = Instantiate(contestantQuestioningManager.WinningContestants[i], placeForContestants[i].transform.position, placeForContestants[i].transform.rotation);
+            Destroy(contestant.dialogueSystemTrigger.gameObject);    
             contestant.MatchSuccessPoints = contestantQuestioningManager.WinningContestants[i].MatchSuccessPoints;
             finalEliminationManager.contestants.Add(contestant);
         }

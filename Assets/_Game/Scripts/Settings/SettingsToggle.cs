@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 using NiceVibrations.CrazyLabsExtension;
+using TMPro;
 
 public abstract class SettingsToggle : MonoBehaviour, IPointerDownHandler
 {
@@ -45,12 +46,21 @@ public abstract class SettingsToggle : MonoBehaviour, IPointerDownHandler
     public delegate void ValueChanged(bool value);
     public event ValueChanged valueChanged;
 
-    public Text onTxt, offTxt;
+    public TMP_Text onTxt, offTxt;
 
 
+    protected virtual void Start()
+    {
+        toggleIndicatorImage = toggleIndicator.gameObject.GetComponent<Image>();
+
+        offX = toggleIndicator.anchoredPosition.x;
+        onX = backgroundImage.rectTransform.rect.width - toggleIndicator.rect.width;
+
+        audioSource = this.GetComponent<AudioSource>();
+    }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);  //play haptic
+         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);  //play haptic
         Toggle(!isOn);//flips the switch when clicked
     }
 
@@ -66,7 +76,7 @@ public abstract class SettingsToggle : MonoBehaviour, IPointerDownHandler
 
             if (playSFX) audioSource.Play();
 
-            if (valueChanged != null) valueChanged(isOn);
+            valueChanged?.Invoke(isOn);
         }
     }
 

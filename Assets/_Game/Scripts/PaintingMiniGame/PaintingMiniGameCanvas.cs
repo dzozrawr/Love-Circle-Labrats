@@ -9,6 +9,8 @@ public class PaintingMiniGameCanvas : MonoBehaviour
     public GameObject secondPlanGroup = null;
     public GameObject firstPlanGroup = null;
 
+    public Button continueButton=null;
+
     private GameObject curActiveGroup = null;
 
     private int i = 0;
@@ -72,6 +74,7 @@ public class PaintingMiniGameCanvas : MonoBehaviour
         if (enabledValue)
         {
             curActiveGroup = group;
-;        }
+            curActiveGroup.GetComponent<Animation>().Play("Painting Groups Show");
+        }
     }
 }

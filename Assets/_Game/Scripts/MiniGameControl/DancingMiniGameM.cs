@@ -72,6 +72,7 @@ public class DancingMiniGameM : MiniGame
 
     public void TransitionToContestants()
     {
+       // MiniGameDone?.Invoke();
         CameraController.Instance.transitionToCMVirtualCamera(dancingContestantsCam);
         CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;
     }

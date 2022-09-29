@@ -23,6 +23,8 @@ public class BakingMiniGameCanvas : MonoBehaviour
 
     public GameObject pieCuttingUIElementsGroup = null;
 
+    public GameObject mixingPhaseOnboarding = null;
+
     public static UnityEvent Phase1ElementSelected = new UnityEvent();
 
     public static BakingUIElement.BakingUIElementType chosenPhase1ElementType;

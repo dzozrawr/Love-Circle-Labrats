@@ -29,6 +29,19 @@ public class SoundManager : MonoBehaviour
     private bool isAudioSourceEnabled;
     public bool IsAudioSourceEnabled { get => isAudioSourceEnabled; }
 
+    private SettingsToggle switchForAudio = null;
+    private SettingsToggle musicToggle = null;
+    private SettingsToggle voicesToggle = null;
+
+    private SettingsToggle voiceToggle = null;
+
+    private List<AudioSource> audioSourcesOfVoices = new List<AudioSource>();
+
+    public SettingsToggle MusicToggle { get => musicToggle; set => musicToggle = value; }
+    public SettingsToggle SwitchForAudio { get => switchForAudio; set => switchForAudio = value; }
+    public List<AudioSource> AudioSourcesOfVoices { get => audioSourcesOfVoices; set => audioSourcesOfVoices = value; }
+    public SettingsToggle VoicesToggle { get => voicesToggle; set => voicesToggle = value; }
+
     //private bool stackingSoundPlayedInThisFrame = false;
     //private float delayBetweenStartingOfStackingSounds = 0.033f, timeToResumePlayingTheStackSound=0f;
     //private float stackingSoundWCooldownVolume = 0.5f;
@@ -37,7 +50,6 @@ public class SoundManager : MonoBehaviour
     public AudioSource defaultAudioSrc;
     public AudioSource backgroundMusicAudioSrc;
 
-    //private MusicToggle musicToggle;
 
     private void Awake()
     {
@@ -101,6 +113,30 @@ public class SoundManager : MonoBehaviour
 
         // backgroundMusic = Resources.Load<AudioClip>("backgroundMusic");
 
+        switchForAudio = AudioToggle.Instance;
+
+        audioSrc.enabled = PlayerPrefs.GetInt("audio", -1) != 0;    //its false only if its 0 
+
+
+        /* 
+                if (switchForAudio)
+                {
+                    Debug.Log("if (switchForAudio)");
+                    switchForAudio.valueChanged += SwitchForAudio_valueChanged;
+                } */
+
+        //musicToggle = MusicToggle.Instance;
+        backgroundMusicAudioSrc.enabled = PlayerPrefs.GetInt("music", -1) != 0;
+
+        SetVoicesEnabled((PlayerPrefs.GetInt("voices", -1) != 0));
+
+
+        /* 
+                if (musicToggle)
+                {
+                    musicToggle.valueChanged += MusicToggle_valueChanged;
+                } */
+
         backgroundMusicAudioSrc.loop = true;
         //  backgroundMusicAudioSrc.clip = backgroundMusic;
         //backgroundMusicAudioSrc.volume = 0.1f;
@@ -109,6 +145,24 @@ public class SoundManager : MonoBehaviour
 
         //Debug.LogError(backgroundMusicStartTime);
 
+    }
+
+    private void SetVoicesEnabled(bool enabled)
+    {
+        if (enabled)
+        {
+            foreach (AudioSource aS in AudioSourcesOfVoices)
+            {
+                aS.volume = 1f;
+            }
+        }
+        else
+        {
+            foreach (AudioSource aS in AudioSourcesOfVoices)
+            {
+                aS.volume = 0f;
+            }
+        }
     }
 
     private void OnDisable()
@@ -123,32 +177,38 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    private void SwitchForAudio_valueChanged(bool value)
+    public void SwitchForAudio_valueChanged(bool value)
     {
         audioSrc.enabled = value;
-        
+        Debug.Log("SwitchForAudio_valueChanged");
     }
 
-    private void MusicToggle_valueChanged(bool value)
+    public void MusicToggle_valueChanged(bool value)
     {
 
 
-        if (backgroundMusicAudioSrc.enabled && !value)
-        {
-            backgroundMusicStartTime = backgroundMusicAudioSrc.time;
-            backgroundMusicAudioSrc.Stop();
-        }
+        /*         if (backgroundMusicAudioSrc.enabled && !value)
+                {
+                    backgroundMusicStartTime = backgroundMusicAudioSrc.time;
+                    backgroundMusicAudioSrc.Stop();
+                }
 
-        if (!backgroundMusicAudioSrc.enabled && value)
-        {
-            backgroundMusicAudioSrc.time = backgroundMusicStartTime;
-        }
+                if (!backgroundMusicAudioSrc.enabled && value)
+                {
+                    backgroundMusicAudioSrc.time = backgroundMusicStartTime;
+                } */
         backgroundMusicAudioSrc.enabled = value;
 
         if (!backgroundMusicAudioSrc.enabled && value)
         {
             backgroundMusicAudioSrc.Play();
         }
+    }
+
+
+    public void VoicesToggle_valueChanged(bool value)
+    {
+        SetVoicesEnabled(value);
     }
 
 
@@ -255,13 +315,13 @@ public class SoundManager : MonoBehaviour
     public void SwitchBackgroundMusic(AudioClip audioClip, float volume = 0.1f)
     {
         backgroundMusicAudioSrc.clip = audioClip;
-        
+
         //backgroundMusicAudioSrc.time = backgroundMusicStartTime;
         if (backgroundMusicAudioSrc.enabled) backgroundMusicAudioSrc.Play();
         backgroundMusicAudioSrc.volume = volume;
     }
 
-    
+
 
     public void PlaySoundWPitchChange(AudioClip audioClip, float volume = 1f)
     {
