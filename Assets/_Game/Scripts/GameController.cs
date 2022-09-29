@@ -132,10 +132,11 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         chosenPlayer.miniGame.MiniGameDone.RemoveListener(OnMiniGameEnd);
     }
 
+#if UNITY_EDITOR
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
+
 
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -173,8 +174,15 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             CameraController.Instance.transitionToCMVirtualCamera(CameraController.CameraPhase.ContestantsElimination);
         }
 
-#endif
+        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SetCoinAmount(CoinAmount+200);
+        }
+
+
     }
+    #endif
     public void ChoosePlayer(PlayerScript playerScript)//chooses player and sets not chosen player
     {
         chosenPlayer = playerScript;

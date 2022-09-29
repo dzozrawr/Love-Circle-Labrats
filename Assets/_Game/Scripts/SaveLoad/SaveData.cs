@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEditor;
 using UnityEngine;
+using System.Runtime.Serialization;
+using UnityEngine.SceneManagement;
 
-[System.Serializable]
+[DataContract]
 public class SaveData
 {
+    [DataMember]
     public int level;
+    [DataMember]
     public int coins;
+    [DataMember]
     public int unchosenPlayerPrefabInstanceID;
-
+    [DataMember]
     public int missionID;
+
+    [DataMember]
+    public List<SetShop.SetInfo> setsInShopInfos;
 
 
 
@@ -19,35 +27,20 @@ public class SaveData
     public SaveData(int _level)
     {
         level = _level;
-        missionID=GameController.missionID;
+        missionID = GameController.missionID;
         coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
         unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
-        
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
-    /*     public SaveData(int _level, int _coins, int _missionID, int _optionalLevelID)
-        {
-            level = _level;
-            coins = _coins;
-            missionID = _missionID;
-            optionalLevelID = _optionalLevelID;
-            unlockedProducts = ShopManager.GetUnlockedProducts();
-            progressProducts = ShopManager.progressProducts;
-            finishedProgressProducts = ShopManager.finishedProgressProducts;
-            lastMissionStartedID = GameController.lastMissionStartedID;
-            numberOfKeysCollected = GameController.numberOfKeysCollected;
-        } */
-
-    private SaveData()
+    public SaveData()
     {
-
+        level = SceneManager.GetActiveScene().buildIndex;
+        missionID = GameController.missionID;
+        coins = GameController.CoinAmount;   //implicit saving of the coin amount for simplicity of the constructor
+        unchosenPlayerPrefabInstanceID = GameController.UnchosenPlayerPrefab.GetInstanceID();
+        setsInShopInfos=SetShop.setsInShopInfos;
     }
 
-    /*    public SaveData(int _level, int _coins, int _missionID)
-        {
-            level = _level;
-            coins = _coins;
-            missionID = _missionID;
 
-        }*/
 }
