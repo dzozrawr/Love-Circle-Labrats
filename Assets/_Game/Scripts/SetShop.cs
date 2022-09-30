@@ -56,6 +56,7 @@ public class SetShop : MonoBehaviour
             }
         }
 
+        //Debug.Log("SetShop is awake");
     }
     // Start is called before the first frame update
     void Start()
