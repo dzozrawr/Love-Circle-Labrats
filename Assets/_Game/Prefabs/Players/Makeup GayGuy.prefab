@@ -3423,7 +3423,33 @@ SkinnedMeshRenderer:
   m_Mesh: {fileID: 4300002, guid: 6ffad6a2e1f91604faa326d694409dea, type: 3}
   m_Bones:
   - {fileID: 6672481872497325221}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 6672481872497325221}
   m_AABB:
     m_Center: {x: -0.083743155, y: 0.02038629, z: -0.00000018626451}
@@ -4938,6 +4964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667381242301677429}
+  - component: {fileID: 4761598326208308406}
   m_Layer: 0
   m_Name: Makeup GayGuy
   m_TagString: Untagged
@@ -4991,9 +5018,29 @@ Transform:
   - {fileID: 6672452092933182939}
   - {fileID: 6672442696419787863}
   - {fileID: 6667393914035215643}
+  - {fileID: 8313883331771694851}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4761598326208308406
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669782247135086327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: cc00aa675dd3667479f421eb6895ac8f, type: 3}
+  m_Controller: {fileID: 9100000, guid: 577388d26de20b4439f59f8c0b0e1421, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6669787588193207737
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,3 +5252,77 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.18907014, y: -0.008210264, z: 0.00000052154064}
     m_Extent: {x: 0.21126059, y: 0.09666703, z: 0.41805065}
   m_DirtyAABB: 0
+--- !u!1001 &8424653436141148392
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6667381242301677429}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.77792
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0598
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0354
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.079243
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.69246787
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7212686
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0003944491
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.016118698
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -87.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 149.535
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -150.809
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_Name
+      value: Lipstick TTMaleA Separate Lips
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040542448765327740, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+--- !u!4 &8313883331771694851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5d79a19a8ecab24f805ed5959bec642, type: 3}
+  m_PrefabInstance: {fileID: 8424653436141148392}
+  m_PrefabAsset: {fileID: 0}

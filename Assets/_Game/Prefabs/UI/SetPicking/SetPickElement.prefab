@@ -506,6 +506,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1988727726041270156, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 849e7e004ec8b5b488bd9c91b0507d88, type: 3}
+    - target: {fileID: 1988727726041270156, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_Maskable
       value: 0
       objectReference: {fileID: 0}
@@ -515,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1988727726041270156, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_PreserveAspect
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2429917272291729209, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_SizeDelta.x
@@ -525,12 +529,40 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 36.937
       objectReference: {fileID: 0}
+    - target: {fileID: 2429917272291729209, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429917272291729209, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429917272291729209, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2931786252024258582, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_Name
       value: ProductPrice
       objectReference: {fileID: 0}
     - target: {fileID: 6511999909135614448, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511999909135614448, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c01e399fea2cb445916a3af8c2dd67a, type: 2}
+    - target: {fileID: 6511999909135614448, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511999909135614448, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511999909135614448, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
@@ -552,6 +584,18 @@ PrefabInstance:
     - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_SizeDelta.y
       value: 33.5647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.29883087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29883087
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.29883087
       objectReference: {fileID: 0}
     - target: {fileID: 6753745435058631497, guid: 5faeb67a454d1db488e216998ca40a23, type: 3}
       propertyPath: m_AnchoredPosition.y
