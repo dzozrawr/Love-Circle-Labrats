@@ -11,8 +11,8 @@ using System.Xml.Linq;
 public static class SaveSystem
 {
     public static string filePath = Application.persistentDataPath;
-    public static string fileName = "FridgeOrganizingSaveData.bin";
-    public static string fullSavePath = Application.persistentDataPath + "/FridgeOrganizingSaveData.bin";
+    public static string fileName = "DatelineShow.bin";
+    public static string fullSavePath = Application.persistentDataPath + "/DatelineShow.bin";
     public static void SaveGame(SaveData saveData)
     {
         /*          BinaryFormatter formatter = new BinaryFormatter();
@@ -47,7 +47,7 @@ public static class SaveSystem
         file.Write(writeBuffer, 0, writeBuffer.Length);
 
         // Close the file to prevent any corruptions
-        //  file.Close();
+        file.Close();
 
         // string result = XElement.Parse(Encoding.ASCII.GetString(streamer.GetBuffer()).Replace("\0", "")).ToString();
         //        Debug.Log("Serialized Result: " + result);
@@ -87,6 +87,8 @@ public static class SaveSystem
             // File.WriteAllBytes(fullSavePath,writeBuffer);
             //file.Write(streamer.GetBuffer(), 0, streamer.GetBuffer().Length);
             file.Write(writeBuffer, 0, writeBuffer.Length);
+
+            file.Close();
         });
 
         t.Start();

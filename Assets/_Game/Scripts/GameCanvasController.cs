@@ -12,7 +12,7 @@ public class GameCanvasController : MonoBehaviour
 
     public static GameCanvasController Instance { get => instance; }
 
-    
+
 
     public GameObject thumbsUpDownButtonGroup = null;
     public Button eliminateButton = null;
@@ -48,7 +48,9 @@ public class GameCanvasController : MonoBehaviour
     private TMP_Text coinAmountTxt = null;
     private ContestantQuestioningManager contestantQuestioningManager = null;
 
-    
+    private Canvas setPickingGroupCanvas=null;
+
+
     private void Awake()
     {
         if (instance != null)
@@ -58,7 +60,7 @@ public class GameCanvasController : MonoBehaviour
         }
         instance = this;
 
-        
+
     }
 
     // Start is called before the first frame update
@@ -73,7 +75,10 @@ public class GameCanvasController : MonoBehaviour
         gameController.CoinAmountUpdated.AddListener(UpdateCoinAmountUI);
 
         //defining default UI state at the beginning of the game below
-        setPickingGroup.SetActive(false);
+        setPickingGroup.SetActive(true);
+        setPickingGroupCanvas=setPickingGroup.GetComponent<Canvas>();
+        setPickingGroupCanvas.enabled=false;
+        //setPickingGroup.SetActive(false);
         settingsGroup.SetActive(false);
         EOLScreen.SetActive(false);
 
@@ -83,32 +88,33 @@ public class GameCanvasController : MonoBehaviour
     private void Update()
     {
 
-/*         if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            EOLScreen.SetActive(true);
-            terribleMatchGroup.SetActive(true);
-            coinUI.GetComponent<Animation>().Play("Coin UI Show");
-        }
+        /*         if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    EOLScreen.SetActive(true);
+                    terribleMatchGroup.SetActive(true);
+                    coinUI.GetComponent<Animation>().Play("Coin UI Show");
+                }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            EOLScreen.SetActive(true);
-            goodMatchGroup.SetActive(true);
-            coinUI.GetComponent<Animation>().Play("Coin UI Show");
-        }
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    EOLScreen.SetActive(true);
+                    goodMatchGroup.SetActive(true);
+                    coinUI.GetComponent<Animation>().Play("Coin UI Show");
+                }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            EOLScreen.SetActive(true);
-            successfulMatchGroup.SetActive(true);
-            coinUI.GetComponent<Animation>().Play("Coin UI Show");
-        } */
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    EOLScreen.SetActive(true);
+                    successfulMatchGroup.SetActive(true);
+                    coinUI.GetComponent<Animation>().Play("Coin UI Show");
+                } */
 
-        if(Input.GetKeyDown(KeyCode.N)){
+        if (Input.GetKeyDown(KeyCode.N))
+        {
             EndEpisodeButtonEffect();
         }
 
-    } 
+    }
 #endif
 
     public void ShowThumbsUpDown(bool show)
@@ -137,7 +143,8 @@ public class GameCanvasController : MonoBehaviour
         Invoke(nameof(MoveToNextContestant), 0.5f);
     }
 
-    public void AnotherQuestionButtonEffect(){
+    public void AnotherQuestionButtonEffect()
+    {
         ShowThumbsUpDown(false);
         contestantQuestioningManager.CurContestant.RestartConversation();
     }
@@ -181,7 +188,8 @@ public class GameCanvasController : MonoBehaviour
 
     public void SetPickingButtonEffect()
     {
-        setPickingGroup.SetActive(true);
+        //setPickingGroup.SetActive(true);
+        setPickingGroupCanvas.enabled = true;
         setPickingGroup.GetComponent<Animator>().SetTrigger("Show");
 
         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
@@ -197,13 +205,13 @@ public class GameCanvasController : MonoBehaviour
 
     public void EndEpisodeButtonEffect()
     {
-//        Debug.Log("EndEpisodeButtonEffect()");
-        int nextSceneIndex=(SceneManager.GetActiveScene().buildIndex+1)%SceneManager.sceneCountInBuildSettings;
-        if(nextSceneIndex==0) nextSceneIndex++;
+        //        Debug.Log("EndEpisodeButtonEffect()");
+        int nextSceneIndex = (SceneManager.GetActiveScene().buildIndex + 1) % SceneManager.sceneCountInBuildSettings;
+        if (nextSceneIndex == 0) nextSceneIndex++;
 
-        SaveData saveData=new SaveData(nextSceneIndex);
+        SaveData saveData = new SaveData(nextSceneIndex);
 
-        saveData.missionID=++GameController.missionID;
+        saveData.missionID = ++GameController.missionID;
 
         SaveSystem.SaveGame(saveData);
 
@@ -217,34 +225,35 @@ public class GameCanvasController : MonoBehaviour
 
 
         EOLScreen.GetComponent<EOLScreenController>().ActivateEOLScreenBasedOnMatchSuccessRate(successRate);
- /*        if (successRate == 0f)  //kind of hard coded
-        {
-            terribleMatchGroup.SetActive(true);
-            if (terribleMatchAudioClip != null)
-            {
-                SoundManager.Instance.PlaySound(terribleMatchAudioClip,terribleMatchAudioClipVolume);
-            }
-        }
-        else if (successRate == 0.5f)
-        {
-            goodMatchGroup.SetActive(true);
-            if (goodMatchAudioClip != null)
-            {
-                SoundManager.Instance.PlaySound(goodMatchAudioClip,goodMatchAudioClipVolume);
-            }
-        }
-        else if (successRate == 1f)
-        {
-            successfulMatchGroup.SetActive(true);
-            if (successfulMatchAudioClip != null)
-            {
-                SoundManager.Instance.PlaySound(successfulMatchAudioClip,successfulMatchAudioClipVolume);
-            }
-        } */
+        /*        if (successRate == 0f)  //kind of hard coded
+               {
+                   terribleMatchGroup.SetActive(true);
+                   if (terribleMatchAudioClip != null)
+                   {
+                       SoundManager.Instance.PlaySound(terribleMatchAudioClip,terribleMatchAudioClipVolume);
+                   }
+               }
+               else if (successRate == 0.5f)
+               {
+                   goodMatchGroup.SetActive(true);
+                   if (goodMatchAudioClip != null)
+                   {
+                       SoundManager.Instance.PlaySound(goodMatchAudioClip,goodMatchAudioClipVolume);
+                   }
+               }
+               else if (successRate == 1f)
+               {
+                   successfulMatchGroup.SetActive(true);
+                   if (successfulMatchAudioClip != null)
+                   {
+                       SoundManager.Instance.PlaySound(successfulMatchAudioClip,successfulMatchAudioClipVolume);
+                   }
+               } */
     }
     public void SetActiveFalse()
     {
-        setPickingGroup.SetActive(false);
+        // setPickingGroup.SetActive(false);
+        setPickingGroupCanvas.enabled = false;
         settingsGroup.SetActive(false);
     }
 
