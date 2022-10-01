@@ -20,7 +20,15 @@ public class PaintingMiniGameCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas.worldCamera == null)
+        {
+            GameObject go = GameObject.FindGameObjectWithTag("CameraUI");
+            if (go != null)
+            {
+                canvas.worldCamera = go.GetComponent<Camera>();
+            }
+        }
     }
 
 #if UNITY_EDITOR
