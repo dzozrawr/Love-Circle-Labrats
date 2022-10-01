@@ -19,7 +19,7 @@ namespace Dancing2MiniGame
         //public DogCommandToDo[] commandsToDo=null;
         public GameObject commandUserButtonsGroup = null;
 
-        public DancingMiniGameM dancingMiniGameM = null;
+        public Dancing2MiniGameM dancingMiniGameM = null;
 
 
         private Queue<Dancing2CommandToDo> dancingCommandQueue = new Queue<Dancing2CommandToDo>();
