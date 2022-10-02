@@ -266,4 +266,19 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         lipstickGO.transform.position = position;
         lipstickGO.transform.rotation = rotation;
     }
+
+    [ContextMenu("TryGraphicsBlit")]
+    public void TryGraphicsBlit()
+    {
+        Texture tex =
+        lipstickFinishedMat.mainTexture;
+
+        Material mat=
+        lipsRenderer.material;
+
+        
+
+        Graphics.Blit(tex, (RenderTexture)mat.mainTexture);
+
+    }
 }
