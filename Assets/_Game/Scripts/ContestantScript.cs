@@ -237,7 +237,7 @@ namespace Contestant
                 {
                     if (model.transform.GetChild(i).name.Equals("HEAD"))
                     {
-                        headSkinnedMeshRenderer = model.GetComponent<SkinnedMeshRenderer>();
+                        headSkinnedMeshRenderer = model.transform.GetChild(i).GetComponent<SkinnedMeshRenderer>();
                     }
                 }
             }

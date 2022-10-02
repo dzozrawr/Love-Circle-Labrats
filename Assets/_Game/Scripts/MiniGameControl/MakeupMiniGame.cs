@@ -140,8 +140,11 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         //set lipstick materials to contestants
         ContestantScript winnerContestant = finalEliminationManager.contestants[0], loserContenstant = finalEliminationManager.contestants[1];
 
-        winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
-        loserContenstant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
+        winnerContestant.SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
+        loserContenstant.SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
+
+        // winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);
+        //loserContenstant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantBadLipstickMatsDict[loserContenstant.contestantModelType]);
 
         CameraController.Instance.transitionToCMVirtualCamera(contestantsResultsCam);
         CheckForCameraBlending.onCameraBlendFinished += ActionWhenCameraOnContestants;
