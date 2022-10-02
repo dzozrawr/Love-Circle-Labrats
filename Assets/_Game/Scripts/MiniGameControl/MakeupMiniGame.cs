@@ -44,9 +44,9 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     public GameObject lipstickGO = null;
 
-    public Material lipstickFinishedMat=null;
+    public Material lipstickFinishedMat = null;
 
-    public Renderer lipsRenderer=null;
+    public Renderer lipsRenderer = null;
 
     //private GameController gameController;
 
@@ -220,7 +220,7 @@ public class MakeupMiniGame : MiniGame, IHitPoint
                 makeUpMiniGameCanvas.gameObject.SetActive(false);
                 isMiniGameActive = false;
 
-                lipsRenderer.material=new Material(lipstickFinishedMat);
+                lipsRenderer.material = new Material(lipstickFinishedMat);
 
 
                 if (gameController.afterMiniGameAudioClip != null)
@@ -231,6 +231,31 @@ public class MakeupMiniGame : MiniGame, IHitPoint
                 //Debug.Log("End mini game");
             }
         }
+    }
+
+    [ContextMenu("FinishPrematurely")]
+    public void FinishPrematurely()
+    {
+        progress = 1f;
+        progressBar.SetProgress(progress);
+
+
+        //p3DHitScreen.gameObject.SetActive(false);
+        p3DHitScreen.enabled = false;
+        lipstickGO.SetActive(false);//lipstick model disable
+        makeUpMiniGameCanvas.gameObject.SetActive(false);
+        isMiniGameActive = false;
+
+        lipsRenderer.material = new Material(lipstickFinishedMat);
+
+
+        if (gameController.afterMiniGameAudioClip != null)
+        {
+            SoundManager.Instance.PlaySound(gameController.afterMiniGameAudioClip, gameController.afterMiniGameAudioClipVolume);
+        }
+        Invoke(nameof(TransitionToContestants), 1f);
+        //Debug.Log("End mini game");
+
     }
 
     public void HandleHitPoint(bool preview, int priority, float pressure, int seed, Vector3 position, Quaternion rotation)

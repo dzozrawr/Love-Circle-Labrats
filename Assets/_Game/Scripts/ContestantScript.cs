@@ -54,6 +54,11 @@ namespace Contestant
 
         private AudioSource audioSource = null;
 
+
+        private GameObject contestantModelGO = null;
+
+        private SkinnedMeshRenderer headSkinnedMeshRenderer = null;
+
         private void Awake()
         {
             selectedIndicator.enabled = false;
@@ -66,6 +71,8 @@ namespace Contestant
             parentCollider = GetComponent<Collider>();
 
             voiceLineManagerClass = new VoiceLineManagerClass(GetComponent<AudioSource>(), animator);
+
+            
         }
 
         // Start is called before the first frame update
@@ -117,6 +124,8 @@ namespace Contestant
                 if (parentRb == rb) continue;
                 rb.isKinematic = !state;
             }
+
+
         }
 
         public Rigidbody GetPelvisRigidBody()
@@ -218,6 +227,67 @@ namespace Contestant
         public void TriggerAnimator(string triggerString)
         {
             animator.SetTrigger(triggerString);
+        }
+
+        public void SetHeadMainMaterial(Material mat)
+        {
+            if (headSkinnedMeshRenderer == null)
+            {
+                for (int i = 0; i < model.transform.childCount; i++)
+                {
+                    if (model.transform.GetChild(i).name.Equals("HEAD"))
+                    {
+                        headSkinnedMeshRenderer = model.GetComponent<SkinnedMeshRenderer>();
+                    }
+                }
+            }
+
+            int indOfMainMaterial = -1;
+            int numOfCharactersToIdentifyTheMat = 4;
+
+            for (int i = 0; i < headSkinnedMeshRenderer.materials.Length; i++)
+            {
+                if (headSkinnedMeshRenderer.materials[i].name.Contains(mat.name.Substring(0, numOfCharactersToIdentifyTheMat)))
+                {
+                    indOfMainMaterial = i;
+                }                
+            }
+
+            List<Material> newMaterialsList = new List<Material>();
+
+            for (int i = 0; i < headSkinnedMeshRenderer.materials.Length; i++)
+            {
+                if (i!=indOfMainMaterial)
+                {
+                    newMaterialsList.Add(headSkinnedMeshRenderer.materials[i]);
+                }
+                else
+                {
+                    newMaterialsList.Add(mat);
+                }
+            }
+
+            headSkinnedMeshRenderer.materials = newMaterialsList.ToArray();
+
+            /*if (indOfMainMaterial == -1)
+                headSkinnedMeshRenderer.materials = new Material[3] { mat, headSkinnedMeshRenderer.materials[1], headSkinnedMeshRenderer.materials[2] };
+            else
+            {
+                Material[] materials = new Material[3];
+                for (int i = 0; i < materials.Length; i++)
+                {
+                    if (indOfMainMaterial == i)
+                    {
+                        materials[i] = mat;
+                    }
+                    else
+                    {
+                        materials[i] = headSkinnedMeshRenderer.materials[i];
+                    }
+                }
+
+                headSkinnedMeshRenderer.materials = materials;
+            }*/
         }
     }
 
