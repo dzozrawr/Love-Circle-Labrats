@@ -84,7 +84,7 @@ public class Dancing2MiniGameM : MiniGame
         finalEliminationManager.contestants[1].GetComponentInChildren<Animator>().SetTrigger("Breakdance");
         finalEliminationManager.contestants[0].GetComponentInChildren<Animator>().SetTrigger("FailDance");
 
-        finalEliminationManager.contestants[0].MatchSuccessPoints++;
+        finalEliminationManager.contestants[1].MatchSuccessPoints++;
 
         StartCoroutine(WaitForIdle());
 
