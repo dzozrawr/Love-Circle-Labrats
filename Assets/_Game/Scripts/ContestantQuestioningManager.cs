@@ -101,13 +101,17 @@ public class ContestantQuestioningManager : MonoBehaviour
                             {
                                 selectedContestant.Select();
                                 numberOfSelectedContestants++;
+                                if (numberOfSelectedContestants == maxContestantsToEliminate)
+                                {
+                                    if (eliminationOnboardingGroup != null) eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
+                                    GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);
+                                }
                             }
 
-                            if (numberOfSelectedContestants == maxContestantsToEliminate)
+/*                            if (numberOfSelectedContestants == maxContestantsToEliminate)
                             {
-                                GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);
-                                if (eliminationOnboardingGroup != null) eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
-                            }
+                                //GameCanvasController.Instance.ToggleEliminateButtonVisibility(true);                                
+                            }*/
                         }
                     }
                 }

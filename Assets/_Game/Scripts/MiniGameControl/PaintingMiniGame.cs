@@ -327,7 +327,7 @@ public class PaintingMiniGame : MiniGame
 
         leftContestantFailCanvas.SetCanvasMaterial(canvasFailMat);
         leftContestantFailCanvas.gameObject.SetActive(true);
-        rightContestantWinCanvas.SetCanvasMaterial(canvasGameObject.GetComponent<MeshRenderer>().material);
+        rightContestantWinCanvas.SetCanvasMaterial(canvasGameObject.GetComponent<P3dMaterialCloner>().Current); 
         rightContestantWinCanvas.gameObject.SetActive(true);
 
         // winnerContestant.GetComponentInChildren<ToonModelScript>().SetHeadMainMaterial(contestantGoodLipstickMatsDict[winnerContestant.contestantModelType]);

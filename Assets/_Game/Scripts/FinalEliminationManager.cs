@@ -108,13 +108,19 @@ public class FinalEliminationManager : MonoBehaviour
                             {
                                 selectedContestant.Select();
                                 numberOfSelectedContestants++;
-                            }
 
+                                if (numberOfSelectedContestants == maxContestantsToEliminate)//the part where you switch the selected contestant, the other  contestant deselects
+                                {
+                                    if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);
+                                    eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
+                                }
+                            }
+/*
                             if (numberOfSelectedContestants == maxContestantsToEliminate)   //the part where you switch the selected contestant, the other  contestant deselects
                             {
                                 if (!gameCanvasController.eliminateButton.gameObject.activeSelf) gameCanvasController.ToggleEliminateButtonVisibility(true);
                                 eliminationOnboardingGroup.GetComponent<Animation>().Play("EliminationOnboardingHide");
-                            }
+                            }*/
                         }
                     }
                 }
