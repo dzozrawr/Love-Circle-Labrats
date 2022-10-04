@@ -8207,6 +8207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 489986359}
     m_Modifications:
+    - target: {fileID: 9035456088369479526, guid: e5e31caffac0b294c9c5322cb2888281, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c8d4c9e91459a634fb1b43e522b9a2d3, type: 2}
     - target: {fileID: 9035456088484897805, guid: e5e31caffac0b294c9c5322cb2888281, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -8267,7 +8271,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TPMaleD (12)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114980635785805828, guid: e5e31caffac0b294c9c5322cb2888281, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e5e31caffac0b294c9c5322cb2888281, type: 3}
 --- !u!95 &656672726 stripped
 Animator:
@@ -12245,7 +12250,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -1887.3658
+  cooldown: -1892.9728
   currentReader:
     dirty: 0
     requested: 0
@@ -12299,7 +12304,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1104941434}
-  cooldown: -1205.8259
+  cooldown: -1211.4329
   currentReader:
     dirty: 0
     requested: 0
@@ -18784,7 +18789,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -1155.685
+  cooldown: -1161.292
   currentReader:
     dirty: 0
     requested: 0
@@ -18826,7 +18831,7 @@ MonoBehaviour:
   async: 1
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 1429179777}
-  cooldown: -1837.2263
+  cooldown: -1842.8333
   currentReader:
     dirty: 0
     requested: 0
@@ -29165,22 +29170,6 @@ PrefabInstance:
     - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
       propertyPath: playerR
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
-      propertyPath: finalMusicVolume
-      value: 0.209
-      objectReference: {fileID: 0}
-    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
-      propertyPath: eliminationAudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 17d8a7970c76ec342b64458ddf17bb1f, type: 3}
-    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
-      propertyPath: questioningMusicVolume
-      value: 0.046
-      objectReference: {fileID: 0}
-    - target: {fileID: 8784472203978186288, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
-      propertyPath: eliminationAudioClipVolume
-      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 8870804666494088161, guid: 9218e763e56c4dc4f921e4d85f949d79, type: 3}
       propertyPath: m_CastShadows
