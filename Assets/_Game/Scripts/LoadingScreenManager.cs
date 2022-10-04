@@ -22,7 +22,7 @@ public class LoadingScreenManager : MonoBehaviour
     private void Awake()
     {
 
-
+        Tabtale.TTPlugins.TTPCore.Setup();
 
         SaveData saveData = SaveSystem.LoadGame();
         if (saveData != null)
