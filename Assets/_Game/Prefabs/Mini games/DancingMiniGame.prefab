@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6199601551380413746}
   m_LocalRotation: {x: -0.03284332, y: -0.7077196, z: 0.033245508, w: -0.7049461}
-  m_LocalPosition: {x: 10.869989, y: 4.19, z: 6.3799973}
+  m_LocalPosition: {x: 12.14, y: 3.95, z: 6.3799973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6199601552033929643}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6199601551804102556}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 20.01, y: 0.99, z: 6.38}
+  m_LocalPosition: {x: 20.01, y: 1.106, z: 6.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6199601552614432123}
@@ -1176,6 +1176,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: daaa5e10ab87142499f40aedf45dfa62, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca34bc07281efe74eb9ed06e1841cf8b, type: 2}
+    - target: {fileID: -7511558181221131132, guid: daaa5e10ab87142499f40aedf45dfa62, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 348934b480a59eb4cac7fc7b644545e6, type: 2}
     - target: {fileID: 919132149155446097, guid: daaa5e10ab87142499f40aedf45dfa62, type: 3}
       propertyPath: m_Name
       value: Dancing Mini Game Dance Floor
