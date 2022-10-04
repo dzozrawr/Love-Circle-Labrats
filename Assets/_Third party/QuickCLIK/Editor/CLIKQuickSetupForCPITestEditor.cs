@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace CrazyLabsHubs.Editor
 {
+
     public class CLIKQuickSetupForCPITestEditor : EditorWindow
     {
 
@@ -29,18 +30,59 @@ namespace CrazyLabsHubs.Editor
             window.Show();
             window.teamName = PlayerSettings.companyName;
             window.gameName = PlayerSettings.productName;
+
+            window.iOSSelected = EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS;
+            window.androidSelected = EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android;
         }
+
+        bool iOSSelected = false;
+        bool androidSelected = false;
+
+        bool createDirectionaLight = true;
+        bool step2Enabled = true;
 
         void OnGUI()
         {
-            //first level scene
+            BuildTarget currentBuildTarget = EditorUserBuildSettings.activeBuildTarget;
 
+            EditorGUILayout.BeginHorizontal();
+
+            EditorGUI.BeginChangeCheck();
+            iOSSelected = GUILayout.Toggle(iOSSelected, "iOS", "Button");
+            if (EditorGUI.EndChangeCheck())
+            {
+                if (iOSSelected)
+                {
+                    androidSelected = false;
+                }
+            }
+
+            EditorGUI.BeginChangeCheck();
+            androidSelected = GUILayout.Toggle(androidSelected, "Android", "Button");
+            if (EditorGUI.EndChangeCheck())
+            {
+                if (androidSelected)
+                {
+                    iOSSelected = false;
+                }
+            }
+
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.Space();
+
+            //first level scene
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Step 1", EditorStyles.boldLabel);
             EditorGUILayout.Space();
 
             EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Create Directional Light?");
+            createDirectionaLight = EditorGUILayout.Toggle(createDirectionaLight);
+            EditorGUILayout.HelpBox("Should directional light be added to QuickClick scene to fix loading level scene with lighting being dark.", MessageType.Info);
+            EditorGUILayout.EndHorizontal();
 
+            EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("First Level (Game Scene)");
 
             gameSceneAsset = (SceneAsset)EditorGUILayout.ObjectField(gameSceneAsset, typeof(SceneAsset), false);
@@ -56,45 +98,57 @@ namespace CrazyLabsHubs.Editor
 
             //bundle id check
 
+            EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Step 2", EditorStyles.boldLabel);
+            step2Enabled = EditorGUILayout.Toggle(step2Enabled);
+            EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
-            var hasDefaultCompanyAndProductName = string.Equals(teamName, "Default Company") || string.Equals(teamName, "DefaultCompany");
+            var hasDefaultCompanyAndProductName = step2Enabled;
 
-            EditorGUILayout.BeginHorizontal();
-
-            var defaultLabelWidth = EditorGUIUtility.labelWidth;
-            teamName = EditorGUILayout.TextField(teamName);
-            gameName = EditorGUILayout.TextField(gameName);
-
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.LabelField("Company Name (Team)");
-            EditorGUILayout.LabelField("Product Name (Game)");
-
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.HelpBox("Your bundle id will look like this:", MessageType.Info);
-            EditorGUILayout.BeginHorizontal();
-            GUI.enabled = false;
-            var x = teamName.Trim();
-            x = Regex.Replace(x, @"\s+", "");
-            var y = gameName.Trim();
-            y = Regex.Replace(y, @"\s+", "");
-            var bundleId = string.Format("com.{0}.{1}", x, y).ToLower();
-            EditorGUILayout.LabelField(bundleId);
-            GUI.enabled = true;
-            if (GUILayout.Button("copy to clipboard"))
+            if (step2Enabled)
             {
-                GUIUtility.systemCopyBuffer = bundleId;
+                hasDefaultCompanyAndProductName = string.Equals(teamName, "Default Company") || string.Equals(teamName, "DefaultCompany");
+
+                EditorGUILayout.BeginHorizontal();
+
+                var defaultLabelWidth = EditorGUIUtility.labelWidth;
+                teamName = EditorGUILayout.TextField(teamName);
+                gameName = EditorGUILayout.TextField(gameName);
+
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.BeginHorizontal();
+
+                EditorGUILayout.LabelField("Company Name (Team)");
+                EditorGUILayout.LabelField("Product Name (Game)");
+
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.HelpBox("Your bundle id will look like this:", MessageType.Info);
+                EditorGUILayout.BeginHorizontal();
+                GUI.enabled = false;
+                var x = teamName.Trim();
+                x = Regex.Replace(x, @"\s+", "");
+                var y = gameName.Trim();
+                y = Regex.Replace(y, @"\s+", "");
+                var bundleId = string.Format("com.{0}.{1}", x, y).ToLower();
+                EditorGUILayout.LabelField(bundleId);
+                GUI.enabled = true;
+                if (GUILayout.Button("copy to clipboard"))
+                {
+                    GUIUtility.systemCopyBuffer = bundleId;
+                }
+                EditorGUILayout.EndHorizontal();
+
+                if (hasDefaultCompanyAndProductName)
+                {
+                    EditorGUILayout.HelpBox("You need to specify valid bundle id! (usualy in format com.TeamName.GameName", MessageType.Error);
+                }
             }
-            EditorGUILayout.EndHorizontal();
-
-            if (hasDefaultCompanyAndProductName)
+            else
             {
-                EditorGUILayout.HelpBox("You need to specify valid bundle id! (usualy in format com.TeamName.GameName", MessageType.Error);
+                EditorGUILayout.HelpBox("Bundle ID step will be skipped.", MessageType.Info);
             }
 
             EditorGUILayout.Space();
@@ -108,8 +162,11 @@ namespace CrazyLabsHubs.Editor
 
             if (GUILayout.Button("Finish"))
             {
-                var currentPlatform = EditorUserBuildSettings.activeBuildTarget;
-                if (currentPlatform != BuildTarget.Android)
+                if (iOSSelected && EditorUserBuildSettings.activeBuildTarget != BuildTarget.iOS)
+                {
+                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.iOS, BuildTarget.iOS);
+                }
+                else if (androidSelected && EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
                 {
                     EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
                 }
@@ -130,6 +187,7 @@ namespace CrazyLabsHubs.Editor
                 go.name = "QuickSetupManager";
                 var quickCLICK = go.AddComponent<QuickLoadCLIK>();
                 quickCLICK.sceneToLoadName = gameSceneAsset.name;
+                CreateDirectionalLight();
 
                 //Add component here for the activating the tt plugins
                 EditorSceneManager.SaveScene(scene, scenePath);
@@ -157,8 +215,6 @@ namespace CrazyLabsHubs.Editor
                 //Unity supported versions as per https://sites.google.com/tabtale.com/clhelpcenter/clik-plugin
                 //2019.2.17, 2019.3.15, 2019.4.28, 2020.1.14 
 
-#if UNITY_ANDROID
-
                 PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
                 PlayerSettings.SetManagedStrippingLevel(BuildTargetGroup.Android, 0);
                 PlayerSettings.stripEngineCode = false;
@@ -171,22 +227,11 @@ namespace CrazyLabsHubs.Editor
                 PlayerSettings.Android.minifyWithR8 = false;
                 PlayerSettings.Android.minifyDebug = false;
 
-                PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel30;
+                PlayerSettings.Android.targetSdkVersion = (AndroidSdkVersions)31;
 #endif
 
 #if UNITY_2020_3_OR_NEWER
-                // PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARMv7 | AndroidArchitecture.ARM64;
                 PlayerSettings.Android.targetArchitectures = AndroidArchitecture.ARM64;
-#endif
-
-                // #if UNITY_2019_4
-                //             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel30;
-                // #endif
-
-                // #if UNITY_2019_2 || UNITY_2019_3
-                //             PlayerSettings.Android.targetSdkVersion = AndroidSdkVersions.AndroidApiLevel28;
-                // #endif
-
 #endif
             }
 
@@ -216,6 +261,12 @@ namespace CrazyLabsHubs.Editor
             }
             existingScenes.Insert(slot, scene);
             return existingScenes;
+        }
+
+        void CreateDirectionalLight()
+        {
+            var directionalLightPrefab = Resources.Load("QuickDirectionalLight");
+            var directionalLight = GameObject.Instantiate(directionalLightPrefab);
         }
     }
 }
