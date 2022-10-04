@@ -7,6 +7,7 @@ using PathCreation;
 using PathCreation.Examples;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Tabtale.TTPlugins;
 
 public class GameController : MonoBehaviour //all of the events are in this class
 {
@@ -93,6 +94,13 @@ public class GameController : MonoBehaviour //all of the events are in this clas
         {
             AddUnchosenPlayer();
         }
+
+        Dictionary<string, object> parametersForClik = new Dictionary<string, object>();
+
+        parametersForClik.Add("missionName", SceneManager.GetActiveScene().name);
+        parametersForClik.Add("CoinBalance", coinAmount);
+        TTPGameProgression.FirebaseEvents.MissionStarted(missionID, parametersForClik); //CHANGE THIS NUMBER IF YOU DELETE QUICKCLIK
+       // lastMissionStartedID = missionID;
     }
 
 
