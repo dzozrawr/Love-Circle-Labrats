@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using NiceVibrations.CrazyLabsExtension;
+using Tabtale.TTPlugins;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -215,9 +216,19 @@ public class GameCanvasController : MonoBehaviour
 
         SaveSystem.SaveGame(saveData);
 
-        SceneManager.LoadScene(nextSceneIndex);
+        Dictionary<string, object> parametersForClik = new Dictionary<string, object>();
+
+        parametersForClik.Add("missionName", SceneManager.GetActiveScene().name);
+        parametersForClik.Add("CoinBalance", GameController.CoinAmount);
+        TTPGameProgression.FirebaseEvents.MissionComplete(parametersForClik); //CHANGE THIS NUMBER IF YOU DELETE QUICKCLIK
+        TTPGameProgression.FirebaseEvents.LevelUp(GameController.missionID, null);
+        //TTPGameProgression.FirebaseEvents.LevelUp(missionID + 1, null);
 
         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
+
+        SceneManager.LoadScene(nextSceneIndex);
+
+       
     }
 
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
