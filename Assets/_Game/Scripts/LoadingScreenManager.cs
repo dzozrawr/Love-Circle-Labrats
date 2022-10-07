@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Tabtale.TTPlugins;
 
 public class LoadingScreenManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class LoadingScreenManager : MonoBehaviour
     private void Awake()
     {
 
-
+        TTPCore.Setup();
 
         SaveData saveData = SaveSystem.LoadGame();
         if (saveData != null)
