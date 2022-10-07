@@ -238,10 +238,10 @@ PlayerSettings:
   templateDefaultScene: Assets/Scenes/SampleScene.unity
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
-  useCustomMainGradleTemplate: 0
-  useCustomLauncherGradleManifest: 0
-  useCustomBaseGradleTemplate: 0
-  useCustomGradlePropertiesTemplate: 0
+  useCustomMainGradleTemplate: 1
+  useCustomLauncherGradleManifest: 1
+  useCustomBaseGradleTemplate: 1
+  useCustomGradlePropertiesTemplate: 1
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
@@ -716,8 +716,8 @@ PlayerSettings:
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
     1: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_TWINE;USE_AURORA;TMP_PRESENT
-    4: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_TWINE;USE_AURORA;TMP_PRESENT
-    7: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_TWINE;USE_AURORA;TMP_PRESENT
+    4: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_TWINE;USE_AURORA;TMP_PRESENT;TTP_REWARDED_ADS;TTP_REWARDED_INTERSTITIALS;TTP_POPUPMGR;TTP_PROMOTION;TTP_PRIVACY_SETTINGS;TTP_GAMEPROGRESSION;TTP_CRASHTOOL;TTP_APPSFLYER;TTP_RATEUS;TTP_BANNERS;TTP_INTERSTITIALS;TTP_OPENADS;TTP_ANALYTICS
+    7: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_TWINE;USE_AURORA;TMP_PRESENT;TTP_REWARDED_ADS;TTP_REWARDED_INTERSTITIALS;TTP_POPUPMGR;TTP_PROMOTION;TTP_PRIVACY_SETTINGS;TTP_GAMEPROGRESSION;TTP_CRASHTOOL;TTP_APPSFLYER;TTP_RATEUS;TTP_BANNERS;TTP_INTERSTITIALS;TTP_OPENADS;TTP_ANALYTICS
     13: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45
     14: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45;USE_AURORA
     19: CT_RTV;CT_PROC;CT_UI;CT_RTV_AWS_45
@@ -736,7 +736,7 @@ PlayerSettings:
     Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
-    Android: 1
+    Android: 0
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
