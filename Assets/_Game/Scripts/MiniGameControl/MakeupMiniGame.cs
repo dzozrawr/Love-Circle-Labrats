@@ -7,7 +7,7 @@ using PixelCrushers.DialogueSystem;
 using Cinemachine;
 using Contestant;
 
-public class MakeupMiniGame : MiniGame, IHitPoint
+public class MakeupMiniGame : MiniGame //, IHitPoint
 {
     [System.Serializable]
     public class ContestantMaterialContainer
@@ -67,6 +67,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
     private RaycastHit hit;
     private GameObject hitObject;
 
+    private static float mouseOffsetRatioConst=3.9f;
+
     private Camera mainCamera = null;
 
 
@@ -100,6 +102,8 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        p3DHitScreen.MouseOffset=Screen.height/mouseOffsetRatioConst;
     }
 
 
@@ -194,11 +198,12 @@ public class MakeupMiniGame : MiniGame, IHitPoint
         if (Input.GetMouseButton(0))
         {
 
-            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition+ new Vector3(0,p3DHitScreen.MouseOffset/2,0));
             if (Physics.Raycast(ray, out hit))
             {
                 hitObject = hit.collider.gameObject;
 
+                //lipstickGO.transform.position = hit.point - new Vector3(0,p3DHitScreen.MouseOffset,0);
                 lipstickGO.transform.position = hit.point;
                 //lipstickGO.transform.right = -hit.normal;
                 //lipstickGO.transform.rotation = rotation;
@@ -261,11 +266,11 @@ public class MakeupMiniGame : MiniGame, IHitPoint
 
     }
 
-    public void HandleHitPoint(bool preview, int priority, float pressure, int seed, Vector3 position, Quaternion rotation)
+/*     public void HandleHitPoint(bool preview, int priority, float pressure, int seed, Vector3 position, Quaternion rotation)
     {
         lipstickGO.transform.position = position;
         lipstickGO.transform.rotation = rotation;
-    }
+    } */
 
     [ContextMenu("TryGraphicsBlit")]
     public void TryGraphicsBlit()
