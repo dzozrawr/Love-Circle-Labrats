@@ -95,11 +95,7 @@ public class GameController : MonoBehaviour //all of the events are in this clas
             AddUnchosenPlayer();
         }
 
-        Dictionary<string, object> parametersForClik = new Dictionary<string, object>();
-
-        parametersForClik.Add("missionName", SceneManager.GetActiveScene().name);
-        parametersForClik.Add("CoinBalance", coinAmount);
-        TTPGameProgression.FirebaseEvents.MissionStarted(missionID, parametersForClik); //CHANGE THIS NUMBER IF YOU DELETE QUICKCLIK
+       
        // lastMissionStartedID = missionID;
     }
 

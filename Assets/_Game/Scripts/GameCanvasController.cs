@@ -49,7 +49,7 @@ public class GameCanvasController : MonoBehaviour
     private TMP_Text coinAmountTxt = null;
     private ContestantQuestioningManager contestantQuestioningManager = null;
 
-    private Canvas setPickingGroupCanvas=null;
+    private Canvas setPickingGroupCanvas = null;
 
 
     private void Awake()
@@ -77,8 +77,8 @@ public class GameCanvasController : MonoBehaviour
 
         //defining default UI state at the beginning of the game below
         setPickingGroup.SetActive(true);
-        setPickingGroupCanvas=setPickingGroup.GetComponent<Canvas>();
-        setPickingGroupCanvas.enabled=false;
+        setPickingGroupCanvas = setPickingGroup.GetComponent<Canvas>();
+        setPickingGroupCanvas.enabled = false;
         //setPickingGroup.SetActive(false);
         settingsGroup.SetActive(false);
         EOLScreen.SetActive(false);
@@ -185,6 +185,12 @@ public class GameCanvasController : MonoBehaviour
         cameraController.transitionToCMVirtualCamera(CameraController.CameraPhase.Intro);
 
         HapticFeedbackController.TriggerHaptics(MoreMountains.NiceVibrations.HapticTypes.Selection);
+
+        Dictionary<string, object> parametersForClik = new Dictionary<string, object>();
+
+        parametersForClik.Add("missionName", SceneManager.GetActiveScene().name);
+        parametersForClik.Add("CoinBalance", GameController.CoinAmount);
+        TTPGameProgression.FirebaseEvents.MissionStarted(GameController.missionID, parametersForClik); //CHANGE THIS NUMBER IF YOU DELETE QUICKCLIK
     }
 
     public void SetPickingButtonEffect()
@@ -228,7 +234,7 @@ public class GameCanvasController : MonoBehaviour
 
         SceneManager.LoadScene(nextSceneIndex);
 
-       
+
     }
 
     public void ActivateEOLScreenBasedOnMatchSuccessRate(float successRate)
